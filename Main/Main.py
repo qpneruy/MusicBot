@@ -8,7 +8,7 @@ from yt_dlp import YoutubeDL
 from interactions import SlashContext,listen, slash_command, Embed, OptionType, slash_option,  ActiveVoiceState
 from interactions.api.events import Startup
 from interactions.api.voice.audio import AudioVolume
-from interactions import Button, ButtonStyle
+from interactions import Button, ButtonStyle, ActionRow, Button
 from interactions.api.events import Component
 Token = os.getenv("Discord_Token_bot_A")
 print(Token)
@@ -88,11 +88,6 @@ async def _about(ctx: SlashContext):
     embed2.add_field(name="🌐PING", value= f"{round(bot.latency*1000)} msㅤㅤㅤㅤㅤ", inline=True )
     embed2.add_field(name="🟢UPTIME",value=f"{cacl-startup}", inline=True)
     await ctx.send(embeds=embed2)
-@slash_command(name="pause", description="Tạm dừng nhạc")
-async def _pause(ctx: SlashContext):
-   play = ctx.bot.get_bot_voice_state(ctx.guild_id)
-   play.pause()
-   await ctx.send('Đã tạm dừng')
 @slash_command(name="stop", description="Dừng Nhạc")
 async def _stop(ctx: SlashContext):
    player = ctx.bot.get_bot_voice_state(ctx.guild_id)
@@ -111,8 +106,8 @@ async def _test(ctx: SlashContext):
     message = await ctx.send("Look a Button!", components=button)
 
 
-@slash_command(name="play",description="choi nhac")
-@interactions.slash_option("song", "The song to play", 3, True)
+@slash_command(name="play",description="chơi nhạc")
+@interactions.slash_option("song", "Đường dẫn nhạc", 3, True)
 async def play(ctx: SlashContext, song: str):
     if not ctx.voice_state:
         await ctx.author.voice.channel.connect()
@@ -132,20 +127,54 @@ async def play(ctx: SlashContext, song: str):
     embedmusic.add_field(name="Upload By:  ", value= f"{uploader}", inline=True)
     embedmusic.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
     embedmusic.set_thumbnail(url=ctx.author.avatar_url)
-    # button = Button(
-    #     custom_id="my_button_id",
-    #     style=ButtonStyle.GREEN,
-    #     label="⏸️ Dừng Nhạc",
-    # )
-    # message = await ctx.send("Look a Button!", components=button)
-#  await ctx.send(embeds=embedmusic)
+    component: list[ActionRow] = [
+        ActionRow (
+            Button(
+                custom_id="pause_button",
+                style=ButtonStyle.BLUE,
+                label="⏸️ Tạm Dừng",
+            ),
+            Button(
+                custom_id="stop_button",
+                style=ButtonStyle.RED,
+                label="🛑 Dừng ",
+            ),
+            Button(
+                custom_id="resume_button",
+                style=ButtonStyle.GREEN,
+                label="▶️ Tiếp tục",
+            ),
+            Button(
+                style=ButtonStyle.URL,
+                label="Youtube",
+                url=song,
+            )
+        )
+    ]
+    await ctx.send(embeds=embedmusic, components=component)
     await ctx.voice_state.play(audio)
 @listen(Component)
 async def on_component(event: Component):
     ctx = event.ctx
 
     match ctx.custom_id:
-        case "my_button_id":
-            await ctx.send("You clicked it!")
+        case "pause_button":
+            await _pause(ctx)
+        case "stop_button":
+            await _stop(ctx)
+        case "resume_button":
+            await _resume(ctx)
+async def _pause(ctx):
+    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+    play.pause()
+    await ctx.send('Đã tạm dừng')
+async def _stop(ctx):
+    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+    play.stop()
+    await ctx.send('Đã dừng')
+async def _resume(ctx):
+    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+    play.resume()
+    await ctx.send('Đã tiếp tục')
 
 bot.start(Token)
