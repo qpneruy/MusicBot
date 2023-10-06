@@ -1,4 +1,5 @@
 import os
+import array as arr
 import asyncio
 import datetime as dt
 import interactions
@@ -6,7 +7,7 @@ from typing_extensions import Self
 import yt_dlp
 from yt_dlp import YoutubeDL
 from interactions import SlashContext,listen, slash_command, Embed, OptionType, slash_option,  ActiveVoiceState
-from interactions.api.events import Startup
+from interactions.api.events import Startup, BaseVoiceEvent, VoiceStateUpdate
 from interactions.api.voice.audio import AudioVolume
 from interactions import Button, ButtonStyle, ActionRow, Button
 from interactions.api.events import Component
@@ -121,14 +122,14 @@ async def play(ctx: SlashContext, song: str):
         description="ㅤ",
         color=0x5f9afa,
     )
+    music_list = []
     duration_hms = convert_seconds_to_hms(duration)
     embedmusic.set_author('📀 Đang Chơi Nhạc')
     embedmusic.set_image(thumbnail)
     embedmusic.add_field(name="Upload By:  ", value= f"{uploader}", inline=True)
     embedmusic.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
     embedmusic.set_thumbnail(url=ctx.author.avatar_url)
-    component: list[ActionRow] = [
-        ActionRow (
+    hang1 = ActionRow(
             Button(
                 custom_id="pause_button",
                 style=ButtonStyle.BLUE,
@@ -150,8 +151,24 @@ async def play(ctx: SlashContext, song: str):
                 url=song,
             )
         )
-    ]
-    await ctx.send(embeds=embedmusic, components=component)
+    hang2 = ActionRow(
+        Button(
+            custom_id="vol_up",
+            style=ButtonStyle.GREEN,
+            label="➕ Tăng Âm Lượng",
+        ),
+        Button(
+            custom_id="vol_down",
+            style=ButtonStyle.GREEN,
+            label="➖ Giảm Âm Lượng",
+        ),
+        Button(
+            custom_id="skip_button",
+            style=ButtonStyle.GREY,
+            label="⏭️ Tiếp theo",
+        )
+    )
+    await ctx.send(embeds=embedmusic, components=[hang1, hang2])
     await ctx.voice_state.play(audio)
 @listen(Component)
 async def on_component(event: Component):
@@ -164,6 +181,12 @@ async def on_component(event: Component):
             await _stop(ctx)
         case "resume_button":
             await _resume(ctx)
+        case "vol_up":
+            await _volup(ctx)
+        case "vol_down":
+            await _voldown(ctx)
+#        case "skip_button":
+
 async def _pause(ctx):
     play = ctx.bot.get_bot_voice_state(ctx.guild_id)
     play.pause()
@@ -171,10 +194,33 @@ async def _pause(ctx):
 async def _stop(ctx):
     play = ctx.bot.get_bot_voice_state(ctx.guild_id)
     play.stop()
-    await ctx.send('Đã dừng')
+    await ctx.send('Nhấn CC')
 async def _resume(ctx):
     play = ctx.bot.get_bot_voice_state(ctx.guild_id)
     play.resume()
-    await ctx.send('Đã tiếp tục')
 
+    await ctx.send('Đã tiếp tục')
+currvol = 0.5;
+async def _volup(ctx):
+    global currvol
+    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+    currvol += 0.2
+    play.volume = currvol
+async def _voldown(ctx):
+    global currvol
+    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+    currvol -= 0.2
+    play.volume = currvol
+channel = None
+@listen(VoiceStateUpdate)
+async def _join(vs: VoiceStateUpdate):
+    global channel
+    if vs.after is not None and vs.after.channel.id == 1159792966873907200:
+      channel = await vs.after.guild.create_voice_channel(f"{vs.after.member.display_name} Voice")
+      await vs.after.member.move(channel.id)
+      print(f"{vs.after.member.guild.id},{vs.after.user_id}")
+    if vs.before is not None and vs.before.channel.id == channel.id:
+
+        await vs.before.guild.delete_channel(channel.id)
+        channel = None
 bot.start(Token)
