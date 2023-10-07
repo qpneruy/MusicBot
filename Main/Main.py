@@ -12,8 +12,8 @@ from interactions import SlashContext, listen, slash_command, Embed, OptionType,
 from interactions.api.events import Startup, BaseVoiceEvent, VoiceStateUpdate, Component
 from interactions.api.voice.audio import AudioVolume, BaseAudio
 
-# Token = os.getenv("Discord_Token_bot_A")
-Token = os.getenv("Discord_Token_bot_B")
+Token = os.getenv("Discord_Token_bot_A")
+#Token = os.getenv("Discord_Token_bot_B")
 bot = interactions.Client()
 startup = dt.datetime.utcnow()
 youtube_dl = YoutubeDL(
@@ -164,8 +164,13 @@ def convert_seconds_to_hms(seconds):
 
 perm_ck = None
 queues = NaffQueue(None)
-
-
+titles = []
+@slash_command(name="playlist", description="Xem danh sách nhạc trong hàng đợi")
+async def _playlist(ctx: SlashContext):
+    i = 0
+    for x in titles:
+        i += 1
+        await ctx.send(f"{i} -- {x}")
 @slash_command(name="doi", description="Thêm nhạc vào hàng đợi")
 @interactions.slash_option("song", "Đường dẫns nhạc", 3, True)
 async def _doi(ctx: SlashContext, song: str):
@@ -175,20 +180,22 @@ async def _doi(ctx: SlashContext, song: str):
     audio = await YTAudio.from_url(song, stream=True)
     queues.put(audio)
     title = audio.entry['title']
+    titles.append(title)
     await ctx.send(f"Thêm {title} vào hàng đợi thành công", ephemeral=True)
 
 
 @slash_command(name="play", description="chơi nhạc")
 @interactions.slash_option("song", "Đường dẫn nhạc", 3, True)
 async def play(ctx: SlashContext, song: str):
-    global perm_ck, queues
+    global perm_ck, queues, titles
+    titles = []
     perm_ck = ctx.user.id
     if not ctx.voice_state:
         await ctx.author.voice.channel.connect()
-    if not ctx.responded:
-        await ctx.defer()
+    await ctx.defer()
     audio = await YTAudio.from_url(song, stream=True)
     title = audio.entry['title']
+    titles.append(title)
     thumbnail = audio.entry['thumbnail']
     uploader = audio.entry['uploader']
     duration = audio.entry['duration']
@@ -288,30 +295,30 @@ async def skip(self):
 async def _pause(ctx):
     if ctx.voice_state.channel.voice_state.playing is not True:
         await ctx.send("Đang không phát nhạc")
-    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    play.pause()
-    await ctx.send('Đã tạm dừng', ephemeral=True)
+    else:
+      play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+      play.pause()
+      await ctx.send('Đã tạm dừng', ephemeral=True)
 
 async def _stop(ctx):
     if ctx.voice_state.channel.voice_state.playing is not True:
-        await ctx.send("Đang không phát nhạc")
-    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    await play.stop()
-    await ctx.send('Đã Dừng', ephemeral=True)
+        await ctx.send("Đang không phát nhạc", ephemeral=True)
+    else:
+      play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+      await play.stop()
+      await ctx.send('Đã Dừng', ephemeral=True)
 
 
 async def _resume(ctx):
-    if ctx.voice_state.channel.voice_state.playing is not True:
-        await ctx.send("Đang không phát nhạc")
-    play = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    play.resume()
-    await ctx.send('Đã tiếp tục', ephemeral=True)
+      play = ctx.bot.get_bot_voice_state(ctx.guild_id)
+      play.resume()
+      await ctx.send('Đã tiếp tục', ephemeral=True)
 
 
 currvol = 0.5
 
-
 async def _volup(ctx):
+
     global currvol
     play = ctx.bot.get_bot_voice_state(ctx.guild_id)
     currvol += 0.2
