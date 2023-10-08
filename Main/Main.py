@@ -129,11 +129,13 @@ class YTAudio(AudioVolume):
 
 @listen(Startup)
 async def _starup():
-    print(f" >> Bot Da Hoat dong! Ten: {bot.user.display_name}")
+    print(f" >> Bot Da Hoat dong! Ten: {bot.user.display_name}{bot.processors}")
+    await bot.change_presence(status=interactions.Status.IDLE, activity="lệnh /help để giúp đỡ")
 
 
 @slash_command(name="help", description="Trợ Giúp")
 async def _help(ctx: SlashContext):
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > HELP |>> {ctx} \n")
     embed = Embed(
         title="**Giúp Đỡ**                       ",
         description="  ",
@@ -146,15 +148,25 @@ async def _help(ctx: SlashContext):
 
 @slash_command(name="about", description="Trạng Thái Bot")
 async def _about(ctx: SlashContext):
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx} \n")
     embed2 = Embed(
         title="BOT STATUS",
         description="ㅤ",
         color=0x00ff00,
     )
+    Buttn = ActionRow(
+        Button(
+            style=ButtonStyle.URL,
+            label="github.com",
+            url="https://github.com/Tinhdev061"
+        )
+    )
+
     cacl = dt.datetime.utcnow()
     embed2.add_field(name="🌐PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
     embed2.add_field(name="🟢UPTIME", value=f"{cacl - startup}", inline=True)
-    await ctx.send(embeds=embed2)
+    embed2.add_field(name="Author: ", value="qpneruy (TinhDev061)")
+    await ctx.send(embeds=embed2,  components=Buttn)
 
 def convert_seconds_to_hms(seconds):
     hours, remainder = divmod(seconds, 3600)
@@ -167,13 +179,17 @@ queues = NaffQueue(None)
 titles = []
 @slash_command(name="playlist", description="Xem danh sách nhạc trong hàng đợi")
 async def _playlist(ctx: SlashContext):
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > PLAYLIST |>>{ctx} \n")
     i = 0
+    st = ""
     for x in titles:
         i += 1
-        await ctx.send(f"{i} -- {x}")
+        await ctx.send(f"{x}")
+
 @slash_command(name="doi", description="Thêm nhạc vào hàng đợi")
 @interactions.slash_option("song", "Đường dẫns nhạc", 3, True)
 async def _doi(ctx: SlashContext, song: str):
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > DOI |>>{ctx} \n")
     global queues
     if not ctx.responded:
         await ctx.defer()
@@ -187,74 +203,96 @@ async def _doi(ctx: SlashContext, song: str):
 @slash_command(name="play", description="chơi nhạc")
 @interactions.slash_option("song", "Đường dẫn nhạc", 3, True)
 async def play(ctx: SlashContext, song: str):
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > PLAY |>>{ctx} \n")
+    await ctx.defer()
     global perm_ck, queues, titles
     titles = []
-    perm_ck = ctx.user.id
-    if not ctx.voice_state:
-        await ctx.author.voice.channel.connect()
-    await ctx.defer()
-    audio = await YTAudio.from_url(song, stream=True)
-    title = audio.entry['title']
-    titles.append(title)
-    thumbnail = audio.entry['thumbnail']
-    uploader = audio.entry['uploader']
-    duration = audio.entry['duration']
-    embedmusic = Embed(
-        title=f" {title}",
-        description="ㅤ",
-        color=0x5f9afa,
-    )
-    duration_hms = convert_seconds_to_hms(duration)
-    embedmusic.set_author('📀 Đang Chơi Nhạc')
-    embedmusic.set_image(thumbnail)
-    embedmusic.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
-    embedmusic.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
-    embedmusic.set_thumbnail(url=ctx.author.avatar_url)
-    hang1 = ActionRow(
-        Button(
-            custom_id="pause_button",
-            style=ButtonStyle.BLUE,
-            label="⏸️ Tạm Dừng",
-        ),
-        Button(
-            custom_id="stop_button",
-            style=ButtonStyle.RED,
-            label="🛑 Dừng ",
-        ),
-        Button(
-            custom_id="resume_button",
-            style=ButtonStyle.GREEN,
-            label="▶️ Tiếp tục",
-        ),
-        Button(
-            style=ButtonStyle.URL,
-            label="Youtube",
-            url=song,
+    if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+        audio = await YTAudio.from_url(song, stream=True)
+        title = audio.entry['title']
+        titles.append(title)
+        queues.put(audio)
+        thumbnail = audio.entry['thumbnail']
+        uploader = audio.entry['uploader']
+        duration = audio.entry['duration']
+        embedmusic_inqueue = Embed(
+            title=f" {title}",
+            description="ㅤ",
+            color=0x5f9afa,
         )
-    )
-    hang2 = ActionRow(
-        Button(
-            custom_id="vol_up",
-            style=ButtonStyle.GREEN,
-            label="➕ Tăng Âm Lượng",
-        ),
-        Button(
-            custom_id="vol_down",
-            style=ButtonStyle.GREEN,
-            label="➖ Giảm Âm Lượng",
-        ),
-        Button(
-            custom_id="skip_button",
-            style=ButtonStyle.GREY,
-            label="⏭️ Tiếp theo",
-        )
-    )
-    embedmusic.add_field(name="Tình Đẹp Trai", value="  ")
-    channel = ctx.voice_state.channel.voice_state
-    queues = NaffQueue(channel)
-    queues.put(audio)
-    queues.start()
-    await ctx.send(embeds=embedmusic, components=[hang1, hang2])
+        duration_hms = convert_seconds_to_hms(duration)
+        embedmusic_inqueue.set_author('➕ Đã Thêm Vào hàng đợi')
+        embedmusic_inqueue.set_image(thumbnail)
+        embedmusic_inqueue.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
+        embedmusic_inqueue.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
+        embedmusic_inqueue.set_thumbnail(url=ctx.author.avatar_url)
+        await ctx.send(embed=embedmusic_inqueue)
+    else:
+      perm_ck = ctx.user.id
+      if not ctx.voice_state:
+          await ctx.author.voice.channel.connect()
+      audio = await YTAudio.from_url(song, stream=True)
+      title = audio.entry['title']
+      titles.append(title)
+      thumbnail = audio.entry['thumbnail']
+      uploader = audio.entry['uploader']
+      duration = audio.entry['duration']
+      embedmusic = Embed(
+          title=f" {title}",
+          description="ㅤ",
+          color=0x5f9afa,
+      )
+      duration_hms = convert_seconds_to_hms(duration)
+      embedmusic.set_author('📀 Đang Chơi Nhạc')
+      embedmusic.set_image(thumbnail)
+      embedmusic.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
+      embedmusic.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
+      embedmusic.set_thumbnail(url=ctx.author.avatar_url)
+      hang1 = ActionRow(
+          Button(
+              custom_id="pause_button",
+              style=ButtonStyle.BLUE,
+              label="⏸️ Tạm Dừng",
+          ),
+          Button(
+              custom_id="stop_button",
+              style=ButtonStyle.RED,
+              label="🛑 Dừng ",
+          ),
+          Button(
+              custom_id="resume_button",
+              style=ButtonStyle.GREEN,
+              label="▶️ Tiếp tục",
+          ),
+          Button(
+              style=ButtonStyle.URL,
+              label="Youtube",
+              url=song,
+          )
+      )
+      hang2 = ActionRow(
+          Button(
+              custom_id="vol_up",
+              style=ButtonStyle.GREEN,
+              label="➕ Tăng Âm Lượng",
+          ),
+          Button(
+              custom_id="vol_down",
+              style=ButtonStyle.GREEN,
+              label="➖ Giảm Âm Lượng",
+          ),
+          Button(
+               custom_id="skip_button",
+              style=ButtonStyle.GREY,
+              label="⏭️ Tiếp theo",
+          )
+      )
+      embedmusic.add_field(name="Tình Đẹp Trai", value="  ")
+      channel = ctx.voice_state.channel.voice_state
+      queues = NaffQueue(channel)
+      queues.put(audio)
+      queues.start()
+      await ctx.send(embeds=embedmusic, components=[hang1, hang2])
 
 #   await ctx.send(f"_2>>{ctx.voice_state.channel.voice_state.playing}")
 #   task = asyncio.create_task(ctx.voice_state.play(audio))
@@ -270,17 +308,22 @@ async def on_component(event: Component):
         match ctx.custom_id:
             case "pause_button":
                 await _pause(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:pause \n")
             case "stop_button":
-                await ctx.send("nope")
                 await _stop(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:stop \n")
             case "resume_button":
                 await _resume(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:resume \n")
             case "vol_up":
                 await _volup(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:vol_up \n")
             case "vol_down":
                 await _voldown(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:vol_down \n")
             case "skip_button":
                 await skip(ctx)
+                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:skip \n")
 
 
 async def skip(self):
@@ -331,7 +374,7 @@ async def _voldown(ctx):
     play = ctx.bot.get_bot_voice_state(ctx.guild_id)
     currvol -= 0.2
     play.volume = currvol
-    await ctx.send('Đã Tăng âm lượng', ephemeral=True)
+    await ctx.send('Đã Giảm âm lượng', ephemeral=True)
 
 channels = None
 @listen(VoiceStateUpdate)
@@ -347,6 +390,7 @@ async def _join(vs: VoiceStateUpdate):
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
     global channels
+    print(f"{ctx.guild.name}::{ctx.user.display_name} > SETUP |>> {ctx} \n")
     channels = channel.id
     await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
 bot.start(Token)

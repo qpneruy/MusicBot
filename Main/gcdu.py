@@ -1,27 +1,47 @@
-import math
+import mysql.connector
 
-def prime_factors(n):
-    i = 2
-    factors = []
-    while i * i <= n:
-        if n % i:
-            i += 1
-        else:
-            n //= i
-            factors.append(i)
-    if n > 1:
-        factors.append(n)
-    return factors
+# create connection object
+con = mysql.connector.connect(
+    host="localhost", user="root",
+    password="", database="GEEK")
 
-max_prime_factors = 0
-number_with_max_prime_factors = 0
+# create cursor object
+cursor = con.cursor()
 
-for i in range(1, int(math.pow(10, 9)) + 1):
-    num_prime_factors = len(set(prime_factors(i)))
-    if num_prime_factors > max_prime_factors:
-        max_prime_factors = num_prime_factors
-        number_with_max_prime_factors = i
+# assign data query
+query1 = "desc geeksdemo"
 
-print("Số có nhiều ước số nguyên tố nhất: ", number_with_max_prime_factors)
-print("Số lượng ước số nguyên tố: ", max_prime_factors)
+# executing cursor
+cursor.execute(query1)
+
+# display all records
+table = cursor.fetchall()
+
+# describe table
+print('\n Table Description:')
+for attr in table:
+    print(attr)
+
+# assign data query
+query2 = "select * from geeksdemo"
+
+# executing cursor
+cursor.execute(query2)
+
+# display all records
+table = cursor.fetchall()
+
+# fetch all columns
+print('\n Table Data:')
+for row in table:
+    print(row[0], end=" ")
+    print(row[1], end=" ")
+    print(row[2], end=" ")
+    print(row[3], end="\n")
+
+# closing cursor connection
+cursor.close()
+
+# closing connection object
+con.close()
 
