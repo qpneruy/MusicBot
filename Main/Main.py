@@ -43,6 +43,7 @@ class NaffQueue:
         self._entries = deque()
         self._item_queued = asyncio.Event()
         self.__song_list__ = []
+        self._current_task = None
 
     def __len__(self) -> int:
         return len(self._entries)
@@ -82,7 +83,7 @@ class NaffQueue:
         if len(self) == 0:
             await self._item_queued.wait()
         item = self._entries.popleft()
-        self._item_queued.clear()
+        # self._item_queued.clear()
         return item
 
     def pop_no_wait(self) -> BaseAudio:
@@ -107,18 +108,23 @@ class NaffQueue:
         while self.voice_state.connected:
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
-
             audio = await self.pop()
             if audio is not None:
                 embed = self.__song_list__.pop()
                 await self.voice_state.channel.send(embed=embed)
             await self.voice_state.play(audio)
 
+    async def _stop(self) -> None:
+        await self.voice_state.stop()
+
     async def __call__(self) -> None:
         await self.__playback_queue()
 
     def start(self) -> None:
-        asyncio.create_task(self())
+        if self._current_task is not None:
+            self._current_task.cancel()  # Hủy tác vụ hiện tại nếu có
+            self._stop()
+        self._current_task = asyncio.create_task(self())
 
     async def skip(self):
         next_audio = await self.pop()
@@ -199,7 +205,7 @@ def convert_seconds_to_hms(seconds):
 
 
 perm_ck = None
-queues = NaffQueue(None)
+queues = NaffQueue
 titles = []
 
 
@@ -219,6 +225,7 @@ async def _doi(ctx: SlashContext, song: str):
     global queues
     if not ctx.responded:
         await ctx.defer()
+    queues = NaffQueue(channel)
     audio = await YTAudio.from_url(song, stream=True)
     queues.put(audio, ctx)
     title = audio.entry['title']
@@ -233,6 +240,9 @@ async def play(ctx: SlashContext, song: str):
     await ctx.defer()
     global perm_ck, queues, titles
     titles = []
+    if not ctx.voice_state:
+        await ctx.author.voice.channel.connect()
+    channelss = ctx.voice_state.channel.voice_state
     if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
         audio = await YTAudio.from_url(song, stream=True)
         title = audio.entry['title']
@@ -255,8 +265,6 @@ async def play(ctx: SlashContext, song: str):
         await ctx.send(embed=embedmusic_inqueue)
     else:
         perm_ck = ctx.user.id
-        if not ctx.voice_state:
-            await ctx.author.voice.channel.connect()
         audio = await YTAudio.from_url(song, stream=True)
         title = audio.entry['title']
         titles.append(title)
@@ -314,8 +322,8 @@ async def play(ctx: SlashContext, song: str):
             )
         )
         embedmusic.add_field(name="Tình Đẹp Trai", value="  ")
-        channel = ctx.voice_state.channel.voice_state
-        queues = NaffQueue(channel)
+        queues = None
+        queues = NaffQueue(channelss)
         queues.put(audio, ctx)
         queues.start()
         await ctx.send(embeds=embedmusic, components=[hang1, hang2])
@@ -371,11 +379,13 @@ async def skip(self):
     global queues
     player = self.bot.get_bot_voice_state(self.guild_id)
     next_item = queues.peek()
-  #  if next_item is not None and queues.peek_at_index(0) is not None:
-    await player.stop()
-    await queues.skip()
-    # else:
-    #     await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
+    if next_item is not None:
+        print(next_item.entry['title'])
+        await player.stop()
+        await self.voice_state.wait_for_stopped()
+        queues.start()
+    else:
+        await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
 
 
 async def _pause(ctx):
@@ -422,6 +432,8 @@ async def _voldown(ctx):
 
 
 channels = None
+
+channel = None
 
 
 @listen(VoiceStateUpdate)
