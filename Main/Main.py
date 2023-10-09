@@ -121,12 +121,8 @@ class NaffQueue:
         asyncio.create_task(self())
 
     async def skip(self):
-        if len(self._entries) > 0:
-            self._entries.popleft()  # Loại bỏ bài hát đầu tiên khỏi hàng đợi
-
-        if len(self._entries) > 0:
-            next_audio = self._entries[0]  # Lấy bài hát tiếp theo từ hàng đợi
-            await self.voice_state.play(next_audio)  # Bắt đầu phát bài hát tiếp theo
+        next_audio = await self.pop()
+        await self.voice_state.play(next_audio)
 
 
 class YTAudio(AudioVolume):
@@ -375,11 +371,11 @@ async def skip(self):
     global queues
     player = self.bot.get_bot_voice_state(self.guild_id)
     next_item = queues.peek()
-    if next_item is not None:
-        await player.stop()
-        queues.start()
-    else:
-        await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
+  #  if next_item is not None and queues.peek_at_index(0) is not None:
+    await player.stop()
+    await queues.skip()
+    # else:
+    #     await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
 
 
 async def _pause(ctx):
@@ -430,12 +426,12 @@ channels = None
 
 @listen(VoiceStateUpdate)
 async def _join(vs: VoiceStateUpdate):
-    global channels
-    channel = None
+    global channels, channel
+
     if vs.after is not None and vs.after.channel.id == channels:
         channel = await vs.after.guild.create_voice_channel(f"Kênh {vs.after.member.display_name} ")
         await vs.after.member.move(channel.id)
-    if vs.before is not None and vs.before.channel.id == channel.id:
+    if vs.before is not None and (channel is not None and vs.before.channel.id == channel.id):
         await vs.before.guild.delete_channel(channel.id)
 
 
