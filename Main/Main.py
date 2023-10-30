@@ -12,6 +12,23 @@ from interactions import SlashContext, listen, slash_command, Embed, OptionType,
 # from interactions.models.discord.channel import ThreadChannel || phát triển code sử dụng module threadchannel
 from interactions.api.events import Startup, VoiceStateUpdate, Component
 from interactions.api.voice.audio import AudioVolume, BaseAudio
+import logging
+import datetime
+
+now = datetime.datetime.now()
+formatted_time = now.strftime('%Y-%m-%d_%H-%M')
+log_filename = f'log_{formatted_time}.txt'
+logger = logging.getLogger('discord_log')
+logger.setLevel(logging.DEBUG)
+fh = logging.FileHandler(log_filename, encoding='utf-8')
+fh.setLevel(logging.DEBUG)
+ch = logging.StreamHandler()
+ch.setLevel(logging.DEBUG)
+formatter = logging.Formatter('[%(asctime)s] [%(levelname)s]: %(message)s', datefmt='%H:%M:%S')
+fh.setFormatter(formatter)
+ch.setFormatter(formatter)
+logger.addHandler(fh)
+logger.addHandler(ch)
 
 Token = os.getenv("Discord_Token_Bot_A")
 # Token = os.getenv("Discord_Token_bot_B")
@@ -61,24 +78,7 @@ class NaffQueue:
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    def put(self, audio_d: BaseAudio, ctx: SlashContext) -> None:
-        title = audio_d.entry['title']
-        titles.append(title)
-        thumbnail = audio_d.entry['thumbnail']
-        uploader = audio_d.entry['uploader']
-        duration = audio_d.entry['duration']
-        embedmusic_inqueue = Embed(
-            title=f" {title}",
-            description="ㅤ",
-            color=0x5f9afa,
-        )
-        duration_hms = convert_seconds_to_hms(duration)
-        embedmusic_inqueue.set_author('💿 Đang chơi')
-        embedmusic_inqueue.set_image(thumbnail)
-        embedmusic_inqueue.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
-        embedmusic_inqueue.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
-        embedmusic_inqueue.set_thumbnail(url=ctx.author.avatar_url)
-        self.__song_list__.insert(0, embedmusic_inqueue)
+    def put(self, audio_d: BaseAudio) -> None:
         self._entries.append(audio_d)
         self._item_queued.set()
 
@@ -115,33 +115,31 @@ class NaffQueue:
         return self._entries[index]
 
     async def __playback_queue(self) -> None:
-        # while self.voice_state.connected:
-        #     if self.voice_state.playing:
-        #         await self.voice_state.wait_for_stopped()
-        #
-        #     if not self.loopstate:
-        #         audio = await self.pop()
-        #         self.last = audio
-        #         print(f">>trang thai lap true {self.loopstate} last {audio.entry['title']} ditucchcfafc")
-        #         embed = self.__song_list__.pop()
-        #         await self.voice_state.channel.send(embed=embed)
-        #         await self.voice_state.channel.send(audio.entry['title'])
-        #     elif self.loopstate:
-        #         self.put(self.last)
-        #         audio = await self.pop()
-        #         print(f">>trang thai lap true {self.loopstate} last {audio.entry['title']}")
-        #
-        #
-        #     await self.voice_state.play(audio)
-        # >> code lặp cần fix << >>> put_at_index tránh việc đang lặp mà thêm bài hát vào
         while self.voice_state.connected:
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
-            audio_d = await self.pop()
-            if audio_d is not None:
+            if not self.loopstate:
+                audio = await self.pop()
                 embed = self.__song_list__.pop()
                 await self.voice_state.channel.send(embed=embed)
-            await self.voice_state.play(audio_d)
+                await self.voice_state.channel.send(audio.entry['title'])
+            else:
+               await self.voice_state.connect(1)
+            print(audio)
+            if audio is not None:
+
+                await self.voice_state.play(audio)
+
+
+        # >> code lặp cần fix << >>> put_at_index tránh việc đang lặp mà thêm bài hát vào
+        # while self.voice_state.connected:
+        #     if self.voice_state.playing:
+        #         await self.voice_state.wait_for_stopped()
+        #     audio_d = await self.pop()
+        #     if audio_d is not None:
+        #         embed = self.__song_list__.pop()
+        #         await self.voice_state.channel.send(embed=embed)
+        #     await self.voice_state.play(audio_d)
 
     async def _stop(self) -> None:
         await self.voice_state.stop()
@@ -187,13 +185,13 @@ class YTAudio(AudioVolume):
 
 @listen(Startup)
 async def _starup():
-    print(f" >> Bot Da Hoat dong! Ten: {bot.user.display_name}{bot.processors}")
+    logger.debug(f" >> Bot Da Hoat dong! Ten: {bot.user.display_name}")
     await bot.change_presence(status=interactions.Status.IDLE, activity="lệnh /help để giúp đỡ")
 
 
 @slash_command(name="help", description="Trợ Giúp")
 async def _help(ctx: SlashContext):
-    print(f"{ctx.guild.name}::{ctx.user.display_name} > HELP |>> {ctx} \n")
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} > HELP")
     embed = Embed(
         title="**Giúp Đỡ**                       ",
         description="  ",
@@ -206,7 +204,7 @@ async def _help(ctx: SlashContext):
 
 @slash_command(name="about", description="Trạng Thái Bot")
 async def _about(ctx: SlashContext):
-    print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx} \n")
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} > ABOUT")
     embed2 = Embed(
         title="BOT STATUS",
         description="ㅤ",
@@ -236,17 +234,6 @@ def convert_seconds_to_hms(seconds):
 perm_ck = None
 queues = NaffQueue
 titles = []
-
-
-@slash_command(name="playlist", description="Xem danh sách nhạc trong hàng đợi")
-async def _playlist(ctx: SlashContext):
-    print(f"{ctx.guild.name}::{ctx.user.display_name} > PLAYLIST |>>{ctx} \n")
-    i = 0
-    for x in titles:
-        i += 1
-        await ctx.send(f"{x}")
-
-
 audio = None
 channelss = None
 
@@ -254,11 +241,10 @@ channelss = None
 @slash_command(name="play", description="chơi nhạc")
 @interactions.slash_option("song", "Đường dẫn nhạc", 3, True)
 async def play(ctx: SlashContext, song: str):
-    print(f"{ctx.guild.name}::{ctx.user.display_name} > PLAY |>>{ctx} \n")
-    await ctx.defer()
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} > PLAY")
     global perm_ck, queues, titles, audio, channelss
     t = True
-    titles = []
+    await ctx.defer()
     if not ctx.voice_state:
         if ctx.author.voice is not None:
             await ctx.author.voice.channel.connect()
@@ -266,13 +252,14 @@ async def play(ctx: SlashContext, song: str):
             t = True
         else:
             await ctx.send('Bạn phải ở trong 1 kênh thoại', ephemeral=True)
+            logger.debug(f'User {ctx.user.display_name} is not in voice channel')
             t = False
     if t:
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
             audio = await YTAudio.from_url(song, stream=True)
             title = audio.entry['title']
             titles.append(title)
-            queues.put(audio, ctx)
+            queues.put(audio)
             thumbnail = audio.entry['thumbnail']
             uploader = audio.entry['uploader']
             duration = audio.entry['duration']
@@ -288,11 +275,15 @@ async def play(ctx: SlashContext, song: str):
             embedmusic_inqueue.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
             embedmusic_inqueue.set_thumbnail(url=ctx.author.avatar_url)
             await ctx.send(embed=embedmusic_inqueue)
+            embedmusic_inqueue.set_author('💿 Đang chơi')
+            queues.__song_list__.insert(0, embedmusic_inqueue)
+
         else:
-            perm_ck = ctx.user.id
+            queues = None
+            queues = NaffQueue(channelss)
+            perm_ck = ctx.user.id #Kiễm tra người dùng
             audio = await YTAudio.from_url(song, stream=True)
             title = audio.entry['title']
-            titles.append(title)
             thumbnail = audio.entry['thumbnail']
             uploader = audio.entry['uploader']
             duration = audio.entry['duration']
@@ -346,13 +337,11 @@ async def play(ctx: SlashContext, song: str):
                     label="⏭️ Tiếp theo",
                 )
             )
-            embedmusic.add_field(name="Tình Đẹp Trai", value="  ")
-            queues = None
-            queues = NaffQueue(channelss)
-            queues.put(audio, ctx)
-            queues.start()
-
             await ctx.send(embeds=embedmusic, components=[hang1, hang2])
+            embedmusic.set_author('💿 Đang chơi')
+            queues.__song_list__.insert(0, embedmusic)
+            queues.put(audio)
+            queues.start()
 
 
 @listen(Component)
@@ -363,22 +352,16 @@ async def on_component(event: Component):
         match ctx.custom_id:
             case "pause_button":
                 await _pause(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:pause \n")
             case "stop_button":
                 await _stop(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:stop \n")
             case "resume_button":
                 await _resume(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:resume \n")
             case "vol_up":
                 await _volup(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:vol_up \n")
             case "vol_down":
                 await _voldown(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:vol_down \n")
             case "skip_button":
                 await skip(ctx)
-                print(f"{ctx.guild.name}::{ctx.user.display_name} > {ctx}:skip \n")
             case "loop_button":
                 await _loop(ctx)
 
@@ -411,6 +394,7 @@ async def __pause(ctx: SlashContext):
 
 async def skip(self):
     global queues
+    logger.debug(f"{self.guild.name}::{self.user.display_name} >:skip \n")
     player = self.bot.get_bot_voice_state(self.guild_id)
     next_item = queues.peek()
     if next_item is not None:
@@ -422,6 +406,7 @@ async def skip(self):
 
 
 async def _pause(ctx):
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} >:pause \n")
     if ctx.voice_state.channel.voice_state.playing is not True:
         await ctx.send("Đang không phát nhạc")
     else:
@@ -431,6 +416,7 @@ async def _pause(ctx):
 
 
 async def _stop(ctx):
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} >:stop \n")
     if ctx.voice_state.channel.voice_state.playing is not True:
         await ctx.send("Đang không phát nhạc", ephemeral=True)
     else:
@@ -441,6 +427,7 @@ async def _stop(ctx):
 
 async def _resume(ctx):
     global queues
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} >:resume \n")
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
     player.resume()
     if ctx.voice_state.channel.voice_state.playing is not True:
@@ -454,6 +441,7 @@ currvol = 0.5
 
 async def _volup(ctx):
     global currvol
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} >:vol_up \n")
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
     currvol += 0.1
     player.volume = currvol
@@ -462,6 +450,7 @@ async def _volup(ctx):
 
 async def _voldown(ctx):
     global currvol
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} >:vol_down \n")
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
     currvol -= 0.1
     player.volume = currvol
@@ -484,6 +473,7 @@ async def _join(vs: VoiceStateUpdate):
         voice_channel = vs.before.channel
         members_in_channel = voice_channel.members
         num_members = len(members_in_channel)
+        print(num_members)
         if num_members < 3 and vs.bot.get_bot_voice_state(vs.before.guild) is not None:
             await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
 
@@ -498,7 +488,7 @@ async def get_remaining_members(channeli):
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channeli: interactions.OptionType.CHANNEL):
     global channels
-    print(f"{ctx.guild.name}::{ctx.user.display_name} > SETUP |>> {ctx} \n")
+    logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} > SETUP  \n")
     channels = channeli.id
     await ctx.send(f"đã đặt kênh {channeli.name} thành kênh voiceS")
 
