@@ -1,20 +1,18 @@
 import os
-import asyncio
 import datetime as dt
 import interactions
-from typing_extensions import Self
-import random
-from collections import deque
-from typing import Iterator
-from yt_dlp import YoutubeDL
-from interactions import SlashContext, listen, slash_command, Embed, OptionType, slash_option, ActiveVoiceState, \
+from interactions import SlashContext, listen, slash_command, Embed, OptionType, slash_option, \
     ButtonStyle, ActionRow, Button
 # from interactions.models.discord.channel import ThreadChannel || phát triển code sử dụng module threadchannel
 from interactions.api.events import Startup, VoiceStateUpdate, Component
-from interactions.api.voice.audio import AudioVolume, BaseAudio
+from Queue import NaffQueue
+from yt_download import YTAudio
 import logging
 import datetime
-
+import openai
+openai.api_key = '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'
+messages = [ {"role": "system", "content":
+			"You are a intelligent assistant."} ]
 now = datetime.datetime.now()
 formatted_time = now.strftime('%Y-%m-%d_%H-%M')
 log_filename = f'log_{formatted_time}.txt'
@@ -34,160 +32,12 @@ Token = os.getenv("Discord_Token_Bot_A")
 # Token = os.getenv("Discord_Token_bot_B")
 bot = interactions.Client()
 startup = dt.datetime.utcnow()
-youtube_dl = YoutubeDL(
-    {
-        "format": "bestaudio/best",
-        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
-        "restrictfilenames": True,
-        "noplaylist": True,
-        "nocheckcertificate": True,
-        "ignoreerrors": False,
-        "logtostderr": False,
-        "quiet": True,
-        "no_warnings": True,
-        "default_search": "auto",
-        "source_address": "0.0.0.0",  # noqa: S104
-    }
-)
-
-
-class NaffQueue:
-    voice_state: ActiveVoiceState
-    _entries: deque
-    _item_queued: asyncio.Event
-    loopstate: bool
-    last: BaseAudio
-
-    def __init__(self, voice_state: ActiveVoiceState):
-        self.voice_state = voice_state
-        self._entries = deque()
-        self._item_queued = asyncio.Event()
-        self.__song_list__ = []
-        self._current_task = None
-        self.loopstate = False
-
-    def __len__(self) -> int:
-        return len(self._entries)
-
-    def loops(self) -> None:
-        if not self.loopstate:
-            self.loopstate = True
-        elif self.loopstate:
-            self.loopstate = False
-
-    def __iter__(self) -> Iterator[BaseAudio]:
-        return iter(self._entries)
-
-    def put(self, audio_d: BaseAudio) -> None:
-        self._entries.append(audio_d)
-        self._item_queued.set()
-
-    def get_list(self) -> list:
-        return self.__song_list__
-
-    def put_first(self, audio_d: BaseAudio) -> None:
-        self._entries.appendleft(audio_d)
-        self._item_queued.set()
-
-    async def pop(self) -> BaseAudio:
-        if len(self) == 0:
-            await self._item_queued.wait()
-        item = self._entries.popleft()
-        # self._item_queued.clear()
-        return item
-
-    def pop_no_wait(self) -> BaseAudio:
-        return self._entries.popleft()
-
-    def shuffle(self) -> None:
-        random.shuffle(self._entries)
-
-    def clear(self) -> None:
-        self._entries.clear()
-
-    def peek(self, positions: int = 1) -> BaseAudio | None:
-        try:
-            return self._entries[positions - 1]
-        except IndexError:
-            return None
-
-    def peek_at_index(self, index: int) -> BaseAudio:
-        return self._entries[index]
-
-    async def __playback_queue(self) -> None:
-        while self.voice_state.connected:
-            if self.voice_state.playing:
-                await self.voice_state.wait_for_stopped()
-            if not self.loopstate:
-                audio = await self.pop()
-                embed = self.__song_list__.pop()
-                await self.voice_state.channel.send(embed=embed)
-                await self.voice_state.channel.send(audio.entry['title'])
-            else:
-               await self.voice_state.connect(1)
-            print(audio)
-            if audio is not None:
-
-                await self.voice_state.play(audio)
-
-
-        # >> code lặp cần fix << >>> put_at_index tránh việc đang lặp mà thêm bài hát vào
-        # while self.voice_state.connected:
-        #     if self.voice_state.playing:
-        #         await self.voice_state.wait_for_stopped()
-        #     audio_d = await self.pop()
-        #     if audio_d is not None:
-        #         embed = self.__song_list__.pop()
-        #         await self.voice_state.channel.send(embed=embed)
-        #     await self.voice_state.play(audio_d)
-
-    async def _stop(self) -> None:
-        await self.voice_state.stop()
-
-    async def __call__(self) -> None:
-        await self.__playback_queue()
-
-    def start(self) -> None:
-        if self._current_task is not None:
-            self._current_task.cancel()
-            self._stop()
-        self._current_task = asyncio.create_task(self())
-
-    async def skip(self):
-        next_audio = await self.pop()
-        await self.voice_state.play(next_audio)
-
-
-class YTAudio(AudioVolume):
-    def __init__(self, src: str) -> None:
-        super().__init__(src)
-        self.entry: dict | None = None
-
-    @classmethod
-    async def from_url(
-            cls, url: str, stream: bool = True, ytdl: YoutubeDL | None = None) -> Self:
-        if not ytdl:
-            ytdl = youtube_dl
-        data = await asyncio.to_thread(
-            lambda: ytdl.extract_info(url, download=not stream)
-        )
-        if "entries" in data:
-            data = data["entries"][0]
-        filename = data["url"] if stream else ytdl.prepare_filename(data)
-        new_cls = cls(filename)
-        if stream:
-            new_cls.ffmpeg_before_args = (
-                "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
-            )
-        new_cls.entry = data
-        return new_cls
 
 
 @listen(Startup)
 async def _starup():
     logger.debug(f" >> Bot Da Hoat dong! Ten: {bot.user.display_name}")
     await bot.change_presence(status=interactions.Status.IDLE, activity="lệnh /help để giúp đỡ")
-
 
 @slash_command(name="help", description="Trợ Giúp")
 async def _help(ctx: SlashContext):
@@ -198,9 +48,10 @@ async def _help(ctx: SlashContext):
         color=0x6DAEDB,
     )
     embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
-    embed.add_field(name="**📖️ ╏ COMMAND**", value='ㅤ  /about -- Trạng thái bot\nㅤ /Play -- Chơi nhạc')
+    embed.add_field(name="**📖️ ╏ COMMAND**", value='ㅤ  /about -- Trạng thái bot\nㅤ /Play -- Chơi nhạc\n /ask -- Hỏi bot\n /img -- không dùng')
     await ctx.send(embed=embed)
-
+end_time = 0.0
+start_time = 0.0
 
 @slash_command(name="about", description="Trạng Thái Bot")
 async def _about(ctx: SlashContext):
@@ -221,6 +72,7 @@ async def _about(ctx: SlashContext):
     cacl = dt.datetime.utcnow()
     embed2.add_field(name="🌐PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
     embed2.add_field(name="🟢UPTIME", value=f"{cacl - startup}", inline=True)
+    embed2.add_field(name="🤖API Phản hồi", value=f'{end_time-start_time} Giây')
     embed2.add_field(name="Author: ", value="qpneruy (TinhDev061)")
     await ctx.send(embeds=embed2, components=buttn)
 
@@ -229,20 +81,104 @@ def convert_seconds_to_hms(seconds):
     hours, remainder = divmod(seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f"{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}"
+import time
 
+@slash_command(name="ask", description="Hỏi tôi 1 câu hỏi")
+@interactions.slash_option("content", "nội dung câu hỏi", 3, True)
+async def _ask(ctx: SlashContext, content: str):
+        global end_time, start_time
+        await ctx.defer()
+        if len(content) <= 2000:
+          message = content
+          start_time = time.time()
+          if message:
+              messages.append(
+                  {"role": "user", "content": message},
+              )
+              chat = openai.ChatCompletion.create(
+                  model="gpt-3.5-turbo", messages=messages
+              )
+          reply = chat.choices[0].message.content
+          if len(reply) >2000:
+              await ctx.send('câu trả lời quá dài vui lòng hỏi câu hác :))')
+          else:
+            end_time = time.time()
+            await ctx.send(f'**{ctx.user.display_name}:** {content}\n**qpneruy:** {reply}\n||Response Time: {end_time - start_time} seconds||')
+
+          messages.append({"role": "assistant", "content": reply})
+        else:
+            await ctx.send("tin nhắn quá 2000 ký tự", ephemeral=True)
+@slash_command(name='img', description="Tạo ảnh theo mô tả")
+@interactions.slash_option("prompt", "mô tả ảnh", 3, True)
+async def _img(ctx: SlashContext, prompt: str):
+    if ctx.author == bot.owners:
+      await ctx.defer()
+      response = openai.Image.create(
+          prompt=prompt,
+          n=1,
+          size="1024X1024"
+      )
+      image_url = response['data'][0]['url']
+      await ctx.send(image_url)
+@slash_command(name="menu", description="Menu chơi nhạc")
+async def _menu(ctx: SlashContext):
+    global hang2, hang1
+    await ctx.send(components=[hang1, hang2])
 
 perm_ck = None
 queues = NaffQueue
-titles = []
 audio = None
 channelss = None
 
+hang1 = ActionRow(
+    Button(
+        custom_id="pause_button",
+        style=ButtonStyle.BLUE,
+        label="⏸️ Tạm Dừng",
+    ),
+    Button(
+        custom_id="stop_button",
+        style=ButtonStyle.RED,
+        label="🛑 Dừng ",
+    ),
+    Button(
+        custom_id="resume_button",
+        style=ButtonStyle.GREEN,
+        label="▶️ Tiếp tục",
+    ),
+    Button(
+        custom_id="loop_button",
+        style=ButtonStyle.GREEN,
+        label="🔂 Lặp lại",
+    )
+)
+hang2 = ActionRow(
+    Button(
+        custom_id="vol_up",
+        style=ButtonStyle.GREEN,
+        label="➕ Tăng Âm Lượng",
+    ),
+    Button(
+        custom_id="vol_down",
+        style=ButtonStyle.GREEN,
+        label="➖ Giảm Âm Lượng",
+    ),
+    Button(
+        custom_id="skip_button",
+        style=ButtonStyle.GREY,
+        label="⏭️ Tiếp theo",
+    )
+)
+
+audio_d = None
+
 
 @slash_command(name="play", description="chơi nhạc")
-@interactions.slash_option("song", "Đường dẫn nhạc", 3, True)
+@interactions.slash_option("song", "Đường dẫn nhạc & Tên bài hát", 3, True)
 async def play(ctx: SlashContext, song: str):
     logger.debug(f"{ctx.guild.name}::{ctx.user.display_name} > PLAY")
-    global perm_ck, queues, titles, audio, channelss
+    global perm_ck, queues, audio, channelss
+    global hang2, hang1
     t = True
     await ctx.defer()
     if not ctx.voice_state:
@@ -258,7 +194,6 @@ async def play(ctx: SlashContext, song: str):
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
             audio = await YTAudio.from_url(song, stream=True)
             title = audio.entry['title']
-            titles.append(title)
             queues.put(audio)
             thumbnail = audio.entry['thumbnail']
             uploader = audio.entry['uploader']
@@ -281,7 +216,7 @@ async def play(ctx: SlashContext, song: str):
         else:
             queues = None
             queues = NaffQueue(channelss)
-            perm_ck = ctx.user.id #Kiễm tra người dùng
+            perm_ck = ctx.user.id  # Kiễm tra người dùng
             audio = await YTAudio.from_url(song, stream=True)
             title = audio.entry['title']
             thumbnail = audio.entry['thumbnail']
@@ -298,45 +233,6 @@ async def play(ctx: SlashContext, song: str):
             embedmusic.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
             embedmusic.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
             embedmusic.set_thumbnail(url=ctx.author.avatar_url)
-            hang1 = ActionRow(
-                Button(
-                    custom_id="pause_button",
-                    style=ButtonStyle.BLUE,
-                    label="⏸️ Tạm Dừng",
-                ),
-                Button(
-                    custom_id="stop_button",
-                    style=ButtonStyle.RED,
-                    label="🛑 Dừng ",
-                ),
-                Button(
-                    custom_id="resume_button",
-                    style=ButtonStyle.GREEN,
-                    label="▶️ Tiếp tục",
-                ),
-                Button(
-                    custom_id="loop_button",
-                    style=ButtonStyle.GREEN,
-                    label="🔂 Lặp lại",
-                )
-            )
-            hang2 = ActionRow(
-                Button(
-                    custom_id="vol_up",
-                    style=ButtonStyle.GREEN,
-                    label="➕ Tăng Âm Lượng",
-                ),
-                Button(
-                    custom_id="vol_down",
-                    style=ButtonStyle.GREEN,
-                    label="➖ Giảm Âm Lượng",
-                ),
-                Button(
-                    custom_id="skip_button",
-                    style=ButtonStyle.GREY,
-                    label="⏭️ Tiếp theo",
-                )
-            )
             await ctx.send(embeds=embedmusic, components=[hang1, hang2])
             embedmusic.set_author('💿 Đang chơi')
             queues.__song_list__.insert(0, embedmusic)
@@ -362,14 +258,21 @@ async def on_component(event: Component):
                 await _voldown(ctx)
             case "skip_button":
                 await skip(ctx)
-            case "loop_button":
-                await _loop(ctx)
+            # case "loop_button":
+            #     await _loop(ctx)
 
 
-async def _loop(ctx: SlashContext):
-    global queues, audio
-    queues.loops()
-    await ctx.send("Đã bật lặp")
+# async def _loop(ctx: SlashContext):
+#     global queues, audio
+#     queues.loops()
+#     await ctx.send("Đã bật lặp")
+#     while queues.loopstate:
+#         print('ditcu', queues.last)
+#         await ctx.voice_state.wait_for_stopped()
+#         queues.put_first(queues.last)
+#         audio_d = queues.pop()
+#         print(queues.last)
+#         await ctx.voice_state.play(audio_d)
 
 
 @slash_command(name="skip", description="Bỏ qua nhạc")
@@ -461,6 +364,12 @@ channels = None
 channel = None
 
 
+async def get_remaining_members(channeli):
+    members = await channeli.fetch_members()
+    num_members = len(members)
+    return num_members
+
+
 @listen(VoiceStateUpdate)
 async def _join(vs: VoiceStateUpdate):
     global channels, channel
@@ -476,12 +385,6 @@ async def _join(vs: VoiceStateUpdate):
         print(num_members)
         if num_members < 3 and vs.bot.get_bot_voice_state(vs.before.guild) is not None:
             await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
-
-
-async def get_remaining_members(channeli):
-    members = await channeli.fetch_members()
-    num_members = len(members)
-    return num_members
 
 
 @slash_command(name="setup", description="Đặt kênh voiceS")
