@@ -14,15 +14,17 @@ import logging
 import datetime
 import openai
 import json
+import video_info
 
 gpt = os.getenv("OPENAI_API_KEY")
 bard = os.getenv("PALM_API_KEY")
-token = os.getenv('YOUTUBE_API_KEY')
-api_key = token
+api_key = os.getenv('YOUTUBE_API_KEY')
 palm.configure(api_key=bard)
 openai.api_key = gpt
+
 messages = [{"role": "system", "content":
     "You are a intelligent assistant."}]
+
 now = datetime.datetime.now()
 formatted_time = now.strftime('%Y-%m-%d_%H-%M')
 log_filename = f'log_{formatted_time}.txt'
@@ -43,17 +45,20 @@ Token = os.getenv("Discord_Token_Bot_A")
 # bot = interactions.Client()
 startup = dt.datetime.utcnow()
 
-client: interactions.Client = interactions.Client(
+Client: interactions.Client = interactions.Client(
     send_command_tracebacks=False,
 )
 bot = interactions.Client(
-    intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT)  # specifically message content, not just messages
+    intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT)  # specifically message content,
 
 
-@interactions.listen()
-async def on_message_create(event: MessageCreate):
-    print(event.message.channel.id)
-    print(event.message.content)
+# not just messages
+
+
+# @interactions.listen()
+# async def on_message_create(event: MessageCreate):
+#     print(event.message.channel.id)
+#     print(event.message.content)
 
 
 @listen(Startup)
@@ -121,21 +126,22 @@ async def _askbard(ctx: SlashContext, content: str):
     global mes
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ASKBARD: {content}")
     await ctx.defer()
-    # if vai == 'None':
-    #     vai = None
     if mes is None:
         mes = palm.chat(messages=content)
     else:
         mes = mes.reply(message=content)
-    await ctx.send(f'**{ctx.user.display_name}**: {content} \n **bard:** {mes.last}')
+    if mes.last is None:
+        await _endbard(ctx)
+    else:
+        await ctx.send(f'**{ctx.user.display_name}**: {content} \n **bard:** {mes.last}')
 
 
 @slash_command(name="endbard", description="kết thúc chủ đề")
 async def _endbard(ctx: SlashContext):
     global mes
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ENBARD: ")
-    formatted_time = now.strftime('%Y-%m-%d_%H-%M')
-    with open(formatted_time + '.json', "w") as f:
+    formatted_t = now.strftime('%Y-%m-%d_%H-%M')
+    with open(formatted_t + '.json', "w") as f:
         json.dump(mes.messages, f)
     mes = None
     await ctx.send("Đã kết thúc chủ đề")
@@ -165,13 +171,13 @@ async def _askgpt(ctx: SlashContext, content: str):
             chat = openai.ChatCompletion.create(
                 model="gpt-3.5-turbo", messages=messages
             )
-        reply = chat.choices[0].message.content
-        if len(reply) > 2000:
-            await ctx.send('câu trả lời quá dài vui lòng hỏi câu hác :))')
-        else:
-            end_time = time.time()
-            await ctx.send(
-                f'**{ctx.user.display_name}:** {content}\n**qpneruy:** {reply}\n||Response Time: {end_time - start_time} seconds||')
+            reply = chat.choices[0].message.content
+            if len(reply) > 2000:
+                await ctx.send('câu trả lời quá dài vui lòng hỏi câu hác :))')
+            else:
+                end_time = time.time()
+                await ctx.send(
+                    f'**{ctx.user.display_name}:** {content}\n**qpneruy:** {reply}\n||Response Time: {end_time - start_time} seconds||')
 
         messages.append({"role": "assistant", "content": reply})
     else:
@@ -197,11 +203,6 @@ async def _menu(ctx: SlashContext):
     global hang2, hang1
     await ctx.send(components=[hang1, hang2])
 
-
-perm_ck = None
-queues = NaffQueue
-audio = None
-channelss = None
 
 hang1 = ActionRow(
     Button(
@@ -243,81 +244,67 @@ hang2 = ActionRow(
     )
 )
 
-audio_d = None
+queues = NaffQueue
+videoinfo = video_info.VideoInfo()
+
+
+def get_avt_audio(audio_d):
+    search_query = audio_d.entry['title']
+    url_video = videoinfo.search_vid(search_query)
+    return videoinfo.get_uploader_avt(url_video)
 
 
 @slash_command(name="play", description="chơi nhạc")
 @interactions.slash_option("song", "Đường dẫn nhạc & Tên bài hát", 3, True)
 async def play(ctx: SlashContext, song: str):
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > PLAY ")
-    global perm_ck, queues, audio, channelss
+    global queues, videoinfo
     global hang2, hang1, api_key
-    t = True
-
+    current_channel = None
+    User_inVoice = True
     await ctx.defer()
-    song1 = song
-    playlist_id = song1.split('=')[-1]
-    params = {
-        'part': 'snippet,contentDetails,status',
-        'maxResults': 50,
-        'playlistId': playlist_id,
-        'key': api_key,
-    }
-    url = "https://www.youtube.com/playlist?list="
+    ppl_url = "https://www.youtube.com/playlist?list="
     if not ctx.voice_state:
         if ctx.author.voice is not None:
             await ctx.author.voice.channel.connect()
-            channelss = ctx.voice_state.channel.voice_state
-            t = True
-            queues = NaffQueue(channelss)
+            current_channel = ctx.voice_state.channel.voice_state
+            User_inVoice = True
+            queues = NaffQueue(current_channel)
+            videoinfo = video_info.VideoInfo()
         else:
             await ctx.send('Bạn phải ở trong 1 kênh thoại', ephemeral=True)
             logger.debug(f'User {ctx.user.display_name} is not in voice channel')
-            t = False
-    if url in song:
-        # title_list = []
-        # total_music = 0 Embed error 25
-        while True:
-            response = requests.get('https://www.googleapis.com/youtube/v3/playlistItems', params=params)
-            data = response.json()
-            for item in data.get('items', []):
-                video_id = item['snippet']['resourceId']['videoId']
-                privacy_status = item['status']['privacyStatus']
-                if privacy_status != 'private':
-                    video_url = f'https://www.youtube.com/watch?v={video_id}'
-                    audio = await YTAudio.from_url(video_url, stream=True)
-                    queues.put(audio, ctx)
-                    # total_music += 1 || Embed error 25
-                    # title = audio.entry['title']
-                    # title_list.append(title)
-            if 'nextPageToken' in data:
-                params['pageToken'] = data['nextPageToken']
-            else:
-                break
-            params['pageToken'] = data.get('nextPageToken', '')
-        # embed = Embed(
-        #     title=f"📋 Đã thêm {total_music} bài hát vào hàng chờ",
-        #     description="ㅤ",
-        #     color=0x5f9afa,
-        # )   embed hold duoc 25 field thoi playlist >=25 ko dung duoc, nghi cach khac
-        # index = 0
-        # while index != total_music:
-        #     title = title_list[index]
-        #     index += 1
-        #     embed.add_field(name=f"{index}. ", value=f" {title}")
-        # await ctx.send(embed=embed)
+            User_inVoice = False
+    if ppl_url in song:
+        list_url = await videoinfo.playlist_get(song)
+        while videoinfo.peek():
+            link = list_url.pop()
+            print('alo')
+            audio = await YTAudio.from_url(link, stream=True)
+            avatar_url = videoinfo.get_uploader_avt(link)
+            queues.put(audio, avatar_url)
+        await ctx.send("Thêm danh sách thành công", ephemeral=True)
         queues.start()
-    elif t:
+    elif User_inVoice:
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
             audio = await YTAudio.from_url(song, stream=True)
-            queues.put(audio, ctx)
+            avatar_url = get_avt_audio(audio)
+
+            queues.put(audio, avatar_url)
             embed = queues.__song_list__[0]
             embed.set_author('➕ Đã Thêm Vào hàng đợi')
             await ctx.send(embed=embed)
         else:
-            queues = NaffQueue(channelss)
-            audio = await YTAudio.from_url(song, stream=True)
-            queues.put(audio, ctx)
+            queues = NaffQueue(current_channel)
+            videoinfo = video_info.VideoInfo()
+            if "https://www.youtube.com/watch?v=" in song or "https://youtu.be/" in song:
+                audio = await YTAudio.from_url(song, stream=True)
+                avatar_url = videoinfo.get_uploader_avt(song)
+                queues.put(audio, avatar_url)
+            else:
+                audio = await YTAudio.from_url(song, stream=True)
+                avatar_url = get_avt_audio(audio)
+                queues.put(audio, ctx, avatar_url)
             embed = queues.__song_list__[0]
             embed.set_author('📀 Đang Chơi Nhạc')
             await ctx.send(embeds=embed, components=[hang1, hang2])
@@ -345,48 +332,20 @@ async def on_component(event: Component):
 
 
 @slash_command(name="skip", description="Bỏ qua nhạc")
-async def __skip(ctx: SlashContext):
-    await _skip(ctx)
-
-
-@slash_command(name="stop", description="Dừng Nhạc")
-async def __stop(ctx: SlashContext):
-    await _stop(ctx)
-
-
-@slash_command(name="resume", description="Tiếp tục nhạc")
-async def __resume(ctx: SlashContext):
-    await _resume(ctx)
-
-
-@slash_command(name="pause", description="tạm dừng nhạc")
-async def __pause(ctx: SlashContext):
-    await _pause(ctx)
-
-
-async def _skip(self):
+async def _skip(self: SlashContext):
     global queues
-    logger.debug(f"[{self.guild.name}]::pp{self.user.display_name}] >skip \n")
+    logger.debug(f"[{self.guild.name}]::{self.user.display_name}] >skip \n")
     player = self.bot.get_bot_voice_state(self.guild_id)
     next_item = queues.peek()
     if next_item is not None:
-        print(next_item.entry['title'])
         await player.stop()
+        await self.send('Đã skip', ephemeral=True)
         await self.voice_state.wait_for_stopped()
     else:
         await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
 
 
-async def _pause(ctx):
-    logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >pause \n")
-    if ctx.voice_state.channel.voice_state.playing is not True:
-        await ctx.send("Đang không phát nhạc")
-    else:
-        player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-        player.pause()
-        await ctx.send('Đã tạm dừng', ephemeral=True)
-
-
+@slash_command(name="stop", description="Dừng Nhạc")
 async def _stop(ctx):
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >stop \n")
     if ctx.voice_state.channel.voice_state.playing is not True:
@@ -397,6 +356,7 @@ async def _stop(ctx):
         await ctx.send('Đã Dừng', ephemeral=True)
 
 
+@slash_command(name="resume", description="Tiếp tục nhạc")
 async def _resume(ctx):
     global queues
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >resume \n")
@@ -406,6 +366,17 @@ async def _resume(ctx):
         await ctx.send('Đã tiếp tục', ephemeral=True)
     else:
         await ctx.send('Không có nhạc đang dừng', ephemeral=True)
+
+
+@slash_command(name="pause", description="tạm dừng nhạc")
+async def _pause(ctx):
+    logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >pause \n")
+    if ctx.voice_state.channel.voice_state.playing is not True:
+        await ctx.send("Đang không phát nhạc")
+    else:
+        player = ctx.bot.get_bot_voice_state(ctx.guild_id)
+        player.pause()
+        await ctx.send('Đã tạm dừng', ephemeral=True)
 
 
 currvol = 0.5
@@ -459,7 +430,6 @@ async def _join(vs: VoiceStateUpdate):
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channeli: interactions.OptionType.CHANNEL):
     global channels
-    logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > Setup \n")
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > SETUP  \n")
     channels = channeli.id
     await ctx.send(f"đã đặt kênh {channeli.name} thành kênh voiceS")

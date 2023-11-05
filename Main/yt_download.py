@@ -18,8 +18,6 @@ youtube_dl = YoutubeDL(
         "source_address": "0.0.0.0",  # noqa: S104
     }
 )
-
-
 class YTAudio(AudioVolume):
     def __init__(self, src: str) -> None:
         super().__init__(src)
@@ -42,4 +40,5 @@ class YTAudio(AudioVolume):
                 "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
             )
         new_cls.entry = data
+
         return new_cls

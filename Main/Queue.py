@@ -33,7 +33,7 @@ class NaffQueue:
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    def put(self, audio_d: BaseAudio, ctx: SlashContext) -> None:
+    def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
         title = audio_d.entry['title']
         thumbnail = audio_d.entry['thumbnail']
         uploader = audio_d.entry['uploader']
@@ -45,9 +45,9 @@ class NaffQueue:
         )
         duration_hms = convert_seconds_to_hms(duration)
         embed.set_image(thumbnail)
-        embed.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
+        embed.add_field(name="Tải lên bởi:  ", value=f"{uploader}", inline=True)
         embed.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
-        embed.set_thumbnail(url=ctx.author.avatar_url)
+        embed.set_thumbnail(url=avatar_url)
         self.__song_list__.insert(0, embed)
         self._entries.append(audio_d)
         self._item_queued.set()
@@ -122,7 +122,6 @@ class NaffQueue:
     def start(self) -> None:
         if self._current_task is not None:
             self._current_task.cancel()
-            # self._stop()
         self._current_task = asyncio.create_task(self())
 
 
