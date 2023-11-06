@@ -1,6 +1,25 @@
 import os
 import requests
 import string
+import json
+import yt_dlp
+from yt_dlp import YoutubeDL
+
+youtube_dl = YoutubeDL(
+    {
+        "format": "bestaudio/best",
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": False,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+    }
+)
 
 
 class VideoInfo:
@@ -29,7 +48,7 @@ class VideoInfo:
     def search_vid(self, search_query: str) -> str | None:
         video_url = None
         self.paramsVideo['q'] = search_query
-        response = requests.get(self.search_url, params=self.paramsVideo)
+        response = requests.get(self.searchvid_url, params=self.paramsVideo)
         if response.status_code == 200:
             search_results = response.json()
             if 'items' in search_results and len(search_results['items']) > 0:
@@ -58,7 +77,7 @@ class VideoInfo:
             self.api_key = self.tokenB
             self.paramsVideo['q'] = '6POZlJAZsok'
             test = requests.get(self.searchvid_url, params=self.paramsVideo)
-            
+
             if test.status_code != 200:
                 print('PLAYLIST | Đã vượt định mức API A & B')
                 print(f"Lỗi khi lấy thông tin về video: {response.status_code}")
@@ -66,29 +85,21 @@ class VideoInfo:
         return self.playlist_get(playlist_url)
 
     def get_uploader_avt(self, url: str) -> str | None:
-        search_query = url.split('=')[-1]
-        self.paramsVideo['q'] = search_query
-        response = requests.get(self.searchvid_url, params=self.paramsVideo)
-        if response.status_code == 200:
-            video_data = response.json()
-            channel_id = video_data['items'][0]['snippet']['channelId']
-            channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
-            channel_response = requests.get(channel_url)
-            if channel_response.status_code == 200:
-                channel_data = channel_response.json()
-                avatar_url = channel_data['items'][0]['snippet']['thumbnails']['default']['url']
-                return avatar_url
-            else:
-                print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
+        # search_query = url.split('=')[-1]
+        # self.paramsVideo['q'] = search_query
+        # response = requests.get(self.searchvid_url, params=self.paramsVideo)
+        data = youtube_dl.extract_info(url, download=False)
+        channel_id = data['channel_id']
+        channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
+        channel_response = requests.get(channel_url)
+        if channel_response.status_code == 200:
+            channel_data = channel_response.json()
+            with open('json/channel_data.json', "w") as f:
+                json.dump(channel_data, f)
+            avatar_url = channel_data['items'][0]['snippet']['thumbnails']['default']['url']
+            return avatar_url
         else:
-            self.api_key = self.tokenB
-            self.paramsVideo['q'] = '6POZlJAZsok'
-            test = requests.get(self.searchvid_url, params=self.paramsVideo)
-            if test.status_code != 200:
-                print('UPLOAD | Đã vượt định mức API A & B')
-                print(f"Lỗi khi lấy thông tin về video: {response.status_code}")
-                return None
-        return self.get_uploader_avt(url)
+            print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
 
     def peek(self, positions: int = 1) -> bool | None:
         try:

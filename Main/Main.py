@@ -9,7 +9,7 @@ from interactions.models.discord.channel import ThreadChannel  # phát triển c
 from interactions.api.events import Startup, VoiceStateUpdate, Component, MessageCreate  # dùng VoiceUserLeave để lắng
 import google.generativeai as palm
 from Queue import NaffQueue
-from yt_download import YTAudio
+from yt_download import YTAudio, AudioYT
 import logging
 import datetime
 import openai
@@ -27,7 +27,7 @@ messages = [{"role": "system", "content":
 
 now = datetime.datetime.now()
 formatted_time = now.strftime('%Y-%m-%d_%H-%M')
-log_filename = f'log_{formatted_time}.txt'
+log_filename = f'Log//log_{formatted_time}.txt'
 logger = logging.getLogger('discord_log')
 logger.setLevel(logging.DEBUG)
 fh = logging.FileHandler(log_filename, encoding='utf-8')
@@ -116,12 +116,6 @@ async def _about(ctx: SlashContext):
     opt_type=3,
     required=True,
 )
-# @slash_option(
-#     name="vai",
-#     description="Tôi nên trả lời thế nào",
-#     opt_type=3,
-#     required=False,
-# )
 async def _askbard(ctx: SlashContext, content: str):
     global mes
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ASKBARD: {content}")
@@ -141,7 +135,7 @@ async def _endbard(ctx: SlashContext):
     global mes
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ENBARD: ")
     formatted_t = now.strftime('%Y-%m-%d_%H-%M')
-    with open(formatted_t + '.json', "w") as f:
+    with open('bardlog/' + formatted_t + '.json', "w") as f:
         json.dump(mes.messages, f)
     mes = None
     await ctx.send("Đã kết thúc chủ đề")
@@ -248,6 +242,19 @@ queues = NaffQueue
 videoinfo = video_info.VideoInfo()
 
 
+def embed_make_pp(title: str, thumbnails: str, uploader: str, total: int):
+    embed = Embed(
+        title=f'{title}',
+        description="ㅤ",
+        color=0x5f9afa,
+    )
+    embed.set_author("➕ Đã thêm playlist 📋")
+    embed.set_image(thumbnails)
+    embed.add_field(name="Author: ", value=f'**{uploader}**', inline=True)
+    embed.add_field(name="Số lượng: ", value=f'**{total}**', inline=True)
+    return embed
+
+
 def get_avt_audio(audio_d):
     search_query = audio_d.entry['title']
     url_video = videoinfo.search_vid(search_query)
@@ -276,20 +283,27 @@ async def play(ctx: SlashContext, song: str):
             logger.debug(f'User {ctx.user.display_name} is not in voice channel')
             User_inVoice = False
     if ppl_url in song:
-        list_url = await videoinfo.playlist_get(song)
-        while videoinfo.peek():
-            link = list_url.pop()
-            print('alo')
-            audio = await YTAudio.from_url(link, stream=True)
-            avatar_url = videoinfo.get_uploader_avt(link)
-            queues.put(audio, avatar_url)
-        await ctx.send("Thêm danh sách thành công", ephemeral=True)
-        queues.start()
+        list_url = await AudioYT.ppl_get(song)
+        if not list_url:
+            await ctx.send('Playplist không tồn tại', ephemeral=True)
+        else:
+            ppl_info = await AudioYT.ppl_info(song)
+            print(ppl_info["availability"])
+            print(ppl_info["view_count"])
+            while True:
+                try:
+                    link = list_url.pop()
+                except IndexError:
+                    break
+                audio = await AudioYT.get_audio(link)
+                avatar_url = videoinfo.get_uploader_avt(link)
+                queues.put(audio, avatar_url)
+            await ctx.send(embeds=embed_make_pp(ppl_info["title"], ppl_info["thumbnails"],ppl_info["uploader"],ppl_info["playlist_count"]))
+            queues.start()
     elif User_inVoice:
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
-            audio = await YTAudio.from_url(song, stream=True)
+            audio = await AudioYT.get_audio(song)
             avatar_url = get_avt_audio(audio)
-
             queues.put(audio, avatar_url)
             embed = queues.__song_list__[0]
             embed.set_author('➕ Đã Thêm Vào hàng đợi')
@@ -298,13 +312,13 @@ async def play(ctx: SlashContext, song: str):
             queues = NaffQueue(current_channel)
             videoinfo = video_info.VideoInfo()
             if "https://www.youtube.com/watch?v=" in song or "https://youtu.be/" in song:
-                audio = await YTAudio.from_url(song, stream=True)
+                audio = await AudioYT.get_audio(song)
                 avatar_url = videoinfo.get_uploader_avt(song)
                 queues.put(audio, avatar_url)
             else:
-                audio = await YTAudio.from_url(song, stream=True)
+                audio = await AudioYT.get_audio(song)
                 avatar_url = get_avt_audio(audio)
-                queues.put(audio, ctx, avatar_url)
+                queues.put(audio, avatar_url)
             embed = queues.__song_list__[0]
             embed.set_author('📀 Đang Chơi Nhạc')
             await ctx.send(embeds=embed, components=[hang1, hang2])
