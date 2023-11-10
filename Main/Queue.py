@@ -2,7 +2,7 @@ import asyncio
 import random
 from collections import deque
 from typing import Iterator
-from interactions import ActiveVoiceState, Embed, SlashContext
+from interactions import ActiveVoiceState, Embed, SlashContext, ButtonStyle, ActionRow, Button
 from interactions.api.voice.audio import BaseAudio
 
 
@@ -18,6 +18,7 @@ class NaffQueue:
         self._entries = deque()
         self._item_queued = asyncio.Event()
         self.__song_list__ = []
+        self.__song_link__ = []
         self._current_task = None
         self.loopstate = False
 
@@ -48,6 +49,12 @@ class NaffQueue:
         embed.add_field(name="Tải lên bởi:  ", value=f"{uploader}", inline=True)
         embed.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
         embed.set_thumbnail(url=avatar_url)
+        nut = Button(
+            style=ButtonStyle.LINK,
+            label="Link",
+            url=f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
+        )
+        self.__song_link__.insert(0, nut)
         self.__song_list__.insert(0, embed)
         self._entries.append(audio_d)
         self._item_queued.set()
@@ -110,7 +117,9 @@ class NaffQueue:
             audio_d = await self.pop()
             embed = self.__song_list__.pop()
             embed.set_author('💿 Đang chơi')
+            nut = self.__song_link__.pop()
             await self.voice_state.channel.send(embed=embed)
+            await self.voice_state.channel.send(components=nut)
             await self.voice_state.play(audio_d)
 
     async def _stop(self) -> None:

@@ -5,8 +5,10 @@ import datetime as dt
 import interactions
 from interactions import SlashContext, listen, slash_command, Embed, OptionType, slash_option, \
     ButtonStyle, ActionRow, Button
+from interactions.models.discord import user
 from interactions.models.discord.channel import ThreadChannel  # phát triển code sử dụng module threadchannel
-from interactions.api.events import Startup, VoiceStateUpdate, Component, MessageCreate  # dùng VoiceUserLeave để lắng
+from interactions.api.events import Startup, VoiceStateUpdate, Component, MessageCreate, BaseVoiceEvent, VoiceUserJoin, \
+    VoiceUserLeave  # dùng VoiceUserLeave để lắng
 import google.generativeai as palm
 from Queue import NaffQueue
 from yt_download import YTAudio, AudioYT
@@ -15,6 +17,7 @@ import datetime
 import openai
 import json
 import video_info
+import mysql.connector
 
 gpt = os.getenv("OPENAI_API_KEY")
 bard = os.getenv("PALM_API_KEY")
@@ -256,8 +259,7 @@ def embed_make_pp(title: str, thumbnails: str, uploader: str, total: int):
 
 
 def get_avt_audio(audio_d):
-    search_query = audio_d.entry['title']
-    url_video = videoinfo.search_vid(search_query)
+    url_video = f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
     return videoinfo.get_uploader_avt(url_video)
 
 
@@ -295,10 +297,12 @@ async def play(ctx: SlashContext, song: str):
                     link = list_url.pop()
                 except IndexError:
                     break
-                audio = await AudioYT.get_audio(link)
-                avatar_url = videoinfo.get_uploader_avt(link)
+
+                audio = link
+                avatar_url = videoinfo.get_uploader_avt('a', link)
                 queues.put(audio, avatar_url)
-            await ctx.send(embeds=embed_make_pp(ppl_info["title"], ppl_info["thumbnails"],ppl_info["uploader"],ppl_info["playlist_count"]))
+            await ctx.send(embeds=embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],
+                                                ppl_info["playlist_count"]))
             queues.start()
     elif User_inVoice:
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
@@ -424,29 +428,51 @@ async def get_remaining_members(channeli):
     return num_members
 
 
-@listen(VoiceStateUpdate)
-async def _join(vs: VoiceStateUpdate):
-    global channels, channel
-    if vs.after is not None and vs.after.channel.id == channels:
-        channel = await vs.after.guild.create_voice_channel(f"Kênh {vs.after.member.display_name} ")
-        await vs.after.member.move(channel.id)
-    if vs.before is not None and (channel is not None and vs.before.channel.id == channel.id):
-        await vs.before.guild.delete_channel(channel.id)
-    if vs.before is not None:
-        voice_channel = vs.before.channel
-        members_in_channel = voice_channel.members
-        num_members = len(members_in_channel)
-        if num_members < 3 and vs.bot.get_bot_voice_state(vs.before.guild) is not None:
-            await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
+channel_id = None
 
 
-@slash_command(name="setup", description="Đặt kênh voiceS")
+@listen(VoiceUserJoin)
+async def __join(vs: VoiceUserJoin):
+    global channels, channel_id
+    if vs.channel.id == channels:
+        channel_d = await vs.channel.guild.create_voice_channel(f"Kênh {vs.author.display_name}")
+        channel_id = channel_d.id
+        mem = vs.author
+        await mem.move(channel_d.id)
+
+
+@listen(VoiceUserLeave)
+async def __leave(vs: VoiceUserLeave):
+    global channels, channel_id
+    if len(vs.channel.members) < 2:
+        await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
+    if vs.channel.id == channel_id and len(vs.channel.members) < 3:
+        await vs.channel.delete()
+
+
+# @listen(VoiceStateUpdate)
+# async def _join(vs: VoiceStateUpdate):
+#     global channels, channel
+#     if vs.after is not None and vs.after.channel.id == channels:
+#         channel = await vs.after.guild.create_voice_channel(f"Kênh {vs.after.member.display_name} ")
+#         await vs.after.member.move(channel.id)
+#     if vs.before is not None and (channel is not None and vs.before.channel.id == channel.id):
+#         await vs.before.guild.delete_channel(channel.id)
+#     if vs.before is not None:
+#         voice_channel = vs.before.channel
+#         members_in_channel = voice_channel.members
+#         num_members = len(members_in_channel)
+#         if num_members < 3 and vs.bot.get_bot_voice_state(vs.before.guild) is not None:
+#             await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
+
+
+@slash_command(name="setupv", description="Đặt kênh voiceS")
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
-async def _setup(ctx: SlashContext, channeli: interactions.OptionType.CHANNEL):
+async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
     global channels
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > SETUP  \n")
-    channels = channeli.id
-    await ctx.send(f"đã đặt kênh {channeli.name} thành kênh voiceS")
+    channels = channel.id
+    await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
 
 
 bot.start(Token)

@@ -4,6 +4,7 @@ import string
 import json
 import yt_dlp
 from yt_dlp import YoutubeDL
+from yt_download import AudioYT
 
 youtube_dl = YoutubeDL(
     {
@@ -74,21 +75,15 @@ class VideoInfo:
                     self.playlist_url.insert(0, f'https://www.youtube.com/watch?v={video_id}')
             return self.playlist_url
         else:
-            self.api_key = self.tokenB
-            self.paramsVideo['q'] = '6POZlJAZsok'
-            test = requests.get(self.searchvid_url, params=self.paramsVideo)
+            print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
 
-            if test.status_code != 200:
-                print('PLAYLIST | Đã vượt định mức API A & B')
-                print(f"Lỗi khi lấy thông tin về video: {response.status_code}")
-                return None
-        return self.playlist_get(playlist_url)
-
-    def get_uploader_avt(self, url: str) -> str | None:
-        # search_query = url.split('=')[-1]
-        # self.paramsVideo['q'] = search_query
-        # response = requests.get(self.searchvid_url, params=self.paramsVideo)
-        data = youtube_dl.extract_info(url, download=False)
+    def get_uploader_avt(self, url: str, direct_url: any = None) -> str:
+        if direct_url is not None:
+            data = direct_url
+        else:
+            data = youtube_dl.extract_info(url, download=False)
+        with open('data.json', "w") as f:
+            json.dump(data, f)
         channel_id = data['channel_id']
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
