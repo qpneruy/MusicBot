@@ -92,25 +92,6 @@ class NaffQueue:
         return self._entries[index]
 
     async def __playback_queue(self) -> None:
-        # while self.voice_state.connected:
-        #     if self.voice_state.playing:
-        #         await self.voice_state.wait_for_stopped()
-        #     audio = await self.pop()
-        #     print(f'audio be nggoai {audio}')
-        #     current_audio = audio  # Lưu trữ audio hiện tại
-        #     embed = self.__song_list__.pop()
-        #     await self.voice_state.channel.send(embed=embed)
-        #     print(f' da de quy {audio}')
-        #     await self.voice_state.play(audio)
-        #     if self.loopstate:
-        #             print("đmdmdmđmmd")
-        #             print(current_audio)
-        #             self.put_first(current_audio)  # Thêm lại audio hiện tại vào hàng đợi nếu loopstate là True
-        #             #audio = await self.pop()
-        #             #await self.voice_state.play(current_audio)
-        #             await self.__playback_queue()
-
-        # >> code lặp cần fix << >>> put_at_index tránh việc đang lặp mà thêm bài hát vào
         while self.voice_state.connected:
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
@@ -129,12 +110,20 @@ class NaffQueue:
         await self.__playback_queue()
 
     def start(self) -> None:
-        if self._current_task is not None:
-            self._current_task.cancel()
-        self._current_task = asyncio.create_task(self())
+        asyncio.create_task(self())
 
 
 def convert_seconds_to_hms(seconds):
     hours, remainder = divmod(seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f"{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}"
+
+
+class NaffQueueManager:
+    _queues = {}
+
+    @classmethod
+    def get_queue(cls, server_id, voice_state=None):
+        if server_id not in cls._queues:
+            cls._queues[server_id] = NaffQueue(voice_state)
+        return cls._queues[server_id]
