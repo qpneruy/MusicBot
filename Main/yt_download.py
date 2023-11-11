@@ -77,6 +77,7 @@ class AudioYT(AudioVolume):
             for items in data["entries"]:
                 #__song_list__.insert(0, f'https://www.youtube.com/watch?v={items["id"]}')
                 __song_list__.insert(0, items)
+
         return __song_list__
 
     @classmethod
@@ -90,6 +91,14 @@ class AudioYT(AudioVolume):
         )
         new_cls.entry = data
         return new_cls
+    @classmethod
+    def create_new_cls(url, entry_data):
+        new_cls = url(entry_data['url'])
+        new_cls.ffmpeg_before_args = "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
+        new_cls.entry = entry_data
+        return new_cls
+
+    # Sử dụng hàm để tạo đối tượng mới
 
     @classmethod
     async def ppl_info(cls, url: str, ytdl: YoutubeDL | None = None) -> dict:

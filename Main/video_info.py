@@ -77,13 +77,13 @@ class VideoInfo:
         else:
             print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
 
-    def get_uploader_avt(self, url: str, direct_url: any = None) -> str:
+    def get_uploader_avt(self, url: str | None = None, direct_url: any = None) -> str:
         if direct_url is not None:
             data = direct_url
         else:
             data = youtube_dl.extract_info(url, download=False)
-        with open('data.json', "w") as f:
-            json.dump(data, f)
+        # with open('data.json', "w") as f:
+        #     json.dump(data, f)
         channel_id = data['channel_id']
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
@@ -95,13 +95,3 @@ class VideoInfo:
             return avatar_url
         else:
             print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
-
-    def peek(self, positions: int = 1) -> bool | None:
-        try:
-            refence = self.playlist_url[positions - 1]
-            if refence is not None:
-                return True
-            else:
-                return False
-        except IndexError:
-            return None
