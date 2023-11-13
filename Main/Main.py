@@ -1,17 +1,19 @@
+import asyncio
 import os
 import time
 import requests
 import datetime as dt
 import interactions
 from interactions import SlashContext, listen, slash_command, Embed, OptionType, slash_option, \
-    ButtonStyle, ActionRow, Button
+    ButtonStyle, ActionRow, Button, ActiveVoiceState
 from interactions.models.discord import user
 from interactions.models.discord.channel import ThreadChannel  # phát triển code sử dụng module threadchannel
 from interactions.api.events import Startup, VoiceStateUpdate, Component, MessageCreate, BaseVoiceEvent, VoiceUserJoin, \
     VoiceUserLeave
+from yt_dlp import YoutubeDL
 import google.generativeai as palm
 from Queue import NaffQueue, NaffQueueManager
-from yt_download import YTAudio, AudioYT
+from yt_download import AudioYT
 import logging
 import datetime
 import openai
@@ -20,15 +22,29 @@ import video_info
 import mysql.connector
 import pymysql
 
+cfg_playlist = YoutubeDL(
+    {
+        "format": "bestaudio/best",
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": False,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+    }
+)
+
 gpt = os.getenv("OPENAI_API_KEY")
 bard = os.getenv("PALM_API_KEY")
 api_key = os.getenv('YOUTUBE_API_KEY')
 palm.configure(api_key=bard)
 openai.api_key = gpt
 
-messages = [{"role": "system", "content":
-    "You are a intelligent assistant."}]
-
+# Cấu hình cho module Logging
 now = datetime.datetime.now()
 formatted_time = now.strftime('%Y-%m-%d_%H-%M')
 log_filename = f'Log//log_{formatted_time}.txt'
@@ -49,16 +65,12 @@ Token = os.getenv("Discord_Token_Bot_A")
 # bot = interactions.Client()
 startup = dt.datetime.utcnow()
 
-Client: interactions.Client = interactions.Client(
-    send_command_tracebacks=False,
-)
+
 bot = interactions.Client(
-    intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT)  # specifically message content,
+    intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False)
 
 
-# not just messages
-
-
+# Lắng nghe sự kiện cho tin nhắn thuộc về AI
 # @interactions.listen()
 # async def on_message_create(event: MessageCreate):
 #     print(event.message.channel.id)
@@ -93,9 +105,9 @@ start_time = 0.0
 async def _about(ctx: SlashContext):
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ABOUT")
     embed2 = Embed(
-        title="BOT STATUS",
+        title="-------BOT STATUS-------",
         description="ㅤ",
-        color=0x00ff00,
+        color=0x00BAFF,
     )
     buttn = ActionRow(
         Button(
@@ -106,9 +118,12 @@ async def _about(ctx: SlashContext):
     )
 
     cacl = dt.datetime.utcnow()
-    embed2.add_field(name="🌐PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
+    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    embed2.add_field(name="🏠LOCALHOST PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
     embed2.add_field(name="🟢UPTIME", value=f"{cacl - startup}", inline=True)
-    embed2.add_field(name="🤖API Phản hồi", value=f'{end_time - start_time} Giây')
+    embed2.add_field(name="🤖API OPEN AI", value=f'{end_time - start_time} Giây')
+    embed2.add_field(name="🗃️DATABASE PING", value=f'{connect_thread.ping()} ms')
+    embed2.add_field(name="⚓CONNECT:", value=f'{connect_thread.get_host_info()}')
     embed2.add_field(name="Author: ", value="qpneruy (TinhDev061)")
     await ctx.send(embeds=embed2, components=buttn)
 
@@ -177,7 +192,7 @@ async def _askgpt(ctx: SlashContext, content: str):
                 await ctx.send(
                     f'**{ctx.user.display_name}:** {content}\n**qpneruy:** {reply}\n||Response Time: {end_time - start_time} seconds||')
 
-        messages.append({"role": "assistant", "content": reply})
+            messages.append({"role": "assistant", "content": reply})
     else:
         await ctx.send("tin nhắn quá 2000 ký tự", ephemeral=True)
 
@@ -202,6 +217,7 @@ async def _menu(ctx: SlashContext):
     await ctx.send(components=[hang1, hang2])
 
 
+# Định nghĩa components Nut
 hang1 = ActionRow(
     Button(
         custom_id="pause_button",
@@ -242,10 +258,10 @@ hang2 = ActionRow(
     )
 )
 
-queues = NaffQueue
 videoinfo = video_info.VideoInfo()
 
 
+# Tạo embed playlist
 def embed_make_pp(title: str, thumbnails: str, uploader: str, total: int):
     embed = Embed(
         title=f'{title}',
@@ -259,83 +275,103 @@ def embed_make_pp(title: str, thumbnails: str, uploader: str, total: int):
     return embed
 
 
+# lấy ảnh đại diện của người đăng "Video"
 def get_avt_audio(audio_d):
     url_video = f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
     return videoinfo.get_uploader_avt(url_video)
 
 
+# Lấy Lớp hàng đợi của server thuộc ctx.guild.id
+def get_music_queue(ctx) -> NaffQueue:
+    voicestate = ctx.voice_state.channel.voice_state
+    server_id = ctx.guild.id
+    current_queue = NaffQueueManager.get_queue(server_id, voicestate)
+    return current_queue
+
+
 @slash_command(name="play", description="chơi nhạc")
 @interactions.slash_option("song", "Đường dẫn nhạc & Tên bài hát", 3, True)
 async def play(ctx: SlashContext, song: str):
-
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > PLAY ")
     global videoinfo
     global hang2, hang1, api_key
-    current_channel = None
     User_inVoice = True
     await ctx.defer()
-    ppl_url = "https://www.youtube.com/playlist?list="
+    # Thực hiện chuẩn hóa kết nối | Nghĩa là bot có thể tham gia được kênh thoại hiện tại
     if not ctx.voice_state:
         await ctx.author.voice.channel.connect()
         if ctx.author.voice is not None:
             await ctx.author.voice.channel.connect()
-            current_channel = ctx.voice_state.channel.voice_state
             User_inVoice = True
-            server_id = ctx.guild.id
-            music_queues = NaffQueueManager.get_queue(server_id, current_channel)
             videoinfo = video_info.VideoInfo()
         else:
             await ctx.send('Bạn phải ở trong 1 kênh thoại', ephemeral=True)
             logger.debug(f'User {ctx.user.display_name} is not in voice channel')
             User_inVoice = False
-    if ppl_url in song:
-        list_url = await AudioYT.ppl_get(song)
-        if not list_url:
-            await ctx.send('Playplist không tồn tại', ephemeral=True)
+    if User_inVoice:
+        # Nếu Người dùng ctx Hiện tại đang kết nối với kênh thoại | nghĩa là có thể chuẩn hóa
+        if "https://www.youtube.com/playlist?list=" in song:
+            # Nếu đầu vào là một playlist
+            list_url = []
+            data = cfg_playlist.extract_info(song, download=False)
+            if "entries" in data:
+                for items in data["entries"]:
+                    list_url.insert(0, items)
+            if not list_url:
+                await ctx.send('Playplist không tồn tại', ephemeral=True)
+            else:
+                # Nếu playlist tồn tại | Được định nghĩa là list_url có url
+                music_queues = get_music_queue(ctx)
+                ppl_info = await AudioYT.ppl_info(song)
+                while True:
+                    try:
+                        link = list_url.pop()
+                    except IndexError:
+                        break
+                    avatar_url = videoinfo.get_uploader_avt('None', link)
+                    audio = AudioYT.create_new_cls(link)
+                    music_queues.put(audio, avatar_url)
+                embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],
+                                      ppl_info["playlist_count"])
+                if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+                    embed.set_author('📀 Đang Chơi')
+                await ctx.send(embeds=embed)
+                await ctx.send(components=[hang1, hang2], silent=True)
+                vol_refresh(ctx)
         else:
-            current_channel = ctx.voice_state.channel.voice_state
-            server_id = ctx.guild.id
-            music_queues = NaffQueueManager.get_queue(server_id, current_channel)
-            ppl_info = await AudioYT.ppl_info(song)
-            print(ppl_info["availability"])
-            print(ppl_info["view_count"])
-            while True:
-                try:
-                    link = list_url.pop()
-                except IndexError:
-                    break
-
-                avatar_url = videoinfo.get_uploader_avt('None', link)
-                audio = AudioYT.create_new_cls(link)
+            # Đầu vào là một type thuộc Video
+            if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+                # Nếu bot đang chơi nhạc | Chuẩn hóa Embed
+                music_queues = get_music_queue(ctx)
+                audio = await AudioYT.get_audio(song)
+                avatar_url = get_avt_audio(audio)
                 music_queues.put(audio, avatar_url)
-            await ctx.send(embeds=embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],
-                                                ppl_info["playlist_count"]))
-            music_queues.start()
-            vol_refresh(ctx)
-    elif User_inVoice:
-        if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
-            current_channel = ctx.voice_state.channel.voice_state
-            server_id = ctx.guild.id
-            music_queues = NaffQueueManager.get_queue(server_id, current_channel)
-            audio = await AudioYT.get_audio(song)
-            avatar_url = get_avt_audio(audio)
-            music_queues.put(audio, avatar_url)
-            embed = music_queues.__song_list__[0]
-            embed.set_author('➕ Đã Thêm Vào hàng đợi')
-            await ctx.send(embed=embed)
-        else:
-            music_queues = NaffQueue(current_channel)
-            videoinfo = video_info.VideoInfo()
-            audio = await AudioYT.get_audio(song)
-            avatar_url = get_avt_audio(audio)
-            music_queues.put(audio, avatar_url)
-            embed = music_queues.__song_list__[0]
-            embed.set_author('📀 Đang Chơi Nhạc')
-            await ctx.send(embeds=embed, components=[hang1, hang2])
-            music_queues.start()
-            vol_refresh(ctx)
+                embed = music_queues.__song_list__[0]
+                embed.set_author('➕ Đã Thêm Vào hàng đợi')
+                await ctx.send(embed=embed)
+            else:
+                # Nếu Bot đang sẵn sàng
+                music_queues = get_music_queue(ctx)
+                videoinfo = video_info.VideoInfo()
+                audio = await AudioYT.get_audio(song)
+                avatar_url = get_avt_audio(audio)
+                music_queues.put(audio, avatar_url)
+                embed = music_queues.__song_list__[0]
+                embed.set_author('📀 Đang Chơi Nhạc')
+                await ctx.send(embeds=embed, components=[hang1, hang2])
+                vol_refresh(ctx)
+    # Khởi đồng luồng chung | not nếu trường hợp bot không sẵn sàng > Bận nhạc
+    if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
+        await _fplay(ctx)
 
 
+# Khởi động luồng từ lớp NAffqueue thuộc ctx.guild.id
+async def _fplay(ctx: SlashContext):
+    music_queues = get_music_queue(ctx)
+    music_queues.start()
+
+
+# Lắng nghe sự kiện nhấn nút từ ctx | hang1, hang2
 @listen(Component)
 async def on_component(event: Component):
     ctx = event.ctx
@@ -352,24 +388,25 @@ async def on_component(event: Component):
             await _voldown(ctx)
         case "skip_button":
             await _skip(ctx)
-        # case "loop_button":
-        #     await _loop(ctx)
+        case "loop_button":
+            await _loop(ctx)
 
 
 @slash_command(name="skip", description="Bỏ qua nhạc")
 async def _skip(self: SlashContext):
-    current_channel = ctx.voice_state.channel.voice_state
-    server_id = ctx.guild.id
+    current_channel = self.voice_state.channel.voice_state
+    server_id = self.guild.id
     music_queues = NaffQueueManager.get_queue(server_id, current_channel)
     logger.debug(f"[{self.guild.name}]::{self.user.display_name}] >skip \n")
-    player = self.bot.get_bot_voice_state(self.guild_id)
-    next_item = music_queues.peek()
-    if next_item is not None:
-        await player.stop()
-        await self.send('Đã skip', ephemeral=True)
-        await self.voice_state.wait_for_stopped()
-    else:
-        await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
+    await music_queues.stop()
+    # next_item = music_queues.peek()
+    # if next_item is not None:
+    #     music_queues.start()
+    #     await player.stop()
+    #     await self.send('Đã skip', ephemeral=True)
+    #     await self.voice_state.wait_for_stopped()
+    # else:
+    #     await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
 
 
 @slash_command(name="stop", description="Dừng Nhạc")
@@ -385,7 +422,6 @@ async def _stop(ctx):
 
 @slash_command(name="resume", description="Tiếp tục nhạc")
 async def _resume(ctx):
-    global queues
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >resume \n")
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
     player.resume()
@@ -426,6 +462,7 @@ async def _volup(ctx):
         await ctx.send('Đã Tăng âm lượng', ephemeral=True)
 
 
+# Đặt lại đầu vào âm lượng đã lưu trước đó | Database
 def vol_refresh(ctx):
     connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
@@ -441,7 +478,6 @@ def vol_refresh(ctx):
 
 
 async def _voldown(ctx):
-    global currvol
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >vol_down \n")
     player = ctx.bot.get_bot_voice_state(ctx.guild_id)
     connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
@@ -461,23 +497,14 @@ async def _voldown(ctx):
         await ctx.send('Đã Giảm âm lượng', ephemeral=True)
 
 
-channels = None
-channel = None
-
-
-async def get_remaining_members(channeli):
-    members = await channeli.fetch_members()
-    num_members = len(members)
-    return num_members
-
-
-channel_id = None
+async def get_remaining_members(current_channel):
+    members = await current_channel.fetch_members()
+    total_members = len(members)
+    return total_members
 
 
 @listen(VoiceUserJoin)
 async def __join(vs: VoiceUserJoin):
-    global channel_id
-    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
     try:
         with connect_thread.cursor() as cursor:
             select_query = f"SELECT CAST(voice_id AS SIGNED) FROM server_data WHERE ten_server = '{vs.author.guild.id}'"
@@ -486,7 +513,10 @@ async def __join(vs: VoiceUserJoin):
             if result:
                 if vs.channel.id == result[0]:
                     channel_d = await vs.channel.guild.create_voice_channel(f"Kênh {vs.author.display_name}")
-                    channel_id = channel_d.id
+                    channel_id = channel_d.id  # thêm last_channel vô để xóa kênh
+                    query = f"INSERT INTO server_{vs.author.guild.id}(active_channel) VALUES ({channel_id}) "
+                    cursor.execute(query)
+                    connect_thread.commit()
                     mem = vs.author
                     await mem.move(channel_d.id)
             else:
@@ -497,11 +527,20 @@ async def __join(vs: VoiceUserJoin):
 
 @listen(VoiceUserLeave)
 async def __leave(vs: VoiceUserLeave):
-    global channels, channel_id
+    conect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    cnx = conect_thread.cursor()
+    query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
+    cnx.execute(query)
+    res = cnx.fetchall()
+    res_values = [item[0] for item in res]
+    if vs.channel.id in res_values:
+        await vs.channel.delete()
     if len(vs.channel.members) < 2:
         await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
-    if vs.channel.id == channel_id and len(vs.channel.members) < 3:
-        await vs.channel.delete()
+    query = f"DELETE FROM server_{vs.author.guild.id} WHERE active_channel = {vs.channel.id}"
+    cnx.execute(query)
+    conect_thread.commit()
+    conect_thread.close()
 
 
 host = 'localhost'
@@ -546,21 +585,54 @@ async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
         connection.close()
 
 
-@slash_command(name='db_refresh', description="Làm mới cơ sở dữ liệu")
-async def on_slash_command(ctx: SlashContext):
+# Kiễm tra xem bảng có tồn tại trong database không
+def table_exists(cursor, table_name):
+    cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
+    return cursor.fetchone() is not None
+
+
+# Lấy tên tất cả các bảng trong database
+def get_all_tables(cursor, database_name):
+    cursor.execute(f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '{database_name}'")
+    return [table[0] for table in cursor.fetchall()]
+
+
+@slash_command(name='db_refreshv2', description="Làm mới cơ sở dữ liệu (xóa)")
+async def dbv2_command(ctx: SlashContext):
+    guild_ids = [str(guild.id) for guild in ctx.bot.guilds]
+    conect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    cursor = conect_thread.cursor()
+    current_list = get_all_tables(cursor, 'discord_guild')
+    for table_name in current_list:
+        if table_name.startswith('server_') and table_name[7:] not in guild_ids:
+            query = f"DROP TABLE {table_name}"
+            if table_name != 'server_data':
+                cursor.execute(query)
+
+    conect_thread.commit()
+    conect_thread.close()
+    await ctx.send('Đã làm mới cơ sở dữ liệu phương thức xóa')
+
+
+@slash_command(name='db_refreshv1', description="Làm mới cơ sở dữ liệu (tạo)")
+async def dbv1_command(ctx: SlashContext):
     guilds = ctx.bot.guilds
+    connection = pymysql.connect(host=host, user='root', password=password, database=database)
     create_table_query = """
         CREATE TABLE IF NOT EXISTS server_data (
             ten_server VARCHAR(255) NOT NULL,
             voice_id VARCHAR(255) NOT NULL,
             gpt_channel_id VARCHAR(255) NOT NULL,
             bard_channel_id VARCHAR(255) NOT NULL,
-            current_vol INT NOT NULL DEFAULT 100
+            current_vol DOUBLE NOT NULL
         )
     """
     cursor = connection.cursor()
     cursor.execute(create_table_query)
     for guild in guilds:
+        if not table_exists(cursor, f'server_{guild.id}'):
+            query = f"CREATE TABLE server_{guild.id}(active_channel VARCHAR(255) not NULL)"
+            cursor.execute(query)
         select_query = f"SELECT * FROM server_data WHERE ten_server = {guild.id}"
         cursor.execute(select_query)
         result = cursor.fetchall()
@@ -582,6 +654,7 @@ async def on_slash_command(ctx: SlashContext):
             cursor.execute(insert_data_query, new_data)
     connection.commit()
     connection.close()
+    await ctx.send('Đã làm mới cơ sở dữ liệu phương thức tạo')
 
 
 bot.start(Token)

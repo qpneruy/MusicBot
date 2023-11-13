@@ -27,7 +27,7 @@ class VideoInfo:
     def __init__(self):
         self.tokenA = os.getenv('YOUTUBE_API_KEY_1')
         self.tokenB = os.getenv('YOUTUBE_API_KEY_2')
-        self.api_key = self.tokenB
+        self.api_key = self.tokenA
         self.search_id = ''
         self.searchvid_url = 'https://www.googleapis.com/youtube/v3/search'
         self.searchppl_url = 'https://www.googleapis.com/youtube/v3/playlistItems'
@@ -82,8 +82,8 @@ class VideoInfo:
             data = direct_url
         else:
             data = youtube_dl.extract_info(url, download=False)
-        # with open('data.json', "w") as f:
-        #     json.dump(data, f)
+        with open('json/data.json', "w") as f:
+            json.dump(data, f)
         channel_id = data['channel_id']
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
