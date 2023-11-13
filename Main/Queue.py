@@ -21,6 +21,7 @@ class NaffQueue:
         self.__song_link__ = []
         self._current_task = None
         self.loopstate = False
+        self.curr_index = 0
 
     def __len__(self) -> int:
         return len(self._entries)
@@ -100,10 +101,10 @@ class NaffQueue:
             embed.set_author('💿 Đang chơi')
             nut = self.__song_link__.pop()
             await self.voice_state.channel.send(embed=embed)
-            await self.voice_state.channel.send(components=nut)
+            await self.voice_state.channel.send(components=nut, silent=True)
             await self.voice_state.play(audio_d)
 
-    async def _stop(self) -> None:
+    async def stop(self) -> None:
         await self.voice_state.stop()
 
     async def __call__(self) -> None:
@@ -113,17 +114,19 @@ class NaffQueue:
         asyncio.create_task(self())
 
 
+# Chuẩn hóa thời lượng
 def convert_seconds_to_hms(seconds):
     hours, remainder = divmod(seconds, 3600)
     minutes, seconds = divmod(remainder, 60)
     return f"{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}"
 
 
+# Quản lý các lớp NaffQueue thuộc mỗi ctx.guild.id
 class NaffQueueManager:
     _queues = {}
 
     @classmethod
-    def get_queue(cls, server_id, voice_state=None):
+    def get_queue(cls, server_id, voice_state: ActiveVoiceState):
         if server_id not in cls._queues:
             cls._queues[server_id] = NaffQueue(voice_state)
         return cls._queues[server_id]

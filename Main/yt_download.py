@@ -62,6 +62,7 @@ class AudioYT(AudioVolume):
         new_cls.entry = data
         return new_cls
 
+    # Không sử dụng
     @classmethod
     async def ppl_get(cls, url: str | None = None, ytdl: YoutubeDL | None = None) -> list:
         __song_list__: [] = []
@@ -75,11 +76,11 @@ class AudioYT(AudioVolume):
             return []
         if "entries" in data:
             for items in data["entries"]:
-                #__song_list__.insert(0, f'https://www.youtube.com/watch?v={items["id"]}')
                 __song_list__.insert(0, items)
 
         return __song_list__
 
+    # Không sử dụng
     @classmethod
     async def from_url(cls, url: str) -> "AudioYT":
         data = await asyncio.to_thread(
@@ -91,14 +92,13 @@ class AudioYT(AudioVolume):
         )
         new_cls.entry = data
         return new_cls
+
     @classmethod
-    def create_new_cls(url, entry_data):
-        new_cls = url(entry_data['url'])
+    def create_new_cls(cls, entry_data):
+        new_cls = cls(entry_data['url'])
         new_cls.ffmpeg_before_args = "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
         new_cls.entry = entry_data
         return new_cls
-
-    # Sử dụng hàm để tạo đối tượng mới
 
     @classmethod
     async def ppl_info(cls, url: str, ytdl: YoutubeDL | None = None) -> dict:
@@ -117,15 +117,19 @@ class AudioYT(AudioVolume):
             _ppl_inf_["uploader"] = "The playlist is currently Private"
             _ppl_inf_["playlist_count"] = "The playlist is currently Private"
             return _ppl_inf_
-        _ppl_inf_["title"] = data["title"]
-        _ppl_inf_["availability"] = data["availability"]
-        _ppl_inf_["thumbnails"] = data["thumbnails"][3]["url"]
-        _ppl_inf_["view_count"] = data["view_count"]
-        _ppl_inf_["uploader"] = data["uploader"]
-        _ppl_inf_["playlist_count"] = data["playlist_count"]
-        return _ppl_inf_
+        try:
+            _ppl_inf_["title"] = data["title"]
+            _ppl_inf_["availability"] = data["availability"]
+            _ppl_inf_["thumbnails"] = data["thumbnails"][3]["url"]
+            _ppl_inf_["view_count"] = data["view_count"]
+            _ppl_inf_["uploader"] = data["uploader"]
+            _ppl_inf_["playlist_count"] = data["playlist_count"]
+            return _ppl_inf_
+        except None:
+            return {}
 
 
+# Class này Không sử dụng
 class YTAudio(AudioVolume):
     def __init__(self, src: str) -> None:
         super().__init__(src)

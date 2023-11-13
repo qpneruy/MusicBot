@@ -1,0 +1,5 @@
+[13:49:20] [DEBUG]  >> Bot Da Hoat dong! Ten: qpneruy
+[13:49:21] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[13:49:34] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[13:49:40] [DEBUG] [</Джихё> DEV2]::</Джихё>] >skip 
+
