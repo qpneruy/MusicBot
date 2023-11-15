@@ -4,6 +4,7 @@ import time
 import requests
 import datetime as dt
 import interactions
+from interactions.api.voice.audio import AudioVolume
 from interactions import SlashContext, listen, slash_command, Embed, OptionType, slash_option, \
     ButtonStyle, ActionRow, Button, ActiveVoiceState
 from interactions.models.discord import user
@@ -19,7 +20,7 @@ import datetime
 import openai
 import json
 import video_info
-import mysql.connector
+import aiohttp
 import pymysql
 
 cfg_playlist = YoutubeDL(
@@ -65,16 +66,136 @@ Token = os.getenv("Discord_Token_Bot_A")
 # bot = interactions.Client()
 startup = dt.datetime.utcnow()
 
-
 bot = interactions.Client(
     intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False)
 
-
-# Lắng nghe sự kiện cho tin nhắn thuộc về AI
 # @interactions.listen()
 # async def on_message_create(event: MessageCreate):
-#     print(event.message.channel.id)
-#     print(event.message.content)
+#     if event.message.author.id != event.message.bot.user.id:
+#         async with aiohttp.ClientSession() as session:
+#             # Sử dụng connection pooling
+#             with pymysql.connect(host=host, user='root', password=password, database=database) as connect_thread:
+#                 # Sử dụng context manager để đảm bảo tài nguyên được giải phóng
+#                 with connect_thread.cursor() as cnx:
+#                     # Sử dụng parameterized query để tránh SQL injection
+#                     query = "SELECT CAST(word_connect_id AS SIGNED) FROM server_data"
+#                     cnx.execute(query)
+#                     res = cnx.fetchall()
+#                     res_values = [item[0] for item in res]
+#
+#                     if event.message.channel.id in res_values:
+#                         msg = event.message.content
+#
+#                         # Sử dụng parameterized query
+#                         query = "SELECT current_word FROM server_data WHERE ten_server = %s"
+#                         cnx.execute(query, (event.message.author.guild.id,))
+#                         current = cnx.fetchone()
+#                         current = current[0]
+#
+#                         if ' ' not in msg:
+#                             async with session.get(
+#                                     f"https://api.dictionaryapi.dev/api/v2/entries/en/{msg}") as response:
+#                                 data = await response.json()
+#
+#                             if "title" not in data:
+#                                 last_digit = msg[0]
+#                                 begin_digit = current[len(current) - 1]
+#                                 if (last_digit == begin_digit) or (current == 'NULL'):
+#                                     # Sử dụng parameterized query
+#                                     query = "UPDATE server_data SET current_word = %s WHERE ten_server = %s"
+#                                     cnx.execute(query, (msg, event.message.author.guild.id))
+#                                     connect_thread.commit()
+#                                     await event.message.add_reaction('✅')
+#                                 else:
+#                                     await event.message.add_reaction('❌')
+#                                     await event.message.channel.send(f"Chữ cái phải bắt đầu bằng ký tự '{begin_digit}'")
+#                             else:
+#                                 await event.message.add_reaction('❌')
+#                         else:
+#                             await event.message.add_reaction('❌')
+
+model_data = {
+    "history": {
+        "word_list": [],
+        "previous_user": "None",
+    },
+    "current": "None",
+}
+
+
+@listen()
+async def on_message(event: MessageCreate):
+    if event.message.author.id == event.bot.user.id:
+        return
+    async with aiohttp.ClientSession() as session:
+        with pymysql.connect(host=host, user='root', password=password, database=database) as connect_thread:
+            with connect_thread.cursor() as cnx:
+                query = "SELECT CAST(word_connect_id AS SIGNED) FROM server_data WHERE ten_server = %s"
+                cnx.execute(query, (event.message.author.guild.id,))
+                data = cnx.fetchone()
+                data = data[0] if data else None
+                # Kiễm tra id channel | kiểm tra có tồn tại từ hay không
+                if data != event.message.channel.id:
+                    return
+        user_word = event.message.content
+        user_word = user_word.lower()
+        async with session.get(
+                f"https://api.dictionaryapi.dev/api/v2/entries/en/{user_word}") as response:
+            api_data = await response.json()
+        if ("title" in api_data) or (' ' in user_word):
+            await event.message.add_reaction('❌')
+            await event.message.channel.send(f"Từ `{user_word}` Không Tồn tại trong từ điển của bot")
+            return
+        """---------------------------------------------------------------------------"""
+        # load dữ liệu từ file data thuộc mỗi ctx.guild.id
+        with open(f"json/word_data_sv_{event.message.author.guild.id}", "r") as datafile:
+            data = json.load(datafile)
+        previous_word = data["current"]
+        """---------------------------------------------------------------------------"""
+        # kiểm tra người nối từ hiện tại đã nối từ trước đó hay không
+        # if data["history"]["previous_user"] == event.message.author.id:
+        #     await event.message.channel.send("Bạn đã nối từ trước đó rồi")
+        #     await event.message.add_reaction('❌')
+        #     return
+        """---------------------------------------------------------------------------"""
+        # kiểm tra xem từ đã được nối trước đó hay chưa
+        if user_word in data["history"]["word_list"]:
+            await event.message.channel.send(f"Từ `{user_word}` Đã có người nối trước")
+            await event.message.add_reaction('❌')
+            return
+        """---------------------------------------------------------------------------"""
+        # kiểm tra xem ký tự cuối của chữ này có bằng ký tự đầu của chữ kia không
+        # Đồng thời nếu thỏa mãn thì lưu dữ liệu lại
+        if user_word[0] == previous_word[len(previous_word) - 1] or previous_word == "None":
+            await event.message.add_reaction('✅')
+            data["current"] = user_word
+            data["history"]["word_list"].append(user_word)
+            data["history"]["previous_user"] = event.message.author.id
+            with open(f"json/word_data_sv_{event.message.author.guild.id}", "w") as datafile:
+                json.dump(data, datafile, indent=4)
+        else:
+            await event.message.channel.send(
+                f"Từ `{user_word}` Không bắt đầu bằng ký tự `{previous_word[len(previous_word) - 1]}`")
+            await event.message.add_reaction('❌')
+
+
+@slash_command(name="reset_noi_chu", description="Xóa dữ liệu")
+async def _reset(ctx: SlashContext):
+    global model_data
+    with open(f"json/word_data_sv_{ctx.guild.id}", "w") as datafile:
+        json.dump(model_data, datafile, indent=4)
+    await ctx.send(f"↩️ Đã reset nối chữ")
+
+
+@slash_command(name="word_setup", description="Đặt kênh nối chữ")
+@slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
+async def _world_setup(ctx: SlashContext, channel: OptionType.CHANNEL):
+    global model_data
+    with open(f'json/word_data_sv_{ctx.guild.id}', 'w') as f:
+        json.dump(model_data, f, indent=4)
+    await ctx.send(f'Đã Đặt kênh {channel.name} thành kênh nối chữ')
+    ctx = channel
+    await ctx.send('✅ Bắt đầu chơi')
 
 
 @listen(Startup)
@@ -104,12 +225,12 @@ start_time = 0.0
 @slash_command(name="about", description="Trạng Thái Bot")
 async def _about(ctx: SlashContext):
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ABOUT")
-    embed2 = Embed(
+    embed = Embed(
         title="-------BOT STATUS-------",
         description="ㅤ",
         color=0x00BAFF,
     )
-    buttn = ActionRow(
+    button = ActionRow(
         Button(
             style=ButtonStyle.URL,
             label="github.com",
@@ -119,13 +240,13 @@ async def _about(ctx: SlashContext):
 
     cacl = dt.datetime.utcnow()
     connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
-    embed2.add_field(name="🏠LOCALHOST PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
-    embed2.add_field(name="🟢UPTIME", value=f"{cacl - startup}", inline=True)
-    embed2.add_field(name="🤖API OPEN AI", value=f'{end_time - start_time} Giây')
-    embed2.add_field(name="🗃️DATABASE PING", value=f'{connect_thread.ping()} ms')
-    embed2.add_field(name="⚓CONNECT:", value=f'{connect_thread.get_host_info()}')
-    embed2.add_field(name="Author: ", value="qpneruy (TinhDev061)")
-    await ctx.send(embeds=embed2, components=buttn)
+    embed.add_field(name="🏠LOCALHOST PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
+    embed.add_field(name="🟢UPTIME", value=f"{cacl - startup}", inline=True)
+    embed.add_field(name="🤖API OPEN AI", value=f'{end_time - start_time} Giây')
+    embed.add_field(name="🗃️DATABASE PING", value=f'{connect_thread.ping()} ms')
+    embed.add_field(name="⚓CONNECT:", value=f'{connect_thread.get_host_info()}')
+    embed.add_field(name="Author: ", value="qpneruy (TinhDev061)")
+    await ctx.send(embeds=embed, components=button)
 
 
 @slash_command(name="askbard", description="Hỏi Palm 1 câu hỏi")
@@ -290,12 +411,13 @@ def get_music_queue(ctx) -> NaffQueue:
 
 
 @slash_command(name="play", description="chơi nhạc")
-@interactions.slash_option("song", "Đường dẫn nhạc & Tên bài hát", 3, True)
+@interactions.slash_option("song", "Đường dẫn danh sách hoặc video & Tên bài hát", 3, True)
 async def play(ctx: SlashContext, song: str):
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > PLAY ")
     global videoinfo
     global hang2, hang1, api_key
     User_inVoice = True
+
     await ctx.defer()
     # Thực hiện chuẩn hóa kết nối | Nghĩa là bot có thể tham gia được kênh thoại hiện tại
     if not ctx.voice_state:
@@ -308,12 +430,19 @@ async def play(ctx: SlashContext, song: str):
             await ctx.send('Bạn phải ở trong 1 kênh thoại', ephemeral=True)
             logger.debug(f'User {ctx.user.display_name} is not in voice channel')
             User_inVoice = False
+    # music = get_music_queue(ctx)
+    # music.put_first(audio)
+    # music.start()
     if User_inVoice:
         # Nếu Người dùng ctx Hiện tại đang kết nối với kênh thoại | nghĩa là có thể chuẩn hóa
         if "https://www.youtube.com/playlist?list=" in song:
             # Nếu đầu vào là một playlist
+
             list_url = []
-            data = cfg_playlist.extract_info(song, download=False)
+            data = await asyncio.to_thread(
+                lambda: cfg_playlist.extract_info(song, download=False)
+            )
+            print('d,d,,d,d,d,d,đ,d')
             if "entries" in data:
                 for items in data["entries"]:
                     list_url.insert(0, items)
@@ -322,21 +451,21 @@ async def play(ctx: SlashContext, song: str):
             else:
                 # Nếu playlist tồn tại | Được định nghĩa là list_url có url
                 music_queues = get_music_queue(ctx)
-                ppl_info = await AudioYT.ppl_info(song)
+                ppl_info = await AudioYT.ppl_info(direct_data=data)
                 while True:
                     try:
                         link = list_url.pop()
                     except IndexError:
                         break
-                    avatar_url = videoinfo.get_uploader_avt('None', link)
+                    avatar_url = videoinfo.get_uploader_avt(direct_url=link)
                     audio = AudioYT.create_new_cls(link)
-                    music_queues.put(audio, avatar_url)
+                    await music_queues.put(audio, avatar_url)
                 embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],
                                       ppl_info["playlist_count"])
                 if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
                     embed.set_author('📀 Đang Chơi')
                 await ctx.send(embeds=embed)
-                await ctx.send(components=[hang1, hang2], silent=True)
+                await ctx.send(components=[hang1, hang2])
                 vol_refresh(ctx)
         else:
             # Đầu vào là một type thuộc Video
@@ -345,7 +474,7 @@ async def play(ctx: SlashContext, song: str):
                 music_queues = get_music_queue(ctx)
                 audio = await AudioYT.get_audio(song)
                 avatar_url = get_avt_audio(audio)
-                music_queues.put(audio, avatar_url)
+                await music_queues.put(audio, avatar_url)
                 embed = music_queues.__song_list__[0]
                 embed.set_author('➕ Đã Thêm Vào hàng đợi')
                 await ctx.send(embed=embed)
@@ -355,10 +484,10 @@ async def play(ctx: SlashContext, song: str):
                 videoinfo = video_info.VideoInfo()
                 audio = await AudioYT.get_audio(song)
                 avatar_url = get_avt_audio(audio)
-                music_queues.put(audio, avatar_url)
+                await music_queues.put(audio, avatar_url)
                 embed = music_queues.__song_list__[0]
                 embed.set_author('📀 Đang Chơi Nhạc')
-                await ctx.send(embeds=embed, components=[hang1, hang2])
+                await ctx.send(embeds=embed, components=[hang1, hang2], )
                 vol_refresh(ctx)
     # Khởi đồng luồng chung | not nếu trường hợp bot không sẵn sàng > Bận nhạc
     if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
@@ -388,25 +517,26 @@ async def on_component(event: Component):
             await _voldown(ctx)
         case "skip_button":
             await _skip(ctx)
-        case "loop_button":
-            await _loop(ctx)
+#         case "loop_button":
+#             await _shuffle(ctx)
+#
+#
+# async def _shuffle(ctx: SlashContext):
+#     music_player = get_music_queue(ctx)
+#     logger.debug(f"[{ctx.guild.name}]::{ctx.user.display_name}] >skip \n")
+#     music_player.shuffle()
+#     await ctx.send('Đã trộn danh sách phát', ephemeral=True)
 
 
 @slash_command(name="skip", description="Bỏ qua nhạc")
-async def _skip(self: SlashContext):
-    current_channel = self.voice_state.channel.voice_state
-    server_id = self.guild.id
-    music_queues = NaffQueueManager.get_queue(server_id, current_channel)
-    logger.debug(f"[{self.guild.name}]::{self.user.display_name}] >skip \n")
-    await music_queues.stop()
-    # next_item = music_queues.peek()
-    # if next_item is not None:
-    #     music_queues.start()
-    #     await player.stop()
-    #     await self.send('Đã skip', ephemeral=True)
-    #     await self.voice_state.wait_for_stopped()
-    # else:
-    #     await self.send("Hết nhạc trong hàng đợi", ephemeral=True)
+async def _skip(ctx: SlashContext):
+    music_player = get_music_queue(ctx)
+    logger.debug(f"[{ctx.guild.name}]::{ctx.user.display_name}] >skip \n")
+    if music_player.peek() is not None:
+        await music_player.stop()
+        await ctx.send('Đã skip', ephemeral=True)
+    else:
+        await ctx.send("Hết nhạc trong hàng đợi", ephemeral=True)
 
 
 @slash_command(name="stop", description="Dừng Nhạc")
@@ -422,9 +552,9 @@ async def _stop(ctx):
 
 @slash_command(name="resume", description="Tiếp tục nhạc")
 async def _resume(ctx):
+    music_player = get_music_queue(ctx)
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >resume \n")
-    player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    player.resume()
+    await music_player.resume()
     if ctx.voice_state.channel.voice_state.playing is not True:
         await ctx.send('Đã tiếp tục', ephemeral=True)
     else:
@@ -433,12 +563,12 @@ async def _resume(ctx):
 
 @slash_command(name="pause", description="tạm dừng nhạc")
 async def _pause(ctx):
+    music_player = get_music_queue(ctx)
     logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: >pause \n")
     if ctx.voice_state.channel.voice_state.playing is not True:
         await ctx.send("Đang không phát nhạc")
     else:
-        player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-        player.pause()
+        await music_player.pause()
         await ctx.send('Đã tạm dừng', ephemeral=True)
 
 
@@ -505,6 +635,7 @@ async def get_remaining_members(current_channel):
 
 @listen(VoiceUserJoin)
 async def __join(vs: VoiceUserJoin):
+    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
     try:
         with connect_thread.cursor() as cursor:
             select_query = f"SELECT CAST(voice_id AS SIGNED) FROM server_data WHERE ten_server = '{vs.author.guild.id}'"
@@ -513,7 +644,7 @@ async def __join(vs: VoiceUserJoin):
             if result:
                 if vs.channel.id == result[0]:
                     channel_d = await vs.channel.guild.create_voice_channel(f"Kênh {vs.author.display_name}")
-                    channel_id = channel_d.id  # thêm last_channel vô để xóa kênh
+                    channel_id = channel_d.id
                     query = f"INSERT INTO server_{vs.author.guild.id}(active_channel) VALUES ({channel_id}) "
                     cursor.execute(query)
                     connect_thread.commit()
@@ -527,6 +658,8 @@ async def __join(vs: VoiceUserJoin):
 
 @listen(VoiceUserLeave)
 async def __leave(vs: VoiceUserLeave):
+    if vs.author.display_name == vs.bot.user.display_name:
+        await vs.bot.connect_to_vc(channel_id=vs.channel.id)
     conect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
     cnx = conect_thread.cursor()
     query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
@@ -535,8 +668,6 @@ async def __leave(vs: VoiceUserLeave):
     res_values = [item[0] for item in res]
     if vs.channel.id in res_values:
         await vs.channel.delete()
-    if len(vs.channel.members) < 2:
-        await vs.bot.get_bot_voice_state(vs.before.guild).disconnect()
     query = f"DELETE FROM server_{vs.author.guild.id} WHERE active_channel = {vs.channel.id}"
     cnx.execute(query)
     conect_thread.commit()
@@ -608,7 +739,6 @@ async def dbv2_command(ctx: SlashContext):
             query = f"DROP TABLE {table_name}"
             if table_name != 'server_data':
                 cursor.execute(query)
-
     conect_thread.commit()
     conect_thread.close()
     await ctx.send('Đã làm mới cơ sở dữ liệu phương thức xóa')

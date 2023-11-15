@@ -1,0 +1,11 @@
+[16:00:55] [DEBUG]  >> Bot Da Hoat dong! Ten: qpneruy
+[16:01:03] [DEBUG] [</Джихё> DEV]::[DieuLinh]: > PLAY 
+[16:01:08] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[16:01:27] [DEBUG] [</Джихё> DEV2]::</Джихё>] >skip 
+
+[16:01:33] [DEBUG] [</Джихё> DEV]::DieuLinh] >skip 
+
+[16:01:55] [DEBUG] [</Джихё> DEV]::[DieuLinh]: > PLAY 
+[16:01:59] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[16:02:41] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[16:02:46] [DEBUG] [</Джихё> DEV]::[DieuLinh]: > PLAY 

@@ -1,0 +1,12 @@
+[11:57:29] [DEBUG]  >> Bot Da Hoat dong! Ten: qpneruy
+[11:57:39] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > PLAY 
+[12:03:57] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: how can i shuffle an array list or an deque
+[12:05:11] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: how can i shuffle an array list or an deque. the answer must lower than 2000 char
+[12:05:16] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ENBARD: 
+[12:05:20] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: how can i shuffle an array list or an deque. the answer must lower than 2000 char
+[12:05:25] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ENBARD: 
+[12:05:49] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: hello
+[12:06:06] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: how can i shuffle an array list or an deque. the answer must lower than 2000 char
+[12:06:11] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ENBARD: 
+[12:06:26] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ASKBARD: how can i shuffle an array list or an deque in python. the answer must lower than 2000 char
+[12:06:31] [DEBUG] [</Джихё> DEV2]::[</Джихё>]: > ENBARD: 

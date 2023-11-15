@@ -82,15 +82,11 @@ class VideoInfo:
             data = direct_url
         else:
             data = youtube_dl.extract_info(url, download=False)
-        with open('json/data.json', "w") as f:
-            json.dump(data, f)
         channel_id = data['channel_id']
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
         if channel_response.status_code == 200:
             channel_data = channel_response.json()
-            with open('json/channel_data.json', "w") as f:
-                json.dump(channel_data, f)
             avatar_url = channel_data['items'][0]['snippet']['thumbnails']['default']['url']
             return avatar_url
         else:

@@ -62,6 +62,13 @@ class AudioYT(AudioVolume):
         new_cls.entry = data
         return new_cls
 
+    @classmethod
+    async def get_extra_info_async(cls, url: str):
+        data = await asyncio.to_thread(
+            lambda: cfg_playlist.extract_info(url, download=False)
+        )
+        return data
+
     # Không sử dụng
     @classmethod
     async def ppl_get(cls, url: str | None = None, ytdl: YoutubeDL | None = None) -> list:
@@ -76,6 +83,7 @@ class AudioYT(AudioVolume):
             return []
         if "entries" in data:
             for items in data["entries"]:
+                items = cls.create_new_cls(items)
                 __song_list__.insert(0, items)
 
         return __song_list__
@@ -101,22 +109,25 @@ class AudioYT(AudioVolume):
         return new_cls
 
     @classmethod
-    async def ppl_info(cls, url: str, ytdl: YoutubeDL | None = None) -> dict:
+    async def ppl_info(cls, url: str | None = None, direct_data: dict = None, ytdl: YoutubeDL | None = None) -> dict:
         _ppl_inf_: dict = {}
-        if not ytdl:
-            ytdl = cfg_playlist
-        try:
-            data = await asyncio.to_thread(
-                lambda: ytdl.extract_info(url, download=False)
-            )
-        except yt_dlp.DownloadError:
-            _ppl_inf_["title"] = "The playlist is currently Private"
-            _ppl_inf_["availability"] = "private"
-            _ppl_inf_["thumbnails"] = "The playlist is currently Private"
-            _ppl_inf_["view_count"] = "The playlist is currently Private"
-            _ppl_inf_["uploader"] = "The playlist is currently Private"
-            _ppl_inf_["playlist_count"] = "The playlist is currently Private"
-            return _ppl_inf_
+        if direct_data is not None:
+            data = direct_data
+        else:
+            if ytdl is not None:
+                ytdl = cfg_playlist
+            try:
+                data = await asyncio.to_thread(
+                    lambda: ytdl.extract_info(url, download=False)
+                )
+            except yt_dlp.DownloadError:
+                _ppl_inf_["title"] = "The playlist is currently Private"
+                _ppl_inf_["availability"] = "private"
+                _ppl_inf_["thumbnails"] = "The playlist is currently Private"
+                _ppl_inf_["view_count"] = "The playlist is currently Private"
+                _ppl_inf_["uploader"] = "The playlist is currently Private"
+                _ppl_inf_["playlist_count"] = "The playlist is currently Private"
+                return _ppl_inf_
         try:
             _ppl_inf_["title"] = data["title"]
             _ppl_inf_["availability"] = data["availability"]
@@ -149,7 +160,7 @@ class YTAudio(AudioVolume):
         new_cls = cls(filename)
         if stream:
             new_cls.ffmpeg_before_args = (
-                "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
+                "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 10"
             )
         new_cls.entry = data
         return new_cls

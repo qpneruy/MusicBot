@@ -35,7 +35,7 @@ class NaffQueue:
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
+    async def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
         title = audio_d.entry['title']
         thumbnail = audio_d.entry['thumbnail']
         uploader = audio_d.entry['uploader']
@@ -50,10 +50,17 @@ class NaffQueue:
         embed.add_field(name="Tải lên bởi:  ", value=f"{uploader}", inline=True)
         embed.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
         embed.set_thumbnail(url=avatar_url)
-        nut = Button(
-            style=ButtonStyle.LINK,
-            label="Link",
-            url=f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
+        nut = ActionRow(
+            Button(
+                style=ButtonStyle.LINK,
+                label="Link",
+                url=f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
+            ),
+            Button(
+                custom_id="skip_button",
+                style=ButtonStyle.GREY,
+                label="⏭️ Tiếp theo",
+            )
         )
         self.__song_link__.insert(0, nut)
         self.__song_list__.insert(0, embed)
@@ -78,7 +85,20 @@ class NaffQueue:
         return self._entries.popleft()
 
     def shuffle(self) -> None:
-        random.shuffle(self._entries)
+        indices = random.sample(range(len(self._entries)), len(self._entries))
+
+        shuffled_entries = deque(self._entries[i] for i in indices)
+        shuffled_song_list = [self.__song_list__[i] for i in indices]
+        shuffled_song_link = [self.__song_link__[i] for i in indices]
+
+        self._entries = shuffled_entries
+        self.__song_list__ = shuffled_song_list
+        self.__song_link__ = shuffled_song_link
+
+        print('After')
+        print(self._entries)
+        print(self.__song_link__)
+        print(self.__song_list__)
 
     def clear(self) -> None:
         self._entries.clear()
@@ -97,6 +117,7 @@ class NaffQueue:
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
             audio_d = await self.pop()
+
             embed = self.__song_list__.pop()
             embed.set_author('💿 Đang chơi')
             nut = self.__song_link__.pop()
@@ -106,6 +127,12 @@ class NaffQueue:
 
     async def stop(self) -> None:
         await self.voice_state.stop()
+
+    async def resume(self) -> None:
+        self.voice_state.resume()
+
+    async def pause(self) -> None:
+        self.voice_state.pause()
 
     async def __call__(self) -> None:
         await self.__playback_queue()
