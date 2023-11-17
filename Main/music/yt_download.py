@@ -53,8 +53,6 @@ class AudioYT(AudioVolume):
         )
         if "entries" in data:
             data = data["entries"][0]
-        with open('data1.json', "w") as f:
-            json.dump(data, f)
         new_cls = cls(data["url"])
         new_cls.ffmpeg_before_args = (
             "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
