@@ -1,22 +1,21 @@
 import os
 import base64
 import os
-
+import asyncio
 import interactions
 import requests
 from easy_pil import Editor, load_image_async
-from interactions import SlashContext, slash_command, slash_option
+from interactions import SlashContext, slash_command, slash_option, AutocompleteContext, OptionType
 from interactions.api.events import MessageCreate
 from interactions.api.voice.audio import AudioVolume
-from nextcord import Intents
-from nextcord.ext.commands import Bot
+
+# from nextcord import Intents
+# from nextcord.ext.commands import Bot
 
 Token = os.getenv("Discord_Token_bot_B")
 bot = interactions.Client(
     intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False
 )
-
-bot1 = Bot(command_prefix='!', intents=Intents.all())
 
 
 @interactions.listen()
@@ -42,9 +41,12 @@ async def on_message(event: MessageCreate):
         audio.ffmpeg_before_args = (
             "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
         )
-
+        print(audio)
+        print("Ch")
         await event.message.add_reaction('✅')
+        print("Ch")
         await event.message.author.voice.channel.voice_state.play(audio)
+        print("Ch")
 
 
 @slash_command(name="speak", description="Bot nói")
@@ -68,37 +70,24 @@ async def _speak(ctx: SlashContext, content: str):
     audio.ffmpeg_before_args = (
         "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
     )
+    print("Ch")
     await ctx.message.add_reaction('✅')
+    print(audio)
+    print("Ch")
     await ctx.voice_state.play(audio)
 
 
-def convert_image_to_rgb(image):
-    if image.mode == "RGBA":
-        rgb_image = image.convert("RGB")
-        return rgb_image
-    else:
-        return image
+@interactions.slash_command("record", description="record some audio")
+async def record(ctx: interactions.SlashContext):
+    voice_state = await ctx.author.voice.channel.connect()
 
+    # Start recording
+    await voice_state.start_recording(output_dir="data")
+    await asyncio.sleep(10)
+    await voice_state.stop_recording()
+    # await ctx.send(files=[interactions.File(file, file_name="user_id.mp3") for user_id, file in
+    #                       voice_state.recorder.output.items()])
 
-@slash_command(name="circle", description="Bot nói")
-async def _circle(ctx: SlashContext):
-    # Load the image using `load_image_async` method
-    image = await load_image_async(ctx.author.avatar_url)
-
-    # Convert the image to RGB mode
-    rgb_image = convert_image_to_rgb(image)
-
-    # Initialize the editor and pass image as a parameter
-    editor = Editor(rgb_image).circle_image()
-    image_data = image.tobytes()
-    encoded_image_data = base64.b64encode(image_data)
-    # Creating nextcord.File object from image_bytes from editor
-    # file = interactions.open_file(editor.image_bytes)
-
-    await ctx.send(encoded_image_data)
-
-
-# bot1.run(Token)
 
 # Start the bot
 bot.start(Token)

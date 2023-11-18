@@ -1,7 +1,31 @@
 {
+    "channel_id": 1173583071770058783,
     "history": {
-        "word_list": [],
-        "previous_user": "None"
+        "word_list": [
+            "hello",
+            "oh",
+            "high",
+            "ho",
+            "ok",
+            "kali",
+            "io",
+            "op",
+            "persist",
+            "ton",
+            "non",
+            "nonrenewable",
+            "energy",
+            "younger",
+            "round",
+            "dick",
+            "ken",
+            "nah",
+            "highest",
+            "tetra",
+            "apple",
+            "emotion"
+        ],
+        "previous_user": 610841389164396565
     },
-    "current": "None"
+    "current": "emotion"
 }

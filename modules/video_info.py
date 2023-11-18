@@ -1,10 +1,8 @@
 import os
 import requests
 import string
-import json
-import yt_dlp
 from yt_dlp import YoutubeDL
-from yt_download import AudioYT
+
 
 youtube_dl = YoutubeDL(
     {

@@ -1,0 +1,364 @@
+[14:35:45] [DEBUG] Running client sanity checks...
+[14:35:47] [DEBUG] No setup function found in play
+[14:35:47] [DEBUG] Found extension class Music in play: Attempting to load
+[14:35:47] [DEBUG] Added callback: Music._menu
+[14:35:47] [DEBUG] Added callback: Music._pause
+[14:35:47] [DEBUG] Added callback: Music._resume
+[14:35:47] [DEBUG] Added callback: Music._skip
+[14:35:47] [DEBUG] Added callback: Music._stop
+[14:35:47] [DEBUG] Added callback: Music.play
+[14:35:47] [DEBUG] Loaded Extension: play
+[14:35:47] [DEBUG] No setup function found in askgpt
+[14:35:47] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:35:47] [DEBUG] Added callback: Gpt._askgpt
+[14:35:47] [DEBUG] Added callback: Gpt._img
+[14:35:47] [DEBUG] Loaded Extension: askgpt
+[14:35:48] [DEBUG] No setup function found in askbard
+[14:35:48] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:35:48] [DEBUG] Added callback: Bard._askbard
+[14:35:48] [DEBUG] Added callback: Bard._endbard
+[14:35:48] [DEBUG] Loaded Extension: askbard
+[14:35:48] [DEBUG] No setup function found in noi_chu
+[14:35:48] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:35:48] [DEBUG] Added callback: NoiChu._reset
+[14:35:48] [DEBUG] Added callback: NoiChu._world_setup
+[14:35:48] [DEBUG] Loaded Extension: noi_chu
+[14:35:48] [DEBUG] Added callback: __join
+[14:35:48] [DEBUG] Added callback: __leave
+[14:35:48] [DEBUG] Added callback: _about
+[14:35:48] [DEBUG] Added callback: _help
+[14:35:48] [DEBUG] Added callback: _refresh
+[14:35:48] [DEBUG] Added callback: _setup
+[14:35:48] [DEBUG] Added callback: _starup
+[14:35:48] [DEBUG] Added callback: dbv1_command
+[14:35:48] [DEBUG] Added callback: dbv2_command
+[14:35:48] [DEBUG] 9 callbacks have been loaded from __main__.
+[14:35:48] [DEBUG] Added callback: _disconnect
+[14:35:48] [DEBUG] Added callback: _on_websocket_ready
+[14:35:48] [DEBUG] Added callback: on_autocomplete_completion
+[14:35:48] [DEBUG] Added callback: on_autocomplete_error
+[14:35:48] [DEBUG] Added callback: on_command_completion
+[14:35:48] [DEBUG] Added callback: on_command_error
+[14:35:48] [DEBUG] Added callback: on_component_completion
+[14:35:48] [DEBUG] Added callback: on_component_error
+[14:35:48] [DEBUG] Added callback: on_error
+[14:35:48] [DEBUG] Added callback: on_modal_completion
+[14:35:48] [DEBUG] Added callback: on_modal_error
+[14:35:48] [DEBUG] Added callback: on_resume
+[14:35:48] [DEBUG] 12 callbacks have been loaded from Client.
+[14:35:48] [DEBUG] Attempting to login
+[14:35:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:35:48] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[14:35:49] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:35:49] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[14:35:49] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:35:49] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[14:35:49] [INFO] Shard ID 0 | Starting Shard
+[14:35:49] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[14:35:49] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[14:35:49] [INFO] Shard ID 0 | Gateway connection established
+[14:35:49] [DEBUG] Shard ID 0 | Session ID: 787b8ab3105ce4b41cb2fa15fe1b0334 Trace: ['["gateway-prd-us-east1-d-22wd",{"micros":80395,"calls":["id_created",{"micros":1181,"calls":[]},"session_lookup_time",{"micros":7618,"calls":[]},"session_lookup_finished",{"micros":18,"calls":[]},"discord-sessions-prd-2-3",{"micros":71153,"calls":["start_session",{"micros":42613,"calls":["discord-api-6c89db896f-r9rgm",{"micros":37849,"calls":["get_user",{"micros":7004},"get_guilds",{"micros":4059},"send_scheduled_deletion_message",{"micros":9},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":75,"calls":[]},"presence_started",{"micros":9372,"calls":[]},"guilds_started",{"micros":176,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":18880,"calls":[]},"connect_finished",{"micros":18887,"calls":[]},"build_ready",{"micros":25,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[14:35:49] [DEBUG] Dispatching Event: websocket_ready
+[14:35:50] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:35:50] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:35:50] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:35:50] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:35:50] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:35:50] [DEBUG] Sync of 1 scopes took 0.6082415000000765 seconds
+[14:35:50] [DEBUG] Dispatching Event: startup
+[14:35:50] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700292950327, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[14:35:56] [DEBUG] Dispatching Event: message_create
+[14:35:56] [DEBUG] Dispatching Event: error
+[14:35:56] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\Main\music\noi_chu.py", line 42, in on_message
+    temp_data = json.load(f)
+                ^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+[14:36:08] [DEBUG] Sending heartbeat every 41.25 seconds
+[14:36:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[14:36:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:36:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:36:17] [DEBUG] 1174695146214928495::word_setup should be called
+[14:36:17] [DEBUG] Dispatching Event: message_create
+[14:36:18] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[14:36:18] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTMzODY3ODgxNDUxOTMwNjpxTzhTVENmYzFqemM4Z09ORDJsdFRqSVJjNzJibEN0RWlxMmtXY0lNQ1ZZeU1CNGVRWGtLWVBwcFI3eWtFUU5vdnE1OE03Z1RsazBOa0tITEJJbUV2akFhUnpCVHNURkxDMUVDRE1SdTNaek5MUlRyV3BYcVlEZlFVdUN4bml0WA/callback Received 204 :: [4/5 calls remaining]
+[14:36:18] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[14:36:18] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTMzODY3ODgxNDUxOTMwNjpxTzhTVENmYzFqemM4Z09ORDJsdFRqSVJjNzJibEN0RWlxMmtXY0lNQ1ZZeU1CNGVRWGtLWVBwcFI3eWtFUU5vdnE1OE03Z1RsazBOa0tITEJJbUV2akFhUnpCVHNURkxDMUVDRE1SdTNaek5MUlRyV3BYcVlEZlFVdUN4bml0WA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[14:36:18] [DEBUG] Dispatching Event: message_create
+[14:36:18] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:36:18] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:36:18] [DEBUG] Dispatching Event: command_completion
+[14:36:18] [INFO] Command Called: word_setup with event.ctx.args = [GuildText(id=1173583071770058783, name='noi-chu', type=<ChannelType.GUILD_TEXT: 0>)] | event.ctx.kwargs = {'channel': GuildText(id=1173583071770058783, name='noi-chu', type=<ChannelType.GUILD_TEXT: 0>)}
+[14:36:20] [DEBUG] Dispatching Event: message_create
+[14:36:22] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:36:22] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:36:22] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:36:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 14}
+[14:36:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:36:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:37:30] [DEBUG] 1175004273155768371::refresh_command should be called
+[14:37:30] [DEBUG] Music has been drop
+[14:37:30] [DEBUG] No setup function found in play
+[14:37:30] [DEBUG] Found extension class Music in play: Attempting to load
+[14:37:30] [DEBUG] Added callback: Music._menu
+[14:37:30] [DEBUG] Added callback: Music._pause
+[14:37:30] [DEBUG] Added callback: Music._resume
+[14:37:30] [DEBUG] Added callback: Music._skip
+[14:37:30] [DEBUG] Added callback: Music._stop
+[14:37:30] [DEBUG] Added callback: Music.play
+[14:37:30] [DEBUG] Loaded Extension: play
+[14:37:30] [DEBUG] Gpt has been drop
+[14:37:30] [DEBUG] No setup function found in askgpt
+[14:37:30] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:37:30] [DEBUG] Added callback: Gpt._askgpt
+[14:37:30] [DEBUG] Added callback: Gpt._img
+[14:37:30] [DEBUG] Loaded Extension: askgpt
+[14:37:30] [DEBUG] Bard has been drop
+[14:37:30] [DEBUG] No setup function found in askbard
+[14:37:30] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:37:30] [DEBUG] Added callback: Bard._askbard
+[14:37:30] [DEBUG] Added callback: Bard._endbard
+[14:37:30] [DEBUG] Loaded Extension: askbard
+[14:37:30] [DEBUG] NoiChu has been drop
+[14:37:30] [DEBUG] No setup function found in noi_chu
+[14:37:30] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:37:30] [DEBUG] Added callback: NoiChu._reset
+[14:37:30] [DEBUG] Added callback: NoiChu._world_setup
+[14:37:30] [DEBUG] Loaded Extension: noi_chu
+[14:37:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 15}
+[14:37:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:37:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [44/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [44/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[14:37:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [43/50 calls remaining]
+[14:37:30] [DEBUG] Dispatching Event: message_create
+[14:37:30] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[14:37:30] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTMzODk4NDM3Nzk1MDIyOTpVWjcwMkhYeHdHYTVaaG5XcmV6R3B6ODljYUx4eWIwMTRTSlhCdXBRRjNpV3oycThyb2ZzVVhMN0J6cFkyV3FaU3dRV3B2cUkwdDdmUXBpT3lnWTlybEFqSUZYbVR2aFVBdFJwR0NWNmlWNHVpck0weWMzdmQ0MmNodWNCaUZkag/callback Received 204 :: [4/5 calls remaining]
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.6579719000001205 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.6823466999994707 seconds
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.6824286000010034 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.6865082999993319 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.7051523999998608 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [44/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.7080294000006688 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.7098499000003358 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:37:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[14:37:31] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:37:31] [DEBUG] Sync of 1 scopes took 0.7414352999985567 seconds
+[14:37:31] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[14:37:31] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTMzODk4NDM3Nzk1MDIyOTpVWjcwMkhYeHdHYTVaaG5XcmV6R3B6ODljYUx4eWIwMTRTSlhCdXBRRjNpV3oycThyb2ZzVVhMN0J6cFkyV3FaU3dRV3B2cUkwdDdmUXBpT3lnWTlybEFqSUZYbVR2aFVBdFJwR0NWNmlWNHVpck0weWMzdmQ0MmNodWNCaUZkag/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[14:37:31] [DEBUG] Dispatching Event: command_completion
+[14:37:31] [INFO] Command Called: refresh_command with event.ctx.args = [] | event.ctx.kwargs = {}
+[14:37:34] [DEBUG] Dispatching Event: message_create
+[14:37:35] [DEBUG] Dispatching Event: message_create
+[14:37:35] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:37:35] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:37:36] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:37:36] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:37:36] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:37:43] [DEBUG] Dispatching Event: message_create
+[14:37:44] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:37:44] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:37:44] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:37:45] [DEBUG] Dispatching Event: message_create
+[14:37:45] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:37:45] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:38:08] [DEBUG] Dispatching Event: message_create
+[14:38:09] [DEBUG] Dispatching Event: message_create
+[14:38:09] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:38:09] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:38:09] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:38:09] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:38:09] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:38:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 30}
+[14:38:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:38:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:38:16] [DEBUG] Dispatching Event: message_create
+[14:38:17] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:38:17] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:38:17] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:38:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 34}
+[14:38:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:38:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:38:53] [DEBUG] Dispatching Event: message_create
+[14:38:55] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:38:55] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:38:55] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:38:57] [DEBUG] Dispatching Event: message_create
+[14:38:59] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:38:59] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:38:59] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:04] [DEBUG] Dispatching Event: message_create
+[14:39:05] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:05] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:05] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:06] [DEBUG] Dispatching Event: message_create
+[14:39:07] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:07] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:07] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:14] [DEBUG] Dispatching Event: message_create
+[14:39:16] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:16] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:16] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:16] [DEBUG] Dispatching Event: message_create
+[14:39:16] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:39:16] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:39:24] [DEBUG] Dispatching Event: message_create
+[14:39:26] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:26] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:26] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:33] [DEBUG] Dispatching Event: message_create
+[14:39:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 59}
+[14:39:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:39:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:39:34] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:34] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:34] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:38] [DEBUG] Dispatching Event: message_create
+[14:39:40] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:40] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:40] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:40] [DEBUG] Dispatching Event: message_create
+[14:39:40] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:39:40] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:39:45] [DEBUG] Dispatching Event: message_create
+[14:39:47] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:47] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:47] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:51] [DEBUG] Dispatching Event: message_create
+[14:39:52] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:52] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:52] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:39:54] [DEBUG] Dispatching Event: message_create
+[14:39:55] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:39:55] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:39:55] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:02] [DEBUG] Dispatching Event: message_create
+[14:40:04] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:04] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:04] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:11] [DEBUG] Dispatching Event: message_create
+[14:40:12] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:12] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:12] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 84}
+[14:40:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:40:15] [DEBUG] Dispatching Event: message_create
+[14:40:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:40:17] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:17] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:17] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:19] [DEBUG] Dispatching Event: message_create
+[14:40:20] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:20] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:20] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:21] [DEBUG] Dispatching Event: message_create
+[14:40:21] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:40:21] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:40:21] [DEBUG] Dispatching Event: message_create
+[14:40:22] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:22] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:22] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:25] [DEBUG] Dispatching Event: message_create
+[14:40:26] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:26] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:26] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:31] [DEBUG] Dispatching Event: message_create
+[14:40:32] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:32] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:32] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:33] [DEBUG] Dispatching Event: message_create
+[14:40:33] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:40:33] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:40:37] [DEBUG] Dispatching Event: message_create
+[14:40:39] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:39] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:39] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:42] [DEBUG] Dispatching Event: message_create
+[14:40:43] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:43] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:43] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:48] [DEBUG] Dispatching Event: message_create
+[14:40:50] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:50] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:50] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:54] [DEBUG] Dispatching Event: message_create
+[14:40:56] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:40:56] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:40:56] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:40:56] [DEBUG] Dispatching Event: message_create
+[14:40:56] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[14:40:56] [DEBUG] POST /channels/1173583071770058783/messages Received 200 :: [4/5 calls remaining]
+[14:40:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 120}
+[14:40:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:40:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:41:01] [DEBUG] Dispatching Event: message_create
+[14:41:03] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:41:03] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:41:03] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:41:14] [DEBUG] Dispatching Event: message_create
+[14:41:16] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:41:16] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:41:16] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:41:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 128}
+[14:41:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:41:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:41:41] [DEBUG] Dispatching Event: message_create
+[14:41:42] [DEBUG] Caching ingested rate limit data for: 7d7314b2b07cb8156bbdb7bdb12f2dfa
+[14:41:42] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Has exhausted its ratelimit (1)! Locking route for 0.249 seconds
+[14:41:42] [DEBUG] PUT /channels/1173583071770058783/messages/{message_id}/reactions/{emoji}/@me Received 204 :: [0/1 calls remaining]
+[14:41:46] [DEBUG] Dispatching Event: disconnect
+[14:41:46] [DEBUG] Stopping the bot.
+[14:41:46] [INFO] Shard ID 0 | Stopping Shard

@@ -1,13 +1,12 @@
 import asyncio
 import interactions
-from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, slash_option, SlashContext, listen, \
+from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, SlashContext, listen, \
     Embed
 from interactions.api.events import Component
-
-import video_info
-from Queue import NaffQueue, NaffQueueManager
+from modules import video_info
+from modules.Queue import NaffQueue, NaffQueueManager
 from yt_dlp import YoutubeDL
-from yt_download import AudioYT
+from modules import AudioYT
 import pymysql
 
 cfg_playlist = YoutubeDL(
@@ -48,7 +47,7 @@ async def _fplay(ctx: SlashContext):
     music_queues.start()
 
 
-def get_music_queue(ctx) -> NaffQueue:
+def get_music_queue(ctx: SlashContext) -> NaffQueue:
     voicestate = ctx.voice_state.channel.voice_state
     server_id = ctx.guild.id
     current_queue = NaffQueueManager.get_queue(server_id, voicestate)
@@ -110,6 +109,8 @@ async def _voldown(ctx):
 
 
 class Music(Extension):
+    def __init__(self, bot):
+        print(">> Lệnh Play đã sẵn sàng")
     hang1 = ActionRow(
         Button(
             custom_id="pause_button",
@@ -275,18 +276,18 @@ class Music(Extension):
             await ctx.send('Đã tạm dừng', ephemeral=True)
 
     @listen(Component)
-    async def on_component(self: Component):
-        ctx = self.ctx
+    async def on_component(self, evnet: Component):
+        ctx = evnet.ctx
         match ctx.custom_id:
             case "pause_button":
-                await _pause(ctx)
+                await self._pause(ctx)
             case "stop_button":
-                await _stop(ctx)
+                await self._stop(ctx)
             case "resume_button":
-                await _resume(ctx)
+                await self._resume(ctx)
             case "vol_up":
                 await _volup(ctx)
             case "vol_down":
                 await _voldown(ctx)
             case "skip_button":
-                await _skip(ctx)
+                await self._skip(ctx)

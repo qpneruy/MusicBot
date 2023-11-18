@@ -1,0 +1,245 @@
+[14:09:26] [DEBUG] Running client sanity checks...
+[14:09:27] [DEBUG] No setup function found in play
+[14:09:27] [DEBUG] Found extension class Music in play: Attempting to load
+[14:09:27] [DEBUG] Added callback: Music._menu
+[14:09:27] [DEBUG] Added callback: Music._pause
+[14:09:27] [DEBUG] Added callback: Music._resume
+[14:09:27] [DEBUG] Added callback: Music._skip
+[14:09:27] [DEBUG] Added callback: Music._stop
+[14:09:27] [DEBUG] Added callback: Music.play
+[14:09:27] [DEBUG] Loaded Extension: play
+[14:09:28] [DEBUG] No setup function found in askgpt
+[14:09:28] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:09:28] [DEBUG] Added callback: Gpt._askgpt
+[14:09:28] [DEBUG] Added callback: Gpt._img
+[14:09:28] [DEBUG] Loaded Extension: askgpt
+[14:09:28] [DEBUG] No setup function found in askbard
+[14:09:28] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:09:28] [DEBUG] Added callback: Bard._askbard
+[14:09:28] [DEBUG] Added callback: Bard._endbard
+[14:09:28] [DEBUG] Loaded Extension: askbard
+[14:09:28] [DEBUG] No setup function found in noi_chu
+[14:09:28] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:09:28] [DEBUG] Added callback: NoiChu._reset
+[14:09:28] [DEBUG] Added callback: NoiChu._world_setup
+[14:09:28] [DEBUG] Loaded Extension: noi_chu
+[14:09:28] [DEBUG] Added callback: __join
+[14:09:28] [DEBUG] Added callback: __leave
+[14:09:28] [DEBUG] Added callback: _about
+[14:09:28] [DEBUG] Added callback: _help
+[14:09:28] [DEBUG] Added callback: _refresh
+[14:09:28] [DEBUG] Added callback: _setup
+[14:09:28] [DEBUG] Added callback: _starup
+[14:09:28] [DEBUG] Added callback: dbv1_command
+[14:09:28] [DEBUG] Added callback: dbv2_command
+[14:09:28] [DEBUG] 9 callbacks have been loaded from __main__.
+[14:09:28] [DEBUG] Added callback: _disconnect
+[14:09:28] [DEBUG] Added callback: _on_websocket_ready
+[14:09:28] [DEBUG] Added callback: on_autocomplete_completion
+[14:09:28] [DEBUG] Added callback: on_autocomplete_error
+[14:09:28] [DEBUG] Added callback: on_command_completion
+[14:09:28] [DEBUG] Added callback: on_command_error
+[14:09:28] [DEBUG] Added callback: on_component_completion
+[14:09:28] [DEBUG] Added callback: on_component_error
+[14:09:28] [DEBUG] Added callback: on_error
+[14:09:28] [DEBUG] Added callback: on_modal_completion
+[14:09:28] [DEBUG] Added callback: on_modal_error
+[14:09:28] [DEBUG] Added callback: on_resume
+[14:09:28] [DEBUG] 12 callbacks have been loaded from Client.
+[14:09:28] [DEBUG] Attempting to login
+[14:09:28] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:28] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[14:09:29] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:29] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[14:09:29] [DEBUG] GET /gateway Received 200 :: [1/1 calls remaining]
+[14:09:29] [INFO] Shard ID 0 | Starting Shard
+[14:09:29] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[14:09:29] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[14:09:30] [INFO] Shard ID 0 | Gateway connection established
+[14:09:30] [DEBUG] Shard ID 0 | Session ID: 6f845f199a83a9d11b20742564fe67b5 Trace: ['["gateway-prd-us-east1-b-cjn8",{"micros":73823,"calls":["id_created",{"micros":1274,"calls":[]},"session_lookup_time",{"micros":299,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-2-139",{"micros":71826,"calls":["start_session",{"micros":44139,"calls":["discord-api-6c89db896f-khk9h",{"micros":39170,"calls":["get_user",{"micros":6793},"get_guilds",{"micros":3215},"send_scheduled_deletion_message",{"micros":9},"guild_join_requests",{"micros":921},"authorized_ip_coro",{"micros":11}]}]},"starting_guild_connect",{"micros":61,"calls":[]},"presence_started",{"micros":27044,"calls":[]},"guilds_started",{"micros":180,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":367,"calls":[]},"connect_finished",{"micros":373,"calls":[]},"build_ready",{"micros":24,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[14:09:30] [DEBUG] Dispatching Event: websocket_ready
+[14:09:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:09:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:09:30] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:09:30] [DEBUG] Sync of 1 scopes took 0.5901009999997768 seconds
+[14:09:30] [DEBUG] Dispatching Event: startup
+[14:09:30] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700291370625, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[14:09:35] [DEBUG] Dispatching Event: disconnect
+[14:09:35] [DEBUG] Stopping the bot.
+[14:09:35] [INFO] Shard ID 0 | Stopping Shard
+[14:09:45] [DEBUG] Running client sanity checks...
+[14:09:46] [DEBUG] No setup function found in play
+[14:09:46] [DEBUG] Found extension class Music in play: Attempting to load
+[14:09:46] [DEBUG] Added callback: Music._menu
+[14:09:46] [DEBUG] Added callback: Music._pause
+[14:09:46] [DEBUG] Added callback: Music._resume
+[14:09:46] [DEBUG] Added callback: Music._skip
+[14:09:46] [DEBUG] Added callback: Music._stop
+[14:09:46] [DEBUG] Added callback: Music.play
+[14:09:46] [DEBUG] Loaded Extension: play
+[14:09:47] [DEBUG] No setup function found in askgpt
+[14:09:47] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:09:47] [DEBUG] Added callback: Gpt._askgpt
+[14:09:47] [DEBUG] Added callback: Gpt._img
+[14:09:47] [DEBUG] Loaded Extension: askgpt
+[14:09:48] [DEBUG] No setup function found in askbard
+[14:09:48] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:09:48] [DEBUG] Added callback: Bard._askbard
+[14:09:48] [DEBUG] Added callback: Bard._endbard
+[14:09:48] [DEBUG] Loaded Extension: askbard
+[14:09:48] [DEBUG] No setup function found in noi_chu
+[14:09:48] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:09:48] [DEBUG] Added callback: NoiChu._reset
+[14:09:48] [DEBUG] Added callback: NoiChu._world_setup
+[14:09:48] [DEBUG] Loaded Extension: noi_chu
+[14:09:48] [DEBUG] Added callback: __join
+[14:09:48] [DEBUG] Added callback: __leave
+[14:09:48] [DEBUG] Added callback: _about
+[14:09:48] [DEBUG] Added callback: _help
+[14:09:48] [DEBUG] Added callback: _refresh
+[14:09:48] [DEBUG] Added callback: _setup
+[14:09:48] [DEBUG] Added callback: _starup
+[14:09:48] [DEBUG] Added callback: dbv1_command
+[14:09:48] [DEBUG] Added callback: dbv2_command
+[14:09:48] [DEBUG] 9 callbacks have been loaded from __main__.
+[14:09:48] [DEBUG] Added callback: _disconnect
+[14:09:48] [DEBUG] Added callback: _on_websocket_ready
+[14:09:48] [DEBUG] Added callback: on_autocomplete_completion
+[14:09:48] [DEBUG] Added callback: on_autocomplete_error
+[14:09:48] [DEBUG] Added callback: on_command_completion
+[14:09:48] [DEBUG] Added callback: on_command_error
+[14:09:48] [DEBUG] Added callback: on_component_completion
+[14:09:48] [DEBUG] Added callback: on_component_error
+[14:09:48] [DEBUG] Added callback: on_error
+[14:09:48] [DEBUG] Added callback: on_modal_completion
+[14:09:48] [DEBUG] Added callback: on_modal_error
+[14:09:48] [DEBUG] Added callback: on_resume
+[14:09:48] [DEBUG] 12 callbacks have been loaded from Client.
+[14:09:48] [DEBUG] Attempting to login
+[14:09:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:48] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[14:09:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:48] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[14:09:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:48] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[14:09:48] [INFO] Shard ID 0 | Starting Shard
+[14:09:48] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[14:09:49] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[14:09:49] [INFO] Shard ID 0 | Gateway connection established
+[14:09:49] [DEBUG] Shard ID 0 | Session ID: c293d25ae7757866e69f79d0f640233f Trace: ['["gateway-prd-us-east1-b-s5q3",{"micros":86054,"calls":["id_created",{"micros":1617,"calls":[]},"session_lookup_time",{"micros":292,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-2-181",{"micros":83309,"calls":["start_session",{"micros":48180,"calls":["discord-api-6c89db896f-ngq9v",{"micros":42253,"calls":["get_user",{"micros":8031},"get_guilds",{"micros":3836},"send_scheduled_deletion_message",{"micros":13},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":16}]}]},"starting_guild_connect",{"micros":60,"calls":[]},"presence_started",{"micros":8887,"calls":[]},"guilds_started",{"micros":150,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":25999,"calls":[]},"connect_finished",{"micros":26004,"calls":[]},"build_ready",{"micros":23,"calls":[]},"clean_ready",{"micros":2,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[14:09:49] [DEBUG] Dispatching Event: websocket_ready
+[14:09:49] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:49] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:09:50] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[14:09:50] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[14:09:50] [DEBUG] 0 is already up-to-date with 18 commands.
+[14:09:50] [DEBUG] Sync of 1 scopes took 0.5883587999996962 seconds
+[14:09:50] [DEBUG] Dispatching Event: startup
+[14:09:50] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700291390116, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[14:10:04] [DEBUG] 1174695146214928500::play should be called
+[14:10:04] [DEBUG] Dispatching Event: message_create
+[14:10:04] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[14:10:04] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTMzMjA4MDkwMTY5MzUwMTpLdkVjM21wd2Z2ekdjQWIyQzA5cFR2NWkyR0J0YUlpTnh2UTJwSHNSenUzdFNXcTJxTGJiTGFvdWJ5NnJUdE9oNGRxV3FoY3lVaU4wSjMwTklIU1NRVkhIdDNocmRCdFlieTJ6a0wwVkFjSG9wOGZVbmJidjF4cGZOckhBWGI1bw/callback Received 204 :: [4/5 calls remaining]
+[14:10:04] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1159832166998487050, "channel_id": 1159832166998487054, "self_mute": false, "self_deaf": false}}
+[14:10:04] [DEBUG] Waiting for voice connection data...
+[14:10:05] [DEBUG] Dispatching Event: voice_user_join
+[14:10:09] [DEBUG] Dispatching Event: error
+[14:10:09] [ERROR] Ignoring exception in VoiceUserJoin():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 32, in __call__
+    return await self.callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\Main\music\Main.py", line 105, in __join
+    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on 'localhost' ([WinError 10061] No connection could be made because the target machine actively refused it)")
+
+[14:10:09] [DEBUG] Sending heartbeat every 41.25 seconds
+[14:10:09] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[14:10:09] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:10:09] [DEBUG] Attempting to initialise voice gateway...
+[14:10:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:10:09] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[14:10:09] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[14:10:09] [DEBUG] IP Discovery in progress...
+[14:10:09] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x00\xc4\xea116.100.185.240\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xdf\xf9'
+[14:10:09] [DEBUG] IP Discovered: 116.100.185.240 #57337
+[14:10:09] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.185.240", "port": 57337, "mode": "xsalsa20_poly1305_lite"}}}
+[14:10:09] [DEBUG] Starting UDP Keep Alive
+[14:10:09] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[14:10:09] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '1158616953590657065', 'flags': None}
+[14:10:09] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[14:10:09] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '1158616953590657065', 'platform': None}
+[14:10:09] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[14:10:15] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[14:10:15] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTMzMjA4MDkwMTY5MzUwMTpLdkVjM21wd2Z2ekdjQWIyQzA5cFR2NWkyR0J0YUlpTnh2UTJwSHNSenUzdFNXcTJxTGJiTGFvdWJ5NnJUdE9oNGRxV3FoY3lVaU4wSjMwTklIU1NRVkhIdDNocmRCdFlieTJ6a0wwVkFjSG9wOGZVbmJidjF4cGZOckhBWGI1bw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[14:10:17] [DEBUG] Dispatching Event: command_error
+[14:10:17] [DEBUG] Dispatching Event: command_completion
+[14:10:17] [DEBUG] Dispatching Event: error
+[14:10:17] [INFO] Command Called: play with event.ctx.args = ['Nụ cười âm nhạc 9'] | event.ctx.kwargs = {'song': 'Nụ cười âm nhạc 9'}
+[14:10:17] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 644, in connect
+    sock = socket.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\Main\music\play.py", line 232, in play
+    vol_refresh(ctx)
+  File "D:\Project\Python\qpneruy-Git\Main\music\play.py", line 31, in vol_refresh
+    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 711, in connect
+    raise exc
+pymysql.err.OperationalError: (2003, "Can't connect to MySQL server on '127.0.0.1' ([WinError 10061] No connection could be made because the target machine actively refused it)")
+
+[14:10:17] [DEBUG] Sending heartbeat every 13.75 seconds
+[14:10:17] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5649115398625922}
+[14:10:17] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[14:10:17] [DEBUG] ❤ Heartbeat acknowledged after 0.07489 seconds
+[14:10:30] [DEBUG] Dispatching Event: disconnect
+[14:10:30] [DEBUG] Stopping the bot.
+[14:10:30] [INFO] Shard ID 0 | Stopping Shard

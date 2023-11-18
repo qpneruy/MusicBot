@@ -5,6 +5,8 @@ import os
 
 
 class Gpt(Extension):
+    def __init__(self, bot):
+        print(">> Lệnh askgpt đã sẵn sàng")
     gpt = os.getenv("OPENAI_API_KEY")
     openai.api_key = gpt
 
