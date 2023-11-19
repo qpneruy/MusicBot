@@ -1,12 +1,13 @@
-import os
-import pymysql
-import interactions
-from interactions import SlashContext, listen, slash_command, Embed, OptionType
-from interactions.api.events import VoiceUserJoin, VoiceUserLeave
-from interactions import ButtonStyle, ActionRow, Button, slash_option
-from interactions.api.events import Startup
 import logging
+import os
 from datetime import datetime
+
+import interactions
+import pymysql
+from interactions import ButtonStyle, ActionRow, Button, slash_option
+from interactions import SlashContext, listen, slash_command, Embed, OptionType
+from interactions.api.events import Startup
+from interactions.api.events import VoiceUserJoin, VoiceUserLeave
 
 # Configure the log file and format
 formatted_time = datetime.now().strftime('%Y-%m-%d_%H-%M')

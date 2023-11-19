@@ -1,9 +1,9 @@
-from interactions.api.events import MessageCreate
+import json
+
 import aiohttp
-import pymysql
 import interactions
 from interactions import Extension, slash_command, SlashContext, OptionType, slash_option
-import json
+from interactions.api.events import MessageCreate
 
 
 class NoiChu(Extension):

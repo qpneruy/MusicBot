@@ -1,1 +1,7 @@
-[{"author": "0", "content": "how can i use @slash_command(name='db_refresh') async def __redb(ctx: SlashContext):     server_name = ctx.bot.fetch_guild()  >> ctx.bot.fetch_guild()"}, null]
+[
+  {
+    "author": "0",
+    "content": "how can i use @slash_command(name='db_refresh') async def __redb(ctx: SlashContext):     server_name = ctx.bot.fetch_guild()  >> ctx.bot.fetch_guild()"
+  },
+  null
+]

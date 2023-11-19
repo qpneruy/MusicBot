@@ -1,17 +1,15 @@
-import os
-import base64
-import os
 import asyncio
+import os
+
 import interactions
 import requests
-from easy_pil import Editor, load_image_async
-from interactions import SlashContext, slash_command, slash_option, AutocompleteContext, OptionType
+from interactions import File
+from interactions import SlashContext, slash_command, slash_option
 from interactions.api.events import MessageCreate
 from interactions.api.voice.audio import AudioVolume
-
-# from nextcord import Intents
-# from nextcord.ext.commands import Bot
-
+from modules import Vnedu
+from easy_pil import editor
+from io import BytesIO
 Token = os.getenv("Discord_Token_bot_B")
 bot = interactions.Client(
     intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False
@@ -24,7 +22,7 @@ async def on_message(event: MessageCreate):
     msg_parts = msg.split(maxsplit=1)
     result = " ".join(msg_parts[1:]) if len(msg_parts) > 1 else ""
     if len(result) < 3:
-        await event.message.add_reaction('❌')
+        # await event.message.add_reaction('❌')
         return
     if "_s" in event.message.content:
         await event.message.author.voice.channel.connect()
@@ -75,6 +73,19 @@ async def _speak(ctx: SlashContext, content: str):
     print(audio)
     print("Ch")
     await ctx.voice_state.play(audio)
+
+
+@interactions.slash_command("vnedu", description="Lấy thông tin điểm")
+@slash_option(name="phone", description="Số điện thoại của tài khoản", opt_type=3, required=True)
+@slash_option(name="passw", description="Mật khẩu tài khoản", opt_type=3, required=True)
+async def circle(ctx: SlashContext, phone: str, passw: str):
+    await ctx.defer()
+    vn = Vnedu()
+    img = vn.get_bang_diem(sdt=phone, password=passw)
+    img_io = BytesIO(img)
+    file = File(file=img_io, file_name='circle.png')
+
+    await ctx.send(file=file)
 
 
 @interactions.slash_command("record", description="record some audio")

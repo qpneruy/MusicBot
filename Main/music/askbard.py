@@ -1,9 +1,10 @@
+import datetime
+import json
+import os
+
+import google.generativeai as palm
 import interactions
 from interactions import Extension, SlashContext, slash_command
-import google.generativeai as palm
-import os
-import json
-import datetime
 
 bard = os.getenv("PALM_API_KEY")
 palm.configure(api_key=bard)
@@ -12,6 +13,7 @@ palm.configure(api_key=bard)
 class Bard(Extension):
     def __init__(self, bot):
         print(">> Lệnh askbard đã sẵn sàng")
+
     mes = None
 
     @slash_command(name="askbard", description="Hỏi Palm 1 câu hỏi")

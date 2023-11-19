@@ -1,12 +1,14 @@
-import interactions
-from interactions import Extension, SlashContext, slash_command
-import openai
 import os
+
+import interactions
+import openai
+from interactions import Extension, SlashContext, slash_command
 
 
 class Gpt(Extension):
     def __init__(self, bot):
         print(">> Lệnh askgpt đã sẵn sàng")
+
     gpt = os.getenv("OPENAI_API_KEY")
     openai.api_key = gpt
 

@@ -1,0 +1,96 @@
+[14:45:05] [DEBUG] Running client sanity checks...
+[14:45:06] [DEBUG] No setup function found in play
+[14:45:06] [DEBUG] Found extension class Music in play: Attempting to load
+[14:45:06] [DEBUG] Added callback: Music._menu
+[14:45:06] [DEBUG] Added callback: Music._pause
+[14:45:06] [DEBUG] Added callback: Music._resume
+[14:45:06] [DEBUG] Added callback: Music._skip
+[14:45:06] [DEBUG] Added callback: Music._stop
+[14:45:06] [DEBUG] Added callback: Music.play
+[14:45:06] [DEBUG] Loaded Extension: play
+[14:45:07] [DEBUG] No setup function found in askgpt
+[14:45:07] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:45:07] [DEBUG] Added callback: Gpt._askgpt
+[14:45:07] [DEBUG] Added callback: Gpt._img
+[14:45:07] [DEBUG] Loaded Extension: askgpt
+[14:45:07] [DEBUG] No setup function found in askbard
+[14:45:07] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:45:07] [DEBUG] Added callback: Bard._askbard
+[14:45:07] [DEBUG] Added callback: Bard._endbard
+[14:45:07] [DEBUG] Loaded Extension: askbard
+[14:45:07] [DEBUG] No setup function found in noi_chu
+[14:45:07] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:45:07] [DEBUG] Added callback: NoiChu._reset
+[14:45:07] [DEBUG] Added callback: NoiChu._world_setup
+[14:45:07] [DEBUG] Loaded Extension: noi_chu
+[14:45:07] [DEBUG] Added callback: __join
+[14:45:07] [DEBUG] Added callback: __leave
+[14:45:07] [DEBUG] Added callback: _about
+[14:45:07] [DEBUG] Added callback: _help
+[14:45:07] [DEBUG] Added callback: _refresh
+[14:45:07] [DEBUG] Added callback: _setup
+[14:45:07] [DEBUG] Added callback: _starup
+[14:45:43] [DEBUG] Running client sanity checks...
+[14:45:45] [DEBUG] No setup function found in play
+[14:45:45] [DEBUG] Found extension class Music in play: Attempting to load
+[14:45:45] [DEBUG] Added callback: Music._menu
+[14:45:45] [DEBUG] Added callback: Music._pause
+[14:45:45] [DEBUG] Added callback: Music._resume
+[14:45:45] [DEBUG] Added callback: Music._skip
+[14:45:45] [DEBUG] Added callback: Music._stop
+[14:45:45] [DEBUG] Added callback: Music.play
+[14:45:45] [DEBUG] Loaded Extension: play
+[14:45:45] [DEBUG] No setup function found in askgpt
+[14:45:45] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:45:45] [DEBUG] Added callback: Gpt._askgpt
+[14:45:45] [DEBUG] Added callback: Gpt._img
+[14:45:45] [DEBUG] Loaded Extension: askgpt
+[14:45:46] [DEBUG] No setup function found in askbard
+[14:45:46] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:45:46] [DEBUG] Added callback: Bard._askbard
+[14:45:46] [DEBUG] Added callback: Bard._endbard
+[14:45:46] [DEBUG] Loaded Extension: askbard
+[14:45:46] [DEBUG] No setup function found in noi_chu
+[14:45:46] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:45:46] [DEBUG] Added callback: NoiChu._reset
+[14:45:46] [DEBUG] Added callback: NoiChu._world_setup
+[14:45:46] [DEBUG] Loaded Extension: noi_chu
+[14:45:46] [DEBUG] Added callback: __join
+[14:45:46] [DEBUG] Added callback: __leave
+[14:45:46] [DEBUG] Added callback: _about
+[14:45:46] [DEBUG] Added callback: _help
+[14:45:46] [DEBUG] Added callback: _refresh
+[14:45:46] [DEBUG] Added callback: _setup
+[14:45:46] [DEBUG] Added callback: _starup
+[14:45:59] [DEBUG] Running client sanity checks...
+[14:46:00] [DEBUG] No setup function found in play
+[14:46:00] [DEBUG] Found extension class Music in play: Attempting to load
+[14:46:00] [DEBUG] Added callback: Music._menu
+[14:46:00] [DEBUG] Added callback: Music._pause
+[14:46:00] [DEBUG] Added callback: Music._resume
+[14:46:00] [DEBUG] Added callback: Music._skip
+[14:46:00] [DEBUG] Added callback: Music._stop
+[14:46:00] [DEBUG] Added callback: Music.play
+[14:46:00] [DEBUG] Loaded Extension: play
+[14:46:01] [DEBUG] No setup function found in askgpt
+[14:46:01] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[14:46:01] [DEBUG] Added callback: Gpt._askgpt
+[14:46:01] [DEBUG] Added callback: Gpt._img
+[14:46:01] [DEBUG] Loaded Extension: askgpt
+[14:46:01] [DEBUG] No setup function found in askbard
+[14:46:01] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:46:01] [DEBUG] Added callback: Bard._askbard
+[14:46:01] [DEBUG] Added callback: Bard._endbard
+[14:46:01] [DEBUG] Loaded Extension: askbard
+[14:46:01] [DEBUG] No setup function found in noi_chu
+[14:46:01] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:46:01] [DEBUG] Added callback: NoiChu._reset
+[14:46:01] [DEBUG] Added callback: NoiChu._world_setup
+[14:46:01] [DEBUG] Loaded Extension: noi_chu
+[14:46:01] [DEBUG] Added callback: __join
+[14:46:01] [DEBUG] Added callback: __leave
+[14:46:01] [DEBUG] Added callback: _about
+[14:46:01] [DEBUG] Added callback: _help
+[14:46:01] [DEBUG] Added callback: _refresh
+[14:46:01] [DEBUG] Added callback: _setup
+[14:46:01] [DEBUG] Added callback: _starup
