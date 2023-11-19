@@ -81,9 +81,9 @@ async def _speak(ctx: SlashContext, content: str):
 async def circle(ctx: SlashContext, phone: str, passw: str):
     await ctx.defer()
     vn = Vnedu()
-    img = vn.get_bang_diem(sdt=phone, password=passw)
+    img = vn.get_bang_diem(phone_number=phone, password=passw, period=1, year='2023')
     img_io = BytesIO(img)
-    file = File(file=img_io, file_name='circle.png')
+    file = File(file=img_io, file_name='bangdiem.png')
 
     await ctx.send(file=file)
 
