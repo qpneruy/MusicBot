@@ -114,6 +114,8 @@ async def __join(vs: VoiceUserJoin):
                 if vs.channel.id == result[0]:
                     channel_d = await vs.channel.guild.create_voice_channel(f"Kênh {vs.author.display_name}")
                     channel_id = channel_d.id
+                    channel_d.user_limit = 10
+                    await channel_d.edit(user_limit=5)
                     query = f"INSERT INTO server_{vs.author.guild.id}(active_channel) VALUES ({channel_id}) "
                     cursor.execute(query)
                     connect_thread.commit()

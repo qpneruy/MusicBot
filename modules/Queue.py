@@ -117,13 +117,14 @@ class NaffQueue:
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
             audio_d = await self.pop()
-
             embed = self.__song_list__.pop()
             embed.set_author('💿 Đang chơi')
             nut = self.__song_link__.pop()
-            await self.voice_state.channel.send(embed=embed)
-            await self.voice_state.channel.send(components=nut, silent=True)
             await self.voice_state.play(audio_d)
+            if self.voice_state is not None:
+                await self.voice_state.channel.send(embed=embed)
+                await self.voice_state.channel.send(components=nut, silent=True)
+
 
     async def stop(self) -> None:
         await self.voice_state.stop()

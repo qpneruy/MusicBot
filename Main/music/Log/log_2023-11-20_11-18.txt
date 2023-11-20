@@ -1,0 +1,15 @@
+[11:18:53] [DEBUG] Running client sanity checks...
+[11:18:55] [DEBUG] No setup function found in play
+[11:18:55] [DEBUG] Found extension class Music in play: Attempting to load
+[11:18:55] [DEBUG] Added callback: Music._menu
+[11:18:55] [DEBUG] Added callback: Music._pause
+[11:18:55] [DEBUG] Added callback: Music._resume
+[11:18:55] [DEBUG] Added callback: Music._skip
+[11:18:55] [DEBUG] Added callback: Music._stop
+[11:18:55] [DEBUG] Added callback: Music.play
+[11:18:55] [DEBUG] Loaded Extension: play
+[11:18:55] [DEBUG] No setup function found in askgpt
+[11:18:55] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[11:18:55] [DEBUG] Added callback: Gpt._askgpt
+[11:18:55] [DEBUG] Added callback: Gpt._img
+[11:18:55] [DEBUG] Loaded Extension: askgpt
