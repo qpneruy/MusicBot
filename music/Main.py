@@ -104,8 +104,7 @@ async def get_remaining_members(current_channel):
 
 @listen(VoiceUserJoin)
 async def __join(vs: VoiceUserJoin):
-    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
-    try:
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
         with connect_thread.cursor() as cursor:
             select_query = f"SELECT CAST(voice_id AS SIGNED) FROM server_data WHERE ten_server = '{vs.author.guild.id}'"
             cursor.execute(select_query)
@@ -123,34 +122,30 @@ async def __join(vs: VoiceUserJoin):
                     await mem.move(channel_d.id)
             else:
                 await vs.author.send('kênh chưa được cài đặt')
-    finally:
-        connect_thread.close()
 
 
 @listen(VoiceUserLeave)
 async def __leave(vs: VoiceUserLeave):
-    conect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
-    cnx = conect_thread.cursor()
-    query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
-    cnx.execute(query)
-    res = cnx.fetchall()
-    res_values = [item[0] for item in res]
-    if vs.channel.id in res_values:
-        await vs.channel.delete()
-    query = f"DELETE FROM server_{vs.author.guild.id} WHERE active_channel = {vs.channel.id}"
-    cnx.execute(query)
-    conect_thread.commit()
-    conect_thread.close()
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
+        with connect_thread.cursor() as cnx:
+            query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
+            cnx.execute(query)
+            res = cnx.fetchall()
+            res_values = [item[0] for item in res]
+            if vs.channel.id in res_values:
+                await vs.channel.delete()
+            query = f"DELETE FROM server_{vs.author.guild.id} WHERE active_channel = {vs.channel.id}"
+            cnx.execute(query)
+            connect_thread.commit()
 
 
-@slash_command(name="setupv", description="Đặt kênh voiceS")
+@slash_command(name="voice_set", description="Đặt kênh Tạo phòng")
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
-    connection = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
-    channels = channel.id
-    await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
-    try:
-        with connection.cursor() as cursor:
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
+        channels = channel.id
+        await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
+        with connect_thread.cursor() as cursor:
             select_query = f"SELECT * FROM server_data WHERE ten_server = '{ctx.guild_id}'"
             cursor.execute(select_query)
             result = cursor.fetchall()
@@ -168,15 +163,13 @@ async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
                 VALUES (%(ten_server)s, %(voice_id)s, %(gpt_channel_id)s, %(bard_channel_id)s, %(current_vol)s)
                 """
                 cursor.execute(insert_data_query, new_data)
-                connection.commit()
+                connect_thread.commit()
                 print(f"Đã thêm mới server {ctx.guild_id} vào bảng.")
             else:
                 update_query = f"UPDATE server_data SET voice_id = '{channels}' WHERE ten_server = '{ctx.guild_id}'"
                 cursor.execute(update_query)
-                connection.commit()
+                connect_thread.commit()
                 print(f"Đã cập nhật giá trị voice_id cho server {ctx.guild_id}.")
-    finally:
-        connection.close()
 
 
 # @slash_command(name="stop_bot", description="Dừng bot mode An toàn")

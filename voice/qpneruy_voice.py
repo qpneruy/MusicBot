@@ -7,13 +7,14 @@ from interactions import File
 from interactions import SlashContext, slash_command, slash_option
 from interactions.api.events import MessageCreate
 from interactions.api.voice.audio import AudioVolume
-from modules import Vnedu
-from easy_pil import editor
+from modules import VnEduConnect
 from io import BytesIO
 
 Token = os.getenv("Discord_Token_bot_B")
 bot = interactions.Client(
-    intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False
+    ntents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False,
+    sync_interactions=True,
+    asyncio_debug=True
 )
 
 
@@ -40,12 +41,8 @@ async def on_message(event: MessageCreate):
         audio.ffmpeg_before_args = (
             "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
         )
-        print(audio)
-        print("Ch")
         await event.message.add_reaction('✅')
-        print("Ch")
         await event.message.author.voice.channel.voice_state.play(audio)
-        print("Ch")
 
 
 @slash_command(name="speak", description="Bot nói")
@@ -70,10 +67,7 @@ async def _speak(ctx: SlashContext, content: str):
     audio.ffmpeg_before_args = (
         "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
     )
-    print("Ch")
     await ctx.message.add_reaction('✅')
-    print(audio)
-    print("Ch")
     await ctx.voice_state.play(audio)
 
 
@@ -84,12 +78,12 @@ async def _speak(ctx: SlashContext, content: str):
 @slash_option(name="namhoc", description="Nhập Năm học", opt_type=4, required=True)
 async def circle(ctx: SlashContext, phone: str, passw: str, hocky: str, namhoc: int):
     await ctx.defer()
-    vn = Vnedu()
-    img_data = vn.get_diem(phone_number=phone, password=passw, period=int(hocky), year=str(namhoc))
+    connect_thread = VnEduConnect()
+    img_data = connect_thread.get_diem(phone_number=phone, password=passw, period=int(hocky), year=str(namhoc))
     if img_data[0] == "Code1":
         await ctx.send("Học sinh không tồn tại", ephemeral=True)
     elif img_data[0] == "Code2":
-        if "Hiện tại trường đang khóa tra cứu SLL, vui lòng liên hệ với Quản trị của nhà trường để biết thêm chi tiết." in img_data[1]:
+        if "Hiện tại trường đang khóa tra cứu SLL" in img_data[1]:
             await ctx.send(f"Không tồn tại khóa học {namhoc}", ephemeral=True)
         else:
             await ctx.send(img_data[1])
