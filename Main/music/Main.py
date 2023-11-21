@@ -88,7 +88,7 @@ async def _about(ctx: SlashContext):
         )
     )
 
-    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
     embed.add_field(name="🏠LOCALHOST PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
     embed.add_field(name="🗃️DATABASE PING", value=f'{connect_thread.ping()} ms')
     embed.add_field(name="⚓CONNECT:", value=f'{connect_thread.get_host_info()}')
@@ -104,7 +104,7 @@ async def get_remaining_members(current_channel):
 
 @listen(VoiceUserJoin)
 async def __join(vs: VoiceUserJoin):
-    connect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
     try:
         with connect_thread.cursor() as cursor:
             select_query = f"SELECT CAST(voice_id AS SIGNED) FROM server_data WHERE ten_server = '{vs.author.guild.id}'"
@@ -129,7 +129,7 @@ async def __join(vs: VoiceUserJoin):
 
 @listen(VoiceUserLeave)
 async def __leave(vs: VoiceUserLeave):
-    conect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
+    conect_thread = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
     cnx = conect_thread.cursor()
     query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
     cnx.execute(query)
@@ -143,15 +143,10 @@ async def __leave(vs: VoiceUserLeave):
     conect_thread.close()
 
 
-host = 'localhost'
-password = ''
-database = 'discord_guild'
-
-
 @slash_command(name="setupv", description="Đặt kênh voiceS")
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
-    connection = pymysql.connect(host=host, user='root', password=password, database=database)
+    connection = pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild')
     channels = channel.id
     await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
     try:
@@ -184,77 +179,6 @@ async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
         connection.close()
 
 
-# Kiễm tra xem bảng có tồn tại trong database không
-def table_exists(cursor, table_name):
-    cursor.execute(f"SHOW TABLES LIKE '{table_name}'")
-    return cursor.fetchone() is not None
-
-
-# Lấy tên tất cả các bảng trong database
-def get_all_tables(cursor, database_name):
-    cursor.execute(f"SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = '{database_name}'")
-    return [table[0] for table in cursor.fetchall()]
-
-
-@slash_command(name='db_refreshv2', description="Làm mới cơ sở dữ liệu (xóa)")
-async def dbv2_command(ctx: SlashContext):
-    guild_ids = [str(guild.id) for guild in ctx.bot.guilds]
-    conect_thread = pymysql.connect(host=host, user='root', password=password, database=database)
-    cursor = conect_thread.cursor()
-    current_list = get_all_tables(cursor, 'discord_guild')
-    for table_name in current_list:
-        if table_name.startswith('server_') and table_name[7:] not in guild_ids:
-            query = f"DROP TABLE {table_name}"
-            if table_name != 'server_data':
-                cursor.execute(query)
-    conect_thread.commit()
-    conect_thread.close()
-    await ctx.send('Đã làm mới cơ sở dữ liệu phương thức xóa')
-
-
-@slash_command(name='db_refreshv1', description="Làm mới cơ sở dữ liệu (tạo)")
-async def dbv1_command(ctx: SlashContext):
-    guilds = ctx.bot.guilds
-    connection = pymysql.connect(host=host, user='root', password=password, database=database)
-    create_table_query = """
-        CREATE TABLE IF NOT EXISTS server_data (
-            ten_server VARCHAR(255) NOT NULL,
-            voice_id VARCHAR(255) NOT NULL,
-            gpt_channel_id VARCHAR(255) NOT NULL,
-            bard_channel_id VARCHAR(255) NOT NULL,
-            current_vol DOUBLE NOT NULL
-        )
-    """
-    cursor = connection.cursor()
-    cursor.execute(create_table_query)
-    for guild in guilds:
-        if not table_exists(cursor, f'server_{guild.id}'):
-            query = f"CREATE TABLE server_{guild.id}(active_channel VARCHAR(255) not NULL)"
-            cursor.execute(query)
-        select_query = f"SELECT * FROM server_data WHERE ten_server = {guild.id}"
-        cursor.execute(select_query)
-        result = cursor.fetchall()
-        if result:
-            print(f"Giá trị {guild.id} tồn tại trong cột 'ten_server'.")
-        else:
-            print(f"Giá trị {guild.id} đã được thêm.")
-            new_data = {
-                'ten_server': guild.id,
-                'voice_id': 'NULL',
-                'gpt_channel_id': 'NULL',
-                'bard_channel_id': 'NULL',
-                'current_vol': 0.5
-            }
-            insert_data_query = """
-            INSERT INTO server_data (ten_server, voice_id, gpt_channel_id, bard_channel_id, current_vol)
-            VALUES (%(ten_server)s, %(voice_id)s, %(gpt_channel_id)s, %(bard_channel_id)s, %(current_vol)s)
-            """
-            cursor.execute(insert_data_query, new_data)
-    connection.commit()
-    connection.close()
-    await ctx.send('Đã làm mới cơ sở dữ liệu phương thức tạo')
-
-
 # @slash_command(name="stop_bot", description="Dừng bot mode An toàn")
 # async def _stop_():
 #     await bot.stop()
@@ -264,5 +188,5 @@ bot.load_extension("play")
 bot.load_extension("askgpt")
 bot.load_extension("askbard")
 bot.load_extension("noi_chu")
-
+bot.load_extension("db_refesh")
 bot.start(Token)

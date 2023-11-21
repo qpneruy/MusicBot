@@ -81,17 +81,20 @@ async def _speak(ctx: SlashContext, content: str):
 @slash_option(name="phone", description="Số điện thoại của tài khoản", opt_type=3, required=True)
 @slash_option(name="passw", description="Mật khẩu tài khoản", opt_type=3, required=True)
 @slash_option(name="hocky", description="Nhập học kỳ", opt_type=3, required=True)
-@slash_option(name="namhoc", description="Nhập Năm học", opt_type=3, required=True)
-async def circle(ctx: SlashContext, phone: str, passw: str, hocky: str, namhoc: str):
+@slash_option(name="namhoc", description="Nhập Năm học", opt_type=4, required=True)
+async def circle(ctx: SlashContext, phone: str, passw: str, hocky: str, namhoc: int):
     await ctx.defer()
     vn = Vnedu()
-    img = vn.get_bang_diem(phone_number=phone, password=passw, period=int(hocky), year=namhoc)
-    if img[0] == "Code1":
+    img_data = vn.get_diem(phone_number=phone, password=passw, period=int(hocky), year=str(namhoc))
+    if img_data[0] == "Code1":
         await ctx.send("Học sinh không tồn tại", ephemeral=True)
-    elif img[0] == "Code2":
-        await ctx.send(img[1], ephemeral=True)
+    elif img_data[0] == "Code2":
+        if "Hiện tại trường đang khóa tra cứu SLL, vui lòng liên hệ với Quản trị của nhà trường để biết thêm chi tiết." in img_data[1]:
+            await ctx.send(f"Không tồn tại khóa học {namhoc}", ephemeral=True)
+        else:
+            await ctx.send(img_data[1])
     else:
-        img_io = BytesIO(img)
+        img_io = BytesIO(img_data)
         file = File(file=img_io, file_name='bangdiem.png')
         await ctx.send(file=file)
 

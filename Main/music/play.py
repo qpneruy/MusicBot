@@ -7,9 +7,9 @@ from interactions import Extension, ActionRow, Button, ButtonStyle, slash_comman
 from interactions.api.events import Component
 from yt_dlp import YoutubeDL
 
-from modules import AudioYT
-from modules import video_info
-from modules.Queue import NaffQueue, NaffQueueManager
+from modules import YTDownloader
+from modules import VideoData
+from modules import MusicQueue, MusicQueueManager
 
 cfg_playlist = YoutubeDL(
     {
@@ -49,10 +49,10 @@ async def _fplay(ctx: SlashContext):
     music_queues.start()
 
 
-def get_music_queue(ctx: SlashContext) -> NaffQueue:
+def get_music_queue(ctx: SlashContext) -> MusicQueue:
     voicestate = ctx.voice_state.channel.voice_state
     server_id = ctx.guild.id
-    current_queue = NaffQueueManager.get_queue(server_id, voicestate)
+    current_queue = MusicQueueManager.get_queue(server_id, voicestate)
     return current_queue
 
 
@@ -154,7 +154,7 @@ class Music(Extension):
         )
     )
 
-    videoinfo = video_info.VideoInfo()
+    videoinfo = VideoData()
 
     # lấy ảnh đại diện của người đăng "Video"
     def get_avt_audio(self, audio_d):
@@ -196,14 +196,14 @@ class Music(Extension):
                 else:
                     # Nếu playlist tồn tại | Được định nghĩa là list_url có url
                     music_queues = get_music_queue(ctx)
-                    ppl_info = await AudioYT.ppl_info(direct_data=data)
+                    ppl_info = await YTDownloader.ppl_info(direct_data=data)
                     while True:
                         try:
                             link = list_url.pop()
                         except IndexError:
                             break
                         avatar_url = self.videoinfo.get_uploader_avt(direct_url=link)
-                        audio = AudioYT.create_new_cls(link)
+                        audio = YTDownloader.create_new_cls(link)
                         await music_queues.put(audio, avatar_url)
                     embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],
                                           ppl_info["playlist_count"])
@@ -217,7 +217,7 @@ class Music(Extension):
                 if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
                     # Nếu bot đang chơi nhạc | Chuẩn hóa Embed
                     music_queues = get_music_queue(ctx)
-                    audio = await AudioYT.get_audio(song)
+                    audio = await YTDownloader.get_audio(song)
                     avatar_url = self.get_avt_audio(audio)
                     await music_queues.put(audio, avatar_url)
                     embed = music_queues.__song_list__[0]
@@ -226,7 +226,7 @@ class Music(Extension):
                 else:
                     # Nếu Bot đang sẵn sàng
                     music_queues = get_music_queue(ctx)
-                    audio = await AudioYT.get_audio(song)
+                    audio = await YTDownloader.get_audio(song)
                     avatar_url = self.get_avt_audio(audio)
                     await music_queues.put(audio, avatar_url)
                     embed = music_queues.__song_list__[0]

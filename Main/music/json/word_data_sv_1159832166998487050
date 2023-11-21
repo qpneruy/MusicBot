@@ -1,31 +1,29 @@
 {
-    "channel_id": 1173583071770058783,
+    "channel_id": "1173583071770058783",
     "history": {
         "word_list": [
             "hello",
             "oh",
             "high",
-            "ho",
-            "ok",
-            "kali",
-            "io",
-            "op",
-            "persist",
+            "highest",
             "ton",
             "non",
+            "news",
+            "sun",
             "nonrenewable",
             "energy",
             "younger",
-            "round",
-            "dick",
-            "ken",
-            "nah",
-            "highest",
-            "tetra",
-            "apple",
-            "emotion"
+            "ring",
+            "ground",
+            "ding",
+            "gin",
+            "nine",
+            "e",
+            "ep",
+            "pillow",
+            "win"
         ],
         "previous_user": 610841389164396565
     },
-    "current": "emotion"
+    "current": "win"
 }

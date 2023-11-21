@@ -45,7 +45,7 @@ class NoiChu(Extension):
         with open(f"json/word_data_sv_{event.message.author.guild.id}", "r") as f:
             temp_data = json.load(f)
             print(temp_data)
-        if temp_data["channel_id"] != event.message.channel.id:
+        if temp_data["channel_id"] != str(event.message.channel.id):
             return
         if event.message.author.id == event.bot.user.id:
             return
