@@ -43,7 +43,7 @@ def vol_refresh(ctx):
         connect_thread.close()
 
 
-# Khởi động luồng từ lớp NAffqueue thuộc ctx.guild.id
+# Khởi động luồng từ lớp Music_queue thuộc ctx.guild.id
 async def _fplay(ctx: SlashContext):
     music_queues = get_music_queue(ctx)
     music_queues.start()
@@ -154,12 +154,12 @@ class Music(Extension):
         )
     )
 
-    videoinfo = VideoData()
+    VideoData = VideoData()
 
     # lấy ảnh đại diện của người đăng "Video"
     def get_avt_audio(self, audio_d):
         url_video = f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
-        return self.videoinfo.get_uploader_avt(url_video)
+        return self.VideoData.get_uploader_avt(url_video)
 
     # Lấy Lớp hàng đợi của server thuộc ctx.guild.id
 
@@ -202,7 +202,7 @@ class Music(Extension):
                             link = list_url.pop()
                         except IndexError:
                             break
-                        avatar_url = self.videoinfo.get_uploader_avt(direct_url=link)
+                        avatar_url = self.VideoData.get_uploader_avt(direct_url=link)
                         audio = YTDownloader.create_new_cls(link)
                         await music_queues.put(audio, avatar_url)
                     embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"], ppl_info["uploader"],

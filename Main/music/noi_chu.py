@@ -8,6 +8,7 @@ from interactions.api.events import MessageCreate
 
 class NoiChu(Extension):
     def __init__(self, bot):
+        print(bot)
         print(">> Game Nối chữ đã sẵn sàng")
 
     model_data = {

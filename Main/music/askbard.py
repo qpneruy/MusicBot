@@ -12,6 +12,7 @@ palm.configure(api_key=bard)
 
 class Bard(Extension):
     def __init__(self, bot):
+        print(bot)
         print(">> Lệnh askbard đã sẵn sàng")
 
     mes = None
