@@ -1,0 +1,152 @@
+[12:27:26] [DEBUG] Running client sanity checks...
+[12:27:27] [DEBUG] No setup function found in play
+[12:27:27] [DEBUG] Found extension class Music in play: Attempting to load
+[12:27:27] [DEBUG] Added callback: Music._menu
+[12:27:27] [DEBUG] Added callback: Music._pause
+[12:27:27] [DEBUG] Added callback: Music._resume
+[12:27:27] [DEBUG] Added callback: Music._skip
+[12:27:27] [DEBUG] Added callback: Music._stop
+[12:27:27] [DEBUG] Added callback: Music.play
+[12:27:27] [DEBUG] Loaded Extension: play
+[12:27:28] [DEBUG] No setup function found in askgpt
+[12:27:28] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[12:27:28] [DEBUG] Added callback: Gpt._askgpt
+[12:27:28] [DEBUG] Added callback: Gpt._img
+[12:27:28] [DEBUG] Loaded Extension: askgpt
+[12:27:28] [DEBUG] No setup function found in askbard
+[12:27:28] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[12:27:28] [DEBUG] Added callback: Bard._askbard
+[12:27:28] [DEBUG] Added callback: Bard._endbard
+[12:27:28] [DEBUG] Loaded Extension: askbard
+[12:27:28] [DEBUG] No setup function found in noi_chu
+[12:27:28] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[12:27:28] [DEBUG] Added callback: NoiChu._reset
+[12:27:28] [DEBUG] Added callback: NoiChu._world_setup
+[12:27:28] [DEBUG] Loaded Extension: noi_chu
+[12:27:28] [DEBUG] No setup function found in db_refesh
+[12:27:28] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[12:27:28] [DEBUG] Added callback: Database.dbv1_command
+[12:27:28] [DEBUG] Added callback: Database.dbv2_command
+[12:27:28] [DEBUG] Loaded Extension: db_refesh
+[12:27:28] [DEBUG] Added callback: __join
+[12:27:28] [DEBUG] Added callback: __leave
+[12:27:28] [DEBUG] Added callback: _about
+[12:27:28] [DEBUG] Added callback: _help
+[12:27:28] [DEBUG] Added callback: _refresh
+[12:27:28] [DEBUG] Added callback: _setup
+[12:27:28] [DEBUG] Added callback: _starup
+[12:27:28] [DEBUG] 7 callbacks have been loaded from __main__.
+[12:27:28] [DEBUG] Added callback: _disconnect
+[12:27:28] [DEBUG] Added callback: _on_websocket_ready
+[12:27:28] [DEBUG] Added callback: on_autocomplete_completion
+[12:27:28] [DEBUG] Added callback: on_autocomplete_error
+[12:27:28] [DEBUG] Added callback: on_command_completion
+[12:27:28] [DEBUG] Added callback: on_command_error
+[12:27:28] [DEBUG] Added callback: on_component_completion
+[12:27:28] [DEBUG] Added callback: on_component_error
+[12:27:28] [DEBUG] Added callback: on_error
+[12:27:28] [DEBUG] Added callback: on_modal_completion
+[12:27:28] [DEBUG] Added callback: on_modal_error
+[12:27:28] [DEBUG] Added callback: on_resume
+[12:27:28] [DEBUG] 12 callbacks have been loaded from Client.
+[12:27:28] [DEBUG] Attempting to login
+[12:27:29] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:27:29] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[12:27:29] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:27:29] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[12:27:29] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:27:29] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[12:27:29] [INFO] Shard ID 0 | Starting Shard
+[12:27:29] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[12:27:29] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[12:27:30] [INFO] Shard ID 0 | Gateway connection established
+[12:27:30] [DEBUG] Shard ID 0 | Session ID: a129ab49c0d5ec9e3f2cbb6602e2aad6 Trace: ['["gateway-prd-us-east1-c-6230",{"micros":160037,"calls":["id_created",{"micros":749,"calls":[]},"session_lookup_time",{"micros":349,"calls":[]},"session_lookup_finished",{"micros":12,"calls":[]},"discord-sessions-prd-2-47",{"micros":158524,"calls":["start_session",{"micros":97669,"calls":["discord-api-5b464978d4-fmdqq",{"micros":89816,"calls":["get_user",{"micros":13324},"get_guilds",{"micros":10233},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":12}]}]},"starting_guild_connect",{"micros":63,"calls":[]},"presence_started",{"micros":13291,"calls":[]},"guilds_started",{"micros":233,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":47233,"calls":[]},"connect_finished",{"micros":47239,"calls":[]},"build_ready",{"micros":25,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[12:27:30] [DEBUG] Dispatching Event: websocket_ready
+[12:27:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:27:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:27:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:27:30] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:27:30] [DEBUG] 0 is already up-to-date with 19 commands.
+[12:27:30] [DEBUG] Sync of 1 scopes took 0.5682885999995051 seconds
+[12:27:30] [DEBUG] Dispatching Event: startup
+[12:27:30] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700976450891, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[12:27:31] [DEBUG] Sending heartbeat every 41.25 seconds
+[12:27:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:27:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:27:32] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:27:38] [DEBUG] 1174695146214928500::play should be called
+[12:27:38] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[12:27:38] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3ODIwNTQwNTkyNzcxODk2MjpMQXJuM25xeVM3NmxWbUluQ1hqUWhBREJETkhNVWNJaUV4dGpCOGZtMWVwSlhDWmtZemM1dWpxdVpCOHdtazJ2Y0ZkMmtLUENMakRKbFNMNWthYTJtQTFDN25vdXdLY1NzdDR2QTdSN1czbnozdWNkZEZHcDQ2eGxxVkZKQ2FHOA/callback Received 204 :: [4/5 calls remaining]
+[12:27:38] [DEBUG] Dispatching Event: command_error
+[12:27:38] [DEBUG] Dispatching Event: command_completion
+[12:27:38] [DEBUG] Dispatching Event: error
+[12:27:38] [INFO] Command Called: play with event.ctx.args = ['Ai Mang Cô Đơn Đi - BiBo Remix | Nhạc Hot TikTok'] | event.ctx.kwargs = {'song': 'Ai Mang Cô Đơn Đi - BiBo Remix | Nhạc Hot TikTok'}
+[12:27:38] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 168, in play
+    music_queues = get_music_queue(ctx)
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 48, in get_music_queue
+    voicestate = ctx.voice_state.channel.voice_state
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'channel'
+
+[12:28:13] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:28:13] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:28:13] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:28:54] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:28:54] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:28:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:29:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:29:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:29:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:30:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:30:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:30:17] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:30:58] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:30:58] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:30:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:31:39] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:31:39] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:31:39] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:32:20] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:32:20] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:32:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:33:01] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:33:01] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:33:02] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:33:43] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:33:43] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:33:43] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:34:24] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:34:24] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:34:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:05] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:35:05] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:35:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:47] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:35:47] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:35:47] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:36:28] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:36:28] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:36:28] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:37:09] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[12:37:09] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:37:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:37:14] [DEBUG] Dispatching Event: disconnect
+[12:37:14] [DEBUG] Stopping the bot.
+[12:37:14] [INFO] Shard ID 0 | Stopping Shard

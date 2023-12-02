@@ -1,0 +1,110 @@
+[17:11:59] [DEBUG] Running client sanity checks...
+[17:12:00] [DEBUG] No setup function found in play
+[17:12:00] [DEBUG] Found extension class Music in play: Attempting to load
+[17:12:00] [DEBUG] Added callback: Music._menu
+[17:12:00] [DEBUG] Added callback: Music._pause
+[17:12:00] [DEBUG] Added callback: Music._resume
+[17:12:00] [DEBUG] Added callback: Music._skip
+[17:12:00] [DEBUG] Added callback: Music._stop
+[17:12:00] [DEBUG] Added callback: Music.play
+[17:12:00] [DEBUG] Loaded Extension: play
+[17:12:01] [DEBUG] No setup function found in askgpt
+[17:12:01] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[17:12:01] [DEBUG] Added callback: Gpt._askgpt
+[17:12:01] [DEBUG] Added callback: Gpt._img
+[17:12:01] [DEBUG] Loaded Extension: askgpt
+[17:12:02] [DEBUG] No setup function found in askbard
+[17:12:02] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[17:12:02] [DEBUG] Added callback: Bard._askbard
+[17:12:02] [DEBUG] Added callback: Bard._endbard
+[17:12:02] [DEBUG] Loaded Extension: askbard
+[17:12:02] [DEBUG] No setup function found in noi_chu
+[17:12:02] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[17:12:02] [DEBUG] Added callback: NoiChu._reset
+[17:12:02] [DEBUG] Added callback: NoiChu._world_setup
+[17:12:02] [DEBUG] Loaded Extension: noi_chu
+[17:12:02] [DEBUG] No setup function found in db_refesh
+[17:12:02] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[17:12:02] [DEBUG] Added callback: Database.dbv1_command
+[17:12:02] [DEBUG] Added callback: Database.dbv2_command
+[17:12:02] [DEBUG] Loaded Extension: db_refesh
+[17:12:02] [DEBUG] Added callback: __join
+[17:12:02] [DEBUG] Added callback: __leave
+[17:12:02] [DEBUG] Added callback: _about
+[17:12:02] [DEBUG] Added callback: _help
+[17:12:02] [DEBUG] Added callback: _refresh
+[17:12:02] [DEBUG] Added callback: _setup
+[17:12:02] [DEBUG] Added callback: _starup
+[17:12:02] [DEBUG] 7 callbacks have been loaded from __main__.
+[17:12:02] [DEBUG] Added callback: _disconnect
+[17:12:02] [DEBUG] Added callback: _on_websocket_ready
+[17:12:02] [DEBUG] Added callback: on_autocomplete_completion
+[17:12:02] [DEBUG] Added callback: on_autocomplete_error
+[17:12:02] [DEBUG] Added callback: on_command_completion
+[17:12:02] [DEBUG] Added callback: on_command_error
+[17:12:02] [DEBUG] Added callback: on_component_completion
+[17:12:02] [DEBUG] Added callback: on_component_error
+[17:12:02] [DEBUG] Added callback: on_error
+[17:12:02] [DEBUG] Added callback: on_modal_completion
+[17:12:02] [DEBUG] Added callback: on_modal_error
+[17:12:02] [DEBUG] Added callback: on_resume
+[17:12:02] [DEBUG] 12 callbacks have been loaded from Client.
+[17:12:02] [DEBUG] Attempting to login
+[17:12:02] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:12:02] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[17:12:03] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:12:03] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[17:12:03] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:12:03] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[17:12:03] [INFO] Shard ID 0 | Starting Shard
+[17:12:03] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[17:12:03] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[17:12:03] [INFO] Shard ID 0 | Gateway connection established
+[17:12:03] [DEBUG] Shard ID 0 | Session ID: a6995df5a8253f0de1829ca1aaf722e3 Trace: ['["gateway-prd-us-east1-d-6nsk",{"micros":119446,"calls":["id_created",{"micros":1654,"calls":[]},"session_lookup_time",{"micros":308,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-2-255",{"micros":116078,"calls":["start_session",{"micros":51466,"calls":["discord-api-866cdcc96c-njztk",{"micros":47686,"calls":["get_user",{"micros":7788},"get_guilds",{"micros":2493},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":939},"authorized_ip_coro",{"micros":11}]}]},"starting_guild_connect",{"micros":61,"calls":[]},"presence_started",{"micros":403,"calls":[]},"guilds_started",{"micros":148,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":63963,"calls":[]},"connect_finished",{"micros":63970,"calls":[]},"build_ready",{"micros":25,"calls":[]},"clean_ready",{"micros":2,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[17:12:03] [DEBUG] Dispatching Event: websocket_ready
+[17:12:04] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:12:04] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[17:12:04] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:12:04] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[17:12:04] [INFO] Overwriting 0 with 18 application commands
+[17:12:04] [DEBUG] Caching ingested rate limit data for: a3b974ef6eb1c925dd4ceb42f4db26fd
+[17:12:04] [DEBUG] PUT /applications/{app_id}/commands Received 200 :: [1/2 calls remaining]
+[17:12:04] [DEBUG] Sync of 1 scopes took 1.1115511000025435 seconds
+[17:12:04] [DEBUG] Dispatching Event: startup
+[17:12:04] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700561524967, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[17:12:07] [DEBUG] Sending heartbeat every 41.25 seconds
+[17:12:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[17:12:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[17:12:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[17:12:14] [DEBUG] 1174695146214928500::play should be called
+[17:12:14] [DEBUG] Dispatching Event: message_create
+[17:12:14] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[17:12:14] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ2NTA4NTM4MDcxMDQ0MTp5Nmo3SkdqeUEwYjRzazk3eG4xbFY0YjFJa05GUmhJdnA4RW03YVMxVzcwNE1HNlkwYWphcVN0dUFEM2U3SjRJb2ZDRDZLR0Rtb2FUeldtblljY1A0TjhFekg0Rkh2M0h2WFJsMmwzeks1MjJteTB2VXd5eHdTOTBaclNoMzE4SA/callback Received 204 :: [4/5 calls remaining]
+[17:12:14] [DEBUG] Dispatching Event: command_error
+[17:12:14] [DEBUG] Dispatching Event: command_completion
+[17:12:14] [DEBUG] Dispatching Event: error
+[17:12:14] [INFO] Command Called: play with event.ctx.args = ['đm'] | event.ctx.kwargs = {'song': 'đm'}
+[17:12:14] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 173, in play
+    await ctx.author.voice.channel.connect()
+          ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'channel'
+
+[17:12:37] [DEBUG] Dispatching Event: disconnect
+[17:12:37] [DEBUG] Stopping the bot.
+[17:12:37] [INFO] Shard ID 0 | Stopping Shard

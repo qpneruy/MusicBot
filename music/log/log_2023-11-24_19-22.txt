@@ -1,0 +1,71 @@
+[19:22:22] [DEBUG] Running client sanity checks...
+[19:22:23] [DEBUG] No setup function found in play
+[19:22:23] [DEBUG] Found extension class Music in play: Attempting to load
+[19:22:23] [DEBUG] Added callback: Music._menu
+[19:22:23] [DEBUG] Added callback: Music._pause
+[19:22:23] [DEBUG] Added callback: Music._resume
+[19:22:23] [DEBUG] Added callback: Music._skip
+[19:22:23] [DEBUG] Added callback: Music._stop
+[19:22:23] [DEBUG] Added callback: Music.play
+[19:22:23] [DEBUG] Loaded Extension: play
+[19:22:24] [DEBUG] No setup function found in askgpt
+[19:22:24] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[19:22:24] [DEBUG] Added callback: Gpt._askgpt
+[19:22:24] [DEBUG] Added callback: Gpt._img
+[19:22:24] [DEBUG] Loaded Extension: askgpt
+[19:22:24] [DEBUG] No setup function found in askbard
+[19:22:24] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[19:22:24] [DEBUG] Added callback: Bard._askbard
+[19:22:24] [DEBUG] Added callback: Bard._endbard
+[19:22:24] [DEBUG] Loaded Extension: askbard
+[19:22:24] [DEBUG] No setup function found in noi_chu
+[19:22:24] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[19:22:24] [DEBUG] Added callback: NoiChu._reset
+[19:22:24] [DEBUG] Added callback: NoiChu._world_setup
+[19:22:24] [DEBUG] Loaded Extension: noi_chu
+[19:22:24] [DEBUG] No setup function found in db_refesh
+[19:22:24] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[19:22:24] [DEBUG] Added callback: Database.dbv1_command
+[19:22:24] [DEBUG] Added callback: Database.dbv2_command
+[19:22:24] [DEBUG] Loaded Extension: db_refesh
+[19:22:24] [DEBUG] Added callback: ___stop
+[19:22:24] [DEBUG] Added callback: __join
+[19:22:24] [DEBUG] Added callback: __leave
+[19:22:24] [DEBUG] Added callback: _about
+[19:22:24] [DEBUG] Added callback: _help
+[19:22:24] [DEBUG] Added callback: _record_channel_set
+[19:22:24] [DEBUG] Added callback: _refresh
+[19:22:24] [DEBUG] Added callback: _setup
+[19:22:24] [DEBUG] Added callback: _starup
+[19:22:24] [DEBUG] 9 callbacks have been loaded from __main__.
+[19:22:24] [DEBUG] Added callback: _disconnect
+[19:22:24] [DEBUG] Added callback: _on_websocket_ready
+[19:22:24] [DEBUG] Added callback: on_autocomplete_completion
+[19:22:24] [DEBUG] Added callback: on_autocomplete_error
+[19:22:24] [DEBUG] Added callback: on_command_completion
+[19:22:24] [DEBUG] Added callback: on_command_error
+[19:22:24] [DEBUG] Added callback: on_component_completion
+[19:22:24] [DEBUG] Added callback: on_component_error
+[19:22:24] [DEBUG] Added callback: on_error
+[19:22:24] [DEBUG] Added callback: on_modal_completion
+[19:22:24] [DEBUG] Added callback: on_modal_error
+[19:22:24] [DEBUG] Added callback: on_resume
+[19:22:24] [DEBUG] 12 callbacks have been loaded from Client.
+[19:22:24] [DEBUG] Attempting to login
+[19:22:25] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:22:25] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[19:22:25] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:22:25] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[19:22:25] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:22:25] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[19:22:25] [INFO] Shard ID 0 | Starting Shard
+[19:22:25] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[19:22:25] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[19:22:26] [INFO] Shard ID 0 | Gateway connection established
+[19:22:26] [DEBUG] Shard ID 0 | Session ID: c282a9e2a6457e9367a7a1cfdf1233d1 Trace: ['["gateway-prd-us-east1-d-lznc",{"micros":193237,"calls":["id_created",{"micros":778,"calls":[]},"session_lookup_time",{"micros":10586,"calls":[]},"session_lookup_finished",{"micros":23,"calls":[]},"discord-sessions-prd-2-75",{"micros":181470,"calls":["start_session",{"micros":127878,"calls":["discord-api-5b464978d4-gqkt6",{"micros":122483,"calls":["get_user",{"micros":21641},"get_guilds",{"micros":20377},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":12}]}]},"starting_guild_connect",{"micros":62,"calls":[]},"presence_started",{"micros":333,"calls":[]},"guilds_started",{"micros":193,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":52949,"calls":[]},"connect_finished",{"micros":52955,"calls":[]},"build_ready",{"micros":44,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[19:22:26] [DEBUG] Dispatching Event: websocket_ready
+[19:22:26] [DEBUG] Dispatching Event: disconnect
+[19:22:26] [DEBUG] Stopping the bot.
+[19:22:26] [INFO] Shard ID 0 | Stopping Shard
+[19:22:26] [DEBUG] Stopping the bot.
+[19:22:26] [INFO] Shard ID 0 | Stopping Shard

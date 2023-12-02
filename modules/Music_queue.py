@@ -1,7 +1,7 @@
 import asyncio
-import random
 from collections import deque
 from typing import Iterator
+
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
 from interactions.api.voice.audio import BaseAudio
 
@@ -9,28 +9,17 @@ from interactions.api.voice.audio import BaseAudio
 class MusicQueue:
     voice_state: ActiveVoiceState
     _entries: deque
-    _item_queued: asyncio.Event
-    loopstate: bool
-    last: None
+    _item_queued_: asyncio.Event
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
         self._entries = deque()
-        self._item_queued = asyncio.Event()
         self.__song_list__ = []
-        self.__song_link__ = []
-        self._current_task = None
-        self.loopstate = False
-        self.curr_index = 0
+        self._item_queued = asyncio.Event()
+        self.task = asyncio.Task
 
     def __len__(self) -> int:
         return len(self._entries)
-
-    def loops(self) -> None:
-        if not self.loopstate:
-            self.loopstate = True
-        elif self.loopstate:
-            self.loopstate = False
 
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
@@ -62,8 +51,7 @@ class MusicQueue:
                 label="⏭️ Tiếp theo",
             )
         )
-        self.__song_link__.insert(0, nut)
-        self.__song_list__.insert(0, embed)
+        self.__song_list__.insert(0, [embed, nut])
         self._entries.append(audio_d)
         self._item_queued.set()
 
@@ -85,20 +73,7 @@ class MusicQueue:
         return self._entries.popleft()
 
     def shuffle(self) -> None:
-        indices = random.sample(range(len(self._entries)), len(self._entries))
-
-        shuffled_entries = deque(self._entries[i] for i in indices)
-        shuffled_song_list = [self.__song_list__[i] for i in indices]
-        shuffled_song_link = [self.__song_link__[i] for i in indices]
-
-        self._entries = shuffled_entries
-        self.__song_list__ = shuffled_song_list
-        self.__song_link__ = shuffled_song_link
-
-        print('After')
-        print(self._entries)
-        print(self.__song_link__)
-        print(self.__song_list__)
+        print('alo')
 
     def clear(self) -> None:
         self._entries.clear()
@@ -114,14 +89,16 @@ class MusicQueue:
 
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
+            if len(self._entries) == 0:
+                self.task.cancel()
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
             audio_d = await self.pop()
-            embed = self.__song_list__.pop()
-            embed.set_author('💿 Đang chơi')
-            nut = self.__song_link__.pop()
-            await self.voice_state.channel.send(embed=embed)
-            await self.voice_state.channel.send(components=nut, silent=True)
+            _song_msg_ = self.__song_list__.pop()
+            _song_msg_[0].set_author('💿 Đang chơi')
+            await self.voice_state.channel.send(embed=_song_msg_[0])
+            await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
+            await asyncio.sleep(1)
             await self.voice_state.play(audio_d)
 
     async def stop(self) -> None:
@@ -137,7 +114,7 @@ class MusicQueue:
         await self.__playback_queue()
 
     def start(self) -> None:
-        asyncio.create_task(self())
+        self.task = asyncio.create_task(self())
 
 
 # Chuẩn hóa thời lượng
@@ -149,10 +126,10 @@ def convert_seconds_to_hms(seconds):
 
 # Quản lý các lớp NaffQueue thuộc mỗi ctx.guild.id
 class MusicQueueManager:
-    _queues = {}
+    _queues_ = {}
 
     @classmethod
     def get_queue(cls, server_id, voice_state: ActiveVoiceState):
-        if server_id not in cls._queues:
-            cls._queues[server_id] = MusicQueue(voice_state)
-        return cls._queues[server_id]
+        if server_id not in cls._queues_:
+            cls._queues_[server_id] = MusicQueue(voice_state)
+        return cls._queues_[server_id]

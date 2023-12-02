@@ -39,6 +39,7 @@ class NoiChu(Extension):
 
     @interactions.listen()
     async def on_message(self, event: MessageCreate):
+        print('>>', event.message.author)
         try:
             open(f"json/word_data_sv_{event.message.author.guild.id}", "r")
         except FileNotFoundError:
@@ -46,6 +47,8 @@ class NoiChu(Extension):
         with open(f"json/word_data_sv_{event.message.author.guild.id}", "r") as f:
             temp_data = json.load(f)
             print(temp_data)
+        if not event.message.channel.id == temp_data["channel_id"]:
+            return
         if temp_data["channel_id"] != str(event.message.channel.id):
             return
         if event.message.author.id == event.bot.user.id:

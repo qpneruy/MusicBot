@@ -1,0 +1,175 @@
+[17:55:39] [DEBUG] Running client sanity checks...
+[17:55:40] [DEBUG] No setup function found in play
+[17:55:40] [DEBUG] Found extension class Music in play: Attempting to load
+[17:55:40] [DEBUG] Added callback: Music._menu
+[17:55:40] [DEBUG] Added callback: Music._pause
+[17:55:40] [DEBUG] Added callback: Music._resume
+[17:55:40] [DEBUG] Added callback: Music._skip
+[17:55:40] [DEBUG] Added callback: Music._stop
+[17:55:40] [DEBUG] Added callback: Music.play
+[17:55:40] [DEBUG] Loaded Extension: play
+[17:55:40] [DEBUG] No setup function found in askgpt
+[17:55:40] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[17:55:40] [DEBUG] Added callback: Gpt._askgpt
+[17:55:40] [DEBUG] Added callback: Gpt._img
+[17:55:40] [DEBUG] Loaded Extension: askgpt
+[17:55:41] [DEBUG] No setup function found in askbard
+[17:55:41] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[17:55:41] [DEBUG] Added callback: Bard._askbard
+[17:55:41] [DEBUG] Added callback: Bard._endbard
+[17:55:41] [DEBUG] Loaded Extension: askbard
+[17:55:41] [DEBUG] No setup function found in noi_chu
+[17:55:41] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[17:55:41] [DEBUG] Added callback: NoiChu._reset
+[17:55:41] [DEBUG] Added callback: NoiChu._world_setup
+[17:55:41] [DEBUG] Loaded Extension: noi_chu
+[17:55:41] [DEBUG] No setup function found in db_refesh
+[17:55:41] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[17:55:41] [DEBUG] Added callback: Database.dbv1_command
+[17:55:41] [DEBUG] Added callback: Database.dbv2_command
+[17:55:41] [DEBUG] Loaded Extension: db_refesh
+[17:55:41] [DEBUG] Added callback: __join
+[17:55:41] [DEBUG] Added callback: __leave
+[17:55:41] [DEBUG] Added callback: _about
+[17:55:41] [DEBUG] Added callback: _help
+[17:55:41] [DEBUG] Added callback: _record_channel_set
+[17:55:41] [DEBUG] Added callback: _refresh
+[17:55:41] [DEBUG] Added callback: _setup
+[17:55:41] [DEBUG] Added callback: _starup
+[17:55:41] [DEBUG] 8 callbacks have been loaded from __main__.
+[17:55:41] [DEBUG] Added callback: _disconnect
+[17:55:41] [DEBUG] Added callback: _on_websocket_ready
+[17:55:41] [DEBUG] Added callback: on_autocomplete_completion
+[17:55:41] [DEBUG] Added callback: on_autocomplete_error
+[17:55:41] [DEBUG] Added callback: on_command_completion
+[17:55:41] [DEBUG] Added callback: on_command_error
+[17:55:41] [DEBUG] Added callback: on_component_completion
+[17:55:41] [DEBUG] Added callback: on_component_error
+[17:55:41] [DEBUG] Added callback: on_error
+[17:55:41] [DEBUG] Added callback: on_modal_completion
+[17:55:41] [DEBUG] Added callback: on_modal_error
+[17:55:41] [DEBUG] Added callback: on_resume
+[17:55:41] [DEBUG] 12 callbacks have been loaded from Client.
+[17:55:41] [DEBUG] Attempting to login
+[17:55:41] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:55:41] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[17:55:42] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:55:42] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[17:55:42] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:55:42] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[17:55:42] [INFO] Shard ID 0 | Starting Shard
+[17:55:42] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[17:55:42] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[17:55:42] [INFO] Shard ID 0 | Gateway connection established
+[17:55:42] [DEBUG] Shard ID 0 | Session ID: 3fd09d1e22548d6938091f655741b0c3 Trace: ['["gateway-prd-us-east1-d-kjwp",{"micros":215231,"calls":["id_created",{"micros":1141,"calls":[]},"session_lookup_time",{"micros":1181,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-2-261",{"micros":211490,"calls":["start_session",{"micros":145970,"calls":["discord-api-5b464978d4-cndfh",{"micros":108101,"calls":["get_user",{"micros":12347},"get_guilds",{"micros":26827},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":48}]}]},"starting_guild_connect",{"micros":61,"calls":[]},"presence_started",{"micros":32727,"calls":[]},"guilds_started",{"micros":176,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":32512,"calls":[]},"connect_finished",{"micros":32517,"calls":[]},"build_ready",{"micros":35,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[17:55:42] [DEBUG] Dispatching Event: websocket_ready
+[17:55:43] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:55:43] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[17:55:44] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[17:55:44] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[17:55:44] [DEBUG] 0 is already up-to-date with 19 commands.
+[17:55:44] [DEBUG] Sync of 1 scopes took 1.2337544000001799 seconds
+[17:55:44] [DEBUG] Dispatching Event: startup
+[17:55:44] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700909744222, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[17:55:55] [DEBUG] Sending heartbeat every 41.25 seconds
+[17:55:55] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[17:55:55] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[17:55:55] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[17:56:07] [DEBUG] 1177583910310379550::set_record should be called
+[17:56:07] [DEBUG] Dispatching Event: command_completion
+[17:56:07] [INFO] Command Called: set_record with event.ctx.args = [GuildVoice(id=1177925455622459434, name='record_chanel', type=<ChannelType.GUILD_VOICE: 2>)] | event.ctx.kwargs = {'channel': GuildVoice(id=1177925455622459434, name='record_chanel', type=<ChannelType.GUILD_VOICE: 2>)}
+[17:56:36] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[17:56:36] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[17:56:36] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[17:57:16] [DEBUG] 1176465046856024114::voice_set should be called
+[17:57:16] [DEBUG] Dispatching Event: command_error
+[17:57:16] [DEBUG] Dispatching Event: command_completion
+[17:57:16] [DEBUG] Dispatching Event: error
+[17:57:16] [INFO] Command Called: voice_set with event.ctx.args = [GuildVoice(id=1176400128232402978, name='Chung', type=<ChannelType.GUILD_VOICE: 2>)] | event.ctx.kwargs = {'channel': GuildVoice(id=1176400128232402978, name='Chung', type=<ChannelType.GUILD_VOICE: 2>)}
+[17:57:16] [ERROR] Ignoring exception in cmd `/voice_set`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 158, in _setup
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 664, in connect
+    self._request_authentication()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 968, in _request_authentication
+    auth_packet = self._process_auth(plugin_name, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 1056, in _process_auth
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2059, "Authentication plugin 'b'auth_gssapi_client'' not configured")
+
+[17:57:17] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[17:57:17] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[17:57:17] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[17:57:20] [DEBUG] Dispatching Event: voice_user_join
+[17:57:20] [DEBUG] Dispatching Event: error
+[17:57:20] [ERROR] Ignoring exception in VoiceUserJoin():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 32, in __call__
+    return await self.callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 120, in __join
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 664, in connect
+    self._request_authentication()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 968, in _request_authentication
+    auth_packet = self._process_auth(plugin_name, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 1056, in _process_auth
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2059, "Authentication plugin 'b'auth_gssapi_client'' not configured")
+
+[17:57:23] [DEBUG] Dispatching Event: voice_user_leave
+[17:57:23] [DEBUG] Dispatching Event: error
+[17:57:23] [ERROR] Ignoring exception in VoiceUserLeave():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 32, in __call__
+    return await self.callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 142, in __leave
+    with pymysql.connect(host='127.0.0.1', user='root', password='', database='discord_guild') as connect_thread:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 358, in __init__
+    self.connect()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 664, in connect
+    self._request_authentication()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 968, in _request_authentication
+    auth_packet = self._process_auth(plugin_name, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 1056, in _process_auth
+    raise err.OperationalError(
+pymysql.err.OperationalError: (2059, "Authentication plugin 'b'auth_gssapi_client'' not configured")
+
+[17:57:23] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[17:57:23] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[17:57:58] [DEBUG] Sending data to websocket: {"op": 1, "d": 12}
+[17:57:58] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[17:57:59] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[17:58:06] [DEBUG] Dispatching Event: disconnect
+[17:58:06] [DEBUG] Stopping the bot.
+[17:58:06] [INFO] Shard ID 0 | Stopping Shard

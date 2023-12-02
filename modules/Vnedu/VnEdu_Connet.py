@@ -1,7 +1,8 @@
 import json
+from io import BytesIO
+
 import requests
 from PIL import Image, ImageDraw, ImageFont
-from io import BytesIO
 
 
 class VnEduConnect:

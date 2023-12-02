@@ -1,8 +1,8 @@
 import os
-import requests
 import string
-from yt_dlp import YoutubeDL
 
+import requests
+from yt_dlp import YoutubeDL
 
 youtube_dl = YoutubeDL(
     {

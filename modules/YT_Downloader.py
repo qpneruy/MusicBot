@@ -1,7 +1,8 @@
 import asyncio
+
 import yt_dlp
-from yt_dlp import YoutubeDL
 from interactions.api.voice.audio import AudioVolume
+from yt_dlp import YoutubeDL
 
 cfg_video = YoutubeDL(
     {
@@ -124,13 +125,7 @@ class YTDownloader(AudioVolume):
                 _ppl_inf_["playlist_count"] = "The playlist is currently Private"
                 return _ppl_inf_
         try:
-            _ppl_inf_["title"] = data["title"]
-            _ppl_inf_["availability"] = data["availability"]
-            _ppl_inf_["thumbnails"] = data["thumbnails"][3]["url"]
-            _ppl_inf_["view_count"] = data["view_count"]
-            _ppl_inf_["uploader"] = data["uploader"]
-            _ppl_inf_["playlist_count"] = data["playlist_count"]
-            return _ppl_inf_
-        except None:
+            return data
+        except Exception as e:
+            print(f"Error: {e}")
             return {}
-        

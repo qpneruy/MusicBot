@@ -1,5 +1,5 @@
-from interactions import Extension, slash_command, SlashContext
 import pymysql
+from interactions import Extension, slash_command, SlashContext
 
 
 # Kiễm tra xem bảng có tồn tại trong database không
@@ -15,7 +15,7 @@ def get_all_tables(cursor, database_name):
 
 class Database(Extension):
     host = 'localhost'
-    password = ''
+    password = 'W2:)G8%ZLj~8'
     database = 'discord_guild'
 
     # Lấy tên tất cả các bảng trong database
@@ -74,4 +74,24 @@ class Database(Extension):
                 cursor.execute(insert_data_query, new_data)
         connection.commit()
         connection.close()
+        with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8',
+                             database='discord_voice') as connect_thread:
+            cursor = connect_thread.cursor()
+            guilds = ctx.bot.guilds
+            for guild in guilds:
+                select_query = f"SELECT * FROM server_data WHERE guild_id = {guild.id}"
+                cursor.execute(select_query)
+                result = cursor.fetchall()
+                print('>>>>>>>>>>', result)
+                if result:
+                    print(f"Giá trị {guild.id} tồn tại trong cột 'ten_server'.")
+                else:
+                    print(f"Giá trị {guild.id} đã được thêm.")
+                    insert_data_query = """
+                        INSERT INTO server_data (guild_id, record_state)
+                        VALUES (%(guild_id)s, %(record_state)s)
+                        """
+                    cursor.execute(insert_data_query, {'guild_id': guild.id, 'record_state': False})
+                cursor.execute(select_query)
+            connect_thread.commit()
         await ctx.send('Đã làm mới cơ sở dữ liệu phương thức tạo')

@@ -1,0 +1,10 @@
+[12:27:39] [DEBUG] Running client sanity checks...
+[12:27:39] [DEBUG] No setup function found in play
+[12:27:39] [DEBUG] Found extension class Music in play: Attempting to load
+[12:27:39] [DEBUG] Added callback: Music._menu
+[12:27:39] [DEBUG] Added callback: Music._pause
+[12:27:39] [DEBUG] Added callback: Music._resume
+[12:27:39] [DEBUG] Added callback: Music._skip
+[12:27:39] [DEBUG] Added callback: Music._stop
+[12:27:39] [DEBUG] Added callback: Music.play
+[12:27:39] [DEBUG] Loaded Extension: play
