@@ -39,15 +39,17 @@ class NoiChu(Extension):
 
     @interactions.listen()
     async def on_message(self, event: MessageCreate):
-        print('>>', event.message.author)
         try:
-            open(f"json/word_data_sv_{event.message.author.guild.id}", "r")
+            guild_id = event.message.author.guild.id
+        except AttributeError:
+            return
+        try:
+            open(f"json/word_data_sv_{guild_id}", "r")
         except FileNotFoundError:
             return
-        with open(f"json/word_data_sv_{event.message.author.guild.id}", "r") as f:
+        with open(f"json/word_data_sv_{guild_id}", "r") as f:
             temp_data = json.load(f)
-            print(temp_data)
-        if not event.message.channel.id == temp_data["channel_id"]:
+        if not str(event.message.channel.id) == temp_data["channel_id"]:
             return
         if temp_data["channel_id"] != str(event.message.channel.id):
             return
@@ -70,10 +72,10 @@ class NoiChu(Extension):
             previous_word = data["current"]
             """---------------------------------------------------------------------------"""
             # kiểm tra người nối từ hiện tại đã nối từ trước đó hay không
-            # if data["history"]["previous_user"] == event.message.author.id:
-            #     await event.message.channel.send("Bạn đã nối từ trước đó rồi")
-            #     await event.message.add_reaction('❌')
-            #     return
+            if data["history"]["previous_user"] == event.message.author.id:
+                await event.message.channel.send("Bạn đã nối từ trước đó rồi")
+                await event.message.add_reaction('❌')
+                return
             """---------------------------------------------------------------------------"""
             # kiểm tra xem từ đã được nối trước đó hay chưa
             if user_word in data["history"]["word_list"]:

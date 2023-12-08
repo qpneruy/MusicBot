@@ -20,16 +20,15 @@ class Gpt(Extension):
         required=True
     )
     async def _askgpt(self, ctx: SlashContext, content: str):
-        # logger.debug(f"[{ctx.guild.name}]::[{ctx.user.display_name}]: > ASKGPT: {content}")
         await ctx.defer()
         if len(content) <= 2000:
             message = content
             if message:
-                messages.append(
+                message.append(
                     {"role": "user", "content": message},
                 )
                 chat = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo", messages=messages
+                    model="gpt-3.5-turbo", messages=message
                 )
                 reply = chat.choices[0].message.content
                 if len(reply) > 2000:
@@ -38,7 +37,7 @@ class Gpt(Extension):
                     await ctx.send(
                         f'**{ctx.user.display_name}:** {content}\n**qpneruy:** {reply}')
 
-                messages.append({"role": "assistant", "content": reply})
+                message.append({"role": "assistant", "content": reply})
         else:
             await ctx.send("tin nhắn quá 2000 ký tự", ephemeral=True)
 

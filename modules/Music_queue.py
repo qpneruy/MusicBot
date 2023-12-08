@@ -98,7 +98,8 @@ class MusicQueue:
             _song_msg_[0].set_author('💿 Đang chơi')
             await self.voice_state.channel.send(embed=_song_msg_[0])
             await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-            await asyncio.sleep(1)
+            print('Đang phát nhạc')
+            print(audio_d)
             await self.voice_state.play(audio_d)
 
     async def stop(self) -> None:

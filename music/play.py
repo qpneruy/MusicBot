@@ -1,7 +1,9 @@
+import os
 import asyncio
 
 import interactions
 import pymysql
+
 import yt_dlp.utils
 from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, SlashContext, listen, \
     Embed
@@ -29,22 +31,7 @@ cfg_playlist = YoutubeDL(
 )
 
 
-# Đặt lại đầu vào âm lượng đã lưu trước đó | Database
-def vol_refresh(ctx):
-    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password="W2:)G8%ZLj~8", database='discord_guild')
-    player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    try:
-        with connect_thread.cursor() as cursor:
-            select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
-            cursor.execute(select_query)
-            result = cursor.fetchone()
-            curr = result[0]
-            player.volume = curr
-    finally:
-        connect_thread.close()
-
-
-def get_music_queue(ctx: SlashContext) -> MusicQueue:
+def get_music_queue(ctx) -> MusicQueue:
     voicestate = ctx.voice_state.channel.voice_state
     server_id = ctx.guild.id
     current_queue = MusicQueueManager.get_queue(server_id, voicestate)
@@ -65,45 +52,10 @@ def embed_make_pp(title: str, thumbnails: str, uploader: str, total: int):
     return embed
 
 
-async def _volup(ctx):
-    player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8', database='discord_guild')
-    try:
-        with connect_thread.cursor() as cursor:
-            select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
-            cursor.execute(select_query)
-            result = cursor.fetchone()
-            curr = result[0]
-            curr += 0.15
-            player.volume = curr
-            update_query = f"UPDATE server_data SET current_Vol = %s WHERE ten_server = %s"
-            cursor.execute(update_query, (curr, ctx.guild_id))
-            connect_thread.commit()
-    finally:
-        connect_thread.close()
-        await ctx.send('Đã Tăng âm lượng', ephemeral=True)
-
-
-async def _voldown(ctx):
-    player = ctx.bot.get_bot_voice_state(ctx.guild_id)
-    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8', database='discord_guild')
-    try:
-        with connect_thread.cursor() as cursor:
-            select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
-            cursor.execute(select_query)
-            result = cursor.fetchone()
-            curr = result[0]
-            curr -= 0.15
-            player.volume = curr
-            update_query = f"UPDATE server_data SET current_Vol = '{curr}' WHERE ten_server = '{ctx.guild_id}'"
-            cursor.execute(update_query)
-            connect_thread.commit()
-    finally:
-        connect_thread.close()
-        await ctx.send('Đã Giảm âm lượng', ephemeral=True)
-
-
 class Music(Extension):
+    db_host = "localhost"
+    db_user = "root"
+    db_pass = os.getenv("db_password")
     VideoData = VideoData()
 
     def __init__(self, bot):
@@ -111,44 +63,14 @@ class Music(Extension):
         print(">> Lệnh Play đã sẵn sàng")
 
     hang1 = ActionRow(
-        Button(
-            custom_id="pause_button",
-            style=ButtonStyle.BLUE,
-            label="⏸️ Tạm Dừng",
-        ),
-        Button(
-            custom_id="stop_button",
-            style=ButtonStyle.RED,
-            label="🛑 Dừng ",
-        ),
-        Button(
-            custom_id="resume_button",
-            style=ButtonStyle.GREEN,
-            label="▶️ Tiếp tục",
-        ),
-        Button(
-            custom_id="loop_button",
-            style=ButtonStyle.GREEN,
-            label="🔂 Lặp lại",
-        )
-    )
+        Button(custom_id="pause_button", style=ButtonStyle.BLUE, label="⏸️ Tạm Dừng",),
+        Button(custom_id="stop_button", style=ButtonStyle.RED, label="🛑 Dừng ",),
+        Button(custom_id="resume_button", style=ButtonStyle.GREEN, label="▶️ Tiếp tục", ),
+        Button(custom_id="loop_button", style=ButtonStyle.GREEN, label="🔂 Lặp lại",))
     hang2 = ActionRow(
-        Button(
-            custom_id="vol_up",
-            style=ButtonStyle.GREEN,
-            label="➕ Tăng Âm Lượng",
-        ),
-        Button(
-            custom_id="vol_down",
-            style=ButtonStyle.GREEN,
-            label="➖ Giảm Âm Lượng",
-        ),
-        Button(
-            custom_id="skip_button",
-            style=ButtonStyle.GREY,
-            label="⏭️ Tiếp theo",
-        )
-    )
+        Button(custom_id="vol_up", style=ButtonStyle.GREEN, label="➕ Tăng Âm Lượng", ),
+        Button(custom_id="vol_down", style=ButtonStyle.GREEN, label="➖ Giảm Âm Lượng",),
+        Button(custom_id="skip_button", style=ButtonStyle.GREY, label="⏭️ Tiếp theo",))
 
     # lấy ảnh đại diện của người đăng "Video"
     def get_uploader_avatar(self, audio_d):
@@ -157,73 +79,63 @@ class Music(Extension):
 
     # Lấy Lớp hàng đợi của server thuộc ctx.guild.id
 
-    @slash_command(name="play", description="chơi nhạc")
+    @slash_command(name="play", description="Phát bài hát ")
     @interactions.slash_option("song", "Đường dẫn danh sách hoặc video & Tên bài hát", 3, True)
     async def play(self, ctx: SlashContext, song: str):
         await ctx.defer()
+
         """-------------------------------------------------------------------------------"""
         # Thực hiện chuẩn hóa kết nối | Nghĩa là bot có thể tham gia được kênh thoại hiện tại
-        if ctx.author.voice.channel is not None:
-            await ctx.author.voice.channel.connect()
-            print("user in voice2")
-            User_inVoice = True
-        else:
+        if ctx.author.voice is None:
             await ctx.send('Bạn phải ở trong 1 kênh thoại', ephemeral=True)
             return
+        else:
+            await ctx.author.voice.channel.connect()
         music_queues = get_music_queue(ctx)
         """-------------------------------------------------------------------------------"""
-        # if User_inVoice:
-        print("user in voice2")
         # Nếu Người dùng ctx Hiện tại đang kết nối với kênh thoại | nghĩa là có thể chuẩn hóa
         if "https://www.youtube.com/playlist?list=" not in song:
-                # Đầu vào là một type thuộc Video
-                print("đã nhaanj type video")
-                audio = await YTDownloader.get_audio(song)
-                avatar_url = self.get_uploader_avatar(audio)
-                await music_queues.put(audio, avatar_url)
-                embed = music_queues.__song_list__[0][0]
-                if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
-                    # Nếu bot đang chơi nhạc | Chuẩn hóa Embed
-                    embed.set_author('➕ Đã Thêm Vào hàng đợi')
-                    await ctx.send(embed=embed)
-                else:
-                    # Nếu Bot đang sẵn sàng
-                    embed.set_author('📀 Đang Chơi Nhạc')
-                    await ctx.send(embeds=embed, components=[self.hang1, self.hang2], )
-                    vol_refresh(ctx)
+            # Đầu vào là một type thuộc Video
+            audio = await YTDownloader.get_audio(song)
+            avatar_url = self.get_uploader_avatar(audio)
+            await music_queues.put(audio, avatar_url)
+            embed = music_queues.__song_list__[0][0]
+            if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+                # Nếu bot đang chơi nhạc | Chuẩn hóa Embed
+                embed.set_author('➕ Đã Thêm Vào hàng đợi')
+                await ctx.send(embed=embed)
+            else:
+                # Nếu Bot đang sẵn sàng
+                embed.set_author('📀 Đang Chơi Nhạc')
+                await ctx.send(embeds=embed, components=[self.hang1, self.hang2], )
         elif "https://www.youtube.com/playlist?list=" in song:
-                # Nếu đầu vào là một playlist
-                try:
-                    data = await asyncio.to_thread(
-                        lambda: cfg_playlist.extract_info(song, download=False)
-                    )
-                    ppl_info = await YTDownloader.ppl_info(direct_data=data)
-                except yt_dlp.utils.DownloadError:
-                    await ctx.send("Danh sách phát không tồn tại", ephemeral=True)
-                    return
-                if "entries" in data:
-                    for items in data["entries"]:
-                        audio = YTDownloader.create_new_cls(items)
-                        avatar_url = self.VideoData.get_uploader_avt(direct_url=items)
-                        await music_queues.put(audio, avatar_url)
-                    embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"][3]["url"], ppl_info["uploader"],
-                                          ppl_info["playlist_count"])
-                    if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
-                        embed.set_author('📀 Đang Chơi')
-                    await ctx.send(embeds=embed)
-                    await ctx.send(components=[self.hang1, self.hang2])
-                    vol_refresh(ctx)
+            # Nếu đầu vào là một playlist
+            try:
+                data = await asyncio.to_thread(
+                    lambda: cfg_playlist.extract_info(song, download=False)
+                )
+                ppl_info = await YTDownloader.ppl_info(direct_data=data)
+            except yt_dlp.utils.DownloadError:
+                await ctx.send("Danh sách phát không tồn tại", ephemeral=True)
+                return
+            if "entries" in data:
+                for items in data["entries"]:
+                    audio = YTDownloader.create_new_cls(items)
+                    avatar_url = self.VideoData.get_uploader_avt(direct_url=items)
+                    await music_queues.put(audio, avatar_url)
+                embed = embed_make_pp(ppl_info["title"], ppl_info["thumbnails"][3]["url"], ppl_info["uploader"],
+                                      ppl_info["playlist_count"])
+                if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+                    embed.set_author('📀 Đang Chơi')
+                await ctx.send(embeds=embed)
+                await ctx.send(components=[self.hang1, self.hang2])
+
         """-------------------------------------------------------------------------------"""
         # Khởi đồng luồng chung | not nếu trường hợp bot không sẵn sàng > Bận nhạc
         if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
             print("đã khởi động luồng")
-            Music._fplay(ctx)
-
-    # Khởi động luồng từ lớp Music_queue thuộc ctx.guild.id
-    @classmethod
-    def _fplay(cls, ctx: SlashContext):
-        music_queues = get_music_queue(ctx)
-        music_queues.start()
+            self.vol_refresh(ctx)
+            music_queues.start()
 
     @slash_command(name="menu", description="Menu chơi nhạc")
     async def _menu(self, ctx: SlashContext):
@@ -266,8 +178,8 @@ class Music(Extension):
             await ctx.send('Đã tạm dừng', ephemeral=True)
 
     @listen(Component)
-    async def on_component(self, evnet: Component):
-        ctx = evnet.ctx
+    async def on_component(self, event: Component):
+        ctx = event.ctx
         match ctx.custom_id:
             case "pause_button":
                 await self._pause(ctx)
@@ -276,8 +188,61 @@ class Music(Extension):
             case "resume_button":
                 await self._resume(ctx)
             case "vol_up":
-                await _volup(ctx)
+                await self._volup(ctx)
             case "vol_down":
-                await _voldown(ctx)
+                await self._voldown(ctx)
             case "skip_button":
                 await self._skip(ctx)
+
+    async def _volup(self, ctx):
+        player = ctx.bot.get_bot_voice_state(ctx.guild_id)
+        with pymysql.connect(host=self.db_host, user=self.db_user, password=self.db_pass,
+                             database="discord_guild") as connect_thread:
+            try:
+                with connect_thread.cursor() as cursor:
+                    select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
+                    cursor.execute(select_query)
+                    result = cursor.fetchone()
+                    curr = result[0]
+                    curr += 0.15
+                    player.volume = curr
+                    update_query = f"UPDATE server_data SET current_Vol = %s WHERE ten_server = %s"
+                    cursor.execute(update_query, (curr, ctx.guild_id))
+                    connect_thread.commit()
+            finally:
+                connect_thread.close()
+                await ctx.send('Đã Tăng âm lượng', ephemeral=True)
+
+    async def _voldown(self, ctx):
+        player = ctx.bot.get_bot_voice_state(ctx.guild_id)
+        with pymysql.connect(host=self.db_host, user=self.db_user, password=self.db_pass,
+                             database="discord_guild") as connect_thread:
+            try:
+                with connect_thread.cursor() as cursor:
+                    select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
+                    cursor.execute(select_query)
+                    result = cursor.fetchone()
+                    curr = result[0]
+                    curr -= 0.15
+                    player.volume = curr
+                    update_query = f"UPDATE server_data SET current_Vol = '{curr}' WHERE ten_server = '{ctx.guild_id}'"
+                    cursor.execute(update_query)
+                    connect_thread.commit()
+            finally:
+                connect_thread.close()
+                await ctx.send('Đã Giảm âm lượng', ephemeral=True)
+
+    # Đặt lại đầu vào âm lượng đã lưu trước đó | Database
+    def vol_refresh(self, ctx):
+        with pymysql.connect(host=self.db_host, user=self.db_user, password=self.db_pass,
+                             database="discord_guild") as connect_thread:
+            player = ctx.bot.get_bot_voice_state(ctx.guild_id)
+            try:
+                with connect_thread.cursor() as cursor:
+                    select_query = f"SELECT current_vol FROM server_data WHERE ten_server = '{ctx.guild_id}'"
+                    cursor.execute(select_query)
+                    result = cursor.fetchone()
+                    curr = result[0]
+                    player.volume = curr
+            finally:
+                connect_thread.close()

@@ -33,7 +33,6 @@ console_handler.setFormatter(logging.Formatter(log_format, datefmt=date_format))
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 """---------------------------------------------------------------------------------"""
-
 api_key = os.getenv('YOUTUBE_API_KEY')
 Token = os.getenv("Discord_Token_Bot_A")
 """-----------------------------"""
@@ -100,7 +99,7 @@ async def _about(ctx: SlashContext):
         )
     )
 
-    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8', database='discord_guild')
+    connect_thread = pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8#', database='discord_guild')
     embed.add_field(name="🏠LOCALHOST PING", value=f"{round(bot.latency * 1000)} msㅤㅤㅤㅤㅤ", inline=True)
     embed.add_field(name="🗃️DATABASE PING", value=f'{connect_thread.ping()} ms')
     embed.add_field(name="⚓CONNECT:", value=f'{connect_thread.get_host_info()}')
@@ -116,7 +115,7 @@ async def get_remaining_members(current_channel):
 
 @listen(VoiceUserJoin)
 async def __join(vs: VoiceUserJoin):
-    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8',
+    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8#',
                          database='discord_guild') as connect_thread:
         with connect_thread.cursor() as cursor:
             select_query = f"SELECT CAST(voice_id AS SIGNED) FROM server_data WHERE ten_server = '{vs.author.guild.id}'"
@@ -139,7 +138,7 @@ async def __join(vs: VoiceUserJoin):
 
 @listen(VoiceUserLeave)
 async def __leave(vs: VoiceUserLeave):
-    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8',
+    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8#',
                          database='discord_guild') as connect_thread:
         with connect_thread.cursor() as cnx:
             query = f"SELECT CAST(active_channel AS SIGNED) FROM server_{vs.author.guild.id}"
@@ -161,7 +160,7 @@ async def __leave(vs: VoiceUserLeave):
 @slash_command(name="voice_set", description="Đặt kênh Tạo phòng")
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
-    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8',
+    with pymysql.connect(host='127.0.0.1', user='root', password='W2:)G8%ZLj~8#',
                          database='discord_guild') as connect_thread:
         channels = channel.id
         await ctx.send(f"đã đặt kênh {channel.name} thành kênh voiceS")
@@ -194,8 +193,8 @@ async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
 
 bot.load_extension("play")
 # bot.load_extension("askgpt")
-# bot.load_extension("askbard")
-# bot.load_extension("noi_chu")
+bot.load_extension("askbard")
+bot.load_extension("noi_chu")
 bot.load_extension("db_refesh")
 bot.start(Token)
 # batch_thread.join()
