@@ -152,11 +152,6 @@ async def __leave(vs: VoiceUserLeave):
             connect_thread.commit()
 
 
-# CREATE TABLE IF NOT EXISTS server_data (
-# 				guild_id TEXT NOT NULL,
-# 			    channel_id TEXT default Null,
-# 				record_state Bool default False
-# )
 @slash_command(name="voice_set", description="Đặt kênh Tạo phòng")
 @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
 async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):

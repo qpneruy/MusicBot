@@ -1,8 +1,9 @@
 import asyncio
 import os
 from io import BytesIO
-import requests
+
 import interactions
+import requests
 from interactions import File
 from interactions import SlashContext, slash_option, slash_command
 from interactions.api.events import Startup, MessageCreate
@@ -38,7 +39,6 @@ async def record(ctx: interactions.SlashContext):
 
 @interactions.listen()
 async def on_message(event: MessageCreate):
-
     msg = event.message.content
     msg_parts = msg.split(maxsplit=1)
     result = " ".join(msg_parts[1:]) if len(msg_parts) > 1 else ""
@@ -110,6 +110,7 @@ async def circle(ctx: SlashContext, phone: str, passw: str, hocky: str, namhoc: 
         img_io = BytesIO(img_data)
         file = File(file=img_io, file_name='bangdiem.png')
         await ctx.send(file=file)
+
 
 bot.load_extension("db_module")
 bot.start(Token)

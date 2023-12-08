@@ -1,12 +1,12 @@
 import datetime
-import pymysql
 import json
 import os
 
-from interactions.api.events.discord import MessageCreate
 import google.generativeai as palm
 import interactions
+import pymysql
 from interactions import Extension, SlashContext, slash_command, OptionType
+from interactions.api.events.discord import MessageCreate
 
 bard = os.getenv("PALM_API_KEY")
 palm.configure(api_key=bard)

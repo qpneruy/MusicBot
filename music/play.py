@@ -1,9 +1,8 @@
-import os
 import asyncio
+import os
 
 import interactions
 import pymysql
-
 import yt_dlp.utils
 from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, SlashContext, listen, \
     Embed
@@ -63,14 +62,14 @@ class Music(Extension):
         print(">> Lệnh Play đã sẵn sàng")
 
     hang1 = ActionRow(
-        Button(custom_id="pause_button", style=ButtonStyle.BLUE, label="⏸️ Tạm Dừng",),
-        Button(custom_id="stop_button", style=ButtonStyle.RED, label="🛑 Dừng ",),
+        Button(custom_id="pause_button", style=ButtonStyle.BLUE, label="⏸️ Tạm Dừng", ),
+        Button(custom_id="stop_button", style=ButtonStyle.RED, label="🛑 Dừng ", ),
         Button(custom_id="resume_button", style=ButtonStyle.GREEN, label="▶️ Tiếp tục", ),
-        Button(custom_id="loop_button", style=ButtonStyle.GREEN, label="🔂 Lặp lại",))
+        Button(custom_id="loop_button", style=ButtonStyle.GREEN, label="🔂 Lặp lại", ))
     hang2 = ActionRow(
         Button(custom_id="vol_up", style=ButtonStyle.GREEN, label="➕ Tăng Âm Lượng", ),
-        Button(custom_id="vol_down", style=ButtonStyle.GREEN, label="➖ Giảm Âm Lượng",),
-        Button(custom_id="skip_button", style=ButtonStyle.GREY, label="⏭️ Tiếp theo",))
+        Button(custom_id="vol_down", style=ButtonStyle.GREEN, label="➖ Giảm Âm Lượng", ),
+        Button(custom_id="skip_button", style=ButtonStyle.GREY, label="⏭️ Tiếp theo", ))
 
     # lấy ảnh đại diện của người đăng "Video"
     def get_uploader_avatar(self, audio_d):
