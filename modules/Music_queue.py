@@ -17,6 +17,9 @@ class MusicQueue:
         self.__song_list__ = []
         self._item_queued = asyncio.Event()
         self.task = asyncio.Task
+        self.loop_state = False
+        self.last_audio = BaseAudio
+
 
     def __len__(self) -> int:
         return len(self._entries)
@@ -24,7 +27,7 @@ class MusicQueue:
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    async def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
+    def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
         title = audio_d.entry['title']
         thumbnail = audio_d.entry['thumbnail']
         uploader = audio_d.entry['uploader']
@@ -84,23 +87,36 @@ class MusicQueue:
         except IndexError:
             return None
 
+    def loop(self) -> None:
+        if self.loop_state is True:
+            self.loop_state = False
+        else:
+            self.loop_state = True
+        print("Trang thai: ", self.loop_state)
+
     def peek_at_index(self, index: int) -> BaseAudio:
         return self._entries[index]
 
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
+            print("đang chạy 1")
             if len(self._entries) == 0:
                 self.task.cancel()
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
-            audio_d = await self.pop()
-            _song_msg_ = self.__song_list__.pop()
-            _song_msg_[0].set_author('💿 Đang chơi')
-            await self.voice_state.channel.send(embed=_song_msg_[0])
-            await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-            print('Đang phát nhạc')
-            print(audio_d)
-            await self.voice_state.play(audio_d)
+            if self.loop_state is False:
+                audio_d = await self.pop()
+                self.last_audio = audio_d
+                _song_msg_ = self.__song_list__.pop()
+                _song_msg_[0].set_author('💿 Đang chơi')
+                await self.voice_state.channel.send(embed=_song_msg_[0])
+                await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
+            if self.loop_state is True:
+                print("chạy luồng phát lặp lại")
+
+                await self.voice_state.play(self.last_audio)
+            else:
+                await self.voice_state.play(audio_d)
 
     async def stop(self) -> None:
         await self.voice_state.stop()

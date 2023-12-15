@@ -39,8 +39,7 @@ Token = os.getenv("Discord_Token_Bot_A")
 bot = interactions.Client(
     intents=interactions.Intents.DEFAULT | interactions.Intents.MESSAGE_CONTENT, send_command_tracebacks=False,
     sync_interactions=True,
-    asyncio_debug=True,
-    logger=logger)
+    asyncio_debug=True)
 """-----------------------------"""
 
 
@@ -53,10 +52,10 @@ async def _refresh(ctx: SlashContext):
     await ctx.send('Đã reset lại command')
 
 
-@listen(Startup)
-async def _starup():
-    print(f">> Bot đã khởi Động: {bot.user.display_name}")
-    await bot.change_presence(status=interactions.Status.IDLE, activity="lệnh /help để giúp đỡ")
+@interactions.listen(interactions.events.Startup)
+async def on_start(self):
+    print(f">> Bot đã khởi Động: {self.bot.user.display_name}")
+    await self.bot.change_presence(status=interactions.Status.IDLE, activity="lệnh /help để giúp đỡ", )
 
 
 def run_batch_file():
@@ -71,17 +70,17 @@ def run_batch_file():
 # batch_thread.start()
 
 
-@slash_command(name="help", description="Trợ Giúp")
-async def _help(ctx: SlashContext):
-    embed = Embed(
-        title="**Giúp Đỡ**                       ",
-        description="  ",
-        color=0x6DAEDB,
-    )
-    embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
-    embed.add_field(name="**📖️ ╏ COMMAND**",
-                    value='ㅤ  /about -- Trạng thái bot\nㅤ /Play -- Chơi nhạc\n /ask -- Hỏi bot\n /img -- không dùng')
-    await ctx.send(embed=embed)
+# @slash_command(name="help", description="Trợ Giúp")
+# async def _help(ctx: SlashContext):
+#     embed = Embed(
+#         title="**Giúp Đỡ**                       ",
+#         description="  ",
+#         color=0x6DAEDB,
+#     )
+#     embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar_url)
+#     embed.add_field(name="**📖️ ╏ COMMAND**",
+#                     value='ㅤ  /about -- Trạng thái bot\nㅤ /Play -- Chơi nhạc\n /ask -- Hỏi bot\n /img -- không dùng')
+#     await ctx.send(embed=embed)
 
 
 @slash_command(name="about", description="Trạng Thái Bot")
@@ -187,9 +186,9 @@ async def _setup(ctx: SlashContext, channel: interactions.OptionType.CHANNEL):
 
 
 bot.load_extension("play")
-# bot.load_extension("askgpt")
 bot.load_extension("askbard")
 bot.load_extension("noi_chu")
 bot.load_extension("db_refesh")
+bot.load_extension("help")
 bot.start(Token)
 # batch_thread.join()

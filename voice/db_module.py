@@ -3,6 +3,7 @@ from interactions import Extension, slash_command, slash_option, SlashContext, O
 
 
 class Database(Extension):
+
     @slash_command(name="set_record", description="Đặt kênh ghi âm")
     @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
     async def _record_channel_set(self, ctx: SlashContext, channel: OptionType.CHANNEL):
