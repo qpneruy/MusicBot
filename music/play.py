@@ -4,8 +4,7 @@ import time
 import interactions
 import pymysql
 import yt_dlp.utils
-from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, SlashContext, listen, \
-    Embed
+from interactions import Extension, ActionRow, Button, ButtonStyle, slash_command, SlashContext, listen
 from interactions.api.events import Component
 from yt_dlp import YoutubeDL
 
@@ -16,6 +15,23 @@ from modules import VideoData
 from modules import YTDownloader
 from embed import embed_make_pp
 
+cfg_video = YoutubeDL(
+    {
+        "format": "bestaudio/best",
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": True,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+        "dump_single_json": True,
+        "skip_download": True
+    }
+)
 cfg_playlist = YoutubeDL(
     {
         "format": "bestaudio/best",
@@ -92,7 +108,7 @@ class Music(Extension):
             # Đầu vào là một type thuộc Video
             audio = await YTDownloader.get_audio(song)
             avatar_url = self.get_uploader_avatar(audio)
-            await music_queues.put(audio, avatar_url)
+            music_queues.put(audio, avatar_url)
             embed = music_queues.__song_list__[0][0]
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
                 # Nếu bot đang chơi nhạc | Chuẩn hóa Embed
@@ -109,8 +125,16 @@ class Music(Extension):
                 data = await asyncio.to_thread(
                     lambda: cfg_playlist.extract_info(song, download=False)
                 )
+
+                def _get_song_info(url: str):
+                    try:
+                        return cfg_video.extract_info(url, download=False)
+                    except yt_dlp.utils.DownloadError:
+                        return None
+
                 with ThreadPoolExecutor(max_workers=6) as executor:
-                    data_music = executor.map(lambda urld: YTDownloader.get_audio(urld["url"]), data["entries"])
+                    data_music = executor.map(lambda urld: _get_song_info(urld["url"]),
+                                              data["entries"])
                 end1 = time.time()
                 print('>>>>>>>>> chay lay ppl', end1 - start1)
             except yt_dlp.utils.DownloadError:
@@ -118,6 +142,8 @@ class Music(Extension):
                 return
 
             def _init_music_to_queue(items):
+                if items is None:
+                    return
                 audio_d = YTDownloader.create_new_cls(items)
                 avatar_url_d = self.VideoData.get_uploader_avt(direct_url=items)
                 music_queues.put(audio_d, avatar_url_d)

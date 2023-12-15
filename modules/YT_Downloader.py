@@ -52,25 +52,20 @@ class YTDownloader(AudioVolume):
         self._song_url_: []
 
     @classmethod
-    def get_audio(cls, url: str, ytdl: YoutubeDL | None = None) -> "YTDownloader":
+    async def get_audio(cls, url: str, ytdl: YoutubeDL | None = None) -> "YTDownloader":
         if not ytdl:
             ytdl = cfg_video
-        # data = await asyncio.to_thread(
-        #     lambda: ytdl.extract_info(url, download=False)
-        # )
-        # with ThreadPoolExecutor() as executor:
-        #     loop = asyncio.get_event_loop()
-        data = ytdl.extract_info(url, download=False)
-        # if "entries" in data:
-        #     data = data["entries"][0]
-        # new_cls = cls(data["url"])
-        # new_cls.ffmpeg_before_args = (
-        #     "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
-        # )
-        # new_cls.entry = data
-        # return new_cls
-        print(data["title"])
-        return data
+        data = await asyncio.to_thread(
+            lambda: ytdl.extract_info(url, download=False)
+        )
+        if "entries" in data:
+            data = data["entries"][0]
+        new_cls = cls(data["url"])
+        new_cls.ffmpeg_before_args = (
+            "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
+        )
+        new_cls.entry = data
+        return new_cls
 
     @classmethod
     async def get_extra_info_async(cls, url: str):
