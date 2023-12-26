@@ -1,0 +1,102 @@
+[15:07:05] [DEBUG] Running client sanity checks...
+[15:07:05] [DEBUG] No setup function found in play
+[15:07:05] [DEBUG] Found extension class Music in play: Attempting to load
+[15:07:05] [DEBUG] Added callback: Music._menu
+[15:07:05] [DEBUG] Added callback: Music._pause
+[15:07:05] [DEBUG] Added callback: Music._resume
+[15:07:05] [DEBUG] Added callback: Music._skip
+[15:07:05] [DEBUG] Added callback: Music._stop
+[15:07:05] [DEBUG] Added callback: Music.play
+[15:07:05] [DEBUG] Loaded Extension: play
+[15:07:05] [DEBUG] No setup function found in db_refesh
+[15:07:05] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[15:07:05] [DEBUG] Added callback: Database.dbv1_command
+[15:07:05] [DEBUG] Added callback: Database.dbv2_command
+[15:07:05] [DEBUG] Loaded Extension: db_refesh
+[15:07:05] [DEBUG] Added callback: __join
+[15:07:05] [DEBUG] Added callback: __leave
+[15:07:05] [DEBUG] Added callback: _about
+[15:07:05] [DEBUG] Added callback: _help
+[15:07:05] [DEBUG] Added callback: _refresh
+[15:07:05] [DEBUG] Added callback: _setup
+[15:07:05] [DEBUG] Added callback: _starup
+[15:07:05] [DEBUG] 7 callbacks have been loaded from __main__.
+[15:07:05] [DEBUG] Added callback: _disconnect
+[15:07:05] [DEBUG] Added callback: _on_websocket_ready
+[15:07:05] [DEBUG] Added callback: on_autocomplete_completion
+[15:07:05] [DEBUG] Added callback: on_autocomplete_error
+[15:07:05] [DEBUG] Added callback: on_command_completion
+[15:07:05] [DEBUG] Added callback: on_command_error
+[15:07:05] [DEBUG] Added callback: on_component_completion
+[15:07:05] [DEBUG] Added callback: on_component_error
+[15:07:05] [DEBUG] Added callback: on_error
+[15:07:05] [DEBUG] Added callback: on_modal_completion
+[15:07:05] [DEBUG] Added callback: on_modal_error
+[15:07:05] [DEBUG] Added callback: on_resume
+[15:07:05] [DEBUG] 12 callbacks have been loaded from Client.
+[15:07:05] [DEBUG] Attempting to login
+[15:07:06] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[15:07:06] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:07:06] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[15:07:06] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[15:07:06] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:07:06] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[15:07:06] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[15:07:06] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[15:07:06] [INFO] Shard ID 0 | Starting Shard
+[15:07:06] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[15:07:07] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[15:07:07] [INFO] Shard ID 0 | Gateway connection established
+[15:07:07] [DEBUG] Shard ID 0 | Session ID: 61ad344ead3905b5857dd6ad8a67c239 Trace: ['["gateway-prd-us-east1-d-tggz",{"micros":166090,"calls":["id_created",{"micros":817,"calls":[]},"session_lookup_time",{"micros":299,"calls":[]},"session_lookup_finished",{"micros":19,"calls":[]},"discord-sessions-prd-2-72",{"micros":164390,"calls":["start_session",{"micros":122218,"calls":["discord-api-7949f7f68f-gpvf8",{"micros":115098,"calls":["get_user",{"micros":6663},"get_guilds",{"micros":73263},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":352},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":61,"calls":[]},"presence_started",{"micros":309,"calls":[]},"guilds_started",{"micros":185,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":41583,"calls":[]},"connect_finished",{"micros":41590,"calls":[]},"build_ready",{"micros":24,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[15:07:07] [DEBUG] Dispatching Event: websocket_ready
+[15:07:08] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:07:08] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:07:08] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[15:07:08] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[15:07:08] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:07:08] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:07:08] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[15:07:08] [DEBUG] 0 is already up-to-date with 19 commands.
+[15:07:08] [DEBUG] Sync of 1 scopes took 0.75585209999997 seconds
+[15:07:08] [DEBUG] Dispatching Event: startup
+[15:07:08] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1701504428518, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[15:07:11] [DEBUG] 1174695146214928500::play should be called
+[15:07:11] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[15:07:11] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE4MDQxOTg3OTU4MTUxOTkxMjppZUhaMGltZXI1QVdxRXRrY2dPbDRDb0hjRVNvaGd0NWhhd0VueGt1OHJsSVlUSXZFdHYwdW5BVFZ2RmN4MEIxTnZkWEFWYzlLS3ZQM3ZPV0IxMFpLeEZEbWwwTTMzN2xTa0R1ZlV5Mmh1VHdFR0tEeEhIaGJ4dmxKZ25kV1FXag/callback Received 204 :: [4/5 calls remaining]
+[15:07:11] [DEBUG] Dispatching Event: command_error
+[15:07:11] [DEBUG] Dispatching Event: command_completion
+[15:07:11] [DEBUG] Dispatching Event: error
+[15:07:11] [INFO] Command Called: play with event.ctx.args = ['nụ cười 9'] | event.ctx.kwargs = {'song': 'nụ cười 9'}
+[15:07:11] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy-Git\venv\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\venv\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\venv\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "D:\Project\Python\qpneruy-Git\venv\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\venv\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 173, in play
+    with asyncio.Timeout(1):
+TypeError: 'Timeout' object does not support the context manager protocol
+
+[15:07:16] [DEBUG] Sending heartbeat every 41.25 seconds
+[15:07:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[15:07:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:07:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:07:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[15:07:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:07:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:08:39] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[15:08:39] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:08:39] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:08:51] [DEBUG] Dispatching Event: disconnect
+[15:08:51] [DEBUG] Stopping the bot.
+[15:08:51] [INFO] Shard ID 0 | Stopping Shard

@@ -1,0 +1,124 @@
+[12:09:36] [DEBUG] Running client sanity checks...
+[12:09:37] [DEBUG] No setup function found in play
+[12:09:37] [DEBUG] Found extension class Music in play: Attempting to load
+[12:09:37] [DEBUG] Added callback: Music._menu
+[12:09:37] [DEBUG] Added callback: Music._pause
+[12:09:37] [DEBUG] Added callback: Music._resume
+[12:09:37] [DEBUG] Added callback: Music._skip
+[12:09:37] [DEBUG] Added callback: Music._stop
+[12:09:37] [DEBUG] Added callback: Music.play
+[12:09:37] [DEBUG] Loaded Extension: play
+[12:09:38] [DEBUG] No setup function found in askgpt
+[12:09:38] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[12:09:38] [DEBUG] Added callback: Gpt._askgpt
+[12:09:38] [DEBUG] Added callback: Gpt._img
+[12:09:38] [DEBUG] Loaded Extension: askgpt
+[12:09:38] [DEBUG] No setup function found in askbard
+[12:09:38] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[12:09:38] [DEBUG] Added callback: Bard._askbard
+[12:09:38] [DEBUG] Added callback: Bard._endbard
+[12:09:38] [DEBUG] Loaded Extension: askbard
+[12:09:38] [DEBUG] No setup function found in noi_chu
+[12:09:38] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[12:09:38] [DEBUG] Added callback: NoiChu._reset
+[12:09:38] [DEBUG] Added callback: NoiChu._world_setup
+[12:09:38] [DEBUG] Loaded Extension: noi_chu
+[12:09:38] [DEBUG] No setup function found in db_refesh
+[12:09:38] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[12:09:38] [DEBUG] Added callback: Database.dbv1_command
+[12:09:38] [DEBUG] Added callback: Database.dbv2_command
+[12:09:38] [DEBUG] Loaded Extension: db_refesh
+[12:09:38] [DEBUG] Added callback: __join
+[12:09:38] [DEBUG] Added callback: __leave
+[12:09:38] [DEBUG] Added callback: _about
+[12:09:38] [DEBUG] Added callback: _help
+[12:09:38] [DEBUG] Added callback: _record_channel_set
+[12:09:38] [DEBUG] Added callback: _refresh
+[12:09:38] [DEBUG] Added callback: _setup
+[12:09:38] [DEBUG] Added callback: _starup
+[12:09:38] [DEBUG] 8 callbacks have been loaded from __main__.
+[12:09:38] [DEBUG] Added callback: _disconnect
+[12:09:38] [DEBUG] Added callback: _on_websocket_ready
+[12:09:38] [DEBUG] Added callback: on_autocomplete_completion
+[12:09:38] [DEBUG] Added callback: on_autocomplete_error
+[12:09:38] [DEBUG] Added callback: on_command_completion
+[12:09:38] [DEBUG] Added callback: on_command_error
+[12:09:38] [DEBUG] Added callback: on_component_completion
+[12:09:38] [DEBUG] Added callback: on_component_error
+[12:09:38] [DEBUG] Added callback: on_error
+[12:09:38] [DEBUG] Added callback: on_modal_completion
+[12:09:38] [DEBUG] Added callback: on_modal_error
+[12:09:38] [DEBUG] Added callback: on_resume
+[12:09:38] [DEBUG] 12 callbacks have been loaded from Client.
+[12:09:38] [DEBUG] Attempting to login
+[12:09:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:09:39] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[12:09:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:09:39] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[12:09:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:09:39] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[12:09:39] [INFO] Shard ID 0 | Starting Shard
+[12:09:39] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[12:09:39] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[12:09:40] [INFO] Shard ID 0 | Gateway connection established
+[12:09:40] [DEBUG] Shard ID 0 | Session ID: 60f3b9788e7b5620b5b811290f0acfb0 Trace: ['["gateway-prd-us-east1-c-016n",{"micros":194582,"calls":["id_created",{"micros":1237,"calls":[]},"session_lookup_time",{"micros":14607,"calls":[]},"session_lookup_finished",{"micros":18,"calls":[]},"discord-sessions-prd-2-245",{"micros":177639,"calls":["start_session",{"micros":134748,"calls":["discord-api-5b464978d4-rkl6t",{"micros":114768,"calls":["get_user",{"micros":14510},"get_guilds",{"micros":9755},"send_scheduled_deletion_message",{"micros":12},"guild_join_requests",{"micros":10188},"authorized_ip_coro",{"micros":12}]}]},"starting_guild_connect",{"micros":55,"calls":[]},"presence_started",{"micros":315,"calls":[]},"guilds_started",{"micros":192,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":42295,"calls":[]},"connect_finished",{"micros":42301,"calls":[]},"build_ready",{"micros":23,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":2,"calls":[]}]}]}]']
+[12:09:40] [DEBUG] Dispatching Event: websocket_ready
+[12:09:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:09:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:09:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:09:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:09:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[12:09:40] [DEBUG] Sync of 1 scopes took 0.6260661000001164 seconds
+[12:09:40] [DEBUG] Dispatching Event: startup
+[12:09:40] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700888980995, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[12:09:47] [DEBUG] 1177583910310379550::set_record should be called
+[12:09:47] [DEBUG] Dispatching Event: command_error
+[12:09:47] [DEBUG] Dispatching Event: command_completion
+[12:09:47] [DEBUG] Dispatching Event: error
+[12:09:47] [INFO] Command Called: set_record with event.ctx.args = [GuildVoice(id=1176400128232402978, name='Chung', type=<ChannelType.GUILD_VOICE: 2>)] | event.ctx.kwargs = {'channel': GuildVoice(id=1176400128232402978, name='Chung', type=<ChannelType.GUILD_VOICE: 2>)}
+[12:09:47] [ERROR] Ignoring exception in cmd `/set_record`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 194, in _record_channel_set
+    cursor.execute(update_query)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 822, in _read_query_result
+    result.read()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\pymysql\err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'ten_server' in 'where clause'")
+
+[12:09:59] [DEBUG] Sending heartbeat every 41.25 seconds
+[12:09:59] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[12:09:59] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:09:59] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:10:02] [DEBUG] Dispatching Event: disconnect
+[12:10:02] [DEBUG] Stopping the bot.
+[12:10:02] [INFO] Shard ID 0 | Stopping Shard

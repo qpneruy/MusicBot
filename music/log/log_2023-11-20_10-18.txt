@@ -1,0 +1,331 @@
+[10:18:11] [DEBUG] Running client sanity checks...
+[10:18:15] [DEBUG] No setup function found in play
+[10:18:15] [DEBUG] Found extension class Music in play: Attempting to load
+[10:18:15] [DEBUG] Added callback: Music._menu
+[10:18:15] [DEBUG] Added callback: Music._pause
+[10:18:15] [DEBUG] Added callback: Music._resume
+[10:18:15] [DEBUG] Added callback: Music._skip
+[10:18:15] [DEBUG] Added callback: Music._stop
+[10:18:15] [DEBUG] Added callback: Music.play
+[10:18:15] [DEBUG] Loaded Extension: play
+[10:18:16] [DEBUG] No setup function found in askgpt
+[10:18:16] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[10:18:16] [DEBUG] Added callback: Gpt._askgpt
+[10:18:16] [DEBUG] Added callback: Gpt._img
+[10:18:16] [DEBUG] Loaded Extension: askgpt
+[10:18:17] [DEBUG] No setup function found in askbard
+[10:18:17] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[10:18:17] [DEBUG] Added callback: Bard._askbard
+[10:18:17] [DEBUG] Added callback: Bard._endbard
+[10:18:17] [DEBUG] Loaded Extension: askbard
+[10:18:17] [DEBUG] No setup function found in noi_chu
+[10:18:17] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[10:18:17] [DEBUG] Added callback: NoiChu._reset
+[10:18:17] [DEBUG] Added callback: NoiChu._world_setup
+[10:18:17] [DEBUG] Loaded Extension: noi_chu
+[10:18:17] [DEBUG] Added callback: __join
+[10:18:17] [DEBUG] Added callback: __leave
+[10:18:17] [DEBUG] Added callback: _about
+[10:18:17] [DEBUG] Added callback: _help
+[10:18:17] [DEBUG] Added callback: _refresh
+[10:18:17] [DEBUG] Added callback: _setup
+[10:18:17] [DEBUG] Added callback: _starup
+[10:18:17] [DEBUG] Added callback: dbv1_command
+[10:18:17] [DEBUG] Added callback: dbv2_command
+[10:18:17] [DEBUG] 9 callbacks have been loaded from __main__.
+[10:18:17] [DEBUG] Added callback: _disconnect
+[10:18:17] [DEBUG] Added callback: _on_websocket_ready
+[10:18:17] [DEBUG] Added callback: on_autocomplete_completion
+[10:18:17] [DEBUG] Added callback: on_autocomplete_error
+[10:18:17] [DEBUG] Added callback: on_command_completion
+[10:18:17] [DEBUG] Added callback: on_command_error
+[10:18:17] [DEBUG] Added callback: on_component_completion
+[10:18:17] [DEBUG] Added callback: on_component_error
+[10:18:17] [DEBUG] Added callback: on_error
+[10:18:17] [DEBUG] Added callback: on_modal_completion
+[10:18:17] [DEBUG] Added callback: on_modal_error
+[10:18:17] [DEBUG] Added callback: on_resume
+[10:18:17] [DEBUG] 12 callbacks have been loaded from Client.
+[10:18:17] [DEBUG] Attempting to login
+[10:18:17] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:18:17] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[10:18:17] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:18:17] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[10:18:17] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:18:17] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[10:18:17] [INFO] Shard ID 0 | Starting Shard
+[10:18:17] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[10:18:18] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[10:18:18] [INFO] Shard ID 0 | Gateway connection established
+[10:18:18] [DEBUG] Shard ID 0 | Session ID: 7b8e7945606775a63e40de95f095e652 Trace: ['["gateway-prd-us-east1-d-cmfc",{"micros":93719,"calls":["id_created",{"micros":812,"calls":[]},"session_lookup_time",{"micros":2674,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-2-231",{"micros":88763,"calls":["start_session",{"micros":59915,"calls":["discord-api-6c89db896f-bx7ll",{"micros":55157,"calls":["get_user",{"micros":7512},"get_guilds",{"micros":3704},"send_scheduled_deletion_message",{"micros":14},"guild_join_requests",{"micros":5592},"authorized_ip_coro",{"micros":12}]}]},"starting_guild_connect",{"micros":51,"calls":[]},"presence_started",{"micros":264,"calls":[]},"guilds_started",{"micros":135,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":28358,"calls":[]},"connect_finished",{"micros":28364,"calls":[]},"build_ready",{"micros":30,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[10:18:18] [DEBUG] Dispatching Event: websocket_ready
+[10:18:18] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:18:18] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:18:19] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:18:19] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:18:19] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:18:19] [DEBUG] Sync of 1 scopes took 0.683013400001073 seconds
+[10:18:19] [DEBUG] Dispatching Event: startup
+[10:18:19] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700450299276, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[10:18:22] [DEBUG] 1174695146214928500::play should be called
+[10:18:22] [DEBUG] Dispatching Event: message_create
+[10:18:22] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:18:22] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5ODU0NjY2NzkwOTEzMDpVekF0TWJ4dWdDR1Y2ejkxYjZNQVNUWlVzMVlDNTRwbkRFQWdGNEZQVVRWTW5TeGlBbVppZjRHVm8wYmFCRFlOeEFmMkVDdWVMaEd2WDJLWnVOOXNLeHhpeXoxVDFSQXl1cVZuU1l0R2puOGlnYWdyRWJ4cXB4RkR6RE1kN0wxYw/callback Received 204 :: [4/5 calls remaining]
+[10:18:22] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1067024293709496340, "channel_id": 1175998344670224466, "self_mute": false, "self_deaf": false}}
+[10:18:22] [DEBUG] Waiting for voice connection data...
+[10:18:23] [DEBUG] Dispatching Event: voice_user_join
+[10:18:23] [DEBUG] Attempting to initialise voice gateway...
+[10:18:23] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[10:18:23] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[10:18:23] [DEBUG] IP Discovery in progress...
+[10:18:23] [DEBUG] Voice Initial Response Received: b"\x00\x02\x00F\x00\x01'w116.100.185.240\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xd7\x84"
+[10:18:23] [DEBUG] IP Discovered: 116.100.185.240 #55172
+[10:18:23] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.185.240", "port": 55172, "mode": "xsalsa20_poly1305_lite"}}}
+[10:18:23] [DEBUG] Starting UDP Keep Alive
+[10:18:23] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[10:18:23] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[10:18:23] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[10:18:26] [DEBUG] Sending heartbeat every 13.75 seconds
+[10:18:26] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9349690163569238}
+[10:18:26] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:18:26] [DEBUG] ❤ Heartbeat acknowledged after 0.07605 seconds
+[10:18:28] [DEBUG] Sending heartbeat every 41.25 seconds
+[10:18:28] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[10:18:28] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:18:28] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:18:28] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[10:18:28] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTk5ODU0NjY2NzkwOTEzMDpVekF0TWJ4dWdDR1Y2ejkxYjZNQVNUWlVzMVlDNTRwbkRFQWdGNEZQVVRWTW5TeGlBbVppZjRHVm8wYmFCRFlOeEFmMkVDdWVMaEd2WDJLWnVOOXNLeHhpeXoxVDFSQXl1cVZuU1l0R2puOGlnYWdyRWJ4cXB4RkR6RE1kN0wxYw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[10:18:28] [DEBUG] Dispatching Event: command_completion
+[10:18:28] [DEBUG] Detected ffmpeg version: 2023-09-29-git-40aa451154-full_build-www.gyan.dev
+[10:18:28] [DEBUG] Now playing <AudioYT: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1700471906&ei=AtBaZYOvH8it0-kPkMeA8AU&ip=116.100.185.240&id=o-AF0o1UtZGTepheV3ppUO9c029l4C2GMXEciw4UnRnxqQ&itag=251&source=youtube&requiressl=yes&mh=mm&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nboed&ms=au%2Crdu&mv=m&mvi=4&pcm2cms=yes&pl=21&initcwndbps=2383750&spc=UWF9fx1N23U5AnAMvytdOXJfNfoDK8c&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=4942094&dur=320.181&lmt=1585934243422897&mt=1700449751&fvip=2&keepalive=yes&fexp=24007246&beids=24350018&c=ANDROID&txp=5531432&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=ANLwegAwRQIhAOyEUtfBBq-aqKz0pmsviSuG2r7S3S1NEmwXdhZVVNmLAiBeP4tzLPV7AKeXM_4RkTSWgq38m3mYAai_xOjtGqLdAg%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AM8Gb2swRQIgQHm37r98NV_piyTDaEQEVdB5dhm2w0gGf8gWaMluiuUCIQC3pvN3MQn8VsG2yuIbzhLUsuoTMAfh75ifNh_Z4ui95A%3D%3D>
+[10:18:28] [INFO] Command Called: play with event.ctx.args = ['viva la vida orchestra'] | event.ctx.kwargs = {'song': 'viva la vida orchestra'}
+[10:18:40] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.24882705305312358}
+[10:18:40] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:18:40] [DEBUG] ❤ Heartbeat acknowledged after 0.07414 seconds
+[10:18:53] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.30567798690769654}
+[10:18:53] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:18:53] [DEBUG] ❤ Heartbeat acknowledged after 0.07475 seconds
+[10:19:07] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.2722691463615934}
+[10:19:07] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:19:07] [DEBUG] ❤ Heartbeat acknowledged after 0.07579 seconds
+[10:19:09] [DEBUG] Sending data to websocket: {"op": 1, "d": 10}
+[10:19:09] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:19:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:19:21] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.1852994942117323}
+[10:19:21] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:19:21] [DEBUG] ❤ Heartbeat acknowledged after 0.07971 seconds
+[10:19:35] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5958856283774415}
+[10:19:35] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:19:35] [DEBUG] ❤ Heartbeat acknowledged after 0.07485 seconds
+[10:19:48] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.1720156775748709}
+[10:19:48] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:19:48] [DEBUG] ❤ Heartbeat acknowledged after 0.07538 seconds
+[10:19:50] [DEBUG] Sending data to websocket: {"op": 1, "d": 10}
+[10:19:50] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:19:51] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:20:02] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.4658305950032874}
+[10:20:02] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:20:02] [DEBUG] ❤ Heartbeat acknowledged after 0.07686 seconds
+[10:20:16] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.8276213051583611}
+[10:20:16] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:20:16] [DEBUG] ❤ Heartbeat acknowledged after 0.07699 seconds
+[10:20:17] [DEBUG] 1174695146768568427::askbard should be called
+[10:20:17] [DEBUG] Dispatching Event: message_create
+[10:20:17] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:20:17] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5OTAyNzQ1Njc3MDE2OTo3alpjYnp3SWR5Q3BmU0xsZzluUlBvdUJ1ZlFJYUhTQ3JTc0kyTXVRYmd2YzlHSDVsWGd6eWxhYXc4d2VyS3Z1Q3NtblRkSzQyamgwTElMQWtVVHRSSmFCSUtuanZYeTJmYkVsQjh0N0pRNUhoZGJpQjlXQ2N1blFiVzV2YTB3WA/callback Received 204 :: [4/5 calls remaining]
+[10:20:24] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[10:20:24] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTk5OTAyNzQ1Njc3MDE2OTo3alpjYnp3SWR5Q3BmU0xsZzluUlBvdUJ1ZlFJYUhTQ3JTc0kyTXVRYmd2YzlHSDVsWGd6eWxhYXc4d2VyS3Z1Q3NtblRkSzQyamgwTElMQWtVVHRSSmFCSUtuanZYeTJmYkVsQjh0N0pRNUhoZGJpQjlXQ2N1blFiVzV2YTB3WA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[10:20:24] [DEBUG] Dispatching Event: command_completion
+[10:20:24] [INFO] Command Called: askbard with event.ctx.args = ['how can i add permission to user only 1 channel the user can interact with that permission discord bot, libary interactions.py 5.10.0'] | event.ctx.kwargs = {'content': 'how can i add permission to user only 1 channel the user can interact with that permission discord bot, libary interactions.py 5.10.0'}
+[10:20:30] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.899187511965862}
+[10:20:30] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:20:30] [DEBUG] ❤ Heartbeat acknowledged after 0.07698 seconds
+[10:20:32] [DEBUG] Sending data to websocket: {"op": 1, "d": 13}
+[10:20:32] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:20:32] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:20:43] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.49714582677510977}
+[10:20:43] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:20:43] [DEBUG] ❤ Heartbeat acknowledged after 0.07479 seconds
+[10:20:46] [DEBUG] 1174695146768568427::askbard should be called
+[10:20:47] [DEBUG] Dispatching Event: message_create
+[10:20:47] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:20:47] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5OTE1MDI0MDgzMzU4NjowQ2x4Y2w0b2Y5MEpXN296TzZqM3lxT3hzSzNSc2hBeTE2SmpWRHJYQnBEMmVySFZXemV2cXFBY29SQXBEaEpRUnFNY2VWY1RpUXRMSVBseVBnS1R4bVZHNWluOXBtTVV1SDRBckloc0o0dndoMkRzRUdrbUZRanB3clBCUEJ6WQ/callback Received 204 :: [4/5 calls remaining]
+[10:20:48] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[10:20:48] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTk5OTE1MDI0MDgzMzU4NjowQ2x4Y2w0b2Y5MEpXN296TzZqM3lxT3hzSzNSc2hBeTE2SmpWRHJYQnBEMmVySFZXemV2cXFBY29SQXBEaEpRUnFNY2VWY1RpUXRMSVBseVBnS1R4bVZHNWluOXBtTVV1SDRBckloc0o0dndoMkRzRUdrbUZRanB3clBCUEJ6WQ/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[10:20:48] [DEBUG] Dispatching Event: command_completion
+[10:20:48] [INFO] Command Called: askbard with event.ctx.args = ['hello'] | event.ctx.kwargs = {'content': 'hello'}
+[10:20:57] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.3673770433780288}
+[10:20:57] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:20:57] [DEBUG] ❤ Heartbeat acknowledged after 0.07420 seconds
+[10:21:05] [DEBUG] 1174695146768568427::askbard should be called
+[10:21:06] [DEBUG] Dispatching Event: message_create
+[10:21:06] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:21:06] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5OTIzMTQ1MDk0NzcwNTpkR3pqRHNhMnNTWnBXZEYyWTdGZnh1VGZDN1J5b1hwaUlaWVdjV2dFdXN5UDdTb1BIa0pCTGJRMmRIT1J1dmVBcGRVR1FFWGJ5TDFLdW1SSWFFRUo3NjNwd2t4d01LQXhXc2RwbHhseWdIOTJta3dyQmVTYW1tR2VCUGpYd2Z5WQ/callback Received 204 :: [4/5 calls remaining]
+[10:21:11] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.37886376733943083}
+[10:21:11] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:21:11] [DEBUG] ❤ Heartbeat acknowledged after 0.07354 seconds
+[10:21:11] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[10:21:11] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTk5OTIzMTQ1MDk0NzcwNTpkR3pqRHNhMnNTWnBXZEYyWTdGZnh1VGZDN1J5b1hwaUlaWVdjV2dFdXN5UDdTb1BIa0pCTGJRMmRIT1J1dmVBcGRVR1FFWGJ5TDFLdW1SSWFFRUo3NjNwd2t4d01LQXhXc2RwbHhseWdIOTJta3dyQmVTYW1tR2VCUGpYd2Z5WQ/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[10:21:11] [DEBUG] Dispatching Event: command_completion
+[10:21:11] [INFO] Command Called: askbard with event.ctx.args = ['how can i add permission to user only 1 channel the user can interact with that permission discord bot libary interactions.py 5.10.0'] | event.ctx.kwargs = {'content': 'how can i add permission to user only 1 channel the user can interact with that permission discord bot libary interactions.py 5.10.0'}
+[10:21:13] [DEBUG] Sending data to websocket: {"op": 1, "d": 19}
+[10:21:13] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:21:13] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:21:25] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.7709480610004754}
+[10:21:25] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:21:25] [DEBUG] ❤ Heartbeat acknowledged after 0.08179 seconds
+[10:21:39] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9839421379339561}
+[10:21:39] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:21:39] [DEBUG] ❤ Heartbeat acknowledged after 0.08329 seconds
+[10:21:52] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.855905842018542}
+[10:21:52] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:21:52] [DEBUG] ❤ Heartbeat acknowledged after 0.07734 seconds
+[10:21:54] [DEBUG] Sending data to websocket: {"op": 1, "d": 19}
+[10:21:54] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:21:55] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:21:58] [DEBUG] 1175004273155768371::refresh_command should be called
+[10:21:58] [DEBUG] Music has been drop
+[10:21:58] [DEBUG] No setup function found in play
+[10:21:58] [DEBUG] Found extension class Music in play: Attempting to load
+[10:21:58] [DEBUG] Added callback: Music._menu
+[10:21:58] [DEBUG] Added callback: Music._pause
+[10:21:58] [DEBUG] Added callback: Music._resume
+[10:21:58] [DEBUG] Added callback: Music._skip
+[10:21:58] [DEBUG] Added callback: Music._stop
+[10:21:58] [DEBUG] Added callback: Music.play
+[10:21:58] [DEBUG] Loaded Extension: play
+[10:21:58] [DEBUG] Gpt has been drop
+[10:21:58] [DEBUG] No setup function found in askgpt
+[10:21:58] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[10:21:58] [DEBUG] Added callback: Gpt._askgpt
+[10:21:58] [DEBUG] Added callback: Gpt._img
+[10:21:58] [DEBUG] Loaded Extension: askgpt
+[10:21:58] [DEBUG] Bard has been drop
+[10:21:58] [DEBUG] No setup function found in askbard
+[10:21:58] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[10:21:58] [DEBUG] Added callback: Bard._askbard
+[10:21:58] [DEBUG] Added callback: Bard._endbard
+[10:21:58] [DEBUG] Loaded Extension: askbard
+[10:21:58] [DEBUG] NoiChu has been drop
+[10:21:58] [DEBUG] No setup function found in noi_chu
+[10:21:58] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[10:21:58] [DEBUG] Added callback: NoiChu._reset
+[10:21:58] [DEBUG] Added callback: NoiChu._world_setup
+[10:21:58] [DEBUG] Loaded Extension: noi_chu
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [44/50 calls remaining]
+[10:21:59] [DEBUG] Dispatching Event: message_create
+[10:21:59] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:21:59] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5OTQ1MjYwNDAyNjkyMDo5S3g0akNPWlpHQkRpTXBBckxsTk5GQXV1VGJ4TmkwU2lNbUJuZk1vRFQycDdCNWU3QUJSUUlXc09QSkF5T1c1TEp4YTlZQnlFeXdBa2JzcW1uQjVUTkVpQzlod05jd1MweEl1QTJiTHhOeEJtMUpHM3RUc0ZldnUwbkI4SnVGSw/callback Received 204 :: [4/5 calls remaining]
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.6599430999995093 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.6984793999999965 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.7078637000013259 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.7094152999998187 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.7104775999996491 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.7166354000000865 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[10:21:59] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:21:59] [DEBUG] Sync of 1 scopes took 0.7445244000009552 seconds
+[10:21:59] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[10:21:59] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NTk5OTQ1MjYwNDAyNjkyMDo5S3g0akNPWlpHQkRpTXBBckxsTk5GQXV1VGJ4TmkwU2lNbUJuZk1vRFQycDdCNWU3QUJSUUlXc09QSkF5T1c1TEp4YTlZQnlFeXdBa2JzcW1uQjVUTkVpQzlod05jd1MweEl1QTJiTHhOeEJtMUpHM3RUc0ZldnUwbkI4SnVGSw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[10:21:59] [DEBUG] Dispatching Event: command_completion
+[10:21:59] [INFO] Command Called: refresh_command with event.ctx.args = [] | event.ctx.kwargs = {}
+[10:21:59] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:21:59] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:22:00] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:22:00] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[10:22:00] [DEBUG] 0 is already up-to-date with 18 commands.
+[10:22:00] [DEBUG] Sync of 1 scopes took 1.2869322999995347 seconds
+[10:22:06] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6811985085724975}
+[10:22:06] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:22:06] [DEBUG] ❤ Heartbeat acknowledged after 0.07721 seconds
+[10:22:09] [DEBUG] 1174695146768568427::askbard should be called
+[10:22:09] [DEBUG] Dispatching Event: message_create
+[10:22:09] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[10:22:09] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NTk5OTQ5NzIzMTQwMTA3MjpXZExLZVc2U29zZnRJMU9CV2ZhQk9FWjVZTE9peE5yU0QwV3hYalB3aUI3bWNIdEwzMzVib3BTMGVWcE5NRWJaSGxkektpN3IwTGlQM2xhUEIzVVRMT1psaW5RWUU1dDhycWlTS2IyZ3NpM3BtV2gzdkNZNmhMdWY1RE83eVBHVg/callback Received 204 :: [4/5 calls remaining]
+[10:22:15] [DEBUG] Dispatching Event: command_completion
+[10:22:15] [INFO] Command Called: askbard with event.ctx.args = ['how can i add permission to user only 1 channel the user can interact with that permission discord bot libary interactions.py 5.10.0'] | event.ctx.kwargs = {'content': 'how can i add permission to user only 1 channel the user can interact with that permission discord bot libary interactions.py 5.10.0'}
+[10:22:20] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.30853751527422824}
+[10:22:20] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:22:20] [DEBUG] ❤ Heartbeat acknowledged after 0.07517 seconds
+[10:22:34] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.8900018298654735}
+[10:22:34] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:22:34] [DEBUG] ❤ Heartbeat acknowledged after 0.08022 seconds
+[10:22:36] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[10:22:36] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:22:36] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:22:47] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.11655459902108734}
+[10:22:47] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:22:47] [DEBUG] ❤ Heartbeat acknowledged after 0.07609 seconds
+[10:23:01] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9519369796945151}
+[10:23:01] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:23:01] [DEBUG] ❤ Heartbeat acknowledged after 0.08083 seconds
+[10:23:15] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.01507654660999147}
+[10:23:15] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:23:15] [DEBUG] ❤ Heartbeat acknowledged after 0.07491 seconds
+[10:23:17] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[10:23:17] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:23:17] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:23:29] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9763726302793805}
+[10:23:29] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:23:29] [DEBUG] ❤ Heartbeat acknowledged after 0.07705 seconds
+[10:23:42] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.23096816057393654}
+[10:23:42] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:23:42] [DEBUG] ❤ Heartbeat acknowledged after 0.08478 seconds
+[10:23:49] [DEBUG] Dispatching Event: message_create
+[10:23:49] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[10:23:49] [DEBUG] POST /channels/1175998344670224466/messages Received 200 :: [4/5 calls remaining]
+[10:23:50] [DEBUG] Dispatching Event: message_create
+[10:23:50] [DEBUG] Caching ingested rate limit data for: 1d3c67957bcdccc6709861c232df8529
+[10:23:50] [DEBUG] POST /channels/1175998344670224466/messages Received 200 :: [3/5 calls remaining]
+[10:23:56] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6044956341372767}
+[10:23:56] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[10:23:56] [DEBUG] ❤ Heartbeat acknowledged after 0.07812 seconds
+[10:23:58] [DEBUG] Sending data to websocket: {"op": 1, "d": 25}
+[10:23:58] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[10:23:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[10:24:03] [DEBUG] Dispatching Event: voice_user_leave
+[10:24:03] [DEBUG] User 610841389164396565 has disconnected from voice, ssrc (Missing) invalidated
+[10:24:03] [INFO] Disconnecting from voice channel 1175998344670224466
+[10:24:03] [DEBUG] Dispatching Event: voice_user_leave
+[10:24:03] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:24:03] [DEBUG] DELETE /channels/1175998344670224466 Received 200 :: [49/50 calls remaining]
+[10:24:03] [DEBUG] Ending UDP Keep Alive
+[10:24:03] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[10:24:03] [ERROR] DELETE::https://discord.com/api/v10/channels/1175998344670224466: 404
+[10:24:03] [DEBUG] Dispatching Event: error
+[10:24:03] [ERROR] Ignoring exception in VoiceUserLeave(): HTTPException: 404|Not Found || Unknown Channel
+[10:24:05] [DEBUG] Dispatching Event: disconnect
+[10:24:05] [DEBUG] Stopping the bot.
+[10:24:05] [INFO] Shard ID 0 | Stopping Shard
