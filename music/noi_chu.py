@@ -1,12 +1,12 @@
 import json
-
 import aiohttp
+
 import interactions
-from interactions import Extension, slash_command, SlashContext, OptionType, slash_option
+from interactions import slash_command, SlashContext, OptionType, slash_option
 from interactions.api.events import MessageCreate
 
 
-class NoiChu(Extension):
+class NoiChu(interactions.Extension):
     def __init__(self, bot):
         print(bot)
         print(">> Game Nối chữ đã sẵn sàng")

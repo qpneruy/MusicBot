@@ -3,13 +3,15 @@ from collections import deque
 from typing import Iterator
 
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
-from interactions.api.voice.audio import BaseAudio
+from interactions.api.voice.audio import BaseAudio, AudioVolume
+from modules import YT_Downloader
 
 
 class MusicQueue:
     voice_state: ActiveVoiceState
     _entries: deque
     _item_queued_: asyncio.Event
+    _last_audio: BaseAudio
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
@@ -20,14 +22,13 @@ class MusicQueue:
         self.loop_state = False
         self.last_audio = BaseAudio
 
-
     def __len__(self) -> int:
         return len(self._entries)
 
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    def put(self, audio_d: BaseAudio, avatar_url: str) -> None:
+    def put(self, audio_d, avatar_url: str) -> None:
         title = audio_d.entry['title']
         thumbnail = audio_d.entry['thumbnail']
         uploader = audio_d.entry['uploader']
@@ -39,8 +40,8 @@ class MusicQueue:
         )
         duration_hms = convert_seconds_to_hms(duration)
         embed.set_image(thumbnail)
-        embed.add_field(name="Tải lên bởi:  ", value=f"{uploader}", inline=True)
-        embed.add_field(name=" Dài:  ", value=f"{duration_hms}", inline=True)
+        embed.add_field(name="Upload By:  ", value=f"{uploader}", inline=True)
+        embed.add_field(name=" Duration:  ", value=f"{duration_hms}", inline=True)
         embed.set_thumbnail(url=avatar_url)
         nut = ActionRow(
             Button(
@@ -51,7 +52,7 @@ class MusicQueue:
             Button(
                 custom_id="skip_button",
                 style=ButtonStyle.GREY,
-                label="⏭️ Tiếp theo",
+                label="⏭️ Skip",
             )
         )
         self.__song_list__.insert(0, [embed, nut])
@@ -99,7 +100,7 @@ class MusicQueue:
 
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
-            print("đang chạy 1")
+            print("Running 1")
             if len(self._entries) == 0:
                 self.task.cancel()
             if self.voice_state.playing:
@@ -108,15 +109,14 @@ class MusicQueue:
                 audio_d = await self.pop()
                 self.last_audio = audio_d
                 _song_msg_ = self.__song_list__.pop()
-                _song_msg_[0].set_author('💿 Đang chơi')
+                _song_msg_[0].set_author('💿 Playing')
                 await self.voice_state.channel.send(embed=_song_msg_[0])
                 await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-            if self.loop_state is True:
-                print("chạy luồng phát lặp lại")
-
-                await self.voice_state.play(self.last_audio)
-            else:
+                print(audio_d)
                 await self.voice_state.play(audio_d)
+            if self.loop_state is True:
+                print("looping thread is now run")
+                await self.voice_state.play(self.last_audio)
 
     async def stop(self) -> None:
         await self.voice_state.stop()
@@ -142,11 +142,16 @@ def convert_seconds_to_hms(seconds):
 
 
 # Quản lý các lớp NaffQueue thuộc mỗi ctx.guild.id
-class MusicQueueManager:
+class GuildMusicManager:
     _queues_ = {}
+    _music_dl_ = {}
 
-    @classmethod
-    def get_queue(cls, server_id, voice_state: ActiveVoiceState):
-        if server_id not in cls._queues_:
-            cls._queues_[server_id] = MusicQueue(voice_state)
-        return cls._queues_[server_id]
+    def get_queue(self, server_id, voice_state: ActiveVoiceState):
+        if server_id not in self._queues_:
+            self._queues_[server_id] = MusicQueue(voice_state)
+        return self._queues_[server_id]
+
+    def get_dl(self, server_id):
+        if server_id not in self._music_dl_:
+            self._music_dl_[server_id] = YT_Downloader.YTDownloader
+        return self._music_dl_[server_id]

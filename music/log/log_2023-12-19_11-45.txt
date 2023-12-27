@@ -1,0 +1,67 @@
+[11:45:33] [DEBUG] Running client sanity checks...
+[11:45:33] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[11:45:33] [DEBUG] Added callback: __join
+[11:45:33] [DEBUG] Added callback: __leave
+[11:45:33] [DEBUG] Added callback: _about
+[11:45:33] [DEBUG] Added callback: _setup
+[11:45:33] [DEBUG] Added callback: on_start
+[11:45:33] [DEBUG] 5 callbacks have been loaded from __main__.
+[11:45:33] [DEBUG] Added callback: _disconnect
+[11:45:33] [DEBUG] Added callback: _on_websocket_ready
+[11:45:33] [DEBUG] Added callback: on_autocomplete_completion
+[11:45:33] [DEBUG] Added callback: on_autocomplete_error
+[11:45:33] [DEBUG] Added callback: on_command_completion
+[11:45:33] [DEBUG] Added callback: on_command_error
+[11:45:33] [DEBUG] Added callback: on_component_completion
+[11:45:33] [DEBUG] Added callback: on_component_error
+[11:45:33] [DEBUG] Added callback: on_error
+[11:45:33] [DEBUG] Added callback: on_modal_completion
+[11:45:33] [DEBUG] Added callback: on_modal_error
+[11:45:33] [DEBUG] Added callback: on_resume
+[11:45:33] [DEBUG] 12 callbacks have been loaded from Client.
+[11:45:33] [DEBUG] Attempting to login
+[11:45:34] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[11:45:34] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:45:34] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[11:45:34] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[11:45:34] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:45:34] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[11:45:34] [WARNING] Setting sync_ext to True by default for syncing changes
+[11:45:34] [INFO] Loading jurigged
+[11:45:34] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\Main.py
+[11:45:34] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[11:45:34] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[11:45:34] [INFO] Shard ID 0 | Starting Shard
+[11:45:34] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[11:45:35] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[11:45:35] [INFO] Shard ID 0 | Gateway connection established
+[11:45:35] [DEBUG] Shard ID 0 | Session ID: 784b067b8e7a7278494fc2e8388ad1b3 Trace: ['["gateway-prd-us-east1-d-trv6",{"micros":136241,"calls":["id_created",{"micros":960,"calls":[]},"session_lookup_time",{"micros":1582,"calls":[]},"session_lookup_finished",{"micros":23,"calls":[]},"discord-sessions-prd-2-129",{"micros":132920,"calls":["start_session",{"micros":118673,"calls":["discord-api-dc69f8484-j2qt2",{"micros":95808,"calls":["get_user",{"micros":28972},"get_guilds",{"micros":6317},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":7089},"authorized_ip_coro",{"micros":13}]}]},"starting_guild_connect",{"micros":63,"calls":[]},"presence_started",{"micros":292,"calls":[]},"guilds_started",{"micros":245,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":13610,"calls":[]},"connect_finished",{"micros":13617,"calls":[]},"build_ready",{"micros":27,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[11:45:35] [DEBUG] Dispatching Event: websocket_ready
+[11:45:36] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[11:45:36] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:45:36] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[11:45:36] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[11:45:36] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[11:45:36] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:45:36] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[11:45:36] [DEBUG] 0 is already up-to-date with 15 commands.
+[11:45:36] [DEBUG] Sync of 1 scopes took 0.7534846000053221 seconds
+[11:45:36] [DEBUG] Dispatching Event: startup
+[11:45:36] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1702961136514, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[11:45:49] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\live.py", line 104, in refresh
+    cf.refresh()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 1118, in refresh
+    new_source = self.read_source()
+                 ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 1065, in read_source
+    source = f.read()
+             ^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\encodings\cp1258.py", line 23, in decode
+    return codecs.charmap_decode(input,self.errors,decoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 2832: character maps to <undefined>
+[11:45:50] [DEBUG] Dispatching Event: disconnect
+[11:45:50] [DEBUG] Stopping the bot.
+[11:45:50] [INFO] Shard ID 0 | Stopping Shard

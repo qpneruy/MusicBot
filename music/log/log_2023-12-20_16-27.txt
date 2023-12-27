@@ -1,0 +1,468 @@
+[16:27:36] [DEBUG] Running client sanity checks...
+[16:27:36] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[16:27:36] [DEBUG] No setup function found in play
+[16:27:36] [DEBUG] Found extension class Music in play: Attempting to load
+[16:27:36] [DEBUG] Added callback: Music._menu
+[16:27:36] [DEBUG] Added callback: Music._pause
+[16:27:36] [DEBUG] Added callback: Music._resume
+[16:27:36] [DEBUG] Added callback: Music._skip
+[16:27:36] [DEBUG] Added callback: Music._stop
+[16:27:36] [DEBUG] Added callback: Music.play
+[16:27:36] [DEBUG] Loaded Extension: play
+[16:27:37] [DEBUG] No setup function found in askbard
+[16:27:37] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[16:27:37] [DEBUG] Added callback: Bard._askbard
+[16:27:37] [DEBUG] Added callback: Bard._endbard
+[16:27:37] [DEBUG] Added callback: Bard.set_bard_channel
+[16:27:37] [DEBUG] Loaded Extension: askbard
+[16:27:37] [DEBUG] No setup function found in noi_chu
+[16:27:37] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[16:27:37] [DEBUG] Added callback: NoiChu._reset
+[16:27:37] [DEBUG] Added callback: NoiChu._world_setup
+[16:27:37] [DEBUG] Loaded Extension: noi_chu
+[16:27:37] [DEBUG] No setup function found in db_refesh
+[16:27:37] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[16:27:37] [DEBUG] Loaded Extension: db_refesh
+[16:27:37] [DEBUG] No setup function found in help
+[16:27:37] [DEBUG] Found extension class Help in help: Attempting to load
+[16:27:37] [DEBUG] Added callback: Help.help
+[16:27:37] [DEBUG] Loaded Extension: help
+[16:27:37] [DEBUG] Added callback: __join
+[16:27:37] [DEBUG] Added callback: __leave
+[16:27:37] [DEBUG] Added callback: _about
+[16:27:37] [DEBUG] Added callback: _setup
+[16:27:37] [DEBUG] Added callback: on_start
+[16:27:37] [DEBUG] 5 callbacks have been loaded from __main__.
+[16:27:37] [DEBUG] Added callback: _disconnect
+[16:27:37] [DEBUG] Added callback: _on_websocket_ready
+[16:27:37] [DEBUG] Added callback: on_autocomplete_completion
+[16:27:37] [DEBUG] Added callback: on_autocomplete_error
+[16:27:37] [DEBUG] Added callback: on_command_completion
+[16:27:37] [DEBUG] Added callback: on_command_error
+[16:27:37] [DEBUG] Added callback: on_component_completion
+[16:27:37] [DEBUG] Added callback: on_component_error
+[16:27:37] [DEBUG] Added callback: on_error
+[16:27:37] [DEBUG] Added callback: on_modal_completion
+[16:27:37] [DEBUG] Added callback: on_modal_error
+[16:27:37] [DEBUG] Added callback: on_resume
+[16:27:37] [DEBUG] 12 callbacks have been loaded from Client.
+[16:27:37] [DEBUG] Attempting to login
+[16:27:37] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[16:27:37] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[16:27:37] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[16:27:38] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[16:27:38] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[16:27:38] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[16:27:38] [WARNING] Setting sync_ext to True by default for syncing changes
+[16:27:38] [INFO] Loading jurigged
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\Main.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\play.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\embed.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\askbard.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\noi_chu.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\db_refesh.py
+[16:27:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\help.py
+[16:27:38] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[16:27:38] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[16:27:38] [INFO] Shard ID 0 | Starting Shard
+[16:27:38] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[16:27:38] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[16:27:39] [INFO] Shard ID 0 | Gateway connection established
+[16:27:39] [DEBUG] Shard ID 0 | Session ID: 2481cde90fa477f3740f112c1cde0ee3 Trace: ['["gateway-prd-us-east1-b-zv54",{"micros":166359,"calls":["id_created",{"micros":853,"calls":[]},"session_lookup_time",{"micros":1451,"calls":[]},"session_lookup_finished",{"micros":12,"calls":[]},"discord-sessions-prd-2-232",{"micros":162857,"calls":["start_session",{"micros":117569,"calls":["discord-api-799c696b57-hvjgm",{"micros":111673,"calls":["get_user",{"micros":21378},"get_guilds",{"micros":11380},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":12}]}]},"starting_guild_connect",{"micros":70,"calls":[]},"presence_started",{"micros":412,"calls":[]},"guilds_started",{"micros":190,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":44579,"calls":[]},"connect_finished",{"micros":44586,"calls":[]},"build_ready",{"micros":26,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[16:27:39] [DEBUG] Dispatching Event: websocket_ready
+[16:27:39] [DEBUG] Dispatching Event: guild_join
+[16:27:39] [DEBUG] Dispatching Event: guild_join
+[16:27:39] [DEBUG] Dispatching Event: guild_join
+[16:27:39] [DEBUG] Dispatching Event: guild_join
+[16:27:39] [DEBUG] Dispatching Event: guild_join
+[16:27:39] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[16:27:39] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[16:27:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[16:27:39] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[16:27:40] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[16:27:40] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[16:27:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[16:27:40] [DEBUG] 0 is already up-to-date with 15 commands.
+[16:27:40] [DEBUG] Sync of 1 scopes took 0.7305938000208698 seconds
+[16:27:40] [DEBUG] Dispatching Event: startup
+[16:27:40] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1703064460006, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[16:27:44] [DEBUG] Sending heartbeat every 41.25 seconds
+[16:27:44] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[16:27:44] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[16:27:44] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[16:28:22] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:22] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:22] [DEBUG] Update __main__:1
+[16:28:22] [DEBUG] Update __main__:1
+[16:28:25] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[16:28:25] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[16:28:25] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[16:28:30] [DEBUG] Update __main__:1
+[16:28:34] [DEBUG] Update __main__:1
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:39] [DEBUG] Update __main__:1
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 153, in <adjust>
+    bot.load_extension("play")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: play already loaded
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 154, in <adjust>
+    bot.load_extension("askbard")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: askbard already loaded
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 155, in <adjust>
+    bot.load_extension("noi_chu")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: noi_chu already loaded
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 156, in <adjust>
+    bot.load_extension("db_refesh")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: db_refesh already loaded
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 157, in <adjust>
+    bot.load_extension("help")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: help already loaded
+[16:28:39] [DEBUG] Listener <Listener event='voice_user_join' callback=<function __join at 0x0000026A394F44A0>> has already been hooked, not re-hooking it again
+[16:28:39] [DEBUG] Added callback: __join
+[16:28:39] [DEBUG] Listener <Listener event='voice_user_leave' callback=<function __leave at 0x0000026A394F4680>> has already been hooked, not re-hooking it again
+[16:28:39] [DEBUG] Added callback: __leave
+[16:28:39] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 159, in <adjust>
+    bot.start(Token)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 993, in start
+    asyncio.run(self.astart(token))
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 949, in astart
+    await self.login(token)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 923, in login
+    self._gather_callbacks()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1420, in _gather_callbacks
+    process(main_commands, "__main__")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1406, in process
+    self.add_command(func)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1379, in add_command
+    self.add_interaction(func)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1294, in add_interaction
+    raise ValueError(f"Duplicate Command! {scope}::{old_cmd.resolved_name}")
+ValueError: Duplicate Command! 0::about
+[16:28:39] [DEBUG] Update __main__:1
+[16:28:43] [DEBUG] Delete __main__:164 | bot.load_extension("play")
+[16:28:43] [DEBUG] Delete __main__:164 | bot.load_extension("play")
+[16:28:43] [DEBUG] Delete __main__:165 | bot.load_extension("askbard")
+[16:28:43] [DEBUG] Delete __main__:165 | bot.load_extension("askbard")
+[16:28:43] [DEBUG] Delete __main__:166 | bot.load_extension("noi_chu")
+[16:28:43] [DEBUG] Delete __main__:166 | bot.load_extension("noi_chu")
+[16:28:43] [DEBUG] Delete __main__:167 | bot.load_extension("db_refesh")
+[16:28:43] [DEBUG] Delete __main__:167 | bot.load_extension("db_refesh")
+[16:28:43] [DEBUG] Delete __main__:168 | bot.load_extension("help")
+[16:28:43] [DEBUG] Delete __main__:168 | bot.load_extension("help")
+[16:28:43] [DEBUG] Delete __main__:170 | bot.start(Token)
+[16:28:43] [DEBUG] Delete __main__:170 | bot.start(Token)
+[16:28:43] [DEBUG] Update __main__:1
+[16:28:43] [DEBUG] Update __main__:1
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:28:50] [DEBUG] Update __main__:1
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 153, in <adjust>
+    bot.load_extension("play")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: play already loaded
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 154, in <adjust>
+    bot.load_extension("askbard")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: askbard already loaded
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 155, in <adjust>
+    bot.load_extension("noi_chu")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: noi_chu already loaded
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 156, in <adjust>
+    bot.load_extension("db_refesh")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: db_refesh already loaded
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 157, in <adjust>
+    bot.load_extension("help")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2003, in load_extension
+    raise Exception(f"{module_name} already loaded")
+Exception: help already loaded
+[16:28:50] [DEBUG] Listener <Listener event='voice_user_join' callback=<function __join at 0x0000026A394F44A0>> has already been hooked, not re-hooking it again
+[16:28:50] [DEBUG] Added callback: __join
+[16:28:50] [DEBUG] Listener <Listener event='voice_user_leave' callback=<function __leave at 0x0000026A394F4680>> has already been hooked, not re-hooking it again
+[16:28:50] [DEBUG] Added callback: __leave
+[16:28:50] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy-Git\music\Main.py", line 159, in <adjust>
+    bot.start(Token)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 993, in start
+    asyncio.run(self.astart(token))
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\asyncio\base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 949, in astart
+    await self.login(token)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 923, in login
+    self._gather_callbacks()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1420, in _gather_callbacks
+    process(main_commands, "__main__")
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1406, in process
+    self.add_command(func)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1379, in add_command
+    self.add_interaction(func)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1294, in add_interaction
+    raise ValueError(f"Duplicate Command! {scope}::{old_cmd.resolved_name}")
+ValueError: Duplicate Command! 0::about
+[16:28:50] [DEBUG] Update __main__:1
+[16:29:06] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[16:29:06] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[16:29:06] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[16:29:16] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 704, in apply_correspondence
+    new_obj = self.reevaluate(corr.new.node, glb)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 801, in reevaluate
+    conform(self.get_object(), new_obj)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 118, in conform
+    self.conform(obj1, obj2.__code__)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\codefind\registry.py", line 123, in conform
+    fv1 = obj1.__code__.co_freevars
+          ^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute '__code__'
+[16:29:16] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\live.py", line 104, in refresh
+    cf.refresh()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 1120, in refresh
+    cf = CodeFile(
+         ^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 1034, in __init__
+    tree = ast.parse(self.saved)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\ast.py", line 50, in parse
+    return compile(source, filename, mode, flags,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SystemError: AST constructor recursion depth mismatch (before=27, after=23)
+[16:29:16] [DEBUG] Delete __main__._about:70
+[16:29:16] [DEBUG] Delete __main__:164 | bot.load_extension("play")
+[16:29:16] [DEBUG] Delete __main__:165 | bot.load_extension("askbard")
+[16:29:16] [DEBUG] Delete __main__:166 | bot.load_extension("noi_chu")
+[16:29:16] [DEBUG] Delete __main__:167 | bot.load_extension("db_refesh")
+[16:29:16] [DEBUG] Delete __main__:168 | bot.load_extension("help")
+[16:29:16] [DEBUG] Delete __main__:170 | bot.start(Token)
+[16:29:16] [DEBUG] Update __main__:1
+[16:29:29] [DEBUG] Dispatching Event: disconnect
+[16:29:29] [DEBUG] Stopping the bot.
+[16:29:29] [INFO] Shard ID 0 | Stopping Shard

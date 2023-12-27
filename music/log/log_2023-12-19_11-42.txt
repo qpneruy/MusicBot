@@ -1,0 +1,32 @@
+[11:42:16] [DEBUG] Running client sanity checks...
+[11:42:18] [DEBUG] No setup function found in play
+[11:42:18] [DEBUG] Found extension class Music in play: Attempting to load
+[11:42:18] [DEBUG] Added callback: Music._menu
+[11:42:18] [DEBUG] Added callback: Music._pause
+[11:42:18] [DEBUG] Added callback: Music._resume
+[11:42:18] [DEBUG] Added callback: Music._skip
+[11:42:18] [DEBUG] Added callback: Music._stop
+[11:42:18] [DEBUG] Added callback: Music.play
+[11:42:18] [DEBUG] Loaded Extension: play
+[11:42:18] [DEBUG] No setup function found in jurigged
+[11:42:26] [DEBUG] Running client sanity checks...
+[11:42:28] [DEBUG] No setup function found in play
+[11:42:28] [DEBUG] Found extension class Music in play: Attempting to load
+[11:42:28] [DEBUG] Added callback: Music._menu
+[11:42:28] [DEBUG] Added callback: Music._pause
+[11:42:28] [DEBUG] Added callback: Music._resume
+[11:42:28] [DEBUG] Added callback: Music._skip
+[11:42:28] [DEBUG] Added callback: Music._stop
+[11:42:28] [DEBUG] Added callback: Music.play
+[11:42:28] [DEBUG] Loaded Extension: play
+[11:42:28] [DEBUG] No setup function found in jurigged
+[11:42:36] [DEBUG] Running client sanity checks...
+[11:42:37] [DEBUG] No setup function found in play
+[11:42:37] [DEBUG] Found extension class Music in play: Attempting to load
+[11:42:37] [DEBUG] Added callback: Music._menu
+[11:42:37] [DEBUG] Added callback: Music._pause
+[11:42:37] [DEBUG] Added callback: Music._resume
+[11:42:37] [DEBUG] Added callback: Music._skip
+[11:42:37] [DEBUG] Added callback: Music._stop
+[11:42:37] [DEBUG] Added callback: Music.play
+[11:42:37] [DEBUG] Loaded Extension: play

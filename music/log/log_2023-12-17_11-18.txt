@@ -1,0 +1,117 @@
+[11:18:46] [DEBUG] Running client sanity checks...
+[11:18:48] [DEBUG] No setup function found in play
+[11:18:48] [DEBUG] Found extension class Music in play: Attempting to load
+[11:18:48] [DEBUG] Added callback: Music._menu
+[11:18:48] [DEBUG] Added callback: Music._pause
+[11:18:48] [DEBUG] Added callback: Music._resume
+[11:18:48] [DEBUG] Added callback: Music._skip
+[11:18:48] [DEBUG] Added callback: Music._stop
+[11:18:48] [DEBUG] Added callback: Music.play
+[11:18:48] [DEBUG] Loaded Extension: play
+[11:18:48] [DEBUG] No setup function found in askbard
+[11:18:48] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[11:18:48] [DEBUG] Added callback: Bard._askbard
+[11:18:48] [DEBUG] Added callback: Bard._endbard
+[11:18:48] [DEBUG] Added callback: Bard.set_bard_channel
+[11:18:48] [DEBUG] Loaded Extension: askbard
+[11:18:48] [DEBUG] No setup function found in noi_chu
+[11:18:48] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[11:18:48] [DEBUG] Added callback: NoiChu._reset
+[11:18:48] [DEBUG] Added callback: NoiChu._world_setup
+[11:18:48] [DEBUG] Loaded Extension: noi_chu
+[11:18:48] [DEBUG] No setup function found in db_refesh
+[11:18:48] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[11:18:48] [DEBUG] Loaded Extension: db_refesh
+[11:18:48] [DEBUG] No setup function found in help
+[11:18:48] [DEBUG] Found extension class Help in help: Attempting to load
+[11:18:48] [DEBUG] Added callback: Help.help
+[11:18:48] [DEBUG] Loaded Extension: help
+[11:18:48] [DEBUG] Added callback: __join
+[11:18:48] [DEBUG] Added callback: __leave
+[11:18:48] [DEBUG] Added callback: _about
+[11:18:48] [DEBUG] Added callback: _refresh
+[11:18:48] [DEBUG] Added callback: _setup
+[11:18:48] [DEBUG] Added callback: on_start
+[11:18:48] [DEBUG] 6 callbacks have been loaded from __main__.
+[11:18:48] [DEBUG] Added callback: _disconnect
+[11:18:48] [DEBUG] Added callback: _on_websocket_ready
+[11:18:48] [DEBUG] Added callback: on_autocomplete_completion
+[11:18:48] [DEBUG] Added callback: on_autocomplete_error
+[11:18:48] [DEBUG] Added callback: on_command_completion
+[11:18:48] [DEBUG] Added callback: on_command_error
+[11:18:48] [DEBUG] Added callback: on_component_completion
+[11:18:48] [DEBUG] Added callback: on_component_error
+[11:18:48] [DEBUG] Added callback: on_error
+[11:18:48] [DEBUG] Added callback: on_modal_completion
+[11:18:48] [DEBUG] Added callback: on_modal_error
+[11:18:48] [DEBUG] Added callback: on_resume
+[11:18:48] [DEBUG] 12 callbacks have been loaded from Client.
+[11:18:48] [DEBUG] Attempting to login
+[11:18:49] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[11:18:49] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:18:49] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[11:18:49] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[11:18:49] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:18:49] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[11:18:49] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[11:18:49] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[11:18:49] [INFO] Shard ID 0 | Starting Shard
+[11:18:49] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[11:18:50] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[11:18:50] [INFO] Shard ID 0 | Gateway connection established
+[11:18:50] [DEBUG] Shard ID 0 | Session ID: 326011b9c069816cc78cca8591b8172d Trace: ['["gateway-prd-us-east1-d-r10j",{"micros":97847,"calls":["id_created",{"micros":1310,"calls":[]},"session_lookup_time",{"micros":376,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-2-225",{"micros":94676,"calls":["start_session",{"micros":40746,"calls":["discord-api-948796595-d47km",{"micros":35834,"calls":["get_user",{"micros":6453},"get_guilds",{"micros":4351},"send_scheduled_deletion_message",{"micros":9},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":64,"calls":[]},"presence_started",{"micros":23771,"calls":[]},"guilds_started",{"micros":157,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":29905,"calls":[]},"connect_finished",{"micros":29911,"calls":[]},"build_ready",{"micros":24,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[11:18:50] [DEBUG] Dispatching Event: websocket_ready
+[11:18:50] [DEBUG] Dispatching Event: guild_join
+[11:18:50] [DEBUG] Dispatching Event: guild_join
+[11:18:50] [DEBUG] Dispatching Event: guild_join
+[11:18:50] [DEBUG] Dispatching Event: guild_join
+[11:18:50] [DEBUG] Dispatching Event: guild_join
+[11:18:51] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[11:18:51] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:18:51] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[11:18:51] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[11:18:51] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[11:18:51] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[11:18:51] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[11:18:51] [INFO] Overwriting 0 with 15 application commands
+[11:18:51] [DEBUG] Caching ingested rate limit data for: 3e32a240d3716487d7d8f6dae6c54f6b
+[11:18:51] [DEBUG] PUT /applications/{app_id}/commands Received 200 :: [1/2 calls remaining]
+[11:18:51] [DEBUG] Sync of 1 scopes took 1.1407479000044987 seconds
+[11:18:51] [DEBUG] Dispatching Event: startup
+[11:18:51] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1702786731813, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[11:19:06] [DEBUG] Sending heartbeat every 41.25 seconds
+[11:19:06] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:19:06] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:19:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:19:48] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:19:48] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:19:48] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:20:03] [DEBUG] Dispatching Event: message_create
+[11:20:03] [DEBUG] Dispatching Event: error
+[11:20:03] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\askbard.py", line 34, in _bard_mes
+    f" server_data WHERE ten_server = '{event.message.author.guild.id}'")
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'User' object has no attribute 'guild'
+
+[11:20:29] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[11:20:29] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:20:29] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:21:10] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[11:21:10] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:21:10] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:21:51] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[11:21:51] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:21:52] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:22:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[11:22:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:22:33] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:22:35] [DEBUG] Dispatching Event: disconnect
+[11:22:35] [DEBUG] Stopping the bot.
+[11:22:35] [INFO] Shard ID 0 | Stopping Shard

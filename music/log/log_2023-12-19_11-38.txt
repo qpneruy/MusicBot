@@ -1,0 +1,29 @@
+[11:38:49] [DEBUG] Running client sanity checks...
+[11:38:51] [DEBUG] No setup function found in play
+[11:38:51] [DEBUG] Found extension class Music in play: Attempting to load
+[11:38:51] [DEBUG] Added callback: Music._menu
+[11:38:51] [DEBUG] Added callback: Music._pause
+[11:38:51] [DEBUG] Added callback: Music._resume
+[11:38:51] [DEBUG] Added callback: Music._skip
+[11:38:51] [DEBUG] Added callback: Music._stop
+[11:38:51] [DEBUG] Added callback: Music.play
+[11:38:51] [DEBUG] Loaded Extension: play
+[11:38:51] [DEBUG] No setup function found in askbard
+[11:38:51] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[11:38:51] [DEBUG] Added callback: Bard._askbard
+[11:38:51] [DEBUG] Added callback: Bard._endbard
+[11:38:51] [DEBUG] Added callback: Bard.set_bard_channel
+[11:38:51] [DEBUG] Loaded Extension: askbard
+[11:38:51] [DEBUG] No setup function found in noi_chu
+[11:38:51] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[11:38:51] [DEBUG] Added callback: NoiChu._reset
+[11:38:51] [DEBUG] Added callback: NoiChu._world_setup
+[11:38:51] [DEBUG] Loaded Extension: noi_chu
+[11:38:51] [DEBUG] No setup function found in db_refesh
+[11:38:51] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[11:38:51] [DEBUG] Loaded Extension: db_refesh
+[11:38:51] [DEBUG] No setup function found in help
+[11:38:51] [DEBUG] Found extension class Help in help: Attempting to load
+[11:38:51] [DEBUG] Added callback: Help.help
+[11:38:51] [DEBUG] Loaded Extension: help
+[11:38:51] [DEBUG] Loaded Extension: interactions.ext.jurigged

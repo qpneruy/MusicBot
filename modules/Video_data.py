@@ -55,9 +55,9 @@ class VideoData:
                 video_id = first_video['id']['videoId']
                 video_url = f"https://www.youtube.com/watch?v={video_id}"
             else:
-                print("Không tìm thấy video nào.")
+                print("Video not found")
         else:
-            print(f"Lỗi khi thực hiện tìm kiếm: {response.status_code}")
+            print(f"Respone status Badly: {response.status_code}")
         return video_url
 
     async def playlist_get(self, playlist_url: string) -> list | None:
@@ -73,7 +73,7 @@ class VideoData:
                     self.playlist_url.insert(0, f'https://www.youtube.com/watch?v={video_id}')
             return self.playlist_url
         else:
-            print(f"Lỗi khi lấy thông tin về kênh: {response.status_code}")
+            print(f"Respone status Badly: {response.status_code}")
 
     def get_uploader_avt(self, url: str | None = None, direct_url: any = None) -> str:
         if direct_url is not None:
@@ -81,6 +81,7 @@ class VideoData:
         else:
             data = youtube_dl.extract_info(url, download=False)
         channel_id = data['channel_id']
+        print(channel_id)
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
         if channel_response.status_code == 200:
