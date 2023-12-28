@@ -218,3 +218,15 @@ AttributeError: 'NoneType' object has no attribute 'options'
 [12:33:06] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
 [12:33:06] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
 [12:33:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:33:48] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[12:33:48] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:33:48] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:34:29] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[12:34:29] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:34:29] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:10] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[12:35:10] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:35:10] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:16] [DEBUG] Dispatching Event: disconnect
+[12:35:16] [DEBUG] Stopping the bot.
+[12:35:16] [INFO] Shard ID 0 | Stopping Shard

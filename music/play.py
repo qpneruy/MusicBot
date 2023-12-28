@@ -1,8 +1,7 @@
 import os
-import time
-from concurrent.futures import ThreadPoolExecutor
+from collections import deque
 import pymysql
-
+import asyncio
 import interactions
 from interactions import ButtonStyle, ActionRow, Button
 from interactions import SlashContext, listen, slash_command
@@ -12,15 +11,14 @@ from yt_dlp import YoutubeDL
 
 from embed import embed_make_pp
 from modules import MusicQueue, GuildMusicManager
-from modules import VideoData
-from modules import YTDownloader
 
-cfg_video = YoutubeDL(
+
+cfg_playlist = YoutubeDL(
     {
         "format": "bestaudio/best",
         "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
         "restrictfilenames": True,
-        "noplaylist": True,
+        "noplaylist": False,
         "nocheckcertificate": True,
         "ignoreerrors": False,
         "logtostderr": False,
@@ -28,7 +26,9 @@ cfg_video = YoutubeDL(
         "no_warnings": True,
         "default_search": "auto",
         "source_address": "0.0.0.0",
-        "dump_single_json": True
+        "extract_flat": True,
+        "dump_single_json": True,
+        "skip_download": True
     }
 )
 
@@ -42,17 +42,10 @@ def get_music_queue(ctx) -> MusicQueue:
     return current_queue
 
 
-def get_music_dl(ctx) -> YTDownloader:
-    server_id = ctx.guild.id
-    currrent_music = GM.get_dl(server_id)
-    return currrent_music
-
-
 class Music(interactions.Extension):
     db_host = "localhost"
     db_user = "root"
     db_pass = os.getenv("db_password")
-    VideoData = VideoData()
 
     def __init__(self, bot):
         self.bot = bot
@@ -68,69 +61,49 @@ class Music(interactions.Extension):
         Button(custom_id="vol_down", style=ButtonStyle.GREEN, label="➖ Vol down", ),
         Button(custom_id="skip_button", style=ButtonStyle.GREY, label="⏭️ Skip", ))
 
-    def get_uploader_avatar(self, audio_d):
-        url_video = f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
-        return self.VideoData.get_uploader_avt(url_video)
-
     @slash_command(name="play", description="play an music")
     @interactions.slash_option("song", "Playlist link or video tile, link", 3, True)
     async def play(self, ctx: SlashContext, song: str):
         await ctx.defer()
-        start = time.time()
         """-------------------------------------------------------------------------------"""
-
         if ctx.author.voice is None:
             await ctx.send('You must in an voice channel', ephemeral=True)
             return
         else:
             await ctx.author.voice.channel.connect()
         music_queues = get_music_queue(ctx)
-        youtube_dl = get_music_dl(ctx)
+        if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
+            self.vol_refresh(ctx)
+            music_queues.start()
+        music_queues.destroy_queue = False
         """-------------------------------------------------------------------------------"""
-
         if "https://www.youtube.com/playlist?list=" not in song:
-
-            audio = await youtube_dl.get_audio(song)
-            avatar_url = self.get_uploader_avatar(audio)
-            music_queues.put(audio, avatar_url)
+            await music_queues.data_process(song, False)
             embed = music_queues.__song_list__[0][0]
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True or ctx.voice_state.channel.voice_state.paused is True:
-
                 embed.set_author('➕ Added music to queue')
                 await ctx.send(embed=embed)
             else:
-
                 embed.set_author('📀 Playing')
                 await ctx.send(embeds=embed, components=[self.hang1, self.hang2])
         elif "https://www.youtube.com/playlist?list=" in song:
-
-            data_music = await youtube_dl.ppl_get(song)
-
-            def _init_music_to_queue(items):
-                if items is None:
-                    return
-                avatar_url_d = self.VideoData.get_uploader_avt(direct_url=items)
-                audio_d = youtube_dl.create_new_cls(items)
-                music_queues.put(audio_d, avatar_url_d)
-
-            with ThreadPoolExecutor(max_workers=8) as executor:
-                executor.map(lambda items: _init_music_to_queue(items), data_music[0])
-            embed = embed_make_pp(data_music[1]["title"], data_music[1]["thumbnails"][3]["url"],
-                                  data_music[1]["uploader"],
-                                  data_music[1]["playlist_count"])
-            if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True:
+            data = await asyncio.to_thread(
+                lambda: cfg_playlist.extract_info(song, download=False)
+            )
+            url_list = deque()
+            for items in data['entries']:
+                url_list.insert(0, items["url"])
+            embed = embed_make_pp(data["title"], data["thumbnails"][3]["url"],
+                                  data["uploader"],
+                                  data["playlist_count"])
+            if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is not True:
                 embed.set_author('📀 Playing')
+            else:
+                embed.set_author('➕ Added music to queue')
             await ctx.send(embeds=embed)
             await ctx.send(components=[self.hang1, self.hang2])
-
+            await music_queues.data_process(url_list, True)
         """-------------------------------------------------------------------------------"""
-
-        if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
-            print("already start thread")
-            self.vol_refresh(ctx)
-            end = time.time()
-            print('>>>>>>>>>', end - start)
-            music_queues.start()
 
     @slash_command(name="menu", description="Music Menu")
     async def _menu(self, ctx: SlashContext):

@@ -3,8 +3,49 @@ from collections import deque
 from typing import Iterator
 
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
-from interactions.api.voice.audio import BaseAudio, AudioVolume
+from interactions.api.voice.audio import BaseAudio
 from modules import YT_Downloader
+import os
+import string
+
+import requests
+from yt_dlp import YoutubeDL
+
+
+class VideoData:
+    def __init__(self):
+        self.tokenA = os.getenv('YOUTUBE_API_KEY_1')
+        self.tokenB = os.getenv('YOUTUBE_API_KEY_2')
+        self.api_key = self.tokenA
+    youtube_dl = YoutubeDL(
+        {
+            "format": "bestaudio/best",
+            "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+            "restrictfilenames": True,
+            "noplaylist": False,
+            "nocheckcertificate": True,
+            "ignoreerrors": False,
+            "logtostderr": False,
+            "quiet": True,
+            "no_warnings": True,
+            "default_search": "auto",
+            "source_address": "0.0.0.0",
+        }
+    )
+
+    async def get_uploader_avt(self, url: str | None = None, direct_url: any = None) -> str:
+        if direct_url is not None:
+            data = direct_url
+        else:
+            data = self.youtube_dl.extract_info(url, download=False)
+        channel_id = data['channel_id']
+        print(channel_id)
+        channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
+        channel_response = requests.get(channel_url)
+        if channel_response.status_code == 200:
+            channel_data = channel_response.json()
+            avatar_url = channel_data['items'][0]['snippet']['thumbnails']['default']['url']
+            return avatar_url
 
 
 class MusicQueue:
@@ -12,6 +53,7 @@ class MusicQueue:
     _entries: deque
     _item_queued_: asyncio.Event
     _last_audio: BaseAudio
+    VideoData = VideoData()
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
@@ -21,12 +63,31 @@ class MusicQueue:
         self.task = asyncio.Task
         self.loop_state = False
         self.last_audio = BaseAudio
+        self.destroy_queue = False
 
     def __len__(self) -> int:
         return len(self._entries)
 
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
+
+    async def data_process(self, url_list: deque | str, playlist: bool) -> None:
+        GuildMusicMN = GuildMusicManager()
+        Youtube_DL = GuildMusicMN.get_dl(self.voice_state.guild.id)
+        if playlist:
+            while not self.destroy_queue:
+                if len(url_list) == 0:
+                    self.destroy_queue = True
+                while len(url_list) > 0:
+                    url = url_list.pop()
+                    audio = await Youtube_DL.get_audio(url)
+                    print(audio)
+                    avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
+                    self.put(audio, avatar_url)
+        else:
+            audio = await Youtube_DL.get_audio(url_list)
+            avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
+            self.put(audio, avatar_url)
 
     def put(self, audio_d, avatar_url: str) -> None:
         title = audio_d.entry['title']
@@ -98,25 +159,21 @@ class MusicQueue:
     def peek_at_index(self, index: int) -> BaseAudio:
         return self._entries[index]
 
+    def peek_at_index_no_wait(self, index: int) -> BaseAudio:
+        return self._entries[index]
+
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
             print("Running 1")
-            if len(self._entries) == 0:
-                self.task.cancel()
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
-            if self.loop_state is False:
-                audio_d = await self.pop()
-                self.last_audio = audio_d
-                _song_msg_ = self.__song_list__.pop()
-                _song_msg_[0].set_author('💿 Playing')
-                await self.voice_state.channel.send(embed=_song_msg_[0])
-                await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-                print(audio_d)
-                await self.voice_state.play(audio_d)
-            if self.loop_state is True:
-                print("looping thread is now run")
-                await self.voice_state.play(self.last_audio)
+            audio_d = await self.pop()
+            _song_msg_ = self.__song_list__.pop()
+            _song_msg_[0].set_author('💿 Playing')
+            await self.voice_state.channel.send(embed=_song_msg_[0])
+            await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
+
+            await self.voice_state.play(audio_d)
 
     async def stop(self) -> None:
         await self.voice_state.stop()
