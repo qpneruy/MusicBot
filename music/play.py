@@ -1,36 +1,15 @@
 import os
 from collections import deque
 import pymysql
-import asyncio
 import interactions
 from interactions import ButtonStyle, ActionRow, Button
 from interactions import SlashContext, listen, slash_command
-
+from interactions import Embed
 from interactions.api.events import Component
-from yt_dlp import YoutubeDL
+from interactions.ext.paginators import Paginator
 
 from embed import embed_make_pp
 from modules import MusicQueue, GuildMusicManager
-
-
-cfg_playlist = YoutubeDL(
-    {
-        "format": "bestaudio/best",
-        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
-        "restrictfilenames": True,
-        "noplaylist": False,
-        "nocheckcertificate": True,
-        "ignoreerrors": False,
-        "logtostderr": False,
-        "quiet": True,
-        "no_warnings": True,
-        "default_search": "auto",
-        "source_address": "0.0.0.0",
-        "extract_flat": True,
-        "dump_single_json": True,
-        "skip_download": True
-    }
-)
 
 GM = GuildMusicManager()
 
@@ -72,9 +51,11 @@ class Music(interactions.Extension):
         else:
             await ctx.author.voice.channel.connect()
         music_queues = get_music_queue(ctx)
-        if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
-            self.vol_refresh(ctx)
-            music_queues.start()
+        youtube_dl = GM.get_dl(ctx.guild.id)
+        if ctx.voice_state.channel.voice_state.paused is False:
+            if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
+                self.vol_refresh(ctx)
+                music_queues.start()
         music_queues.destroy_queue = False
         """-------------------------------------------------------------------------------"""
         if "https://www.youtube.com/playlist?list=" not in song:
@@ -87,9 +68,7 @@ class Music(interactions.Extension):
                 embed.set_author('📀 Playing')
                 await ctx.send(embeds=embed, components=[self.hang1, self.hang2])
         elif "https://www.youtube.com/playlist?list=" in song:
-            data = await asyncio.to_thread(
-                lambda: cfg_playlist.extract_info(song, download=False)
-            )
+            data = await youtube_dl.extra_info(song)
             url_list = deque()
             for items in data['entries']:
                 url_list.insert(0, items["url"])
@@ -120,12 +99,14 @@ class Music(interactions.Extension):
 
     @slash_command(name="stop", description="Stop Music")
     async def _stop(self, ctx):
+        music = get_music_queue(ctx)
         if ctx.voice_state.channel.voice_state.playing is not True:
             await ctx.send("Player is not Playing", ephemeral=True)
         else:
             player = ctx.bot.get_bot_voice_state(ctx.guild_id)
             await player.stop()
             await ctx.send('Stopped', ephemeral=True)
+            music.clear()
 
     @slash_command(name="resume", description="Resume Music")
     async def _resume(self, ctx):
@@ -144,6 +125,28 @@ class Music(interactions.Extension):
         else:
             await music_player.pause()
             await ctx.send('Paused', ephemeral=True)
+
+    @slash_command(name="viewplaylist", description="View playlist")
+    async def _viewplaylist(self, ctx: SlashContext):
+        music_player = get_music_queue(ctx)
+        data = music_player.get_list()
+        embeds = []
+        count = 0
+        embed = Embed(
+            color=0x5f9afa,
+        )
+        for item in data:
+            count += 1
+            embed.add_field(name=str(count), value=item.entry['title'], inline=True)
+            if count == 20:
+                embed = None
+                embed = Embed(
+                    color=0x5f9afa,
+                )
+                embeds.append(embed)
+                count = 0
+        paginator = Paginator.create_from_embeds(self.bot, *embeds)
+        await paginator.send(ctx)
 
     @listen(Component)
     async def on_component(self, event: Component):

@@ -6,7 +6,6 @@ from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
 from interactions.api.voice.audio import BaseAudio
 from modules import YT_Downloader
 import os
-import string
 
 import requests
 from yt_dlp import YoutubeDL
@@ -17,10 +16,9 @@ class VideoData:
         self.tokenA = os.getenv('YOUTUBE_API_KEY_1')
         self.tokenB = os.getenv('YOUTUBE_API_KEY_2')
         self.api_key = self.tokenA
+
     youtube_dl = YoutubeDL(
         {
-            "format": "bestaudio/best",
-            "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
             "restrictfilenames": True,
             "noplaylist": False,
             "nocheckcertificate": True,
@@ -30,6 +28,7 @@ class VideoData:
             "no_warnings": True,
             "default_search": "auto",
             "source_address": "0.0.0.0",
+            "extract_flat": True,
         }
     )
 
@@ -39,7 +38,6 @@ class VideoData:
         else:
             data = self.youtube_dl.extract_info(url, download=False)
         channel_id = data['channel_id']
-        print(channel_id)
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
         if channel_response.status_code == 200:
@@ -54,6 +52,7 @@ class MusicQueue:
     _item_queued_: asyncio.Event
     _last_audio: BaseAudio
     VideoData = VideoData()
+    Youtube_DL = YT_Downloader.YTDownloader
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
@@ -72,20 +71,19 @@ class MusicQueue:
         return iter(self._entries)
 
     async def data_process(self, url_list: deque | str, playlist: bool) -> None:
-        GuildMusicMN = GuildMusicManager()
-        Youtube_DL = GuildMusicMN.get_dl(self.voice_state.guild.id)
         if playlist:
             while not self.destroy_queue:
                 if len(url_list) == 0:
                     self.destroy_queue = True
                 while len(url_list) > 0:
                     url = url_list.pop()
-                    audio = await Youtube_DL.get_audio(url)
-                    print(audio)
-                    avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
-                    self.put(audio, avatar_url)
+                    audio = await self.Youtube_DL.get_audio(url)
+                    if audio is not None:
+                        avatar_url = await self.VideoData.get_uploader_avt(
+                            f'https://www.youtube.com/watch?v={audio.entry["id"]}')
+                        self.put(audio, avatar_url)
         else:
-            audio = await Youtube_DL.get_audio(url_list)
+            audio = await self.Youtube_DL.get_audio(url_list)
             avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
             self.put(audio, avatar_url)
 
@@ -159,9 +157,6 @@ class MusicQueue:
     def peek_at_index(self, index: int) -> BaseAudio:
         return self._entries[index]
 
-    def peek_at_index_no_wait(self, index: int) -> BaseAudio:
-        return self._entries[index]
-
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
             print("Running 1")
@@ -172,23 +167,17 @@ class MusicQueue:
             _song_msg_[0].set_author('💿 Playing')
             await self.voice_state.channel.send(embed=_song_msg_[0])
             await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-
             await self.voice_state.play(audio_d)
-
-    async def stop(self) -> None:
-        await self.voice_state.stop()
-
-    async def resume(self) -> None:
-        self.voice_state.resume()
-
-    async def pause(self) -> None:
-        self.voice_state.pause()
 
     async def __call__(self) -> None:
         await self.__playback_queue()
 
     def start(self) -> None:
         self.task = asyncio.create_task(self())
+
+    @property
+    def entries(self):
+        return self._entries
 
 
 # Chuẩn hóa thời lượng

@@ -86,7 +86,7 @@ class VnEduConnect:
             dived = 0
             avg_subject = 0.0
             list_score = []
-            if items["ten_mon_hoc"] in ["Âm nhạc", "Mĩ thuật", "Thể dục"]:
+            if items["ten_mon_hoc"] in ["Âm nhạc", "Mĩ thuật", "Thể dục", "Hóa học"]:
                 continue
             """---------------------------------------------------------"""
             # Lấy và ghi cột điểm thường xuyên
