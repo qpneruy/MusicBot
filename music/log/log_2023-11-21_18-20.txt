@@ -1,0 +1,402 @@
+[18:20:00] [DEBUG] Running client sanity checks...
+[18:20:04] [DEBUG] Running client sanity checks...
+[18:20:26] [DEBUG] Running client sanity checks...
+[18:20:27] [DEBUG] No setup function found in play
+[18:20:27] [DEBUG] Found extension class Music in play: Attempting to load
+[18:20:27] [DEBUG] Added callback: Music._menu
+[18:20:27] [DEBUG] Added callback: Music._pause
+[18:20:27] [DEBUG] Added callback: Music._resume
+[18:20:27] [DEBUG] Added callback: Music._skip
+[18:20:27] [DEBUG] Added callback: Music._stop
+[18:20:27] [DEBUG] Added callback: Music.play
+[18:20:27] [DEBUG] Loaded Extension: play
+[18:20:28] [DEBUG] No setup function found in askgpt
+[18:20:28] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[18:20:28] [DEBUG] Added callback: Gpt._askgpt
+[18:20:28] [DEBUG] Added callback: Gpt._img
+[18:20:28] [DEBUG] Loaded Extension: askgpt
+[18:20:28] [DEBUG] No setup function found in askbard
+[18:20:28] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[18:20:28] [DEBUG] Added callback: Bard._askbard
+[18:20:28] [DEBUG] Added callback: Bard._endbard
+[18:20:28] [DEBUG] Loaded Extension: askbard
+[18:20:28] [DEBUG] No setup function found in noi_chu
+[18:20:28] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[18:20:28] [DEBUG] Added callback: NoiChu._reset
+[18:20:28] [DEBUG] Added callback: NoiChu._world_setup
+[18:20:28] [DEBUG] Loaded Extension: noi_chu
+[18:20:28] [DEBUG] No setup function found in db_refesh
+[18:20:28] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[18:20:28] [DEBUG] Added callback: Database.dbv1_command
+[18:20:28] [DEBUG] Added callback: Database.dbv2_command
+[18:20:28] [DEBUG] Loaded Extension: db_refesh
+[18:20:42] [DEBUG] Running client sanity checks...
+[18:20:44] [DEBUG] No setup function found in play
+[18:20:44] [DEBUG] Found extension class Music in play: Attempting to load
+[18:20:44] [DEBUG] Added callback: Music._menu
+[18:20:44] [DEBUG] Added callback: Music._pause
+[18:20:44] [DEBUG] Added callback: Music._resume
+[18:20:44] [DEBUG] Added callback: Music._skip
+[18:20:44] [DEBUG] Added callback: Music._stop
+[18:20:44] [DEBUG] Added callback: Music.play
+[18:20:44] [DEBUG] Loaded Extension: play
+[18:20:44] [DEBUG] No setup function found in askgpt
+[18:20:44] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[18:20:44] [DEBUG] Added callback: Gpt._askgpt
+[18:20:44] [DEBUG] Added callback: Gpt._img
+[18:20:44] [DEBUG] Loaded Extension: askgpt
+[18:20:45] [DEBUG] No setup function found in askbard
+[18:20:45] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[18:20:45] [DEBUG] Added callback: Bard._askbard
+[18:20:45] [DEBUG] Added callback: Bard._endbard
+[18:20:45] [DEBUG] Loaded Extension: askbard
+[18:20:45] [DEBUG] No setup function found in noi_chu
+[18:20:45] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[18:20:45] [DEBUG] Added callback: NoiChu._reset
+[18:20:45] [DEBUG] Added callback: NoiChu._world_setup
+[18:20:45] [DEBUG] Loaded Extension: noi_chu
+[18:20:45] [DEBUG] No setup function found in db_refesh
+[18:20:45] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[18:20:45] [DEBUG] Added callback: Database.dbv1_command
+[18:20:45] [DEBUG] Added callback: Database.dbv2_command
+[18:20:45] [DEBUG] Loaded Extension: db_refesh
+[18:20:45] [DEBUG] Added callback: __join
+[18:20:45] [DEBUG] Added callback: __leave
+[18:20:45] [DEBUG] Added callback: _about
+[18:20:45] [DEBUG] Added callback: _help
+[18:20:45] [DEBUG] Added callback: _refresh
+[18:20:45] [DEBUG] Added callback: _setup
+[18:20:45] [DEBUG] Added callback: _starup
+[18:20:45] [DEBUG] Added callback: _stop
+[18:20:45] [DEBUG] 8 callbacks have been loaded from __main__.
+[18:20:45] [DEBUG] Added callback: _disconnect
+[18:20:45] [DEBUG] Added callback: _on_websocket_ready
+[18:20:45] [DEBUG] Added callback: on_autocomplete_completion
+[18:20:45] [DEBUG] Added callback: on_autocomplete_error
+[18:20:45] [DEBUG] Added callback: on_command_completion
+[18:20:45] [DEBUG] Added callback: on_command_error
+[18:20:45] [DEBUG] Added callback: on_component_completion
+[18:20:45] [DEBUG] Added callback: on_component_error
+[18:20:45] [DEBUG] Added callback: on_error
+[18:20:45] [DEBUG] Added callback: on_modal_completion
+[18:20:45] [DEBUG] Added callback: on_modal_error
+[18:20:45] [DEBUG] Added callback: on_resume
+[18:20:45] [DEBUG] 12 callbacks have been loaded from Client.
+[18:20:45] [DEBUG] Attempting to login
+[18:20:46] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:20:46] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[18:20:47] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:20:47] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[18:20:47] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:20:47] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[18:20:47] [INFO] Shard ID 0 | Starting Shard
+[18:20:47] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[18:20:47] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[18:20:47] [INFO] Shard ID 0 | Gateway connection established
+[18:20:47] [DEBUG] Shard ID 0 | Session ID: 7c24fb95a04fdc5de4b2682dfe7a0ceb Trace: ['["gateway-prd-us-east1-d-6nsk",{"micros":153203,"calls":["id_created",{"micros":989,"calls":[]},"session_lookup_time",{"micros":6277,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-2-21",{"micros":144496,"calls":["start_session",{"micros":60612,"calls":["discord-api-866cdcc96c-kxwpd",{"micros":54070,"calls":["get_user",{"micros":9084},"get_guilds",{"micros":4194},"send_scheduled_deletion_message",{"micros":13},"guild_join_requests",{"micros":524},"authorized_ip_coro",{"micros":14}]}]},"starting_guild_connect",{"micros":52,"calls":[]},"presence_started",{"micros":415,"calls":[]},"guilds_started",{"micros":141,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":83234,"calls":[]},"connect_finished",{"micros":83241,"calls":[]},"build_ready",{"micros":31,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[18:20:47] [DEBUG] Dispatching Event: websocket_ready
+[18:20:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:20:48] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:20:48] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:20:48] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:20:48] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:20:48] [DEBUG] Sync of 1 scopes took 0.6524748000010732 seconds
+[18:20:48] [DEBUG] Dispatching Event: startup
+[18:20:48] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700565648599, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[18:20:50] [DEBUG] Sending heartbeat every 41.25 seconds
+[18:20:50] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[18:20:50] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:20:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:20:53] [DEBUG] 1174695146214928500::play should be called
+[18:20:54] [DEBUG] Dispatching Event: message_create
+[18:20:54] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:20:54] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjM2NDcxNzc5MzI5MDpBOFZ2MGdZS0ZwZVJjcnBNUWxVSE9XdnJKcWE3dGpKVjJjVHhxTlRrRjdGcGtCb2JIUWhhRzBYOUdRdnBZelpLQ0dwR0pscFBxbnNBSTlJYVBKZ0hJM0MwMEtKb0Y4azR0SFVsNTdhRG1FV1doM05kSDZLNERUSWdaTTMxUEVwRQ/callback Received 204 :: [4/5 calls remaining]
+[18:20:54] [DEBUG] Dispatching Event: command_error
+[18:20:54] [DEBUG] Dispatching Event: command_completion
+[18:20:54] [DEBUG] Dispatching Event: error
+[18:20:54] [INFO] Command Called: play with event.ctx.args = ['à lô'] | event.ctx.kwargs = {'song': 'à lô'}
+[18:20:54] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 171, in play
+    music_queues = get_music_queue(ctx)
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 54, in get_music_queue
+    voicestate = ctx.voice_state.channel.voice_state
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'channel'
+
+[18:21:09] [DEBUG] 1175004273155768371::refresh_command should be called
+[18:21:09] [DEBUG] Music has been drop
+[18:21:09] [DEBUG] No setup function found in play
+[18:21:09] [DEBUG] Found extension class Music in play: Attempting to load
+[18:21:09] [DEBUG] Added callback: Music._menu
+[18:21:09] [DEBUG] Added callback: Music._pause
+[18:21:09] [DEBUG] Added callback: Music._resume
+[18:21:09] [DEBUG] Added callback: Music._skip
+[18:21:09] [DEBUG] Added callback: Music._stop
+[18:21:09] [DEBUG] Added callback: Music.play
+[18:21:09] [DEBUG] Loaded Extension: play
+[18:21:09] [DEBUG] Gpt has been drop
+[18:21:09] [DEBUG] No setup function found in askgpt
+[18:21:09] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[18:21:09] [DEBUG] Added callback: Gpt._askgpt
+[18:21:09] [DEBUG] Added callback: Gpt._img
+[18:21:09] [DEBUG] Loaded Extension: askgpt
+[18:21:09] [DEBUG] Bard has been drop
+[18:21:09] [DEBUG] No setup function found in askbard
+[18:21:09] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[18:21:09] [DEBUG] Added callback: Bard._askbard
+[18:21:09] [DEBUG] Added callback: Bard._endbard
+[18:21:09] [DEBUG] Loaded Extension: askbard
+[18:21:09] [DEBUG] NoiChu has been drop
+[18:21:09] [DEBUG] No setup function found in noi_chu
+[18:21:09] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[18:21:09] [DEBUG] Added callback: NoiChu._reset
+[18:21:09] [DEBUG] Added callback: NoiChu._world_setup
+[18:21:09] [DEBUG] Loaded Extension: noi_chu
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[18:21:09] [DEBUG] Dispatching Event: message_create
+[18:21:09] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:21:09] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjQyOTgxNzYwMjEwOTpmRjBNeU1JVTdNRnA3SG1LUU93Z1pnOTZqZnpra3BDOTBQbjhyZEpnaTd1bnRxbHZoTzBUZzI1NW9uQjRTeDNCOXp6UDM1UHhESlZ1aEs1WGtwN0Nzdm5XdERJN0hERGNKOU1jOVZlRVczN0hoNWN6N1FlakU4Znd4bmRud3ZIdA/callback Received 204 :: [4/5 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:21:09] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:09] [DEBUG] Sync of 1 scopes took 0.6831279999969411 seconds
+[18:21:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:09] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:21:09] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:09] [DEBUG] Sync of 1 scopes took 0.7045818000042345 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.7206374000015785 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.7276286000051186 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.7403164999996079 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[18:21:10] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjQyOTgxNzYwMjEwOTpmRjBNeU1JVTdNRnA3SG1LUU93Z1pnOTZqZnpra3BDOTBQbjhyZEpnaTd1bnRxbHZoTzBUZzI1NW9uQjRTeDNCOXp6UDM1UHhESlZ1aEs1WGtwN0Nzdm5XdERJN0hERGNKOU1jOVZlRVczN0hoNWN6N1FlakU4Znd4bmRud3ZIdA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[18:21:10] [DEBUG] Dispatching Event: command_completion
+[18:21:10] [INFO] Command Called: refresh_command with event.ctx.args = [] | event.ctx.kwargs = {}
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.7561855999956606 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.7583502000052249 seconds
+[18:21:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:10] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:21:10] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:21:10] [DEBUG] Sync of 1 scopes took 0.8583895999981905 seconds
+[18:21:11] [DEBUG] Dispatching Event: voice_user_leave
+[18:21:11] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[18:21:11] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[18:21:11] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:21:11] [DEBUG] DELETE /channels/1176466591056142377 Received 200 :: [49/50 calls remaining]
+[18:21:13] [DEBUG] Dispatching Event: voice_user_join
+[18:21:13] [DEBUG] Caching ingested rate limit data for: be56019ae011689ff5baf218062aacf5
+[18:21:13] [DEBUG] POST /guilds/1067024293709496340/channels Received 201 :: [1997/2000 calls remaining]
+[18:21:13] [DEBUG] Caching ingested rate limit data for: 6e836da6cef38ba2f3dfd8568a4e9631
+[18:21:13] [DEBUG] PATCH /channels/1176482447316242453 Received 200 :: [9/10 calls remaining]
+[18:21:14] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[18:21:14] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[18:21:14] [DEBUG] Caching ingested rate limit data for: c7f060a5d9790cb6f53000110a7b7edf
+[18:21:14] [DEBUG] PATCH /guilds/1067024293709496340/members/{user_id} Received 200 :: [9/10 calls remaining]
+[18:21:25] [DEBUG] 1174695146214928500::play should be called
+[18:21:25] [DEBUG] Dispatching Event: message_create
+[18:21:25] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:21:25] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjQ5ODQwMjg1MjkxNDpZWjNnNjI0dWMwWGRPQnFUWWZJRE5yUkRTcm1QY2JoZGt4cFpZTDdkYnFwaDJ4V25Jc0NSSENQakozempaNW9ZTk03eHZiUDlYUkppMWpVUmxhTWRoNDlSZ0V5U205SFZTVTVRaDdycjcwbGZrUzd4eHZLRGJKNkVzbzdrWGI4aw/callback Received 204 :: [4/5 calls remaining]
+[18:21:25] [DEBUG] Dispatching Event: command_error
+[18:21:25] [DEBUG] Dispatching Event: command_completion
+[18:21:25] [DEBUG] Dispatching Event: error
+[18:21:25] [INFO] Command Called: play with event.ctx.args = ['xin chào việt nam'] | event.ctx.kwargs = {'song': 'xin chào việt nam'}
+[18:21:25] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 171, in play
+    music_queues = get_music_queue(ctx)
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 54, in get_music_queue
+    voicestate = ctx.voice_state.channel.voice_state
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'channel'
+
+[18:21:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 26}
+[18:21:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:21:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:22:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 26}
+[18:22:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:22:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:22:39] [DEBUG] 1175004273155768371::refresh_command should be called
+[18:22:39] [DEBUG] Music has been drop
+[18:22:39] [DEBUG] No setup function found in play
+[18:22:39] [DEBUG] Found extension class Music in play: Attempting to load
+[18:22:39] [DEBUG] Added callback: Music._menu
+[18:22:39] [DEBUG] Added callback: Music._pause
+[18:22:39] [DEBUG] Added callback: Music._resume
+[18:22:39] [DEBUG] Added callback: Music._skip
+[18:22:39] [DEBUG] Added callback: Music._stop
+[18:22:39] [DEBUG] Added callback: Music.play
+[18:22:39] [DEBUG] Loaded Extension: play
+[18:22:39] [DEBUG] Gpt has been drop
+[18:22:39] [DEBUG] No setup function found in askgpt
+[18:22:39] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[18:22:39] [DEBUG] Added callback: Gpt._askgpt
+[18:22:39] [DEBUG] Added callback: Gpt._img
+[18:22:39] [DEBUG] Loaded Extension: askgpt
+[18:22:39] [DEBUG] Bard has been drop
+[18:22:39] [DEBUG] No setup function found in askbard
+[18:22:39] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[18:22:39] [DEBUG] Added callback: Bard._askbard
+[18:22:39] [DEBUG] Added callback: Bard._endbard
+[18:22:39] [DEBUG] Loaded Extension: askbard
+[18:22:39] [DEBUG] NoiChu has been drop
+[18:22:39] [DEBUG] No setup function found in noi_chu
+[18:22:39] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[18:22:39] [DEBUG] Added callback: NoiChu._reset
+[18:22:39] [DEBUG] Added callback: NoiChu._world_setup
+[18:22:39] [DEBUG] Loaded Extension: noi_chu
+[18:22:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:22:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:22:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:22:39] [DEBUG] Dispatching Event: message_create
+[18:22:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [43/50 calls remaining]
+[18:22:39] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:39] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [44/50 calls remaining]
+[18:22:39] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:22:39] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjgwODQ3MDk3MDM4OTpERUF4MTNYUEIxamthWE1LaTlZRUVENGRrY1VNY0tNek9FUnc0OVpjbnlpREVyUWd0a1Vab1F3T3Y4TzV1N25CQXZQd1BxMmNvVWdPYm0xdUJjbXpYZXFwcWdnMHU4akk3OUhaNDl5bGhma1FzVTJQTE5nRkJHWUFqVUZQanlnWg/callback Received 204 :: [4/5 calls remaining]
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [48/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.6659177999972599 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.6743291999955545 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.6819840999960434 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.7069837000017287 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [47/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.7121627000014996 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.7235249999939697 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [45/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.7348557000004803 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[18:22:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [46/50 calls remaining]
+[18:22:40] [DEBUG] 0 is already up-to-date with 19 commands.
+[18:22:40] [DEBUG] Sync of 1 scopes took 0.7625402999983635 seconds
+[18:22:40] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[18:22:40] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjgwODQ3MDk3MDM4OTpERUF4MTNYUEIxamthWE1LaTlZRUVENGRrY1VNY0tNek9FUnc0OVpjbnlpREVyUWd0a1Vab1F3T3Y4TzV1N25CQXZQd1BxMmNvVWdPYm0xdUJjbXpYZXFwcWdnMHU4akk3OUhaNDl5bGhma1FzVTJQTE5nRkJHWUFqVUZQanlnWg/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[18:22:40] [DEBUG] Dispatching Event: command_completion
+[18:22:40] [INFO] Command Called: refresh_command with event.ctx.args = [] | event.ctx.kwargs = {}
+[18:22:46] [DEBUG] 1174695146214928500::play should be called
+[18:22:47] [DEBUG] Dispatching Event: message_create
+[18:22:47] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:22:47] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NjQ4MjgzODU2NTExMzkxNjo0MDh3eDBFenRwdVNMbUgyYzBzY3R2dUl2MFFsMzRrdzZaNEpVODF1MkJzbjNySFRkUVBtMlJpYllObTRZNzNwYlBVM3pJOEZmTzJ0TE5ZUktpVHo1NDdQbVhvNkVoTjJZcWg4WDFVMjhKazlCWEdMZk1CV08yUURoQkpwaGVxNg/callback Received 204 :: [4/5 calls remaining]
+[18:22:47] [DEBUG] Dispatching Event: command_error
+[18:22:47] [DEBUG] Dispatching Event: command_completion
+[18:22:47] [DEBUG] Dispatching Event: error
+[18:22:47] [INFO] Command Called: play with event.ctx.args = ['xin chào việt nam'] | event.ctx.kwargs = {'song': 'xin chào việt nam'}
+[18:22:47] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 171, in play
+    music_queues = get_music_queue(ctx)
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 54, in get_music_queue
+    voicestate = ctx.voice_state.channel.voice_state
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'channel'
+
+[18:22:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 30}
+[18:22:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:22:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:23:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 30}
+[18:23:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:23:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:23:35] [DEBUG] Dispatching Event: disconnect
+[18:23:35] [DEBUG] Stopping the bot.
+[18:23:35] [INFO] Shard ID 0 | Stopping Shard

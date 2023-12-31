@@ -1,6 +1,6 @@
 import asyncio
 from collections import deque
-from typing import Iterator
+from typing import Iterator, Any
 
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
 from interactions.api.voice.audio import BaseAudio
@@ -48,21 +48,23 @@ class VideoData:
 
 class MusicQueue:
     voice_state: ActiveVoiceState
-    _entries: deque
+    _entries: list
     _item_queued_: asyncio.Event
     _last_audio: BaseAudio
     VideoData = VideoData()
     Youtube_DL = YT_Downloader.YTDownloader
+    _curent_queue_index: int
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
-        self._entries = deque()
+        self._entries = list()
         self.__song_list__ = []
         self._item_queued = asyncio.Event()
         self.task = asyncio.Task
         self.loop_state = False
         self.last_audio = BaseAudio
         self.destroy_queue = False
+        self._curent_queue_index = 0
 
     def __len__(self) -> int:
         return len(self._entries)
@@ -82,10 +84,14 @@ class MusicQueue:
                         avatar_url = await self.VideoData.get_uploader_avt(
                             f'https://www.youtube.com/watch?v={audio.entry["id"]}')
                         self.put(audio, avatar_url)
+                        if len(self) == 1:
+                            self.start()
         else:
             audio = await self.Youtube_DL.get_audio(url_list)
             avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
             self.put(audio, avatar_url)
+            if len(self) == 1:
+                self.start()
 
     def put(self, audio_d, avatar_url: str) -> None:
         title = audio_d.entry['title']
@@ -114,26 +120,19 @@ class MusicQueue:
                 label="⏭️ Skip",
             )
         )
-        self.__song_list__.insert(0, [embed, nut])
+        self.__song_list__.append([embed, nut])
         self._entries.append(audio_d)
         self._item_queued.set()
 
-    def get_list(self) -> deque:
+    def get_list(self) -> list:
         return self._entries
 
-    def put_first(self, audio_d: BaseAudio) -> None:
-        self._entries.appendleft(audio_d)
-        self._item_queued.set()
+    # def put_first(self, audio_d: BaseAudio) -> None:
+    #     self._entries.appendleft(audio_d)
+    #     self._item_queued.set()
 
-    async def pop(self) -> BaseAudio:
-        if len(self) == 0:
-            await self._item_queued.wait()
-        item = self._entries.popleft()
-        self._item_queued.clear()
-        return item
-
-    def pop_no_wait(self) -> BaseAudio:
-        return self._entries.popleft()
+    # def pop_no_wait(self) -> BaseAudio:
+    #     return self._entries.popleft()
 
     def shuffle(self) -> None:
         print('alo')
@@ -141,9 +140,9 @@ class MusicQueue:
     def clear(self) -> None:
         self._entries.clear()
 
-    def peek(self, positions: int = 1) -> BaseAudio | None:
+    def peek(self) -> BaseAudio | None:
         try:
-            return self._entries[positions - 1]
+            return self._entries[self._curent_queue_index]
         except IndexError:
             return None
 
@@ -154,26 +153,50 @@ class MusicQueue:
             self.loop_state = True
         print("Trang thai: ", self.loop_state)
 
-    def peek_at_index(self, index: int) -> BaseAudio:
-        return self._entries[index]
+    def peek_at_index(self, index: int) -> Any | None:
+        try:
+            return self._entries[index]
+        except IndexError:
+            return None
 
     async def __playback_queue(self) -> None:
         while self.voice_state.connected:
+
+            if self._curent_queue_index > len(self):
+                await self._item_queued.wait()
             print("Running 1")
+            print('>>', len(self))
             if self.voice_state.playing:
                 await self.voice_state.wait_for_stopped()
-            audio_d = await self.pop()
-            _song_msg_ = self.__song_list__.pop()
+
+            print("Current index:", self._curent_queue_index)
+            audio_d = self._entries[self._curent_queue_index]
+            print('>>', audio_d.entry['title'])
+            print(self._entries[0].entry['title'])
+            _song_msg_ = self.__song_list__[self._curent_queue_index]
             _song_msg_[0].set_author('💿 Playing')
             await self.voice_state.channel.send(embed=_song_msg_[0])
             await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
             await self.voice_state.play(audio_d)
+            # self._curent_queue_index += 1
 
     async def __call__(self) -> None:
         await self.__playback_queue()
 
     def start(self) -> None:
+        print(">> Start")
         self.task = asyncio.create_task(self())
+
+    async def skipto(self, index: int) -> None:
+        self._curent_queue_index = index - 1
+        await self.__stop()
+
+    async def __stop(self) -> None:
+        await self.voice_state.stop()
+
+    def destroy(self) -> None:
+        self._entries.clear()
+        self._curent_queue_index = 0
 
     @property
     def entries(self):

@@ -1,0 +1,343 @@
+[15:26:35] [DEBUG] Running client sanity checks...
+[15:26:35] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[15:26:36] [DEBUG] No setup function found in play
+[15:26:36] [DEBUG] Found extension class Music in play: Attempting to load
+[15:26:36] [DEBUG] Added callback: Music._menu
+[15:26:36] [DEBUG] Added callback: Music._pause
+[15:26:36] [DEBUG] Added callback: Music._resume
+[15:26:36] [DEBUG] Added callback: Music._skip
+[15:26:36] [DEBUG] Added callback: Music._skipto
+[15:26:36] [DEBUG] Added callback: Music._stop
+[15:26:36] [DEBUG] Added callback: Music._viewplaylist
+[15:26:36] [DEBUG] Added callback: Music.play
+[15:26:36] [DEBUG] Loaded Extension: play
+[15:26:37] [DEBUG] No setup function found in askbard
+[15:26:37] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[15:26:37] [DEBUG] Added callback: Bard._askbard
+[15:26:37] [DEBUG] Added callback: Bard._endbard
+[15:26:37] [DEBUG] Added callback: Bard.set_bard_channel
+[15:26:37] [DEBUG] Loaded Extension: askbard
+[15:26:37] [DEBUG] No setup function found in noi_chu
+[15:26:37] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[15:26:37] [DEBUG] Added callback: NoiChu._reset
+[15:26:37] [DEBUG] Added callback: NoiChu._world_setup
+[15:26:37] [DEBUG] Loaded Extension: noi_chu
+[15:26:37] [DEBUG] No setup function found in db_refesh
+[15:26:37] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[15:26:37] [DEBUG] Loaded Extension: db_refesh
+[15:26:37] [DEBUG] No setup function found in help
+[15:26:37] [DEBUG] Found extension class Help in help: Attempting to load
+[15:26:37] [DEBUG] Added callback: Help._about
+[15:26:37] [DEBUG] Added callback: Help.help
+[15:26:37] [DEBUG] Loaded Extension: help
+[15:26:37] [DEBUG] No setup function found in channel_listen
+[15:26:37] [DEBUG] Found extension class ChannelListen in channel_listen: Attempting to load
+[15:26:37] [DEBUG] Added callback: ChannelListen._setup
+[15:26:37] [DEBUG] Loaded Extension: channel_listen
+[15:26:37] [DEBUG] Added callback: on_start
+[15:26:37] [DEBUG] 1 callbacks have been loaded from __main__.
+[15:26:37] [DEBUG] Added callback: _disconnect
+[15:26:37] [DEBUG] Added callback: _on_websocket_ready
+[15:26:37] [DEBUG] Added callback: on_autocomplete_completion
+[15:26:37] [DEBUG] Added callback: on_autocomplete_error
+[15:26:37] [DEBUG] Added callback: on_command_completion
+[15:26:37] [DEBUG] Added callback: on_command_error
+[15:26:37] [DEBUG] Added callback: on_component_completion
+[15:26:37] [DEBUG] Added callback: on_component_error
+[15:26:37] [DEBUG] Added callback: on_error
+[15:26:37] [DEBUG] Added callback: on_modal_completion
+[15:26:37] [DEBUG] Added callback: on_modal_error
+[15:26:37] [DEBUG] Added callback: on_resume
+[15:26:37] [DEBUG] 12 callbacks have been loaded from Client.
+[15:26:37] [DEBUG] Attempting to login
+[15:26:38] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[15:26:38] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:26:38] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[15:26:38] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[15:26:38] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:26:38] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[15:26:38] [WARNING] Setting sync_ext to True by default for syncing changes
+[15:26:38] [INFO] Loading jurigged
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\Main.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\play.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\embed.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\askbard.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\noi_chu.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\db_refesh.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\help.py
+[15:26:38] [DEBUG] Watch D:\Project\Python\qpneruy-Git\music\channel_listen.py
+[15:26:38] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[15:26:38] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[15:26:38] [INFO] Shard ID 0 | Starting Shard
+[15:26:38] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[15:26:39] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[15:26:39] [INFO] Shard ID 0 | Gateway connection established
+[15:26:39] [DEBUG] Shard ID 0 | Session ID: e9a3b64c9207991085896e1d6f205443 Trace: ['["gateway-prd-us-east1-d-zgsp",{"micros":100288,"calls":["id_created",{"micros":1198,"calls":[]},"session_lookup_time",{"micros":402,"calls":[]},"session_lookup_finished",{"micros":23,"calls":[]},"discord-sessions-prd-2-258",{"micros":97167,"calls":["start_session",{"micros":84119,"calls":["discord-api-6c869fb97d-tnvlt",{"micros":73758,"calls":["get_user",{"micros":10043},"get_guilds",{"micros":3936},"send_scheduled_deletion_message",{"micros":13},"guild_join_requests",{"micros":30886},"authorized_ip_coro",{"micros":10}]}]},"starting_guild_connect",{"micros":62,"calls":[]},"presence_started",{"micros":328,"calls":[]},"guilds_started",{"micros":144,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":12488,"calls":[]},"connect_finished",{"micros":12493,"calls":[]},"build_ready",{"micros":18,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[15:26:39] [DEBUG] Dispatching Event: websocket_ready
+[15:26:39] [DEBUG] Dispatching Event: guild_join
+[15:26:39] [DEBUG] Dispatching Event: guild_join
+[15:26:39] [DEBUG] Dispatching Event: guild_join
+[15:26:39] [DEBUG] Dispatching Event: guild_join
+[15:26:39] [DEBUG] Dispatching Event: guild_join
+[15:26:40] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:26:40] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:26:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[15:26:40] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[15:26:40] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:26:40] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[15:26:40] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[15:26:40] [DEBUG] 0 is already up-to-date with 16 commands.
+[15:26:40] [DEBUG] Sync of 1 scopes took 0.7167934999997669 seconds
+[15:26:40] [DEBUG] Dispatching Event: startup
+[15:26:40] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1704011200385, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[15:26:49] [DEBUG] 1174695146214928500::play should be called
+[15:26:50] [DEBUG] Dispatching Event: message_create
+[15:26:50] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[15:26:50] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5MDkzNDA3OTE0MzY4MjA2ODpJSExwTGJDalR2Q3RRNVpnRmdKWGxuTlZrbWpZU05JREFtS0x3WERPTVBlZ2lpS2tpOU1QVmFXWUtjMWJadENiRjREbjRqYUZ6ekhQelA5M2FFcHpKUXphbDBpb0lKQVgzWHB6eVFzRGQ1OXlsQURDWkJqY2pmSXVKa2ttZDExdw/callback Received 204 :: [4/5 calls remaining]
+[15:26:50] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1159832166998487050, "channel_id": 1159832166998487054, "self_mute": false, "self_deaf": false}}
+[15:26:50] [DEBUG] Waiting for voice connection data...
+[15:26:50] [DEBUG] Dispatching Event: voice_user_join
+[15:26:50] [DEBUG] Attempting to initialise voice gateway...
+[15:26:51] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[15:26:51] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[15:26:51] [DEBUG] IP Discovery in progress...
+[15:26:51] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x06\xaf\x1b171.227.96.41\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0\x12'
+[15:26:51] [DEBUG] IP Discovered: 171.227.96.41 #61458
+[15:26:51] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "171.227.96.41", "port": 61458, "mode": "xsalsa20_poly1305_lite"}}}
+[15:26:51] [DEBUG] Starting UDP Keep Alive
+[15:26:51] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[15:26:51] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[15:26:51] [DEBUG] Sending heartbeat every 13.75 seconds
+[15:26:51] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.788927101341193}
+[15:26:51] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[15:26:51] [DEBUG] Sending heartbeat every 41.25 seconds
+[15:26:51] [DEBUG] Sending data to websocket: {"op": 1, "d": 10}
+[15:26:51] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:26:51] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[15:26:51] [DEBUG] ❤ Heartbeat acknowledged after 0.08640 seconds
+[15:26:51] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:26:52] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[15:26:52] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5MDkzNDA3OTE0MzY4MjA2ODpJSExwTGJDalR2Q3RRNVpnRmdKWGxuTlZrbWpZU05JREFtS0x3WERPTVBlZ2lpS2tpOU1QVmFXWUtjMWJadENiRjREbjRqYUZ6ekhQelA5M2FFcHpKUXphbDBpb0lKQVgzWHB6eVFzRGQ1OXlsQURDWkJqY2pmSXVKa2ttZDExdw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[15:26:53] [DEBUG] Dispatching Event: message_create
+[15:26:53] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[15:26:53] [DEBUG] POST /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5MDkzNDA3OTE0MzY4MjA2ODpJSExwTGJDalR2Q3RRNVpnRmdKWGxuTlZrbWpZU05JREFtS0x3WERPTVBlZ2lpS2tpOU1QVmFXWUtjMWJadENiRjREbjRqYUZ6ekhQelA5M2FFcHpKUXphbDBpb0lKQVgzWHB6eVFzRGQ1OXlsQURDWkJqY2pmSXVKa2ttZDExdw Received 200 :: [4/5 calls remaining]
+[15:26:56] [DEBUG] Dispatching Event: message_create
+[15:26:56] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:26:56] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:26:56] [DEBUG] Dispatching Event: message_create
+[15:26:56] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:26:56] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:26:57] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:26:57] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:02] [DEBUG] Dispatching Event: command_completion
+[15:27:02] [INFO] Command Called: play with event.ctx.args = ['https://www.youtube.com/playlist?list=PLL-LXY9dtjAYgBX0TiNDwAbgThsGBb8jD'] | event.ctx.kwargs = {'song': 'https://www.youtube.com/playlist?list=PLL-LXY9dtjAYgBX0TiNDwAbgThsGBb8jD'}
+[15:27:04] [DEBUG] 1190915528680800286::skipto should be called
+[15:27:05] [DEBUG] Dispatching Event: message_create
+[15:27:05] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:05] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:05] [DEBUG] Dispatching Event: message_create
+[15:27:05] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[15:27:05] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE0MjQxNDc1MzgyNTpPNDBqQU1mdXZSeDBZTXlVZ3ZIWnRMVnBtNlpvZ2plUFQ1YjVNZlZhSmZDenBaWlJ2cGpNYVJiVERYRkhZRnBqSGRjZko3YVhsT1piQ0RySTRQazFKVUthWXpYeW1KNlVpSTBnTkFNVlBRUUNabktRUXlBc29qdnVpYzc4YnY0cA/callback Received 204 :: [4/5 calls remaining]
+[15:27:05] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5228346278415289}
+[15:27:05] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[15:27:05] [DEBUG] ❤ Heartbeat acknowledged after 0.08711 seconds
+[15:27:05] [DEBUG] Dispatching Event: message_create
+[15:27:05] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:05] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:05] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:05] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:05] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[15:27:05] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE0MjQxNDc1MzgyNTpPNDBqQU1mdXZSeDBZTXlVZ3ZIWnRMVnBtNlpvZ2plUFQ1YjVNZlZhSmZDenBaWlJ2cGpNYVJiVERYRkhZRnBqSGRjZko3YVhsT1piQ0RySTRQazFKVUthWXpYeW1KNlVpSTBnTkFNVlBRUUNabktRUXlBc29qdnVpYzc4YnY0cA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[15:27:05] [DEBUG] Dispatching Event: command_completion
+[15:27:05] [INFO] Command Called: skipto with event.ctx.args = [3] | event.ctx.kwargs = {'index': 3}
+[15:27:08] [DEBUG] 1190915528680800286::skipto should be called
+[15:27:08] [DEBUG] Dispatching Event: message_create
+[15:27:08] [DEBUG] Dispatching Event: message_create
+[15:27:08] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[15:27:08] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE1Njk2ODk4ODczMzpMbFdFRVE5TldVWVM5RVZjQzlZbmh3cnFnREdTR2E2TVczYlRGNnAyNVRlSG1ZY3NZRlR2bElvdTRGQVp2M1luRkRJbnNkWWNzQ3BMb2JnUElwYm8yVnJ6cTlDbXRsamFDcnZOWTB0Z2dSemczcVBYR0EzM053ckM0VlU5bGV4Mw/callback Received 204 :: [4/5 calls remaining]
+[15:27:08] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:08] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:09] [DEBUG] Dispatching Event: message_create
+[15:27:09] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[15:27:09] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE1Njk2ODk4ODczMzpMbFdFRVE5TldVWVM5RVZjQzlZbmh3cnFnREdTR2E2TVczYlRGNnAyNVRlSG1ZY3NZRlR2bElvdTRGQVp2M1luRkRJbnNkWWNzQ3BMb2JnUElwYm8yVnJ6cTlDbXRsamFDcnZOWTB0Z2dSemczcVBYR0EzM053ckM0VlU5bGV4Mw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[15:27:09] [DEBUG] Dispatching Event: command_completion
+[15:27:09] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:09] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:09] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:09] [INFO] Command Called: skipto with event.ctx.args = [1] | event.ctx.kwargs = {'index': 1}
+[15:27:09] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:12] [DEBUG] Dispatching Event: message_create
+[15:27:12] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:12] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:13] [DEBUG] Dispatching Event: message_create
+[15:27:13] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:13] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:13] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:13] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:13] [DEBUG] Dispatching Event: message_create
+[15:27:13] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:13] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:13] [DEBUG] Dispatching Event: message_create
+[15:27:14] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:14] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:14] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:14] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:14] [DEBUG] Dispatching Event: message_create
+[15:27:14] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:14] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:14] [DEBUG] Dispatching Event: message_create
+[15:27:14] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:14] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:14] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:14] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:15] [DEBUG] Dispatching Event: message_create
+[15:27:15] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:15] [DEBUG] POST /channels/1159832166998487054/messages Has exhausted its ratelimit (5)! Locking route for 4.272 seconds
+[15:27:15] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [0/5 calls remaining]
+[15:27:15] [DEBUG] Waiting for bucket 3df15bae86f6647dd4dfcbd5c6949480 to unlock.
+[15:27:17] [DEBUG] 1190915528680800286::skipto should be called
+[15:27:18] [DEBUG] Dispatching Event: message_create
+[15:27:18] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[15:27:18] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE5NTQ3MjcwNzYwNDpaQ0VFTGNGc2E0V3ZXY294QWZpZmh6R3RianJUdk1pZ3dLbUtpNjdpSWNTd2F4a1Q4WEpyeUpTS1ZkNU9BMDZ6VDVSV3M4Y1VkeVI4V3JwcTN0aXB0T1VKR3pESUVENmRsM2U3VzBQenRGU2FJSTExbWZLNzl6U1VjMlg2N3gyeg/callback Received 204 :: [4/5 calls remaining]
+[15:27:18] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[15:27:18] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5MDkzNDE5NTQ3MjcwNzYwNDpaQ0VFTGNGc2E0V3ZXY294QWZpZmh6R3RianJUdk1pZ3dLbUtpNjdpSWNTd2F4a1Q4WEpyeUpTS1ZkNU9BMDZ6VDVSV3M4Y1VkeVI4V3JwcTN0aXB0T1VKR3pESUVENmRsM2U3VzBQenRGU2FJSTExbWZLNzl6U1VjMlg2N3gyeg/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[15:27:18] [DEBUG] Dispatching Event: command_completion
+[15:27:18] [INFO] Command Called: skipto with event.ctx.args = [3] | event.ctx.kwargs = {'index': 3}
+[15:27:19] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.34065091443814166}
+[15:27:19] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[15:27:19] [DEBUG] ❤ Heartbeat acknowledged after 0.09006 seconds
+[15:27:20] [DEBUG] Dispatching Event: message_create
+[15:27:20] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:20] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:20] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:20] [DEBUG] Now playing <YTDownloader: https://rr4---sn-8pxuuxa-8j5r.googlevideo.com/videoplayback?expire=1704032815&ei=zyWRZen1DOm81d8Pn5abgAo&ip=171.227.96.41&id=o-AJFpytZ5jG2BLClpTfiNqbjcKpjZXAvxoBdAvj8ZqXWo&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=6B&mm=31%2C29&mn=sn-8pxuuxa-8j5r%2Csn-8pxuuxa-nbo6l&ms=au%2Crdu&mv=m&mvi=4&pl=21&pcm2=no&initcwndbps=2417500&spc=UWF9f2o5wqaI98f07Go653eb1Wc6VyQ&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=7887654&dur=431.161&lmt=1699749997146050&mt=1704010854&fvip=8&keepalive=yes&fexp=24007246&c=ANDROID&txp=5532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cpcm2%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhALZj55-TJvRv0MyQw0btV5tNq1JTs4kYk3u5wznBUALOAiAKSyePeo07Sf9lpkdYvz-O92ucyl_50PMygoJ-CJ0q2w%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJ1KtVBnzvDc68DCqVGQMWlB48AMk7ikFgS1sZIR-daHAiEAyubhlMGbgu5CoME5O6CiVu8fzrZA_rg2rUlkQxpDGMA%3D>
+[15:27:20] [DEBUG] Dispatching Event: message_create
+[15:27:20] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:20] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:21] [DEBUG] Dispatching Event: message_create
+[15:27:21] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:21] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:21] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:21] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:24] [DEBUG] Dispatching Event: message_create
+[15:27:24] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:24] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:24] [DEBUG] Dispatching Event: message_create
+[15:27:24] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:24] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:25] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:25] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:25] [DEBUG] Dispatching Event: message_create
+[15:27:25] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:25] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:25] [DEBUG] Dispatching Event: message_create
+[15:27:26] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:26] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:26] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:26] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:26] [DEBUG] Dispatching Event: message_create
+[15:27:26] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:26] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:26] [DEBUG] Dispatching Event: message_create
+[15:27:27] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:27] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:27] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:27] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:27] [DEBUG] Dispatching Event: message_create
+[15:27:27] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:27] [DEBUG] POST /channels/1159832166998487054/messages Has exhausted its ratelimit (5)! Locking route for 4.072 seconds
+[15:27:27] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [0/5 calls remaining]
+[15:27:27] [DEBUG] Waiting for bucket 3df15bae86f6647dd4dfcbd5c6949480 to unlock.
+[15:27:31] [DEBUG] Dispatching Event: message_create
+[15:27:31] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:31] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:32] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:32] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:32] [DEBUG] Dispatching Event: message_create
+[15:27:32] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:32] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:32] [DEBUG] Dispatching Event: message_create
+[15:27:32] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:32] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:33] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:33] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 44}
+[15:27:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:27:33] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5245065130711418}
+[15:27:33] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[15:27:33] [DEBUG] ❤ Heartbeat acknowledged after 0.09340 seconds
+[15:27:33] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:27:33] [DEBUG] Dispatching Event: message_create
+[15:27:33] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:33] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:33] [DEBUG] Dispatching Event: message_create
+[15:27:33] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:33] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:34] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:34] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:34] [DEBUG] Dispatching Event: message_create
+[15:27:34] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:34] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:35] [DEBUG] Dispatching Event: message_create
+[15:27:35] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:35] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:35] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:35] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:35] [DEBUG] Dispatching Event: message_create
+[15:27:35] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:35] [DEBUG] POST /channels/1159832166998487054/messages Has exhausted its ratelimit (5)! Locking route for 4.437 seconds
+[15:27:35] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [0/5 calls remaining]
+[15:27:35] [DEBUG] Waiting for bucket 3df15bae86f6647dd4dfcbd5c6949480 to unlock.
+[15:27:40] [DEBUG] Dispatching Event: message_create
+[15:27:40] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:40] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[15:27:40] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:40] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:40] [DEBUG] Dispatching Event: message_create
+[15:27:40] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:40] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:41] [DEBUG] Dispatching Event: message_create
+[15:27:41] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:41] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:41] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:41] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:42] [DEBUG] Dispatching Event: message_create
+[15:27:42] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:42] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:42] [DEBUG] Dispatching Event: message_create
+[15:27:42] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:42] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:43] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:43] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:44] [DEBUG] Dispatching Event: message_create
+[15:27:44] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:44] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[15:27:45] [DEBUG] Dispatching Event: message_create
+[15:27:45] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:45] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:45] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:45] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:45] [DEBUG] Dispatching Event: message_create
+[15:27:45] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:45] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [2/5 calls remaining]
+[15:27:46] [DEBUG] Dispatching Event: message_create
+[15:27:46] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:46] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:46] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:46] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:46] [DEBUG] Dispatching Event: message_create
+[15:27:46] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:46] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [1/5 calls remaining]
+[15:27:46] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5117495555829689}
+[15:27:46] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[15:27:46] [DEBUG] ❤ Heartbeat acknowledged after 0.08795 seconds
+[15:27:47] [DEBUG] Dispatching Event: message_create
+[15:27:47] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[15:27:47] [DEBUG] POST /channels/1159832166998487054/messages Has exhausted its ratelimit (5)! Locking route for 4.166 seconds
+[15:27:47] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [0/5 calls remaining]
+[15:27:47] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[15:27:47] [DEBUG] Now playing <YTDownloader: https://rr1---sn-8pxuuxa-8j5ek.googlevideo.com/videoplayback?expire=1704032821&ei=1SWRZcqpBvOU1d8P2-uc-AQ&ip=171.227.96.41&id=o-ALtJ_fO8dzN3CDjFFzodN4hIEob7JD4hwgp34KloKfjb&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=fx&mm=31%2C29&mn=sn-8pxuuxa-8j5ek%2Csn-8pxuuxa-nboer&ms=au%2Crdu&mv=m&mvi=1&pl=21&initcwndbps=2035000&spc=UWF9f10JSU2It-XWHv5kI2RtTkhLW0Q&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3907398&dur=228.761&lmt=1701812167991333&mt=1704010854&fvip=7&keepalive=yes&fexp=24007246&c=ANDROID&txp=4532434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIhANrfR7TJpY9lLnD7QnXQabQZLnyK3wYR7_RJuTndvNkEAiAOy7WzBkr6gbkeW3RZ4Yec-Nkhv9u_WITEsgzuquluHw%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhALZw6dhVcmuShgQubnNJotf8m1eGWXzwxQ2-mVmmyqxiAiEA7A7x-ZHo0zpLfTMRBuRjhnFf6XAWkQqIU9I_oPKb4Uo%3D>
+[15:27:47] [DEBUG] Waiting for bucket 3df15bae86f6647dd4dfcbd5c6949480 to unlock.
+[15:27:47] [DEBUG] Dispatching Event: disconnect
+[15:27:47] [DEBUG] Stopping the bot.
+[15:27:47] [INFO] Shard ID 0 | Stopping Shard

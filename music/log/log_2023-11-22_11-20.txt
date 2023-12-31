@@ -1,0 +1,618 @@
+[11:20:07] [DEBUG] Running client sanity checks...
+[11:20:08] [DEBUG] No setup function found in play
+[11:20:08] [DEBUG] Found extension class Music in play: Attempting to load
+[11:20:08] [DEBUG] Added callback: Music._menu
+[11:20:08] [DEBUG] Added callback: Music._pause
+[11:20:08] [DEBUG] Added callback: Music._resume
+[11:20:08] [DEBUG] Added callback: Music._skip
+[11:20:08] [DEBUG] Added callback: Music._stop
+[11:20:08] [DEBUG] Added callback: Music.play
+[11:20:08] [DEBUG] Loaded Extension: play
+[11:20:08] [DEBUG] No setup function found in askgpt
+[11:20:08] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[11:20:08] [DEBUG] Added callback: Gpt._askgpt
+[11:20:08] [DEBUG] Added callback: Gpt._img
+[11:20:08] [DEBUG] Loaded Extension: askgpt
+[11:20:09] [DEBUG] No setup function found in askbard
+[11:20:09] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[11:20:09] [DEBUG] Added callback: Bard._askbard
+[11:20:09] [DEBUG] Added callback: Bard._endbard
+[11:20:09] [DEBUG] Loaded Extension: askbard
+[11:20:09] [DEBUG] No setup function found in noi_chu
+[11:20:09] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[11:20:09] [DEBUG] Added callback: NoiChu._reset
+[11:20:09] [DEBUG] Added callback: NoiChu._world_setup
+[11:20:09] [DEBUG] Loaded Extension: noi_chu
+[11:20:09] [DEBUG] No setup function found in db_refesh
+[11:20:09] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[11:20:09] [DEBUG] Added callback: Database.dbv1_command
+[11:20:09] [DEBUG] Added callback: Database.dbv2_command
+[11:20:09] [DEBUG] Loaded Extension: db_refesh
+[11:20:09] [DEBUG] Added callback: ___stop
+[11:20:09] [DEBUG] Added callback: __join
+[11:20:09] [DEBUG] Added callback: __leave
+[11:20:09] [DEBUG] Added callback: _about
+[11:20:09] [DEBUG] Added callback: _help
+[11:20:09] [DEBUG] Added callback: _refresh
+[11:20:09] [DEBUG] Added callback: _setup
+[11:20:09] [DEBUG] Added callback: _starup
+[11:20:09] [DEBUG] Added callback: _stop
+[11:20:09] [DEBUG] 9 callbacks have been loaded from __main__.
+[11:20:09] [DEBUG] Added callback: _disconnect
+[11:20:09] [DEBUG] Added callback: _on_websocket_ready
+[11:20:09] [DEBUG] Added callback: on_autocomplete_completion
+[11:20:09] [DEBUG] Added callback: on_autocomplete_error
+[11:20:09] [DEBUG] Added callback: on_command_completion
+[11:20:09] [DEBUG] Added callback: on_command_error
+[11:20:09] [DEBUG] Added callback: on_component_completion
+[11:20:09] [DEBUG] Added callback: on_component_error
+[11:20:09] [DEBUG] Added callback: on_error
+[11:20:09] [DEBUG] Added callback: on_modal_completion
+[11:20:09] [DEBUG] Added callback: on_modal_error
+[11:20:09] [DEBUG] Added callback: on_resume
+[11:20:09] [DEBUG] 12 callbacks have been loaded from Client.
+[11:20:09] [DEBUG] Attempting to login
+[11:20:09] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[11:20:09] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[11:20:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[11:20:10] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[11:20:10] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[11:20:10] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[11:20:10] [INFO] Shard ID 0 | Starting Shard
+[11:20:10] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[11:20:10] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[11:20:10] [INFO] Shard ID 0 | Gateway connection established
+[11:20:10] [DEBUG] Shard ID 0 | Session ID: 28d35f51b8b83b93a3b1900bc6f27830 Trace: ['["gateway-prd-us-east1-c-0pjw",{"micros":100751,"calls":["id_created",{"micros":3365,"calls":[]},"session_lookup_time",{"micros":5168,"calls":[]},"session_lookup_finished",{"micros":13,"calls":[]},"discord-sessions-prd-2-17",{"micros":91431,"calls":["start_session",{"micros":55165,"calls":["discord-api-7f6df86f69-27cb9",{"micros":49656,"calls":["get_user",{"micros":10676},"get_guilds",{"micros":2694},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":718},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":64,"calls":[]},"presence_started",{"micros":287,"calls":[]},"guilds_started",{"micros":157,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":35730,"calls":[]},"connect_finished",{"micros":35735,"calls":[]},"build_ready",{"micros":20,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[11:20:10] [DEBUG] Dispatching Event: websocket_ready
+[11:20:11] [DEBUG] Sending heartbeat every 41.25 seconds
+[11:20:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:20:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:20:11] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[11:20:11] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[11:20:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:20:11] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[11:20:11] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[11:20:11] [DEBUG] 0 is already up-to-date with 19 commands.
+[11:20:11] [DEBUG] Sync of 1 scopes took 0.6480066000003717 seconds
+[11:20:11] [DEBUG] Dispatching Event: startup
+[11:20:11] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700626811594, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[11:20:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:20:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:20:52] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:21:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:21:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:21:33] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:22:14] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:22:14] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:22:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:22:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:22:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:22:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:23:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:23:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:23:37] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:24:18] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:24:18] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:24:18] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:24:59] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:24:59] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:25:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:25:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:25:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:25:41] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:26:22] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:26:22] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:26:22] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:27:03] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:27:03] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:27:03] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:27:44] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:27:44] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:27:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:28:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:28:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:28:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:29:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:29:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:29:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:29:48] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:29:48] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:29:48] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:30:29] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:30:29] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:30:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:31:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:31:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:31:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:31:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:31:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:31:52] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:32:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:32:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:32:33] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:33:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:33:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:33:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:33:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:33:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:33:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:34:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:34:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:34:37] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:35:18] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:35:18] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:35:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:36:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:36:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:36:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:36:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:36:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:36:41] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:37:22] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:37:22] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:37:22] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:38:03] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:38:03] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:38:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:38:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:38:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:38:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:39:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:39:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:39:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:40:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:40:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:40:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:40:48] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:40:48] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:40:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:41:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:41:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:41:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:42:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:42:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:42:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:42:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:42:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:42:52] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:43:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:43:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:43:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:44:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:44:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:44:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:44:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:44:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:44:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:45:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:45:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:45:37] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:46:18] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:46:18] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:46:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:47:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:47:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:47:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:47:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:47:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:47:41] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:48:22] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:48:22] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:48:22] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:49:03] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:49:03] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:49:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:49:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:49:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:49:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:50:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:50:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:50:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:51:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:51:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:51:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:51:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:51:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:51:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:52:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:52:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:52:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:53:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:53:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:53:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:53:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:53:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:53:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:54:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:54:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:54:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:55:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:55:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:55:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:55:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:55:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:55:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:56:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:56:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:56:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:57:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:57:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:57:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:58:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:58:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:58:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:58:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:58:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:58:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[11:59:22] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[11:59:22] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[11:59:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:00:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:00:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:00:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:00:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:00:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:00:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:01:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:01:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:01:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:02:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:02:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:02:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:02:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:02:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:02:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:03:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:03:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:03:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:04:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:04:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:04:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:04:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:04:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:04:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:05:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:05:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:05:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:06:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:06:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:06:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:06:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:06:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:06:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:07:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:07:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:07:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:08:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:08:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:08:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:09:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:09:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:09:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:09:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:09:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:09:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:10:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:10:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:10:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:11:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:11:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:11:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:11:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:11:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:11:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:12:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:12:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:12:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:13:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:13:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:13:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:13:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:13:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:13:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:14:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:14:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:14:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:15:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:15:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:15:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:15:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:15:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:15:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:16:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:16:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:16:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:17:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:17:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:17:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:17:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:17:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:17:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:18:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:18:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:18:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:19:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:19:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:19:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:20:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:20:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:20:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:20:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:20:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:20:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:21:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:21:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:21:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:22:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:22:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:22:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:22:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:22:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:22:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:23:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:23:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:23:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:24:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:24:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:24:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:24:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:24:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:24:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:25:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:25:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:25:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:26:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:26:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:26:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:26:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:26:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:26:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:27:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:27:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:27:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:28:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:28:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:28:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:28:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:28:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:28:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:29:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:29:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:29:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:30:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:30:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:30:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:31:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:31:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:31:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:31:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:31:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:31:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:32:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:32:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:32:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:33:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:33:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:33:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:33:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:33:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:33:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:34:27] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:34:27] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:34:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:35:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:35:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:35:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:35:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:35:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:36:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:36:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:36:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:37:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:37:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:37:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:37:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:37:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:37:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:38:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:38:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:38:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:39:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:39:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:39:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:39:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:39:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:39:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:40:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:40:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:40:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:41:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:41:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:41:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:42:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:42:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:42:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:42:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:42:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:42:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:43:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:43:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:43:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:44:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:44:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:44:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:44:46] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:44:46] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:44:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:45:27] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:45:27] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:45:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:46:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:46:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:46:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:46:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:46:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:46:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:47:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:47:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:47:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:48:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:48:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:48:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:48:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:48:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:48:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:49:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:49:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:49:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:50:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:50:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:50:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:50:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:50:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:50:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:51:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:51:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:51:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:52:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:52:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:52:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:53:01] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:53:01] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:53:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:53:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:53:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:53:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:54:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:54:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:54:23] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:55:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:55:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:55:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:55:46] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:55:46] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:55:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:56:27] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:56:27] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:56:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:57:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:57:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:57:08] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:57:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:57:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:57:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:58:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:58:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:58:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:59:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:59:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:59:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:59:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:59:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:59:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:00:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:00:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:00:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:01:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:01:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:01:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:01:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:01:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:01:57] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:02:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:02:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:02:39] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:03:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:03:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:03:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:04:01] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:04:01] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:04:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:04:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:04:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:04:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:05:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:05:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:05:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:06:04] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:06:04] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:06:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:06:46] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:06:46] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:06:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:07:27] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:07:27] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:07:27] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:08:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:08:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:08:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:08:50] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:08:50] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:08:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:09:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:09:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:09:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:10:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:10:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:10:13] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:10:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:10:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:10:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:11:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:11:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:11:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:12:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:12:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:12:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:12:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:12:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:12:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:13:38] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:13:38] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:13:39] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:14:20] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:14:20] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:14:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:15:01] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:15:01] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:15:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:15:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:15:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:15:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:16:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:16:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:16:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:17:05] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:17:05] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:17:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:17:46] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:17:46] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:17:46] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:18:27] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:18:27] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:18:28] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:19:08] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:19:08] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:19:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:19:50] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:19:50] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:19:50] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:20:31] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:20:31] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:20:31] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:21:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:21:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:21:13] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:21:54] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:21:54] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:21:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:22:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:22:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:22:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:23:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:23:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:23:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[13:23:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[13:23:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[13:23:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway

@@ -57,7 +57,7 @@ class YTDownloader(AudioVolume):
             data = data["entries"][0]
         new_cls = cls(data["url"])
         new_cls.ffmpeg_before_args = (
-            "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
+            "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 8"
         )
         new_cls.entry = data
         return new_cls

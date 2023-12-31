@@ -1,0 +1,83 @@
+[12:21:26] [DEBUG] Running client sanity checks...
+[12:21:28] [DEBUG] No setup function found in play
+[12:21:28] [DEBUG] Found extension class Music in play: Attempting to load
+[12:21:28] [DEBUG] Added callback: Music._menu
+[12:21:28] [DEBUG] Added callback: Music._pause
+[12:21:28] [DEBUG] Added callback: Music._resume
+[12:21:28] [DEBUG] Added callback: Music._skip
+[12:21:28] [DEBUG] Added callback: Music._stop
+[12:21:28] [DEBUG] Added callback: Music.play
+[12:21:28] [DEBUG] Loaded Extension: play
+[12:21:28] [DEBUG] No setup function found in askgpt
+[12:21:28] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[12:21:28] [DEBUG] Added callback: Gpt._askgpt
+[12:21:28] [DEBUG] Added callback: Gpt._img
+[12:21:28] [DEBUG] Loaded Extension: askgpt
+[12:21:29] [DEBUG] No setup function found in askbard
+[12:21:29] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[12:21:29] [DEBUG] Added callback: Bard._askbard
+[12:21:29] [DEBUG] Added callback: Bard._endbard
+[12:21:29] [DEBUG] Loaded Extension: askbard
+[12:21:29] [DEBUG] No setup function found in noi_chu
+[12:21:29] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[12:21:29] [DEBUG] Added callback: NoiChu._reset
+[12:21:29] [DEBUG] Added callback: NoiChu._world_setup
+[12:21:29] [DEBUG] Loaded Extension: noi_chu
+[12:21:29] [DEBUG] No setup function found in db_refesh
+[12:21:29] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[12:21:29] [DEBUG] Added callback: Database.dbv1_command
+[12:21:29] [DEBUG] Added callback: Database.dbv2_command
+[12:21:29] [DEBUG] Loaded Extension: db_refesh
+[12:21:29] [DEBUG] Added callback: __join
+[12:21:29] [DEBUG] Added callback: __leave
+[12:21:29] [DEBUG] Added callback: _about
+[12:21:29] [DEBUG] Added callback: _help
+[12:21:29] [DEBUG] Added callback: _record_channel_set
+[12:21:29] [DEBUG] Added callback: _refresh
+[12:21:29] [DEBUG] Added callback: _setup
+[12:21:29] [DEBUG] Added callback: _starup
+[12:21:29] [DEBUG] 8 callbacks have been loaded from __main__.
+[12:21:29] [DEBUG] Added callback: _disconnect
+[12:21:29] [DEBUG] Added callback: _on_websocket_ready
+[12:21:29] [DEBUG] Added callback: on_autocomplete_completion
+[12:21:29] [DEBUG] Added callback: on_autocomplete_error
+[12:21:29] [DEBUG] Added callback: on_command_completion
+[12:21:29] [DEBUG] Added callback: on_command_error
+[12:21:29] [DEBUG] Added callback: on_component_completion
+[12:21:29] [DEBUG] Added callback: on_component_error
+[12:21:29] [DEBUG] Added callback: on_error
+[12:21:29] [DEBUG] Added callback: on_modal_completion
+[12:21:29] [DEBUG] Added callback: on_modal_error
+[12:21:29] [DEBUG] Added callback: on_resume
+[12:21:29] [DEBUG] 12 callbacks have been loaded from Client.
+[12:21:29] [DEBUG] Attempting to login
+[12:21:29] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:21:29] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[12:21:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:21:30] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[12:21:30] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:21:30] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[12:21:30] [INFO] Shard ID 0 | Starting Shard
+[12:21:30] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[12:21:30] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[12:21:30] [INFO] Shard ID 0 | Gateway connection established
+[12:21:30] [DEBUG] Shard ID 0 | Session ID: f54d0104ee1baa9da32f89be0f7ffb34 Trace: ['["gateway-prd-us-east1-b-gvzn",{"micros":104763,"calls":["id_created",{"micros":1446,"calls":[]},"session_lookup_time",{"micros":361,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-2-70",{"micros":102055,"calls":["start_session",{"micros":62357,"calls":["discord-api-5b464978d4-8p2tr",{"micros":49792,"calls":["get_user",{"micros":7566},"get_guilds",{"micros":8972},"send_scheduled_deletion_message",{"micros":14},"guild_join_requests",{"micros":1},"authorized_ip_coro",{"micros":17}]}]},"starting_guild_connect",{"micros":67,"calls":[]},"presence_started",{"micros":253,"calls":[]},"guilds_started",{"micros":222,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":39105,"calls":[]},"connect_finished",{"micros":39111,"calls":[]},"build_ready",{"micros":41,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[12:21:30] [DEBUG] Dispatching Event: websocket_ready
+[12:21:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:21:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:21:31] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[12:21:31] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[12:21:31] [DEBUG] 0 is already up-to-date with 19 commands.
+[12:21:31] [DEBUG] Sync of 1 scopes took 0.6086040000000139 seconds
+[12:21:31] [DEBUG] Dispatching Event: startup
+[12:21:31] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700889691377, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[12:21:42] [DEBUG] Sending heartbeat every 41.25 seconds
+[12:21:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:21:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:21:42] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:22:23] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:22:23] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:22:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:22:38] [DEBUG] Dispatching Event: disconnect
+[12:22:38] [DEBUG] Stopping the bot.
+[12:22:38] [INFO] Shard ID 0 | Stopping Shard

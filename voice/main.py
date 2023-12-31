@@ -69,10 +69,8 @@ async def _speak(ctx: SlashContext, content: str):
         'speed': '',
         'voice': 'banmai'
     }
-    session = socksio.socks4.SOCKS4Command.CONNECT
-    context = socksio.context(proxy_type=socks.SOCKS5, proxy_address="1.1.1.1", proxy_port=1080)
-    with context:
-        response = requests.request('POST', url, data=content.encode('utf-8'), headers=headers)
+
+    response = requests.request('POST', url, data=content.encode('utf-8'), headers=headers)
     data = response.json()
     audio = AudioVolume(data["async"])
     audio.ffmpeg_before_args = (

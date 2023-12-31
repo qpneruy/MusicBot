@@ -1,0 +1,274 @@
+[12:42:07] [DEBUG] Running client sanity checks...
+[12:42:09] [DEBUG] No setup function found in play
+[12:42:09] [DEBUG] Found extension class Music in play: Attempting to load
+[12:42:09] [DEBUG] Added callback: Music._menu
+[12:42:09] [DEBUG] Added callback: Music._pause
+[12:42:09] [DEBUG] Added callback: Music._resume
+[12:42:09] [DEBUG] Added callback: Music._skip
+[12:42:09] [DEBUG] Added callback: Music._stop
+[12:42:09] [DEBUG] Added callback: Music.play
+[12:42:09] [DEBUG] Loaded Extension: play
+[12:42:09] [DEBUG] No setup function found in askbard
+[12:42:09] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[12:42:09] [DEBUG] Added callback: Bard._askbard
+[12:42:09] [DEBUG] Added callback: Bard._endbard
+[12:42:09] [DEBUG] Added callback: Bard.set_bard_channel
+[12:42:09] [DEBUG] Loaded Extension: askbard
+[12:42:09] [DEBUG] No setup function found in noi_chu
+[12:42:09] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[12:42:09] [DEBUG] Added callback: NoiChu._reset
+[12:42:09] [DEBUG] Added callback: NoiChu._world_setup
+[12:42:09] [DEBUG] Loaded Extension: noi_chu
+[12:42:09] [DEBUG] No setup function found in db_refesh
+[12:42:09] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[12:42:09] [DEBUG] Loaded Extension: db_refesh
+[12:42:09] [DEBUG] No setup function found in help
+[12:42:09] [DEBUG] Found extension class Help in help: Attempting to load
+[12:42:09] [DEBUG] Added callback: Help.help
+[12:42:09] [DEBUG] Loaded Extension: help
+[12:42:09] [DEBUG] Added callback: __join
+[12:42:09] [DEBUG] Added callback: __leave
+[12:42:09] [DEBUG] Added callback: _about
+[12:42:09] [DEBUG] Added callback: _refresh
+[12:42:09] [DEBUG] Added callback: _setup
+[12:42:09] [DEBUG] Added callback: on_start
+[12:42:09] [DEBUG] 6 callbacks have been loaded from __main__.
+[12:42:09] [DEBUG] Added callback: _disconnect
+[12:42:09] [DEBUG] Added callback: _on_websocket_ready
+[12:42:09] [DEBUG] Added callback: on_autocomplete_completion
+[12:42:09] [DEBUG] Added callback: on_autocomplete_error
+[12:42:09] [DEBUG] Added callback: on_command_completion
+[12:42:09] [DEBUG] Added callback: on_command_error
+[12:42:09] [DEBUG] Added callback: on_component_completion
+[12:42:09] [DEBUG] Added callback: on_component_error
+[12:42:09] [DEBUG] Added callback: on_error
+[12:42:09] [DEBUG] Added callback: on_modal_completion
+[12:42:09] [DEBUG] Added callback: on_modal_error
+[12:42:09] [DEBUG] Added callback: on_resume
+[12:42:09] [DEBUG] 12 callbacks have been loaded from Client.
+[12:42:09] [DEBUG] Attempting to login
+[12:42:10] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[12:42:10] [DEBUG] GET /users/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[12:42:10] [DEBUG] GET /users/@me Received 200 :: [0/1000 calls remaining]
+[12:42:10] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[12:42:10] [DEBUG] GET /oauth2/applications/@me Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[12:42:10] [DEBUG] GET /oauth2/applications/@me Received 200 :: [0/1000 calls remaining]
+[12:42:10] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[12:42:10] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[12:42:10] [INFO] Shard ID 0 | Starting Shard
+[12:42:10] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[12:42:11] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[12:42:11] [INFO] Shard ID 0 | Gateway connection established
+[12:42:11] [DEBUG] Shard ID 0 | Session ID: ff86d8cb022e4cf6f82a435e05cd995d Trace: ['["gateway-prd-us-east1-c-1jst",{"micros":91661,"calls":["id_created",{"micros":1415,"calls":[]},"session_lookup_time",{"micros":634,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-2-215",{"micros":89023,"calls":["start_session",{"micros":53990,"calls":["discord-api-948796595-lflpt",{"micros":48942,"calls":["get_user",{"micros":6974},"get_guilds",{"micros":3457},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":9128},"authorized_ip_coro",{"micros":8}]}]},"starting_guild_connect",{"micros":75,"calls":[]},"presence_started",{"micros":12686,"calls":[]},"guilds_started",{"micros":140,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":22097,"calls":[]},"connect_finished",{"micros":22105,"calls":[]},"build_ready",{"micros":24,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[12:42:11] [DEBUG] Dispatching Event: websocket_ready
+[12:42:11] [DEBUG] Dispatching Event: guild_join
+[12:42:11] [DEBUG] Dispatching Event: guild_join
+[12:42:11] [DEBUG] Dispatching Event: guild_join
+[12:42:11] [DEBUG] Dispatching Event: guild_join
+[12:42:11] [DEBUG] Dispatching Event: guild_join
+[12:42:12] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[12:42:12] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[12:42:12] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[12:42:12] [DEBUG] Waiting for bucket dd84d9818020c27975c0d5ab4a794d44 to unlock.
+[12:42:12] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[12:42:12] [DEBUG] GET /applications/{application_id}/commands Has exhausted its ratelimit (1000)! Locking route for 0.001 seconds
+[12:42:12] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [0/1000 calls remaining]
+[12:42:12] [INFO] Overwriting 0 with 15 application commands
+[12:42:13] [DEBUG] Caching ingested rate limit data for: 3e32a240d3716487d7d8f6dae6c54f6b
+[12:42:13] [DEBUG] PUT /applications/{app_id}/commands Received 200 :: [1/2 calls remaining]
+[12:42:13] [DEBUG] Sync of 1 scopes took 1.2320900000049733 seconds
+[12:42:13] [DEBUG] Dispatching Event: startup
+[12:42:13] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1702878133082, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[12:42:13] [DEBUG] Sending heartbeat every 41.25 seconds
+[12:42:13] [DEBUG] Sending data to websocket: {"op": 1, "d": 6}
+[12:42:13] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:42:14] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:42:37] [DEBUG] Dispatching Event: voice_user_join
+[12:42:41] [DEBUG] 1174695146214928500::play should be called
+[12:42:41] [DEBUG] 1174695146214928500::play should be called
+[12:42:42] [DEBUG] Dispatching Event: message_create
+[12:42:42] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[12:42:42] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE4NjE4MTcyNTIwNjg4ODQ3ODo1U1J5YTdvRTRDY3lZREtrV1VyRXFaQ1E0UEthd0RLcnhDNWVkckZIRGdRTW1PNmJOdTFUSkxQOW11bjBsWkdhUzdibnIxM29IdFJ6aWlxWXZEb0VwaVFoT2hOeGR4OE5IZ3JGSkE0UFgzNDA3NFlNODRoM1hEcDBheUdEd09KWA/callback Received 204 :: [4/5 calls remaining]
+[12:42:42] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1159832166998487050, "channel_id": 1159832166998487054, "self_mute": false, "self_deaf": false}}
+[12:42:42] [DEBUG] Waiting for voice connection data...
+[12:42:42] [DEBUG] Dispatching Event: message_create
+[12:42:42] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[12:42:42] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE4NjE4MTcyNDcyODc0MTg5OTpHd2RTYU9WckVDamlkdGdTNHNwSWJSd0QxeDF2dHFjUUlQMlJSd2lrb09jSVZOSlZZNmNIOTBzUEoxN0V2a0ZyakZRYlU1YmRYQTFvUkV0dnhJajJlRDNSeEphWkFGWGZsTDZrbVNINnN1WG1VMzI4Wk9QeERueHNkQ0FaU0RxbA/callback Received 204 :: [4/5 calls remaining]
+[12:42:42] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1067024293709496340, "channel_id": 1184720018127196202, "self_mute": false, "self_deaf": false}}
+[12:42:42] [DEBUG] Dispatching Event: voice_user_join
+[12:42:42] [DEBUG] Attempting to initialise voice gateway...
+[12:42:42] [DEBUG] Waiting for voice connection data...
+[12:42:43] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[12:42:43] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[12:42:43] [DEBUG] IP Discovery in progress...
+[12:42:43] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x02\n\xed116.100.183.123\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xfe%'
+[12:42:43] [DEBUG] IP Discovered: 116.100.183.123 #65061
+[12:42:43] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.183.123", "port": 65061, "mode": "xsalsa20_poly1305_lite"}}}
+[12:42:43] [DEBUG] Starting UDP Keep Alive
+[12:42:43] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '1009406740053381190', 'flags': 2}
+[12:42:43] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '1009406740053381190', 'platform': 0}
+[12:42:43] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[12:42:43] [DEBUG] Dispatching Event: voice_user_join
+[12:42:43] [DEBUG] Attempting to initialise voice gateway...
+[12:42:44] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[12:42:44] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[12:42:44] [DEBUG] IP Discovery in progress...
+[12:42:44] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x01_\x03116.100.183.123\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xe4\xe6'
+[12:42:44] [DEBUG] IP Discovered: 116.100.183.123 #58598
+[12:42:44] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.183.123", "port": 58598, "mode": "xsalsa20_poly1305_lite"}}}
+[12:42:44] [DEBUG] Starting UDP Keep Alive
+[12:42:44] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[12:42:44] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[12:42:44] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[12:42:44] [DEBUG] Dispatching Event: command_error
+[12:42:44] [DEBUG] Dispatching Event: command_completion
+[12:42:44] [DEBUG] Dispatching Event: error
+[12:42:44] [INFO] Command Called: play with event.ctx.args = ['tát nhật lãng rực rở remix fanny trần'] | event.ctx.kwargs = {'song': 'tát nhật lãng rực rở remix fanny trần'}
+[12:42:44] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 112, in play
+    if 'entries' in audio_d:
+       ^^^^^^^^^^^^^^^^^^^^
+TypeError: argument of type 'NoneType' is not iterable
+
+[12:42:45] [DEBUG] Sending heartbeat every 13.75 seconds
+[12:42:45] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.08104300983850554}
+[12:42:45] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:42:45] [DEBUG] ❤ Heartbeat acknowledged after 0.04088 seconds
+[12:42:48] [DEBUG] Sending heartbeat every 13.75 seconds
+[12:42:48] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.8862362237757722}
+[12:42:48] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:42:48] [DEBUG] ❤ Heartbeat acknowledged after 0.10208 seconds
+[12:42:48] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[12:42:48] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE4NjE4MTcyNTIwNjg4ODQ3ODo1U1J5YTdvRTRDY3lZREtrV1VyRXFaQ1E0UEthd0RLcnhDNWVkckZIRGdRTW1PNmJOdTFUSkxQOW11bjBsWkdhUzdibnIxM29IdFJ6aWlxWXZEb0VwaVFoT2hOeGR4OE5IZ3JGSkE0UFgzNDA3NFlNODRoM1hEcDBheUdEd09KWA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[12:42:48] [DEBUG] Dispatching Event: command_completion
+[12:42:48] [INFO] Command Called: play with event.ctx.args = ['tát nhật lãng rực rở remix fanny trần'] | event.ctx.kwargs = {'song': 'tát nhật lãng rực rở remix fanny trần'}
+[12:42:49] [DEBUG] Dispatching Event: message_create
+[12:42:49] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[12:42:49] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [4/5 calls remaining]
+[12:42:49] [DEBUG] Dispatching Event: message_create
+[12:42:49] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[12:42:49] [DEBUG] POST /channels/1159832166998487054/messages Received 200 :: [3/5 calls remaining]
+[12:42:49] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[12:42:49] [DEBUG] Now playing <YTDownloader: https://rr2---sn-8pxuuxa-8j5ls.googlevideo.com/videoplayback?expire=1702899765&ei=1dt_ZcGrOeOq0-kPkJCy8Ao&ip=116.100.183.123&id=o-AE7DkksygLKFr2Cc3YlIsEIycFhkaVELyi395v7QKevH&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=qN&mm=31%2C29&mn=sn-8pxuuxa-8j5ls%2Csn-8pxuuxa-nbo6s&ms=au%2Crdu&mv=m&mvi=2&pl=24&initcwndbps=1632500&spc=UWF9f363papCawD0Ca3wAT26VHWHDHo&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=4936680&dur=276.881&lmt=1701971743642985&mt=1702877606&fvip=3&keepalive=yes&fexp=24007246&c=ANDROID&txp=6308224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRAIgQlR7U5MSBalHCkkdQCoHObDO0GWEZPK0H0jE2J-No4oCIFlMj2j9SVoLR_QQfDg8k3zzm-Pg3EKiU7GYs3Ngl2zZ&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRAIgXli0r5xHpPOMqX3vttCEQhL62q1vfZHxz6gcB-TfM1UCIFYCxMnfS1Sd4VDWnfNGlsJguet1Zjz7WmL0NW3_rPuW>
+[12:42:55] [DEBUG] Sending data to websocket: {"op": 1, "d": 19}
+[12:42:55] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:42:55] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:42:56] [DEBUG] 1174695146214928500::play should be called
+[12:42:56] [DEBUG] Dispatching Event: message_create
+[12:42:56] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[12:42:56] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE4NjE4MTc4NDkyMTE5MDQ5MDpaZUdSVGxFcnhVM1ZLQWFZOGQzU0xkR1RkNlpFQjR4TkgwQVhlSXZSYXk4Y3ZDOWhTdUF5aThjUmRtdWdzalBkQVlrR3BOVlFSSXlOYXQzVjJXWnJoRnBSVkFoYms3ZHlKTkJNMFRVVXVOcjM0ZFZOcGc5dkUxUnBLU2xqMVBVbw/callback Received 204 :: [4/5 calls remaining]
+[12:43:00] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9810189454293201}
+[12:43:00] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:00] [DEBUG] ❤ Heartbeat acknowledged after 0.04346 seconds
+[12:43:00] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[12:43:00] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE4NjE4MTc4NDkyMTE5MDQ5MDpaZUdSVGxFcnhVM1ZLQWFZOGQzU0xkR1RkNlpFQjR4TkgwQVhlSXZSYXk4Y3ZDOWhTdUF5aThjUmRtdWdzalBkQVlrR3BOVlFSSXlOYXQzVjJXWnJoRnBSVkFoYms3ZHlKTkJNMFRVVXVOcjM0ZFZOcGc5dkUxUnBLU2xqMVBVbw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[12:43:00] [DEBUG] Dispatching Event: command_completion
+[12:43:00] [INFO] Command Called: play with event.ctx.args = ['tát nhật lãng rực rở remix fanny trần'] | event.ctx.kwargs = {'song': 'tát nhật lãng rực rở remix fanny trần'}
+[12:43:01] [DEBUG] Dispatching Event: message_create
+[12:43:01] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[12:43:01] [DEBUG] POST /channels/1184720018127196202/messages Received 200 :: [4/5 calls remaining]
+[12:43:01] [DEBUG] Dispatching Event: message_create
+[12:43:01] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[12:43:01] [DEBUG] POST /channels/1184720018127196202/messages Received 200 :: [3/5 calls remaining]
+[12:43:01] [DEBUG] Detected ffmpeg version: 2023-11-28-git-47e214245b-full_build-www.gyan.dev
+[12:43:01] [DEBUG] Now playing <YTDownloader: https://rr2---sn-8pxuuxa-8j5ls.googlevideo.com/videoplayback?expire=1702899778&ei=4tt_ZYvJDZXz2roPws2oaA&ip=116.100.183.123&id=o-APiqIcbm8j5oRm-FWx64jZFR2AMo54eOleeTTZSlHFm1&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=qN&mm=31%2C29&mn=sn-8pxuuxa-8j5ls%2Csn-8pxuuxa-nbo6s&ms=au%2Crdu&mv=m&mvi=2&pl=24&initcwndbps=1632500&spc=UWF9fzybkZUEu3AHMHUQC2ay1FUTvxY&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=4936680&dur=276.881&lmt=1701971743642985&mt=1702877606&fvip=3&keepalive=yes&fexp=24007246&c=ANDROID&txp=6308224&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRQIgNFlXiPHTu7XNL4wdzAPen87L7iT5u-ZTwV1hn2wn9goCIQCT8edoWS7CJmTOyXnGvFSdJVSKt5cZ6kqwxH_J9sbXgQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRgIhAJVo19VrB0zOgl3ojBFqFa-m9hEicxEOu3EcymZ8sCwgAiEArOQPHY_DPjgbuyF6He-myztKCyZB45VC1yUPbeUGmQ8%3D>
+[12:43:02] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6452934006519457}
+[12:43:02] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:02] [DEBUG] ❤ Heartbeat acknowledged after 0.09186 seconds
+[12:43:05] [DEBUG] Dispatching Event: component
+[12:43:05] [DEBUG] Voice playback has been suspended!
+[12:43:05] [DEBUG] Dispatching Event: message_create
+[12:43:05] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[12:43:05] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE4NjE4MTgyMzgxMDc3MzA0MjpkR3NyNWp1eGcxd0xNSG55eXhhU3Aya1hZb1B5eEtVRTY2RmhOYlFJVEtVOEtPWkhYMDl1eWxDaXBsNTFEVnd0b3FLajlDZ0hIUFhOMkdXM2hyQkdxR2VGaVJ4TjFjblhIZkNQaG56bnR6RkV5SHlBZUJSbVpKcnRUNllSRFBHVA/callback Received 204 :: [4/5 calls remaining]
+[12:43:06] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[12:43:06] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE4NjE4MTgyMzgxMDc3MzA0MjpkR3NyNWp1eGcxd0xNSG55eXhhU3Aya1hZb1B5eEtVRTY2RmhOYlFJVEtVOEtPWkhYMDl1eWxDaXBsNTFEVnd0b3FLajlDZ0hIUFhOMkdXM2hyQkdxR2VGaVJ4TjFjblhIZkNQaG56bnR6RkV5SHlBZUJSbVpKcnRUNllSRFBHVA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[12:43:13] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.32080262257043146}
+[12:43:13] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:13] [DEBUG] ❤ Heartbeat acknowledged after 0.04064 seconds
+[12:43:15] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.41224864238084635}
+[12:43:15] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:16] [DEBUG] ❤ Heartbeat acknowledged after 0.09079 seconds
+[12:43:27] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.1395543519664496}
+[12:43:27] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:27] [DEBUG] ❤ Heartbeat acknowledged after 0.04045 seconds
+[12:43:29] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.457992391633233}
+[12:43:29] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:29] [DEBUG] ❤ Heartbeat acknowledged after 0.09074 seconds
+[12:43:36] [DEBUG] Sending data to websocket: {"op": 1, "d": 26}
+[12:43:36] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:43:36] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:43:41] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.005638133719643501}
+[12:43:41] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:41] [DEBUG] ❤ Heartbeat acknowledged after 0.04679 seconds
+[12:43:43] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.49137119451013045}
+[12:43:43] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:43] [DEBUG] ❤ Heartbeat acknowledged after 0.09447 seconds
+[12:43:55] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9481055902927442}
+[12:43:55] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:55] [DEBUG] ❤ Heartbeat acknowledged after 0.04045 seconds
+[12:43:57] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.02954385819436378}
+[12:43:57] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:43:57] [DEBUG] ❤ Heartbeat acknowledged after 0.09235 seconds
+[12:44:09] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.7664199935346655}
+[12:44:09] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:09] [DEBUG] ❤ Heartbeat acknowledged after 0.04008 seconds
+[12:44:10] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9831379385851717}
+[12:44:10] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:11] [DEBUG] ❤ Heartbeat acknowledged after 0.09336 seconds
+[12:44:17] [DEBUG] Sending data to websocket: {"op": 1, "d": 26}
+[12:44:17] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:44:17] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:44:22] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.49767954409220405}
+[12:44:22] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:22] [DEBUG] ❤ Heartbeat acknowledged after 0.04064 seconds
+[12:44:24] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.3413810774918068}
+[12:44:24] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:24] [DEBUG] ❤ Heartbeat acknowledged after 0.09019 seconds
+[12:44:36] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.4876568308603957}
+[12:44:36] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:36] [DEBUG] ❤ Heartbeat acknowledged after 0.04192 seconds
+[12:44:38] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.014802452525140453}
+[12:44:38] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:38] [DEBUG] ❤ Heartbeat acknowledged after 0.09080 seconds
+[12:44:50] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.9915905574767406}
+[12:44:50] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:50] [DEBUG] ❤ Heartbeat acknowledged after 0.04014 seconds
+[12:44:52] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.5360551202801592}
+[12:44:52] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:44:52] [DEBUG] ❤ Heartbeat acknowledged after 0.09739 seconds
+[12:44:58] [DEBUG] Sending data to websocket: {"op": 1, "d": 26}
+[12:44:58] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[12:44:59] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[12:45:04] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.08031818767213295}
+[12:45:04] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:45:04] [DEBUG] ❤ Heartbeat acknowledged after 0.04016 seconds
+[12:45:06] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.04669521156854983}
+[12:45:06] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:45:06] [DEBUG] ❤ Heartbeat acknowledged after 0.09106 seconds
+[12:45:17] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.17810913874506074}
+[12:45:17] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:45:17] [DEBUG] ❤ Heartbeat acknowledged after 0.05007 seconds
+[12:45:19] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6707504017089215}
+[12:45:19] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:45:19] [DEBUG] ❤ Heartbeat acknowledged after 0.09252 seconds
+[12:45:31] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.8950285769714}
+[12:45:31] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[12:45:31] [DEBUG] ❤ Heartbeat acknowledged after 0.04128 seconds
+[12:45:32] [DEBUG] Dispatching Event: disconnect
+[12:45:32] [DEBUG] Stopping the bot.
+[12:45:32] [INFO] Shard ID 0 | Stopping Shard

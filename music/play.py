@@ -55,7 +55,7 @@ class Music(interactions.Extension):
         if ctx.voice_state.channel.voice_state.paused is False:
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
                 self.vol_refresh(ctx)
-                music_queues.start()
+                # music_queues.start()
         music_queues.destroy_queue = False
         """-------------------------------------------------------------------------------"""
         if "https://www.youtube.com/playlist?list=" not in song:
@@ -92,10 +92,22 @@ class Music(interactions.Extension):
     async def _skip(self, ctx: SlashContext):
         music_player = get_music_queue(ctx)
         if music_player.peek() is not None:
-            await music_player.stop()
+            player = ctx.bot.get_bot_voice_state(ctx.guild_id)
+            await player.stop()
             await ctx.send('Skipped', ephemeral=True)
         else:
             await ctx.send("Queue is empty", ephemeral=True)
+
+    @slash_command(name="skipto", description="Play Music at index")
+    @interactions.slash_option("index", "index", 4, True)
+    async def _skipto(self, ctx: SlashContext, index: int):
+        music_player = get_music_queue(ctx)
+        print("index: ", index)
+        if index > len(music_player.get_list()):
+            await ctx.send("Index is out of range", ephemeral=True)
+        else:
+            await music_player.skipto(index)
+            await ctx.send(f'Skipped to {index}', ephemeral=True)
 
     @slash_command(name="stop", description="Stop Music")
     async def _stop(self, ctx):
@@ -126,25 +138,25 @@ class Music(interactions.Extension):
             await music_player.pause()
             await ctx.send('Paused', ephemeral=True)
 
-    @slash_command(name="viewplaylist", description="View playlist")
+    @slash_command(name="view_queue", description="View Music Queue")
     async def _viewplaylist(self, ctx: SlashContext):
         music_player = get_music_queue(ctx)
         data = music_player.get_list()
         embeds = []
         count = 0
         embed = Embed(
+            title="Danh Sách Hàng đợi",
             color=0x5f9afa,
         )
         for item in data:
             count += 1
-            embed.add_field(name=str(count), value=item.entry['title'], inline=True)
-            if count == 20:
-                embed = None
+            embed.add_field(name=str(count) + ".", value=item.entry['title'], inline=True)
+            if count % 25 == 0:
+                embeds.append(embed)
                 embed = Embed(
                     color=0x5f9afa,
                 )
-                embeds.append(embed)
-                count = 0
+        embeds.append(embed)
         paginator = Paginator.create_from_embeds(self.bot, *embeds)
         await paginator.send(ctx)
 

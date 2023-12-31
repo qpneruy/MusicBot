@@ -1,0 +1,264 @@
+[19:30:11] [DEBUG] Running client sanity checks...
+[19:30:13] [DEBUG] No setup function found in play
+[19:30:13] [DEBUG] Found extension class Music in play: Attempting to load
+[19:30:13] [DEBUG] Added callback: Music._menu
+[19:30:13] [DEBUG] Added callback: Music._pause
+[19:30:13] [DEBUG] Added callback: Music._resume
+[19:30:13] [DEBUG] Added callback: Music._skip
+[19:30:13] [DEBUG] Added callback: Music._stop
+[19:30:13] [DEBUG] Added callback: Music.play
+[19:30:13] [DEBUG] Loaded Extension: play
+[19:30:13] [DEBUG] No setup function found in askgpt
+[19:30:13] [DEBUG] Found extension class Gpt in askgpt: Attempting to load
+[19:30:13] [DEBUG] Added callback: Gpt._askgpt
+[19:30:13] [DEBUG] Added callback: Gpt._img
+[19:30:13] [DEBUG] Loaded Extension: askgpt
+[19:30:14] [DEBUG] No setup function found in askbard
+[19:30:14] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[19:30:14] [DEBUG] Added callback: Bard._askbard
+[19:30:14] [DEBUG] Added callback: Bard._endbard
+[19:30:14] [DEBUG] Loaded Extension: askbard
+[19:30:14] [DEBUG] No setup function found in noi_chu
+[19:30:14] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[19:30:14] [DEBUG] Added callback: NoiChu._reset
+[19:30:14] [DEBUG] Added callback: NoiChu._world_setup
+[19:30:14] [DEBUG] Loaded Extension: noi_chu
+[19:30:14] [DEBUG] No setup function found in db_refesh
+[19:30:14] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[19:30:14] [DEBUG] Added callback: Database.dbv1_command
+[19:30:14] [DEBUG] Added callback: Database.dbv2_command
+[19:30:14] [DEBUG] Loaded Extension: db_refesh
+[19:30:14] [DEBUG] Added callback: __join
+[19:30:14] [DEBUG] Added callback: __leave
+[19:30:14] [DEBUG] Added callback: _about
+[19:30:14] [DEBUG] Added callback: _help
+[19:30:14] [DEBUG] Added callback: _record_channel_set
+[19:30:14] [DEBUG] Added callback: _refresh
+[19:30:14] [DEBUG] Added callback: _setup
+[19:30:14] [DEBUG] Added callback: _starup
+[19:30:14] [DEBUG] 8 callbacks have been loaded from __main__.
+[19:30:14] [DEBUG] Added callback: _disconnect
+[19:30:14] [DEBUG] Added callback: _on_websocket_ready
+[19:30:14] [DEBUG] Added callback: on_autocomplete_completion
+[19:30:14] [DEBUG] Added callback: on_autocomplete_error
+[19:30:14] [DEBUG] Added callback: on_command_completion
+[19:30:14] [DEBUG] Added callback: on_command_error
+[19:30:14] [DEBUG] Added callback: on_component_completion
+[19:30:14] [DEBUG] Added callback: on_component_error
+[19:30:14] [DEBUG] Added callback: on_error
+[19:30:14] [DEBUG] Added callback: on_modal_completion
+[19:30:14] [DEBUG] Added callback: on_modal_error
+[19:30:14] [DEBUG] Added callback: on_resume
+[19:30:14] [DEBUG] 12 callbacks have been loaded from Client.
+[19:30:14] [DEBUG] Attempting to login
+[19:30:14] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:30:14] [DEBUG] GET /users/@me Received 200 :: [49/50 calls remaining]
+[19:30:14] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:30:14] [DEBUG] GET /oauth2/applications/@me Received 200 :: [49/50 calls remaining]
+[19:30:14] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:30:14] [DEBUG] GET /gateway Received 200 :: [49/50 calls remaining]
+[19:30:14] [INFO] Shard ID 0 | Starting Shard
+[19:30:14] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[19:30:15] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[19:30:15] [INFO] Shard ID 0 | Gateway connection established
+[19:30:15] [DEBUG] Shard ID 0 | Session ID: 6595b20e78efa08e3c49b98eecb06b87 Trace: ['["gateway-prd-us-east1-c-0nd6",{"micros":342761,"calls":["id_created",{"micros":1764,"calls":[]},"session_lookup_time",{"micros":408,"calls":[]},"session_lookup_finished",{"micros":14,"calls":[]},"discord-sessions-prd-2-44",{"micros":339572,"calls":["start_session",{"micros":286247,"calls":["discord-api-5b464978d4-gxjb9",{"micros":271946,"calls":["get_user",{"micros":40387},"get_guilds",{"micros":12401},"send_scheduled_deletion_message",{"micros":16},"guild_join_requests",{"micros":3},"authorized_ip_coro",{"micros":15}]}]},"starting_guild_connect",{"micros":61,"calls":[]},"presence_started",{"micros":306,"calls":[]},"guilds_started",{"micros":189,"calls":[]},"guilds_connect",{"micros":1,"calls":[]},"presence_connect",{"micros":52719,"calls":[]},"connect_finished",{"micros":52726,"calls":[]},"build_ready",{"micros":39,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[19:30:15] [DEBUG] Dispatching Event: websocket_ready
+[19:30:16] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:30:16] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[19:30:16] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:30:16] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [49/50 calls remaining]
+[19:30:16] [DEBUG] 0 is already up-to-date with 19 commands.
+[19:30:16] [DEBUG] Sync of 1 scopes took 0.6204602999999906 seconds
+[19:30:16] [DEBUG] Dispatching Event: startup
+[19:30:16] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1700829016579, "activities": [{"name": "l\u1ec7nh /help \u0111\u1ec3 gi\u00fap \u0111\u1ee1", "type": 0}], "status": "idle", "afk": false}}
+[19:30:24] [DEBUG] Sending heartbeat every 41.25 seconds
+[19:30:24] [DEBUG] Sending data to websocket: {"op": 1, "d": 3}
+[19:30:24] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:30:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:31:05] [DEBUG] Sending data to websocket: {"op": 1, "d": 3}
+[19:31:05] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:31:06] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:31:47] [DEBUG] Sending data to websocket: {"op": 1, "d": 3}
+[19:31:47] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:31:47] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:31:54] [DEBUG] Dispatching Event: message_create
+[19:31:54] [DEBUG] Dispatching Event: error
+[19:31:54] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\noi_chu.py", line 48, in on_message
+    print(temp_data)
+OSError: [Errno 22] Invalid argument
+
+[19:31:57] [DEBUG] Dispatching Event: voice_user_join
+[19:31:57] [DEBUG] Caching ingested rate limit data for: be56019ae011689ff5baf218062aacf5
+[19:31:57] [DEBUG] POST /guilds/1159832166998487050/channels Received 201 :: [1999/2000 calls remaining]
+[19:31:58] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:31:58] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:31:58] [DEBUG] Caching ingested rate limit data for: 6e836da6cef38ba2f3dfd8568a4e9631
+[19:31:58] [DEBUG] PATCH /channels/1177587415045648394 Received 200 :: [9/10 calls remaining]
+[19:31:58] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:31:58] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:31:58] [DEBUG] Caching ingested rate limit data for: c7f060a5d9790cb6f53000110a7b7edf
+[19:31:58] [DEBUG] PATCH /guilds/1159832166998487050/members/{user_id} Received 200 :: [9/10 calls remaining]
+[19:32:02] [DEBUG] Dispatching Event: voice_user_leave
+[19:32:02] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:02] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:02] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:32:02] [DEBUG] DELETE /channels/1177587415045648394 Received 200 :: [49/50 calls remaining]
+[19:32:03] [DEBUG] Dispatching Event: voice_user_join
+[19:32:04] [DEBUG] Dispatching Event: voice_user_leave
+[19:32:04] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:04] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:04] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:32:04] [ERROR] DELETE::https://discord.com/api/v10/channels/1177587414877876234: 404
+[19:32:04] [DEBUG] Dispatching Event: error
+[19:32:04] [ERROR] Ignoring exception in VoiceUserLeave(): HTTPException: 404|Not Found || Unknown Channel
+[19:32:07] [DEBUG] Dispatching Event: voice_user_join
+[19:32:07] [DEBUG] Caching ingested rate limit data for: be56019ae011689ff5baf218062aacf5
+[19:32:07] [DEBUG] POST /guilds/1159832166998487050/channels Received 201 :: [1998/2000 calls remaining]
+[19:32:08] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:08] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:08] [DEBUG] Caching ingested rate limit data for: 6e836da6cef38ba2f3dfd8568a4e9631
+[19:32:08] [DEBUG] PATCH /channels/1177587458490249266 Received 200 :: [9/10 calls remaining]
+[19:32:08] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:08] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:08] [DEBUG] Caching ingested rate limit data for: c7f060a5d9790cb6f53000110a7b7edf
+[19:32:08] [DEBUG] PATCH /guilds/1159832166998487050/members/{user_id} Received 200 :: [8/10 calls remaining]
+[19:32:12] [DEBUG] Dispatching Event: voice_user_leave
+[19:32:12] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:12] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:13] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:32:13] [DEBUG] DELETE /channels/1177587458490249266 Received 200 :: [49/50 calls remaining]
+[19:32:13] [DEBUG] Dispatching Event: voice_user_join
+[19:32:14] [DEBUG] Dispatching Event: voice_user_leave
+[19:32:14] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:14] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:14] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:32:14] [DEBUG] DELETE /channels/1177587458288910386 Received 200 :: [49/50 calls remaining]
+[19:32:16] [DEBUG] Dispatching Event: voice_user_join
+[19:32:16] [DEBUG] Caching ingested rate limit data for: be56019ae011689ff5baf218062aacf5
+[19:32:16] [DEBUG] POST /guilds/1159832166998487050/channels Received 201 :: [1997/2000 calls remaining]
+[19:32:16] [DEBUG] Caching ingested rate limit data for: 6e836da6cef38ba2f3dfd8568a4e9631
+[19:32:16] [DEBUG] PATCH /channels/1177587494196355176 Received 200 :: [9/10 calls remaining]
+[19:32:16] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:16] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:17] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:17] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:17] [DEBUG] Caching ingested rate limit data for: c7f060a5d9790cb6f53000110a7b7edf
+[19:32:17] [DEBUG] PATCH /guilds/1159832166998487050/members/{user_id} Received 200 :: [9/10 calls remaining]
+[19:32:22] [DEBUG] Dispatching Event: voice_user_leave
+[19:32:22] [DEBUG] Shard ID 0 | No processor for `raw_channel_topic_update`
+[19:32:22] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[19:32:22] [DEBUG] Caching ingested rate limit data for: f7ead6a7674e5a323d93786263b66cb1
+[19:32:22] [DEBUG] DELETE /channels/1177587494196355176 Received 200 :: [49/50 calls remaining]
+[19:32:23] [DEBUG] Dispatching Event: voice_user_join
+[19:32:28] [DEBUG] Sending data to websocket: {"op": 1, "d": 92}
+[19:32:28] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:32:28] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:32:32] [DEBUG] Dispatching Event: message_create
+[19:32:32] [DEBUG] Dispatching Event: error
+[19:32:32] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\noi_chu.py", line 48, in on_message
+    print(temp_data)
+OSError: [Errno 22] Invalid argument
+
+[19:32:32] [DEBUG] Dispatching Event: voice_user_join
+[19:33:09] [DEBUG] Sending data to websocket: {"op": 1, "d": 94}
+[19:33:09] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:33:09] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:33:10] [DEBUG] 1177586468823257099::play should be called
+[19:33:11] [DEBUG] Dispatching Event: message_create
+[19:33:11] [DEBUG] Dispatching Event: error
+[19:33:11] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\noi_chu.py", line 48, in on_message
+    print(temp_data)
+OSError: [Errno 22] Invalid argument
+
+[19:33:11] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[19:33:11] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE3NzU4NzcyMTc1ODMyMjY4ODpFTlF4YUdCN0hmTUFDVE1OSXRSQ1NXaGpmV1pLa3kyaEdISThMaHFUVVk2elRGa2FCcGpDSW9JdkN2b3p5QVlDcE4wUjBmQlVSczVSQ1NZODI3YlVhdW80ZDJTdUVWeVRnRmNabklPQjdXNW9JVld1Q1lGTE5QZFllUzlDblRFbA/callback Received 204 :: [4/5 calls remaining]
+[19:33:11] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1159832166998487050, "channel_id": 1177587493646909450, "self_mute": false, "self_deaf": false}}
+[19:33:11] [DEBUG] Waiting for voice connection data...
+[19:33:11] [DEBUG] Dispatching Event: voice_user_join
+[19:33:12] [DEBUG] Attempting to initialise voice gateway...
+[19:33:12] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[19:33:12] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[19:33:12] [DEBUG] IP Discovery in progress...
+[19:33:12] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x003v116.100.185.240\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf8\x1a'
+[19:33:12] [DEBUG] IP Discovered: 116.100.185.240 #63514
+[19:33:12] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.185.240", "port": 63514, "mode": "xsalsa20_poly1305_lite"}}}
+[19:33:12] [DEBUG] Starting UDP Keep Alive
+[19:33:12] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[19:33:12] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '1157301198999793738', 'flags': None}
+[19:33:12] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[19:33:12] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '1157301198999793738', 'platform': None}
+[19:33:12] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[19:33:12] [DEBUG] Dispatching Event: command_error
+[19:33:12] [DEBUG] Dispatching Event: command_completion
+[19:33:12] [DEBUG] Dispatching Event: error
+[19:33:12] [INFO] Command Called: play with event.ctx.args = ['xin chào việt nam'] | event.ctx.kwargs = {'song': 'xin chào việt nam'}
+[19:33:12] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\play.py", line 183, in play
+    print("dmdmdmdmdmdâohadhiadh")
+OSError: [Errno 22] Invalid argument
+
+[19:33:13] [DEBUG] Sending heartbeat every 13.75 seconds
+[19:33:13] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.053188135340572984}
+[19:33:13] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[19:33:13] [DEBUG] ❤ Heartbeat acknowledged after 0.07401 seconds
+[19:33:27] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.08766812829540493}
+[19:33:27] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[19:33:27] [DEBUG] ❤ Heartbeat acknowledged after 0.07493 seconds
+[19:33:40] [DEBUG] Dispatching Event: message_create
+[19:33:40] [DEBUG] Dispatching Event: error
+[19:33:40] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy-Git\music\noi_chu.py", line 48, in on_message
+    print(temp_data)
+OSError: [Errno 22] Invalid argument
+
+[19:33:41] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.0573038806755386}
+[19:33:41] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[19:33:41] [DEBUG] ❤ Heartbeat acknowledged after 0.07786 seconds
+[19:33:51] [DEBUG] Sending data to websocket: {"op": 1, "d": 99}
+[19:33:51] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[19:33:51] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[19:33:54] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.32287151428089855}
+[19:33:54] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[19:33:54] [DEBUG] ❤ Heartbeat acknowledged after 0.07273 seconds
