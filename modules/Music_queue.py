@@ -3,18 +3,22 @@ from collections import deque
 from typing import Iterator, Any
 
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
-from interactions.api.voice.audio import BaseAudio
+from interactions.api.voice.audio import BaseAudio, AudioVolume
 from modules import YT_Downloader
 import os
 
 import requests
 from yt_dlp import YoutubeDL
+import os
 
 
 class VideoData:
     def __init__(self):
+        # Get the first YouTube API key from the environment variables
         self.tokenA = os.getenv('YOUTUBE_API_KEY_1')
+        # Get the second YouTube API key from the environment variables
         self.tokenB = os.getenv('YOUTUBE_API_KEY_2')
+        # Set the initial API key to the first YouTube API key
         self.api_key = self.tokenA
 
     youtube_dl = YoutubeDL(
@@ -33,13 +37,26 @@ class VideoData:
     )
 
     async def get_uploader_avt(self, url: str | None = None, direct_url: any = None) -> str:
+        """
+        Retrieves the uploader's avatar URL from a given YouTube video URL or direct URL.
+
+        Args:
+            url (str | None): The YouTube video URL.
+            direct_url (any): Direct URL to retrieve the uploader's avatar from.
+
+        Returns:
+            url (str): The URL of the uploader's avatar.
+            dirict_url (any): Direct URL to retrieve the uploader's avatar from.
+        """
         if direct_url is not None:
             data = direct_url
         else:
             data = self.youtube_dl.extract_info(url, download=False)
+
         channel_id = data['channel_id']
         channel_url = f'https://www.googleapis.com/youtube/v3/channels?key={self.api_key}&part=snippet&id={channel_id}'
         channel_response = requests.get(channel_url)
+
         if channel_response.status_code == 200:
             channel_data = channel_response.json()
             avatar_url = channel_data['items'][0]['snippet']['thumbnails']['default']['url']
@@ -50,7 +67,6 @@ class MusicQueue:
     voice_state: ActiveVoiceState
     _entries: list
     _item_queued_: asyncio.Event
-    _last_audio: BaseAudio
     VideoData = VideoData()
     Youtube_DL = YT_Downloader.YTDownloader
     _curent_queue_index: int
@@ -60,11 +76,8 @@ class MusicQueue:
         self._entries = list()
         self.__song_list__ = []
         self._item_queued = asyncio.Event()
-        self.task = asyncio.Task
-        self.loop_state = False
-        self.last_audio = BaseAudio
         self.destroy_queue = False
-        self._curent_queue_index = 0
+        self._curent_queue_index = -1
 
     def __len__(self) -> int:
         return len(self._entries)
@@ -72,7 +85,15 @@ class MusicQueue:
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
 
-    async def data_process(self, url_list: deque | str, playlist: bool) -> None:
+    async def data_process(self, url_list: list | str, playlist: bool) -> None:
+        """
+        Process the given list of URLs and add the audio and avatar URL to the queue.
+
+        Args:
+            url_list (list | str): A deque or string representing the list of URLs.
+            playlist (bool): A boolean indicating whether the given URLs are part of a playlist.
+        """
+        # Process URLs in playlist mode
         if playlist:
             while not self.destroy_queue:
                 if len(url_list) == 0:
@@ -84,16 +105,14 @@ class MusicQueue:
                         avatar_url = await self.VideoData.get_uploader_avt(
                             f'https://www.youtube.com/watch?v={audio.entry["id"]}')
                         self.put(audio, avatar_url)
-                        if len(self) == 1:
-                            self.start()
+        # Process single URL
         else:
             audio = await self.Youtube_DL.get_audio(url_list)
             avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
             self.put(audio, avatar_url)
-            if len(self) == 1:
-                self.start()
 
     def put(self, audio_d, avatar_url: str) -> None:
+        # Get the title, thumbnail, uploader, and duration from the audio_d entry
         title = audio_d.entry['title']
         thumbnail = audio_d.entry['thumbnail']
         uploader = audio_d.entry['uploader']
@@ -120,22 +139,13 @@ class MusicQueue:
                 label="⏭️ Skip",
             )
         )
+
         self.__song_list__.append([embed, nut])
         self._entries.append(audio_d)
         self._item_queued.set()
 
     def get_list(self) -> list:
         return self._entries
-
-    # def put_first(self, audio_d: BaseAudio) -> None:
-    #     self._entries.appendleft(audio_d)
-    #     self._item_queued.set()
-
-    # def pop_no_wait(self) -> BaseAudio:
-    #     return self._entries.popleft()
-
-    def shuffle(self) -> None:
-        print('alo')
 
     def clear(self) -> None:
         self._entries.clear()
@@ -146,13 +156,6 @@ class MusicQueue:
         except IndexError:
             return None
 
-    def loop(self) -> None:
-        if self.loop_state is True:
-            self.loop_state = False
-        else:
-            self.loop_state = True
-        print("Trang thai: ", self.loop_state)
-
     def peek_at_index(self, index: int) -> Any | None:
         try:
             return self._entries[index]
@@ -160,35 +163,45 @@ class MusicQueue:
             return None
 
     async def __playback_queue(self) -> None:
-        while self.voice_state.connected:
+        """
+      This function manages the playback queue for the voice bot.
+      It plays audio tracks from the queue one by one until the voice state is disconnected.
+      """
 
-            if self._curent_queue_index > len(self):
+        while self.voice_state.connected:
+            # If already playing, wait for the current audio track to finish
+            if self.voice_state.playing:
+                await self.voice_state.wait_for_stopped()
+            self._curent_queue_index += 1
+            self._item_queued.clear()
+            if len(self._entries) == 0 or self.peek_at_index(self._curent_queue_index) is None:
                 await self._item_queued.wait()
             print("Running 1")
             print('>>', len(self))
-            if self.voice_state.playing:
-                await self.voice_state.wait_for_stopped()
-
             print("Current index:", self._curent_queue_index)
             audio_d = self._entries[self._curent_queue_index]
-            print('>>', audio_d.entry['title'])
-            print(self._entries[0].entry['title'])
+            print('>>', self.voice_state.current_audio)
+            print('>>', audio_d.entry['url'])
+
             _song_msg_ = self.__song_list__[self._curent_queue_index]
             _song_msg_[0].set_author('💿 Playing')
+
+            # Send a message and components to the voice channel
             await self.voice_state.channel.send(embed=_song_msg_[0])
             await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-            await self.voice_state.play(audio_d)
-            # self._curent_queue_index += 1
+            audio_data = AudioVolume(audio_d.entry["url"])
+            # Play the audio track
+            print(audio_data)
+            await self.voice_state.play(audio_data)
 
     async def __call__(self) -> None:
         await self.__playback_queue()
 
     def start(self) -> None:
-        print(">> Start")
-        self.task = asyncio.create_task(self())
+        asyncio.create_task(self())
 
     async def skipto(self, index: int) -> None:
-        self._curent_queue_index = index - 1
+        self._curent_queue_index = index - 2
         await self.__stop()
 
     async def __stop(self) -> None:
@@ -196,11 +209,8 @@ class MusicQueue:
 
     def destroy(self) -> None:
         self._entries.clear()
+        self._item_queued.clear()
         self._curent_queue_index = 0
-
-    @property
-    def entries(self):
-        return self._entries
 
 
 # Chuẩn hóa thời lượng
@@ -210,17 +220,36 @@ def convert_seconds_to_hms(seconds):
     return f"{str(hours).zfill(2)}:{str(minutes).zfill(2)}:{str(seconds).zfill(2)}"
 
 
-# Quản lý các lớp NaffQueue thuộc mỗi ctx.guild.id
+# Quản lý các lớp Music queue thuộc mỗi ctx.guild.id
 class GuildMusicManager:
     _queues_ = {}
     _music_dl_ = {}
 
     def get_queue(self, server_id, voice_state: ActiveVoiceState):
+        """
+      Get the music queue for a specific server.
+
+      Args:
+          server_id (str): The ID of the server.
+          voice_state (ActiveVoiceState): The voice state of the server.
+
+      Returns:
+          MusicQueue: The music queue for the server.
+      """
         if server_id not in self._queues_:
             self._queues_[server_id] = MusicQueue(voice_state)
         return self._queues_[server_id]
 
     def get_dl(self, server_id):
+        """
+        Get the YTDownloader instance for a specific server.
+
+        Args:
+            server_id (str): The ID of the server.
+
+        Returns:
+            YTDownloader: The YTDownloader instance for the specified server.
+         """
         if server_id not in self._music_dl_:
             self._music_dl_[server_id] = YT_Downloader.YTDownloader
         return self._music_dl_[server_id]

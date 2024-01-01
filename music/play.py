@@ -55,12 +55,12 @@ class Music(interactions.Extension):
         if ctx.voice_state.channel.voice_state.paused is False:
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
                 self.vol_refresh(ctx)
-                # music_queues.start()
+                music_queues.start()
         music_queues.destroy_queue = False
         """-------------------------------------------------------------------------------"""
         if "https://www.youtube.com/playlist?list=" not in song:
             await music_queues.data_process(song, False)
-            embed = music_queues.__song_list__[0][0]
+            embed = music_queues.__song_list__[len(music_queues.get_list())-1][0]
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True or ctx.voice_state.channel.voice_state.paused is True:
                 embed.set_author('➕ Added music to queue')
                 await ctx.send(embed=embed)
@@ -69,7 +69,7 @@ class Music(interactions.Extension):
                 await ctx.send(embeds=embed, components=[self.hang1, self.hang2])
         elif "https://www.youtube.com/playlist?list=" in song:
             data = await youtube_dl.extra_info(song)
-            url_list = deque()
+            url_list = list()
             for items in data['entries']:
                 url_list.insert(0, items["url"])
             embed = embed_make_pp(data["title"], data["thumbnails"][3]["url"],
