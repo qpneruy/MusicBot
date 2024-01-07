@@ -1,7 +1,5 @@
 # qpneruy is licensed under the terms of Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International ("CC-BY-NC-SA-4.0"). Commercial use is not allowed under this license. This includes any kind of revenue made with or based upon the software, even donations.
 
-# Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
-
 ## License Content
 
 ### 1. Share
