@@ -1,0 +1,331 @@
+[18:01:53] [DEBUG] Running client sanity checks...
+[18:01:53] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[18:01:54] [DEBUG] No setup function found in play
+[18:01:54] [DEBUG] Found extension class Music in play: Attempting to load
+[18:01:54] [DEBUG] Added callback: Music._menu
+[18:01:54] [DEBUG] Added callback: Music._pause
+[18:01:54] [DEBUG] Added callback: Music._resume
+[18:01:54] [DEBUG] Added callback: Music._skip
+[18:01:54] [DEBUG] Added callback: Music._skipto
+[18:01:54] [DEBUG] Added callback: Music._stop
+[18:01:54] [DEBUG] Added callback: Music._viewplaylist
+[18:01:54] [DEBUG] Added callback: Music.play
+[18:01:54] [DEBUG] Loaded Extension: play
+[18:01:54] [DEBUG] No setup function found in askbard
+[18:01:54] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[18:01:54] [DEBUG] Added callback: Bard._askbard
+[18:01:54] [DEBUG] Added callback: Bard._endbard
+[18:01:54] [DEBUG] Added callback: Bard.set_bard_channel
+[18:01:54] [DEBUG] Loaded Extension: askbard
+[18:01:54] [DEBUG] No setup function found in noi_chu
+[18:01:54] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[18:01:54] [DEBUG] Added callback: NoiChu._reset
+[18:01:54] [DEBUG] Added callback: NoiChu._world_setup
+[18:01:54] [DEBUG] Loaded Extension: noi_chu
+[18:01:54] [DEBUG] No setup function found in db_refesh
+[18:01:54] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[18:01:54] [DEBUG] Loaded Extension: db_refesh
+[18:01:54] [DEBUG] No setup function found in help
+[18:01:54] [DEBUG] Found extension class Help in help: Attempting to load
+[18:01:54] [DEBUG] Added callback: Help._about
+[18:01:54] [DEBUG] Added callback: Help.help
+[18:01:54] [DEBUG] Loaded Extension: help
+[18:01:54] [DEBUG] No setup function found in channel_listen
+[18:01:54] [DEBUG] Found extension class ChannelListen in channel_listen: Attempting to load
+[18:01:54] [DEBUG] Added callback: ChannelListen._setup
+[18:01:54] [DEBUG] Loaded Extension: channel_listen
+[18:01:54] [DEBUG] Added callback: on_start
+[18:01:54] [DEBUG] 1 callbacks have been loaded from __main__.
+[18:01:54] [DEBUG] Added callback: _disconnect
+[18:01:54] [DEBUG] Added callback: _on_websocket_ready
+[18:01:54] [DEBUG] Added callback: on_autocomplete_completion
+[18:01:54] [DEBUG] Added callback: on_autocomplete_error
+[18:01:54] [DEBUG] Added callback: on_command_completion
+[18:01:54] [DEBUG] Added callback: on_command_error
+[18:01:54] [DEBUG] Added callback: on_component_completion
+[18:01:54] [DEBUG] Added callback: on_component_error
+[18:01:54] [DEBUG] Added callback: on_error
+[18:01:54] [DEBUG] Added callback: on_modal_completion
+[18:01:54] [DEBUG] Added callback: on_modal_error
+[18:01:54] [DEBUG] Added callback: on_resume
+[18:01:54] [DEBUG] 12 callbacks have been loaded from Client.
+[18:01:54] [DEBUG] Attempting to login
+[18:01:55] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[18:01:55] [DEBUG] GET /users/@me Received 200 :: [999/1000 calls remaining]
+[18:01:55] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[18:01:55] [DEBUG] GET /oauth2/applications/@me Received 200 :: [999/1000 calls remaining]
+[18:01:55] [WARNING] Setting sync_ext to True by default for syncing changes
+[18:01:55] [INFO] Loading jurigged
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\Main.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\play.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\embed.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\askbard.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\noi_chu.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\db_refesh.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\help.py
+[18:01:55] [DEBUG] Watch D:\Project\Python\qpneruy\music\channel_listen.py
+[18:01:55] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[18:01:55] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[18:01:55] [INFO] Shard ID 0 | Starting Shard
+[18:01:55] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[18:01:56] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[18:01:56] [INFO] Shard ID 0 | Gateway connection established
+[18:01:56] [DEBUG] Shard ID 0 | Session ID: fce5e3b13b0ea49219f39a56e860b471 Trace: ['["gateway-prd-us-east1-b-28wk",{"micros":133946,"calls":["id_created",{"micros":909,"calls":[]},"session_lookup_time",{"micros":1477,"calls":[]},"session_lookup_finished",{"micros":17,"calls":[]},"discord-sessions-prd-2-169",{"micros":131211,"calls":["start_session",{"micros":86799,"calls":["discord-api-b8bc5846c-r5ntc",{"micros":79693,"calls":["get_user",{"micros":17943},"get_guilds",{"micros":7602},"send_scheduled_deletion_message",{"micros":12},"guild_join_requests",{"micros":296},"authorized_ip_coro",{"micros":13}]}]},"starting_guild_connect",{"micros":67,"calls":[]},"presence_started",{"micros":342,"calls":[]},"guilds_started",{"micros":157,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":43808,"calls":[]},"connect_finished",{"micros":43814,"calls":[]},"build_ready",{"micros":27,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[18:01:56] [DEBUG] Dispatching Event: websocket_ready
+[18:01:56] [DEBUG] Dispatching Event: guild_join
+[18:01:56] [DEBUG] Dispatching Event: guild_join
+[18:01:56] [DEBUG] Dispatching Event: guild_join
+[18:01:56] [DEBUG] Dispatching Event: guild_join
+[18:01:57] [DEBUG] Dispatching Event: guild_join
+[18:01:57] [DEBUG] Dispatching Event: guild_join
+[18:01:57] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[18:01:57] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[18:01:57] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[18:01:57] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[18:01:57] [DEBUG] 0 is already up-to-date with 16 commands.
+[18:01:57] [DEBUG] Sync of 1 scopes took 0.6973151999991387 seconds
+[18:01:57] [DEBUG] Dispatching Event: startup
+[18:01:57] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1705057317901, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[18:02:12] [DEBUG] Sending heartbeat every 41.25 seconds
+[18:02:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[18:02:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:02:13] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:02:36] [DEBUG] Dispatching Event: voice_user_join
+[18:02:39] [DEBUG] Dispatching Event: voice_user_leave
+[18:02:39] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[18:02:39] [DEBUG] Dispatching Event: voice_user_join
+[18:02:40] [DEBUG] Caching ingested rate limit data for: be56019ae011689ff5baf218062aacf5
+[18:02:40] [DEBUG] POST /guilds/1067024293709496340/channels Received 201 :: [1999/2000 calls remaining]
+[18:02:41] [DEBUG] Caching ingested rate limit data for: 6e836da6cef38ba2f3dfd8568a4e9631
+[18:02:41] [DEBUG] PATCH /channels/1195321944594206761 Received 200 :: [9/10 calls remaining]
+[18:02:41] [DEBUG] Shard ID 0 | No processor for `raw_voice_channel_status_update`
+[18:02:41] [DEBUG] Caching ingested rate limit data for: c7f060a5d9790cb6f53000110a7b7edf
+[18:02:41] [DEBUG] PATCH /guilds/1067024293709496340/members/{user_id} Received 200 :: [9/10 calls remaining]
+[18:02:54] [DEBUG] Sending data to websocket: {"op": 1, "d": 18}
+[18:02:54] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:02:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:02:58] [DEBUG] 1174695146214928500::play should be called
+[18:02:58] [DEBUG] Dispatching Event: message_create
+[18:02:58] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[18:02:58] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTMyMjAxODA0NDg1MDI0NzpDdEVGRjhoajNwdDRTZE1SNmgwVGlvczc5WUFmWTRkYXJsaEFZV21FSExzdE1OMmlBOVRraUxVdWVhbXhJQktwV2RHSXVDZ3NVT3JRcm9rZmtxZ3JTOUdlZnhOY2pyUkl1RFMwbzdJUmV1SlNBUkRrZ1dZYTdGc3NMNXV4ajFUUg/callback Received 204 :: [4/5 calls remaining]
+[18:02:58] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1067024293709496340, "channel_id": 1195321944594206761, "self_mute": false, "self_deaf": false}}
+[18:02:58] [DEBUG] Waiting for voice connection data...
+[18:02:58] [DEBUG] Dispatching Event: voice_user_join
+[18:02:59] [DEBUG] Attempting to initialise voice gateway...
+[18:02:59] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[18:02:59] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[18:02:59] [DEBUG] IP Discovery in progress...
+[18:02:59] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x0b\xc1F116.100.185.146\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xcc\xa9'
+[18:02:59] [DEBUG] IP Discovered: 116.100.185.146 #52393
+[18:02:59] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.185.146", "port": 52393, "mode": "xsalsa20_poly1305_lite"}}}
+[18:02:59] [DEBUG] Starting UDP Keep Alive
+[18:02:59] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[18:02:59] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[18:02:59] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[18:02:59] [DEBUG] Dispatching Event: command_error
+[18:02:59] [DEBUG] Dispatching Event: command_completion
+[18:02:59] [DEBUG] Dispatching Event: error
+[18:02:59] [INFO] Command Called: play with event.ctx.args = ['nụ cười 9'] | event.ctx.kwargs = {'song': 'nụ cười 9'}
+[18:02:59] [ERROR] Ignoring exception in cmd `/play`:
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1900, in __dispatch_interaction
+    response = await callback
+               ^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 1771, in _run_slash_command
+    return await command(ctx, **ctx.kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\command.py", line 132, in __call__
+    await self.call_callback(self.callback, context)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\application_commands.py", line 833, in call_callback
+    return await self.call_with_binding(callback, ctx, *new_args, **new_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\models\internal\callback.py", line 43, in call_with_binding
+    return await callback(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\play.py", line 62, in play
+    embed = music_queues.__song_list__[len(music_queues.get_list())-1][0]
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+IndexError: list index out of range
+
+[18:02:59] [DEBUG] Sending heartbeat every 13.75 seconds
+[18:02:59] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.3462515317138992}
+[18:03:00] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[18:03:00] [DEBUG] ❤ Heartbeat acknowledged after 0.06566 seconds
+[18:03:13] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.21483479397769234}
+[18:03:13] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[18:03:13] [DEBUG] ❤ Heartbeat acknowledged after 0.06517 seconds
+[18:03:27] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6440248279334101}
+[18:03:27] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[18:03:27] [DEBUG] ❤ Heartbeat acknowledged after 0.06852 seconds
+[18:03:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 22}
+[18:03:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[18:03:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[18:03:41] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.6514253508390014}
+[18:03:41] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[18:03:41] [DEBUG] ❤ Heartbeat acknowledged after 0.07036 seconds
+[18:03:54] [DEBUG] Caching play
+[18:03:54] [DEBUG] Run play:2 | import time
+[18:03:54] [DEBUG] Run play:3 | from concurrent.futures import ThreadPoolExecutor
+[18:03:54] [DEBUG] Run play:11 | from yt_dlp import YoutubeDL
+[18:03:54] [DEBUG] Run play:2 | import time
+[18:03:54] [DEBUG] Run play:3 | from concurrent.futures import ThreadPoolExecutor
+[18:03:54] [DEBUG] Run play:11 | from yt_dlp import YoutubeDL
+[18:03:54] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy\music\play.py", line 15, in <adjust>
+    from modules import VideoData
+ImportError: cannot import name 'VideoData' from 'modules' (D:\Project\Python\qpneruy\modules\__init__.py)
+[18:03:54] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 625, in evaluate_child
+    return child.evaluate(self.get_globals(), None)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy\music\play.py", line 15, in <adjust>
+    from modules import VideoData
+ImportError: cannot import name 'VideoData' from 'modules' (D:\Project\Python\qpneruy\modules\__init__.py)
+[18:03:54] [DEBUG] Run play:16 | from modules import YTDownloader
+[18:03:54] [DEBUG] Run play:16 | from modules import YTDownloader
+[18:03:54] [DEBUG] Run play:18 | cfg_video = YoutubeDL(
+    {
+        "format": "bestaudio/best",
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": True,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+        "dump_single_json": True
+    }
+)
+[18:03:54] [DEBUG] Add play.get_music_dl:45
+[18:03:54] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 646, in evaluate_child
+    return child.evaluate(self.get_globals(), attrproxy(obj))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy\music\play.py", line 55, in <adjust>
+    VideoData = VideoData()
+                ^^^^^^^^^
+NameError: name 'VideoData' is not defined
+[18:03:54] [DEBUG] Run play:18 | cfg_video = YoutubeDL(
+    {
+        "format": "bestaudio/best",
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": True,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+        "dump_single_json": True
+    }
+)
+[18:03:54] [DEBUG] Add play.Music.get_uploader_avatar:71
+[18:03:54] [DEBUG] Add play.get_music_dl:45
+[18:03:54] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 480, in _process_child_correspondence
+    self.evaluate_child(new)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 646, in evaluate_child
+    return child.evaluate(self.get_globals(), attrproxy(obj))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 245, in evaluate
+    exec(code, glb, lcl)
+  File "D:\Project\Python\qpneruy\music\play.py", line 55, in <adjust>
+    VideoData = VideoData()
+                ^^^^^^^^^
+NameError: name 'VideoData' is not defined
+[18:03:54] [DEBUG] Add play.Music.get_uploader_avatar:71
+[18:03:54] [DEBUG] Update play.Music.play:43
+[18:03:54] [DEBUG] Update play.Music.play:43
+[18:03:54] [DEBUG] Update play.Music._skip:90
+[18:03:54] [DEBUG] Update play.Music._skip:90
+[18:03:54] [DEBUG] Update play.Music._stop:111
+[18:03:54] [DEBUG] Update play.Music._stop:111
+[18:03:54] [DEBUG] Delete play.Music._skipto:100
+[18:03:54] [DEBUG] Delete play.Music._skipto:100
+[18:03:54] [DEBUG] Delete play.Music._viewplaylist:140
+[18:03:54] [DEBUG] Delete play.Music._viewplaylist:140
+[18:03:54] [DEBUG] Update play.Music:24
+[18:03:54] [ERROR] Jurigged encountered an error
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 493, in _process_child_correspondence
+    orig.apply_correspondence(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 576, in apply_correspondence
+    self._apply_correspondence_new_order(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 558, in _apply_correspondence_new_order
+    self._apply_corrlist(
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 526, in _apply_corrlist
+    self.delete_property(dlt)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\jurigged\codetools.py", line 650, in delete_property
+    delattr(obj, prop)
+AttributeError: type object 'Music' has no attribute '_skipto'
+[18:03:54] [DEBUG] Delete play:2 | from collections import deque
+[18:03:54] [DEBUG] Delete play:2 | from collections import deque
+[18:03:54] [DEBUG] Delete play:7 | from interactions import Embed
+[18:03:54] [DEBUG] Delete play:7 | from interactions import Embed
+[18:03:54] [DEBUG] Delete play:9 | from interactions.ext.paginators import Paginator
+[18:03:54] [DEBUG] Delete play:9 | from interactions.ext.paginators import Paginator
+[18:03:54] [DEBUG] Update play:1
+[18:03:54] [DEBUG] Update play:1
+[18:03:55] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.28723589733972976}
+[18:03:55] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[18:03:55] [DEBUG] ❤ Heartbeat acknowledged after 0.21433 seconds
+[18:03:55] [DEBUG] Checking play
+[18:03:55] [DEBUG] Checking for changes
+[18:03:55] [DEBUG] Number of commands changed, reloading
+[18:03:55] [DEBUG] Music has been drop
+[18:03:55] [ERROR] Error reloading extension play: cannot import name 'VideoData' from 'modules' (D:\Project\Python\qpneruy\modules\__init__.py) - attempting to revert to previous state
+[18:03:55] [DEBUG] No setup function found in play
+[18:03:55] [DEBUG] Found extension class Music in play: Attempting to load
+[18:03:55] [DEBUG] Added callback: Music._menu
+[18:03:55] [DEBUG] Added callback: Music._pause
+[18:03:55] [DEBUG] Added callback: Music._resume
+[18:03:55] [DEBUG] Added callback: Music._skip
+[18:03:55] [DEBUG] Added callback: Music._stop
+[18:03:55] [DEBUG] Added callback: Music.play
+[18:03:55] [DEBUG] Loaded Extension: play
+[18:03:55] [INFO] Reverted extension play to previous state 
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2107, in reload_extension
+    self.load_extension(name, package, **load_kwargs)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\client\client.py", line 2005, in load_extension
+    module = importlib.import_module(module_name, package)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "D:\Project\Python\qpneruy\music\play.py", line 15, in <module>
+    from modules import VideoData
+ImportError: cannot import name 'VideoData' from 'modules' (D:\Project\Python\qpneruy\modules\__init__.py)
+[18:04:00] [DEBUG] Dispatching Event: disconnect
+[18:04:00] [DEBUG] Stopping the bot.
+[18:04:00] [INFO] Shard ID 0 | Stopping Shard

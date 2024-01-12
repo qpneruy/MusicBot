@@ -51,7 +51,7 @@ class Music(interactions.Extension):
         else:
             await ctx.author.voice.channel.connect()
         music_queues = get_music_queue(ctx)
-        youtube_dl = GM.get_dl(ctx.guild.id)
+        youtube_dl = music_queues.get_dl()
         if ctx.voice_state.channel.voice_state.paused is False:
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
                 self.vol_refresh(ctx)
@@ -60,7 +60,7 @@ class Music(interactions.Extension):
         """-------------------------------------------------------------------------------"""
         if "https://www.youtube.com/playlist?list=" not in song:
             await music_queues.data_process(song, False)
-            embed = music_queues.__song_list__[len(music_queues.get_list())-1][0]
+            embed = music_queues.__song_list__[len(music_queues.get_list()) - 1][0]
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is True or ctx.voice_state.channel.voice_state.paused is True:
                 embed.set_author('➕ Added music to queue')
                 await ctx.send(embed=embed)

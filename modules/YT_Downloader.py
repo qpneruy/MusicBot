@@ -39,13 +39,12 @@ cfg_playlist = YoutubeDL(
 )
 
 
-class YTDownloader(AudioVolume):
-    def __init__(self, src: str) -> None:
-        super().__init__(src)
+class YTDownloader:
+    def __init__(self) -> None:
         self.entry: dict | None = None
+        self.ffmpeg_before_args = "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 10"
 
-    @classmethod
-    async def get_audio(cls, url: str) -> "YTDownloader" or None:
+    async def get_audio(self, url: str) -> "YTDownloader" or None:
         print('>>>', url)
         try:
             data = await asyncio.to_thread(
@@ -55,15 +54,9 @@ class YTDownloader(AudioVolume):
             return None
         if "entries" in data:
             data = data["entries"][0]
-        new_cls = cls(data["url"])
-        new_cls.ffmpeg_before_args = (
-            "-reconnect 0 -reconnect_streamed 0 -reconnect_delay_max 10"
-        )
-        new_cls.entry = data
-        return new_cls
+        return data
 
-    @classmethod
-    async def extra_info(cls, url: str):
+    async def extra_info(self, url: str):
         try:
             data = await asyncio.to_thread(
                 lambda: cfg_playlist.extract_info(url, download=False)
