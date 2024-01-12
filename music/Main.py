@@ -54,7 +54,7 @@ bot.load_extension("play")
 bot.load_extension("askbard")
 bot.load_extension("noi_chu")
 bot.load_extension("db_refesh")
-bot.load_extension("help")
+# bot.load_extension("help")
 bot.load_extension("channel_listen")
 
 bot.start(Token)
