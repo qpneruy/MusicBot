@@ -1,0 +1,167 @@
+[14:15:19] [DEBUG] Running client sanity checks...
+[14:15:19] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[14:15:21] [DEBUG] No setup function found in play
+[14:15:21] [DEBUG] Found extension class Music in play: Attempting to load
+[14:15:21] [DEBUG] Added callback: Music._menu
+[14:15:21] [DEBUG] Added callback: Music._pause
+[14:15:21] [DEBUG] Added callback: Music._resume
+[14:15:21] [DEBUG] Added callback: Music._skip
+[14:15:21] [DEBUG] Added callback: Music._skipto
+[14:15:21] [DEBUG] Added callback: Music._stop
+[14:15:21] [DEBUG] Added callback: Music._viewplaylist
+[14:15:21] [DEBUG] Added callback: Music.play
+[14:15:21] [DEBUG] Loaded Extension: play
+[14:15:22] [DEBUG] No setup function found in askbard
+[14:15:22] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:15:22] [DEBUG] Added callback: Bard._askbard
+[14:15:22] [DEBUG] Added callback: Bard._endbard
+[14:15:22] [DEBUG] Added callback: Bard.set_bard_channel
+[14:15:22] [DEBUG] Loaded Extension: askbard
+[14:15:22] [DEBUG] No setup function found in noi_chu
+[14:15:22] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[14:15:22] [DEBUG] Added callback: NoiChu._reset
+[14:15:22] [DEBUG] Added callback: NoiChu._world_setup
+[14:15:22] [DEBUG] Loaded Extension: noi_chu
+[14:15:22] [DEBUG] No setup function found in db_refesh
+[14:15:22] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[14:15:22] [DEBUG] Loaded Extension: db_refesh
+[14:15:22] [DEBUG] No setup function found in help
+[14:15:22] [DEBUG] Found extension class Help in help: Attempting to load
+[14:15:22] [DEBUG] Added callback: Help._about
+[14:15:22] [DEBUG] Added callback: Help.help
+[14:15:22] [DEBUG] Loaded Extension: help
+[14:15:22] [DEBUG] No setup function found in channel_listen
+[14:15:22] [DEBUG] Found extension class ChannelListen in channel_listen: Attempting to load
+[14:15:22] [DEBUG] Added callback: ChannelListen._setup
+[14:15:22] [DEBUG] Loaded Extension: channel_listen
+[14:15:22] [DEBUG] Added callback: on_start
+[14:15:22] [DEBUG] 1 callbacks have been loaded from __main__.
+[14:15:22] [DEBUG] Added callback: _disconnect
+[14:15:22] [DEBUG] Added callback: _on_websocket_ready
+[14:15:22] [DEBUG] Added callback: on_autocomplete_completion
+[14:15:22] [DEBUG] Added callback: on_autocomplete_error
+[14:15:22] [DEBUG] Added callback: on_command_completion
+[14:15:22] [DEBUG] Added callback: on_command_error
+[14:15:22] [DEBUG] Added callback: on_component_completion
+[14:15:22] [DEBUG] Added callback: on_component_error
+[14:15:22] [DEBUG] Added callback: on_error
+[14:15:22] [DEBUG] Added callback: on_modal_completion
+[14:15:22] [DEBUG] Added callback: on_modal_error
+[14:15:22] [DEBUG] Added callback: on_resume
+[14:15:22] [DEBUG] 12 callbacks have been loaded from Client.
+[14:15:22] [DEBUG] Attempting to login
+[14:15:22] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[14:15:22] [DEBUG] GET /users/@me Received 200 :: [999/1000 calls remaining]
+[14:15:23] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[14:15:23] [DEBUG] GET /oauth2/applications/@me Received 200 :: [999/1000 calls remaining]
+[14:15:23] [WARNING] Setting sync_ext to True by default for syncing changes
+[14:15:23] [INFO] Loading jurigged
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\Main.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\play.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\embed.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\askbard.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\noi_chu.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\db_refesh.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\help.py
+[14:15:23] [DEBUG] Watch D:\Project\Python\qpneruy\music\channel_listen.py
+[14:15:23] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[14:15:23] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[14:15:23] [INFO] Shard ID 0 | Starting Shard
+[14:15:23] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[14:15:24] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[14:15:24] [INFO] Shard ID 0 | Gateway connection established
+[14:15:24] [DEBUG] Shard ID 0 | Session ID: 565fb298fa9bf4ac917359db26135ef6 Trace: ['["gateway-prd-us-east1-b-gvzn",{"micros":137626,"calls":["id_created",{"micros":771,"calls":[]},"session_lookup_time",{"micros":300,"calls":[]},"session_lookup_finished",{"micros":15,"calls":[]},"discord-sessions-prd-2-262",{"micros":135782,"calls":["start_session",{"micros":53339,"calls":["discord-api-d6644f4b6-9smmv",{"micros":39056,"calls":["get_user",{"micros":7865},"get_guilds",{"micros":3212},"send_scheduled_deletion_message",{"micros":10},"guild_join_requests",{"micros":710},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":58,"calls":[]},"presence_started",{"micros":36194,"calls":[]},"guilds_started",{"micros":187,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":45966,"calls":[]},"connect_finished",{"micros":45972,"calls":[]},"build_ready",{"micros":27,"calls":[]},"clean_ready",{"micros":0,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[14:15:24] [DEBUG] Dispatching Event: websocket_ready
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:24] [DEBUG] Dispatching Event: guild_join
+[14:15:25] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[14:15:25] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[14:15:26] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[14:15:26] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[14:15:26] [DEBUG] 0 is already up-to-date with 16 commands.
+[14:15:26] [DEBUG] Sync of 1 scopes took 1.4316967000013392 seconds
+[14:15:26] [DEBUG] Dispatching Event: startup
+[14:15:26] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1705130126342, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[14:15:30] [DEBUG] 1174695146214928500::play should be called
+[14:15:31] [DEBUG] Dispatching Event: message_create
+[14:15:31] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[14:15:31] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTYyNzE2NzUxNDYyNDA1MDpTa01RUVlHV3ppaUtmbGtvTDZhbHRHRGd0WU1nbEJZU2hhbEtwZ294VUltNzhOMEZ1eGNQdjk5aGxoUjJwQlRMcU0ydDZaeUFSbHFLaUxLMFlPRUpDTU9VTU5vTEZ3QmdwU0JJUTlyV0RITFFuQTRCaVBjTXBhd0wxME04UU0ybw/callback Received 204 :: [4/5 calls remaining]
+[14:15:31] [DEBUG] Sending data to websocket: {"op": 4, "d": {"guild_id": 1067024293709496340, "channel_id": 1195571209413349428, "self_mute": false, "self_deaf": false}}
+[14:15:31] [DEBUG] Waiting for voice connection data...
+[14:15:31] [DEBUG] Dispatching Event: voice_user_join
+[14:15:31] [DEBUG] Attempting to initialise voice gateway...
+[14:15:31] [DEBUG] Voice Connection has identified itself to Voice Gateway
+[14:15:32] [DEBUG] Discord send VC Ready! Establishing a socket connection...
+[14:15:32] [DEBUG] IP Discovery in progress...
+[14:15:32] [DEBUG] Voice Initial Response Received: b'\x00\x02\x00F\x00\x0b\xcd\xce116.100.185.146\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xc3%'
+[14:15:32] [DEBUG] IP Discovered: 116.100.185.146 #49957
+[14:15:32] [DEBUG] Sending data to websocket: {"op": 1, "d": {"protocol": "udp", "data": {"address": "116.100.185.146", "port": 49957, "mode": "xsalsa20_poly1305_lite"}}}
+[14:15:32] [DEBUG] Starting UDP Keep Alive
+[14:15:32] [DEBUG] Unhandled OPCODE: 18 = data = {'user_id': '610841389164396565', 'flags': 2}
+[14:15:32] [DEBUG] Unhandled OPCODE: 20 = data = {'user_id': '610841389164396565', 'platform': 0}
+[14:15:32] [INFO] Voice connection established; using xsalsa20_poly1305_lite
+[14:16:07] [DEBUG] Sending heartbeat every 13.75 seconds
+[14:16:07] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.23646300993685998}
+[14:16:07] [DEBUG] ❤ Voice Connection is sending Heartbeat
+[14:16:07] [DEBUG] Sending heartbeat every 41.25 seconds
+[14:16:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 11}
+[14:16:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:16:07] [DEBUG] ❤ Heartbeat acknowledged after 0.07272 seconds
+[14:16:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:16:07] [DEBUG] Dispatching Event: message_create
+[14:16:07] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[14:16:07] [DEBUG] POST /channels/1195571209413349428/messages Received 200 :: [4/5 calls remaining]
+[14:16:08] [DEBUG] Dispatching Event: message_create
+[14:16:08] [DEBUG] Caching ingested rate limit data for: 3df15bae86f6647dd4dfcbd5c6949480
+[14:16:08] [DEBUG] POST /channels/1195571209413349428/messages Received 200 :: [3/5 calls remaining]
+[14:20:24] [DEBUG] Detected ffmpeg version: 2023-12-28-git-c1340f3439-full_build-www.gyan.dev
+[14:20:24] [DEBUG] Now playing <AudioVolume: https://rr3---sn-8pxuuxa-8j5es.googlevideo.com/videoplayback?expire=1705151738&ei=mjiiZaKkD9DDvcAPp7Gf4AM&ip=116.100.185.146&id=o-APRe63O-E63cROFPxJ6O9xsthe9kQFVCyAQHdOLFrCXE&itag=251&source=youtube&requiressl=yes&xpc=EgVo2aDSNQ%3D%3D&mh=rc&mm=31%2C29&mn=sn-8pxuuxa-8j5es%2Csn-8pxuuxa-nbo6s&ms=au%2Crdu&mv=m&mvi=3&pl=21&initcwndbps=1713750&spc=UWF9fyYtz5lv18ElC908iB1ejwyulRu7TGHm&vprv=1&svpuc=1&mime=audio%2Fwebm&gir=yes&clen=3328998&dur=202.521&lmt=1701030989012333&mt=1705129977&fvip=3&keepalive=yes&fexp=24007246&c=ANDROID&txp=5432434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cxpc%2Cspc%2Cvprv%2Csvpuc%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AJfQdSswRgIhALo9HNhd2xujHw6FLBP0FY9XZ8jrTHPNhvMqmNJvg_faAiEA4JOSqtgjciN1X3gsomeu0pZvqWRikK8lmZYJX5kIhMc%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AAO5W4owRAIgbnQ80rThtyhcq2Vr3vqIQ4aEEkmwaH_UBisS8Jjdv5ECIBlwIUu550XFfh5ILxZJlORYdSUiIvGMHK51RLkbfgVR>
+[14:20:24] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[14:20:24] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5NTYyNzE2NzUxNDYyNDA1MDpTa01RUVlHV3ppaUtmbGtvTDZhbHRHRGd0WU1nbEJZU2hhbEtwZ294VUltNzhOMEZ1eGNQdjk5aGxoUjJwQlRMcU0ydDZaeUFSbHFLaUxLMFlPRUpDTU9VTU5vTEZ3QmdwU0JJUTlyV0RITFFuQTRCaVBjTXBhd0wxME04UU0ybw/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[14:20:24] [DEBUG] Dispatching Event: command_completion
+[14:20:24] [DEBUG] Disconnecting from voice gateway! Reason: 1000::
+[14:20:24] [INFO] Command Called: play with event.ctx.args = ['xin chào việt nam'] | event.ctx.kwargs = {'song': 'xin chào việt nam'}
+[14:20:24] [DEBUG] Disconnecting from gateway! Reason: 1000::
+[14:20:24] [DEBUG] Sending data to websocket: {"op": 3, "d": 0.330573434111598}
+[14:20:24] [ERROR] The heartbeater raised an exception!
+Traceback (most recent call last):
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\api\gateway\websocket.py", line 279, in run_bee_gees
+    await self._start_bee_gees()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\api\gateway\websocket.py", line 306, in _start_bee_gees
+    await self.send_heartbeat()
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\api\voice\voice_gateway.py", line 353, in send_heartbeat
+    await self.send_json({"op": OP.HEARTBEAT, "d": random.uniform(0.0, 1.0)})
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\api\gateway\websocket.py", line 165, in send_json
+    await self.send(serialized, bypass)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\interactions\api\gateway\websocket.py", line 153, in send
+    await self.ws.send_str(data)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\client_ws.py", line 165, in send_str
+    await self._writer.send(data, binary=False, compress=compress)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\http_websocket.py", line 729, in send
+    await self._send_frame(message, WSMsgType.TEXT, compress)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\http_websocket.py", line 675, in _send_frame
+    self._write(header + mask + message)
+  File "C:\Users\huuti\AppData\Local\Programs\Python\Python311\Lib\site-packages\aiohttp\http_websocket.py", line 702, in _write
+    raise ConnectionResetError("Cannot write to closing transport")
+ConnectionResetError: Cannot write to closing transport
+[14:20:24] [DEBUG] Sending data to websocket: {"op": 1, "d": 14}
+[14:20:28] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[14:20:28] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[14:20:28] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[14:20:28] [INFO] Shard ID 0 | Gateway connection established
+[14:20:28] [DEBUG] Shard ID 0 | Session ID: 978a8faaadeb7750d1735e4e65007fac Trace: ['["gateway-prd-us-east1-d-xdwx",{"micros":118337,"calls":["id_created",{"micros":882,"calls":[]},"session_lookup_time",{"micros":368,"calls":[]},"session_lookup_finished",{"micros":21,"calls":[]},"discord-sessions-prd-2-90",{"micros":116557,"calls":["start_session",{"micros":60004,"calls":["discord-api-d6644f4b6-77m8x",{"micros":53815,"calls":["get_user",{"micros":8633},"get_guilds",{"micros":4920},"send_scheduled_deletion_message",{"micros":14},"guild_join_requests",{"micros":3},"authorized_ip_coro",{"micros":43}]}]},"starting_guild_connect",{"micros":281,"calls":[]},"presence_started",{"micros":381,"calls":[]},"guilds_started",{"micros":226,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":55638,"calls":[]},"connect_finished",{"micros":55643,"calls":[]},"build_ready",{"micros":18,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[14:20:28] [DEBUG] Dispatching Event: websocket_ready
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:28] [DEBUG] Dispatching Event: raw_guild_create
+[14:20:32] [DEBUG] Ending UDP Keep Alive
+[14:20:35] [DEBUG] Dispatching Event: disconnect
+[14:20:35] [DEBUG] Stopping the bot.
+[14:20:35] [INFO] Shard ID 0 | Stopping Shard

@@ -1,7 +1,9 @@
 import asyncio
+import json
 from collections import deque
 from typing import Iterator, Any
 
+import yt_dlp.utils
 from interactions import ActiveVoiceState, Embed, ButtonStyle, ActionRow, Button
 from interactions.api.voice.audio import BaseAudio, AudioVolume
 from modules import YT_Downloader
@@ -19,7 +21,7 @@ class VideoData:
         # Get the second YouTube API key from the environment variables
         self.tokenB = os.getenv('YOUTUBE_API_KEY_2')
         # Set the initial API key to the first YouTube API key
-        self.api_key = self.tokenA
+        self.api_key = self.tokenB
 
     youtube_dl = YoutubeDL(
         {
@@ -65,28 +67,25 @@ class VideoData:
 
 class MusicQueue:
     voice_state: ActiveVoiceState
-    _entries: list
+    _entries: deque
     _item_queued_: asyncio.Event
     VideoData = VideoData()
-    Youtube_DL = YT_Downloader.YTDownloader()
     _curent_queue_index: int
 
     def __init__(self, voice_state: ActiveVoiceState):
         self.voice_state = voice_state
-        self._entries = list()
+        self._entries = deque()
         self.__song_list__ = []
         self._item_queued = asyncio.Event()
         self.destroy_queue = False
         self._curent_queue_index = -1
+        self.title_list = []
 
     def __len__(self) -> int:
         return len(self._entries)
 
     def __iter__(self) -> Iterator[BaseAudio]:
         return iter(self._entries)
-
-    def get_dl(self):
-        return self.Youtube_DL
 
     async def data_process(self, url_list: list | str, playlist: bool) -> None:
         """
@@ -103,23 +102,23 @@ class MusicQueue:
                     self.destroy_queue = True
                 while len(url_list) > 0:
                     url = url_list.pop()
-                    audio = await self.Youtube_DL.get_audio(url)
+                    audio = await YT_Downloader.YTDownloader.get_audio(url)
                     if audio is not None:
-                        avatar_url = await self.VideoData.get_uploader_avt(
-                            f'https://www.youtube.com/watch?v={audio["id"]}')
+                        avatar_url = await self.VideoData.get_uploader_avt(url)
                         self.put(audio, avatar_url)
         # Process single URL
         else:
-            audio = await self.Youtube_DL.get_audio(url_list)
+            audio = await YT_Downloader.YTDownloader.get_audio(url_list)
             avatar_url = await self.VideoData.get_uploader_avt(f'https://www.youtube.com/watch?v={audio.entry["id"]}')
             self.put(audio, avatar_url)
 
     def put(self, audio_d, avatar_url: str) -> None:
         # Get the title, thumbnail, uploader, and duration from the audio_d entry
-        title = audio_d['title']
-        thumbnail = audio_d['thumbnail']
-        uploader = audio_d['uploader']
-        duration = audio_d['duration']
+        title = audio_d.entry['title']
+        self.title_list.append(title)
+        thumbnail = audio_d.entry['thumbnail']
+        uploader = audio_d.entry['uploader']
+        duration = audio_d.entry['duration']
         embed = Embed(
             title=f" {title}",
             description="ㅤ",
@@ -134,7 +133,7 @@ class MusicQueue:
             Button(
                 style=ButtonStyle.LINK,
                 label="Link",
-                url=f'https://www.youtube.com/watch?v={audio_d["id"]}'
+                url=f'https://www.youtube.com/watch?v={audio_d.entry["id"]}'
             ),
             Button(
                 custom_id="skip_button",
@@ -144,11 +143,14 @@ class MusicQueue:
         )
 
         self.__song_list__.append([embed, nut])
-        self._entries.append(audio_d)
+        self._entries.append(AudioVolume(audio_d.entry["url"]))
         self._item_queued.set()
 
-    def get_list(self) -> list:
+    def get_list(self) -> deque:
         return self._entries
+
+    def get_title_list(self) -> list:
+        return self.title_list
 
     def clear(self) -> None:
         self._entries.clear()
@@ -184,8 +186,6 @@ class MusicQueue:
                 await self.voice_state.wait_for_stopped()
             if len(self._entries) == 0 or self.peek_at_index(self._curent_queue_index) is None:
                 await self._item_queued.wait()
-            print("Running 1")
-            print('>>', len(self))
             print("Current index:", self._curent_queue_index)
             audio_d = await self.pop()
 
@@ -193,8 +193,8 @@ class MusicQueue:
             _song_msg_[0].set_author('💿 Playing')
             await self.voice_state.channel.send(embed=_song_msg_[0])
             await self.voice_state.channel.send(components=_song_msg_[1], silent=True)
-            audio_data = AudioVolume(audio_d["url"])
-            await self.voice_state.play(audio_data)
+
+            await self.voice_state.play(audio_d)
 
     async def __call__(self) -> None:
         await self.__playback_queue()
@@ -203,7 +203,7 @@ class MusicQueue:
         asyncio.create_task(self())
 
     async def skipto(self, index: int) -> None:
-        self._curent_queue_index = index - 2
+        self._curent_queue_index = index - 1
         await self.__stop()
 
     async def __stop(self) -> None:
@@ -225,7 +225,6 @@ def convert_seconds_to_hms(seconds):
 # Quản lý các lớp Music queue thuộc mỗi ctx.guild.id
 class GuildMusicManager:
     _queues_ = {}
-    _music_dl_ = {}
 
     def get_queue(self, server_id, voice_state: ActiveVoiceState):
         """
@@ -241,17 +240,3 @@ class GuildMusicManager:
         if server_id not in self._queues_:
             self._queues_[server_id] = MusicQueue(voice_state)
         return self._queues_[server_id]
-
-    def get_dl(self, server_id):
-        """
-        Get the YTDownloader instance for a specific server.
-
-        Args:
-            server_id (str): The ID of the server.
-
-        Returns:
-            YTDownloader: The YTDownloader instance for the specified server.
-         """
-        if server_id not in self._music_dl_:
-            self._music_dl_[server_id] = YT_Downloader.YTDownloader()
-        return self._music_dl_[server_id]

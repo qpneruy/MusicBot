@@ -1,0 +1,235 @@
+[07:16:56] [DEBUG] Running client sanity checks...
+[07:16:56] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[07:16:57] [DEBUG] No setup function found in play
+[07:16:57] [DEBUG] Found extension class Music in play: Attempting to load
+[07:16:57] [DEBUG] Added callback: Music._menu
+[07:16:57] [DEBUG] Added callback: Music._pause
+[07:16:57] [DEBUG] Added callback: Music._resume
+[07:16:57] [DEBUG] Added callback: Music._skip
+[07:16:57] [DEBUG] Added callback: Music._skipto
+[07:16:57] [DEBUG] Added callback: Music._stop
+[07:16:57] [DEBUG] Added callback: Music._viewplaylist
+[07:16:57] [DEBUG] Added callback: Music.play
+[07:16:57] [DEBUG] Loaded Extension: play
+[07:16:58] [DEBUG] No setup function found in askbard
+[07:16:58] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[07:16:58] [DEBUG] Added callback: Bard._askbard
+[07:16:58] [DEBUG] Added callback: Bard._endbard
+[07:16:58] [DEBUG] Added callback: Bard.set_bard_channel
+[07:16:58] [DEBUG] Loaded Extension: askbard
+[07:16:58] [DEBUG] No setup function found in noi_chu
+[07:16:58] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[07:16:58] [DEBUG] Added callback: NoiChu._reset
+[07:16:58] [DEBUG] Added callback: NoiChu._world_setup
+[07:16:58] [DEBUG] Loaded Extension: noi_chu
+[07:16:58] [DEBUG] No setup function found in db_refesh
+[07:16:58] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[07:16:58] [DEBUG] Loaded Extension: db_refesh
+[07:16:58] [DEBUG] No setup function found in help
+[07:16:58] [DEBUG] Found extension class Help in help: Attempting to load
+[07:16:58] [DEBUG] Added callback: Help._about
+[07:16:58] [DEBUG] Added callback: Help.help
+[07:16:58] [DEBUG] Loaded Extension: help
+[07:16:58] [DEBUG] No setup function found in channel_listen
+[07:16:58] [DEBUG] Found extension class ChannelListen in channel_listen: Attempting to load
+[07:16:58] [DEBUG] Added callback: ChannelListen._setup
+[07:16:58] [DEBUG] Loaded Extension: channel_listen
+[07:16:58] [DEBUG] Added callback: on_start
+[07:16:58] [DEBUG] 1 callbacks have been loaded from __main__.
+[07:16:58] [DEBUG] Added callback: _disconnect
+[07:16:58] [DEBUG] Added callback: _on_websocket_ready
+[07:16:58] [DEBUG] Added callback: on_autocomplete_completion
+[07:16:58] [DEBUG] Added callback: on_autocomplete_error
+[07:16:58] [DEBUG] Added callback: on_command_completion
+[07:16:58] [DEBUG] Added callback: on_command_error
+[07:16:58] [DEBUG] Added callback: on_component_completion
+[07:16:58] [DEBUG] Added callback: on_component_error
+[07:16:58] [DEBUG] Added callback: on_error
+[07:16:58] [DEBUG] Added callback: on_modal_completion
+[07:16:58] [DEBUG] Added callback: on_modal_error
+[07:16:58] [DEBUG] Added callback: on_resume
+[07:16:58] [DEBUG] 12 callbacks have been loaded from Client.
+[07:16:58] [DEBUG] Attempting to login
+[07:16:59] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[07:16:59] [DEBUG] GET /users/@me Received 200 :: [999/1000 calls remaining]
+[07:16:59] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[07:16:59] [DEBUG] GET /oauth2/applications/@me Received 200 :: [999/1000 calls remaining]
+[07:16:59] [WARNING] Setting sync_ext to True by default for syncing changes
+[07:16:59] [INFO] Loading jurigged
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\Main.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\play.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\embed.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\askbard.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\noi_chu.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\db_refesh.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\help.py
+[07:16:59] [DEBUG] Watch D:\Project\Python\qpneruy\music\channel_listen.py
+[07:16:59] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[07:16:59] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[07:16:59] [INFO] Shard ID 0 | Starting Shard
+[07:16:59] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[07:16:59] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[07:17:00] [INFO] Shard ID 0 | Gateway connection established
+[07:17:00] [DEBUG] Shard ID 0 | Session ID: b647fa4ecf090786f8f36093223df187 Trace: ['["gateway-prd-us-east1-b-0c3g",{"micros":88763,"calls":["id_created",{"micros":1288,"calls":[]},"session_lookup_time",{"micros":2160,"calls":[]},"session_lookup_finished",{"micros":21,"calls":[]},"discord-sessions-prd-2-100",{"micros":83384,"calls":["start_session",{"micros":75247,"calls":["discord-api-d6644f4b6-sgnkg",{"micros":67642,"calls":["get_user",{"micros":16087},"get_guilds",{"micros":5101},"send_scheduled_deletion_message",{"micros":13},"guild_join_requests",{"micros":2},"authorized_ip_coro",{"micros":15}]}]},"starting_guild_connect",{"micros":58,"calls":[]},"presence_started",{"micros":7553,"calls":[]},"guilds_started",{"micros":166,"calls":[]},"guilds_connect",{"micros":3,"calls":[]},"presence_connect",{"micros":325,"calls":[]},"connect_finished",{"micros":332,"calls":[]},"build_ready",{"micros":25,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":0,"calls":[]},"split_ready",{"micros":1,"calls":[]}]}]}]']
+[07:17:00] [DEBUG] Dispatching Event: websocket_ready
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:00] [DEBUG] Dispatching Event: guild_join
+[07:17:01] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[07:17:01] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[07:17:01] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[07:17:01] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[07:17:01] [DEBUG] 0 is already up-to-date with 16 commands.
+[07:17:01] [DEBUG] Sync of 1 scopes took 0.7651509999996051 seconds
+[07:17:01] [DEBUG] Dispatching Event: startup
+[07:17:01] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1705191421398, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[07:17:12] [DEBUG] Sending heartbeat every 41.25 seconds
+[07:17:12] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:17:12] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:17:12] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:17:53] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:17:53] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:17:54] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:18:35] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:18:35] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:18:35] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:19:16] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:19:16] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:19:16] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:19:57] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:19:57] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:19:58] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:20:39] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:20:39] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:20:39] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:21:20] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[07:21:20] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:21:20] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:22:01] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[07:22:01] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:22:01] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:22:42] [DEBUG] Sending data to websocket: {"op": 1, "d": 8}
+[07:22:42] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:22:43] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:22:56] [DEBUG] 1174695146214928496::help should be called
+[07:22:56] [DEBUG] Dispatching Event: message_create
+[07:22:56] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:22:56] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NTcyMzk4MzgyMzA1MToxSjZMTGlOVzlaOG41cTkyUkhMUFBvRDVtMW5hSlJMSllZNTYwaU0xRWg1b3NnOGI5REJiOU5DME13cHRmSWJCbEFHakxUMW85UnVma2Rqc1BQYTVyY3FrNnVTODcyU3Y2a2VCVXFRd2FjV2hlNFdwZ1ZkYVZweVVGa1RNalY0UQ/callback Received 204 :: [4/5 calls remaining]
+[07:22:57] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:22:57] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5NTg4NTcyMzk4MzgyMzA1MToxSjZMTGlOVzlaOG41cTkyUkhMUFBvRDVtMW5hSlJMSllZNTYwaU0xRWg1b3NnOGI5REJiOU5DME13cHRmSWJCbEFHakxUMW85UnVma2Rqc1BQYTVyY3FrNnVTODcyU3Y2a2VCVXFRd2FjV2hlNFdwZ1ZkYVZweVVGa1RNalY0UQ/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[07:22:57] [DEBUG] Dispatching Event: command_completion
+[07:22:57] [INFO] Command Called: help with event.ctx.args = [] | event.ctx.kwargs = {}
+[07:23:05] [DEBUG] Dispatching Event: component
+[07:23:05] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:23:05] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NTc2MzE3NTM4MzExMDp1SlE5aDljU2ZXTUY5Y25HRkdBcnJBY3VtdE1odlFNWXNzZXRXR3NvamxGYnUzVHV4T3RHcVZkaDV4cmtEOXdwOTd5bjNJd2FjaHpaM3lZZGkyTXRJT2xBRDFzVVhoRnUxYmlxS2tBSUw5ZmR4ZGM2Z2xCU20ydm8yeENLVVlBQg/callback Received 204 :: [4/5 calls remaining]
+[07:23:06] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:23:06] [DEBUG] GET /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5NTg4NTc2MzE3NTM4MzExMDp1SlE5aDljU2ZXTUY5Y25HRkdBcnJBY3VtdE1odlFNWXNzZXRXR3NvamxGYnUzVHV4T3RHcVZkaDV4cmtEOXdwOTd5bjNJd2FjaHpaM3lZZGkyTXRJT2xBRDFzVVhoRnUxYmlxS2tBSUw5ZmR4ZGM2Z2xCU20ydm8yeENLVVlBQg/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[07:23:06] [DEBUG] Dispatching Event: component_completion
+[07:23:06] [INFO] Component Called: ¢07731d97-fe61-465b-a8d0-c5d67788dba9|next with event.ctx.args = [] | event.ctx.kwargs = {}
+[07:23:12] [DEBUG] 1174695146768568427::askbard should be called
+[07:23:12] [DEBUG] Dispatching Event: message_create
+[07:23:12] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:23:12] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NTc5MjU3MzI3MjE1NjpvaDZ4YTdjRkE4UnVTZTUwOUc2TllLQlRmaXhyRzNOSTJHbkZybDBQdWhmWVA4ZUZqUGw3ZDA1a0FmUVUzRE1BR3RMZDNUcXhhd2J6VVlQeTR3SXFFWVF1Zk5LYkl3bkxQUW1UMFM2bng2UTUzVWtkUlpraXVTZVdyUkhqRTdNZQ/callback Received 204 :: [4/5 calls remaining]
+[07:23:15] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:23:15] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5NTg4NTc5MjU3MzI3MjE1NjpvaDZ4YTdjRkE4UnVTZTUwOUc2TllLQlRmaXhyRzNOSTJHbkZybDBQdWhmWVA4ZUZqUGw3ZDA1a0FmUVUzRE1BR3RMZDNUcXhhd2J6VVlQeTR3SXFFWVF1Zk5LYkl3bkxQUW1UMFM2bng2UTUzVWtkUlpraXVTZVdyUkhqRTdNZQ/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[07:23:15] [DEBUG] Dispatching Event: command_completion
+[07:23:15] [INFO] Command Called: askbard with event.ctx.args = ['hello'] | event.ctx.kwargs = {'content': 'hello'}
+[07:23:24] [DEBUG] Sending data to websocket: {"op": 1, "d": 16}
+[07:23:24] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:23:24] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:23:58] [DEBUG] 1174695146214928500::play should be called
+[07:23:58] [DEBUG] Dispatching Event: message_create
+[07:23:58] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:23:58] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NTk4NDg0MDE1OTI5NDpqNVZOS3Y3dDdMcEhuRTI1VEdQTXlHRVFvS2tHdXFIVDUzYUJjOTNmSm5BeFVLZGhFejNDNzZBVHNvQVhKODlmNWtWNm5iRGFvZzhwQTlMcVVSaXhhQ2lZM2RvMnpMT2hGdE9iMzhDQzdhUVZaTkRrTUFiQWVna3BDc1BlRDFmcA/callback Received 204 :: [4/5 calls remaining]
+[07:23:59] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:23:59] [DEBUG] PATCH /webhooks/{application_id}/aW50ZXJhY3Rpb246MTE5NTg4NTk4NDg0MDE1OTI5NDpqNVZOS3Y3dDdMcEhuRTI1VEdQTXlHRVFvS2tHdXFIVDUzYUJjOTNmSm5BeFVLZGhFejNDNzZBVHNvQVhKODlmNWtWNm5iRGFvZzhwQTlMcVVSaXhhQ2lZM2RvMnpMT2hGdE9iMzhDQzdhUVZaTkRrTUFiQWVna3BDc1BlRDFmcA/messages/{message_id} Received 200 :: [4/5 calls remaining]
+[07:23:59] [DEBUG] Dispatching Event: command_completion
+[07:23:59] [INFO] Command Called: play with event.ctx.args = ['how can i add tag for my bot in discord, like /play /help ...'] | event.ctx.kwargs = {'song': 'how can i add tag for my bot in discord, like /play /help ...'}
+[07:24:05] [DEBUG] Sending data to websocket: {"op": 1, "d": 19}
+[07:24:05] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:24:05] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:24:08] [DEBUG] 1174695146768568427::askbard should be called
+[07:24:09] [DEBUG] Dispatching Event: message_create
+[07:24:09] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:24:09] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NjAyOTgxOTg3NTM2ODptVWhibHNzQ3ZMQTBNNjEwUGVCMW02VTFSUUxQWGp6YWZUS2pCbVZqZVd1WFNNT0dkMUpiS3lFYkcxUUpaVnc5ZDcyTFFzTU41S3hVaGRCTEtDYVE0R2ZlNDVLemZXdWZYSzZ1ZUx3R1hMOTlmdzB5dHR6NGt5V3pFUG5MekVmOQ/callback Received 204 :: [4/5 calls remaining]
+[07:24:19] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:24:19] [ERROR] PATCH::https://discord.com/api/v10/webhooks/1157301198999793738/aW50ZXJhY3Rpb246MTE5NTg4NjAyOTgxOTg3NTM2ODptVWhibHNzQ3ZMQTBNNjEwUGVCMW02VTFSUUxQWGp6YWZUS2pCbVZqZVd1WFNNT0dkMUpiS3lFYkcxUUpaVnc5ZDcyTFFzTU41S3hVaGRCTEtDYVE0R2ZlNDVLemZXdWZYSzZ1ZUx3R1hMOTlmdzB5dHR6NGt5V3pFUG5MekVmOQ/messages/%40original: 400
+[07:24:19] [DEBUG] Dispatching Event: command_error
+[07:24:19] [DEBUG] Dispatching Event: command_completion
+[07:24:19] [DEBUG] Dispatching Event: error
+[07:24:19] [INFO] Command Called: askbard with event.ctx.args = ['how can i add tag for my bot in discord, like /play /help ...'] | event.ctx.kwargs = {'content': 'how can i add tag for my bot in discord, like /play /help ...'}
+[07:24:19] [ERROR] Ignoring exception in cmd `/askbard`: HTTPException: 400|Bad Request: content BASE_TYPE_MAX_LENGTH: Must be 2000 or fewer in length.
+[07:24:35] [DEBUG] 1174695146768568427::askbard should be called
+[07:24:36] [DEBUG] Dispatching Event: message_create
+[07:24:36] [DEBUG] Caching ingested rate limit data for: 432f6223265d156004ac81366c5a948f
+[07:24:36] [DEBUG] POST /interactions/{interaction_id}/aW50ZXJhY3Rpb246MTE5NTg4NjE0MTM4ODM1NzczMzpYSDF4Y29zOThCTTJjSE02ODVHZ2M1cU0xVkVHdGsxOFdia2ZNdWtGMHJTOW9hZmRXazlzZnM1TFhmd0RDR2Y2NkI4eW1xMTNmVU9HRmltbDUzWmNhRHhZYnZYbDBhVlhrVFdPemtTOFppSW1lSXNWc0MzV3g4VnBjWVJYYXpKNg/callback Received 204 :: [4/5 calls remaining]
+[07:24:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:24:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:24:52] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:24:53] [DEBUG] Caching ingested rate limit data for: 3d2712a9e4fe17cc9d3fed4a8e672e5f
+[07:24:53] [ERROR] PATCH::https://discord.com/api/v10/webhooks/1157301198999793738/aW50ZXJhY3Rpb246MTE5NTg4NjE0MTM4ODM1NzczMzpYSDF4Y29zOThCTTJjSE02ODVHZ2M1cU0xVkVHdGsxOFdia2ZNdWtGMHJTOW9hZmRXazlzZnM1TFhmd0RDR2Y2NkI4eW1xMTNmVU9HRmltbDUzWmNhRHhZYnZYbDBhVlhrVFdPemtTOFppSW1lSXNWc0MzV3g4VnBjWVJYYXpKNg/messages/%40original: 400
+[07:24:53] [DEBUG] Dispatching Event: command_error
+[07:24:53] [DEBUG] Dispatching Event: command_completion
+[07:24:53] [DEBUG] Dispatching Event: error
+[07:24:53] [INFO] Command Called: askbard with event.ctx.args = ['how can i add tag for my bot in discord, like /play /help ..., awnser Must be 2000 or fewer in length.'] | event.ctx.kwargs = {'content': 'how can i add tag for my bot in discord, like /play /help ..., awnser Must be 2000 or fewer in length.'}
+[07:24:53] [ERROR] Ignoring exception in cmd `/askbard`: HTTPException: 400|Bad Request: content BASE_TYPE_MAX_LENGTH: Must be 2000 or fewer in length.
+[07:25:33] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:25:33] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:25:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:26:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:26:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:26:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:26:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:26:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:26:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:27:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:27:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:27:37] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:28:18] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:28:18] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:28:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:29:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:29:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:29:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:29:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:29:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:29:41] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:30:22] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:30:22] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:30:22] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:31:03] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:31:03] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:31:04] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:31:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:31:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:31:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:32:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:32:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:32:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:33:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:33:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:33:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:33:49] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:33:49] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:33:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:34:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:34:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:34:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:35:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:35:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:35:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:35:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:35:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:35:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:36:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:36:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:36:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:37:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 23}
+[07:37:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[07:37:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[07:37:44] [DEBUG] Dispatching Event: disconnect
+[07:37:44] [DEBUG] Stopping the bot.
+[07:37:44] [INFO] Shard ID 0 | Stopping Shard

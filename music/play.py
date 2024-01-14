@@ -1,4 +1,6 @@
+import json
 import os
+import webbrowser
 from collections import deque
 import pymysql
 import interactions
@@ -10,8 +12,30 @@ from interactions.ext.paginators import Paginator
 
 from embed import embed_make_pp
 from modules import MusicQueue, GuildMusicManager
+from modules import YT_Downloader
+
+from yt_dlp import YoutubeDL
 
 GM = GuildMusicManager()
+
+cfg_playlist = YoutubeDL(
+    {
+        "outtmpl": "%(extractor)s-%(id)s-%(title)s.%(ext)s",
+        "restrictfilenames": True,
+        "noplaylist": False,
+        "nocheckcertificate": True,
+        "ignoreerrors": False,
+        "logtostderr": False,
+        "quiet": True,
+        "no_warnings": True,
+        "default_search": "auto",
+        "source_address": "0.0.0.0",
+        # "extract_flat": True,
+        # 'dumpjson': True,
+        "dump_single_json": True,
+        "skip_download": True
+    }
+)
 
 
 def get_music_queue(ctx) -> MusicQueue:
@@ -51,7 +75,6 @@ class Music(interactions.Extension):
         else:
             await ctx.author.voice.channel.connect()
         music_queues = get_music_queue(ctx)
-        youtube_dl = music_queues.get_dl()
         if ctx.voice_state.channel.voice_state.paused is False:
             if ctx.voice_state is not None and ctx.voice_state.channel.voice_state.playing is False:
                 self.vol_refresh(ctx)
@@ -68,10 +91,10 @@ class Music(interactions.Extension):
                 embed.set_author('📀 Playing')
                 await ctx.send(embeds=embed, components=[self.hang1, self.hang2])
         elif "https://www.youtube.com/playlist?list=" in song:
-            data = await youtube_dl.extra_info(song)
+            data = cfg_playlist.extract_info(song)
             url_list = list()
             for items in data['entries']:
-                url_list.insert(0, items["url"])
+                url_list.insert(0, f"https://www.youtube.com/watch?v={items['id']}")
             embed = embed_make_pp(data["title"], data["thumbnails"][3]["url"],
                                   data["uploader"],
                                   data["playlist_count"])
@@ -141,7 +164,7 @@ class Music(interactions.Extension):
     @slash_command(name="view_queue", description="View Music Queue")
     async def _viewplaylist(self, ctx: SlashContext):
         music_player = get_music_queue(ctx)
-        data = music_player.get_list()
+        data = music_player.get_title_list()
         embeds = []
         count = 0
         embed = Embed(
@@ -150,7 +173,7 @@ class Music(interactions.Extension):
         )
         for item in data:
             count += 1
-            embed.add_field(name=str(count) + ".", value=item.entry['title'], inline=True)
+            embed.add_field(name=str(count) + ".", value=item, inline=True)
             if count % 25 == 0:
                 embeds.append(embed)
                 embed = Embed(
