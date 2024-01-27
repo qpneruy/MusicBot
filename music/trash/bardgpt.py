@@ -1,4 +1,5 @@
 import os
+
 import google.generativeai as palm
 
 bard = os.getenv("PALM_API_KEY")

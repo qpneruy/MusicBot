@@ -1,9 +1,7 @@
 import asyncio
 import json
 
-import yt_dlp
 from interactions.api.voice.audio import AudioVolume
-from concurrent.futures import ThreadPoolExecutor
 from yt_dlp import YoutubeDL
 
 cfg_video = YoutubeDL(
@@ -42,15 +40,12 @@ class YTDownloader(AudioVolume):
         )
         if "entries" in data:
             data = data["entries"][0]
-        with open("data1.json", "w") as f:
-            json.dump(data, f, indent=4)
         new_cls = cls(data["original_url"])
         new_cls.ffmpeg_before_args = (
             "-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5"
         )
         new_cls.entry = data
         return new_cls
-
 
     @classmethod
     def create_new_cls(cls, entry_data):

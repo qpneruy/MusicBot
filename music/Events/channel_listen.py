@@ -1,6 +1,5 @@
-import pymysql
-
 import interactions
+import pymysql
 from interactions import listen, slash_command, slash_option, SlashContext, OptionType
 from interactions.api.events import VoiceUserJoin, VoiceUserLeave
 

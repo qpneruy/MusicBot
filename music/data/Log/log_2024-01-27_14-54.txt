@@ -1,0 +1,19 @@
+[14:54:27] [DEBUG] Running client sanity checks...
+[14:54:27] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[14:54:28] [DEBUG] No setup function found in play
+[14:54:28] [DEBUG] Found extension class Music in play: Attempting to load
+[14:54:28] [DEBUG] Added callback: Music._menu
+[14:54:28] [DEBUG] Added callback: Music._pause
+[14:54:28] [DEBUG] Added callback: Music._resume
+[14:54:28] [DEBUG] Added callback: Music._skip
+[14:54:28] [DEBUG] Added callback: Music._skipto
+[14:54:28] [DEBUG] Added callback: Music._stop
+[14:54:28] [DEBUG] Added callback: Music._viewplaylist
+[14:54:28] [DEBUG] Added callback: Music.play
+[14:54:28] [DEBUG] Loaded Extension: play
+[14:54:28] [DEBUG] No setup function found in askbard
+[14:54:28] [DEBUG] Found extension class Bard in askbard: Attempting to load
+[14:54:28] [DEBUG] Added callback: Bard._askbard
+[14:54:28] [DEBUG] Added callback: Bard._endbard
+[14:54:28] [DEBUG] Added callback: Bard.set_bard_channel
+[14:54:28] [DEBUG] Loaded Extension: askbard

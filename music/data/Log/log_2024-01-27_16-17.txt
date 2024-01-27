@@ -1,0 +1,6 @@
+[16:17:20] [DEBUG] Running client sanity checks...
+[16:17:20] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[16:17:20] [DEBUG] No setup function found in Commands.askbard
+[16:17:24] [DEBUG] Running client sanity checks...
+[16:17:24] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[16:17:24] [DEBUG] No setup function found in Commands.askbard

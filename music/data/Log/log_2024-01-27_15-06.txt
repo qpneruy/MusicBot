@@ -1,0 +1,13 @@
+[15:06:46] [DEBUG] Running client sanity checks...
+[15:06:46] [DEBUG] Loaded Extension: interactions.ext.jurigged
+[15:06:47] [DEBUG] No setup function found in play
+[15:06:47] [DEBUG] Found extension class Music in play: Attempting to load
+[15:06:47] [DEBUG] Added callback: Music._menu
+[15:06:47] [DEBUG] Added callback: Music._pause
+[15:06:47] [DEBUG] Added callback: Music._resume
+[15:06:47] [DEBUG] Added callback: Music._skip
+[15:06:47] [DEBUG] Added callback: Music._skipto
+[15:06:47] [DEBUG] Added callback: Music._stop
+[15:06:47] [DEBUG] Added callback: Music._viewplaylist
+[15:06:47] [DEBUG] Added callback: Music.play
+[15:06:47] [DEBUG] Loaded Extension: play

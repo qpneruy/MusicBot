@@ -1,6 +1,4 @@
 import interactions
-
-import interactions
 from interactions import Embed
 
 

@@ -1,13 +1,11 @@
-import asyncio
 import os
 from io import BytesIO
-import socksio
 
 import interactions
 import requests
 from interactions import File
 from interactions import SlashContext, slash_option, slash_command
-from interactions.api.events import Startup, MessageCreate
+from interactions.api.events import Startup
 from interactions.api.voice.audio import AudioVolume
 
 from modules import VnEduConnect
@@ -43,7 +41,7 @@ async def _starup():
 #             'voice': 'banmai'
 #         }
 #         response = requests.request('POST', url, data=result.encode('utf-8'), headers=headers)
-#         data = response.json()
+#         data = response.Noi_Chu()
 #         audio = AudioVolume(data["async"])
 #
 #         audio.ffmpeg_before_args = (

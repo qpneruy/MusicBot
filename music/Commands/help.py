@@ -1,8 +1,9 @@
 import interactions
-from embed import create_embed
-from interactions import Embed, ActionRow, Button, ButtonStyle
 import pymysql
+from interactions import Embed, ActionRow, Button, ButtonStyle
 from interactions.ext.paginators import Paginator
+
+from modules import create_embed
 
 
 class Help(interactions.Extension):

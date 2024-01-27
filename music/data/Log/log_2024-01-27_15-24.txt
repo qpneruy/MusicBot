@@ -1,0 +1,272 @@
+[15:24:10] [DEBUG] Running client sanity checks...
+[15:24:35] [DEBUG] Running client sanity checks...
+[15:24:37] [DEBUG] No setup function found in play
+[15:24:37] [DEBUG] Found extension class Music in play: Attempting to load
+[15:24:37] [DEBUG] Added callback: Music._menu
+[15:24:37] [DEBUG] Added callback: Music._pause
+[15:24:37] [DEBUG] Added callback: Music._resume
+[15:24:37] [DEBUG] Added callback: Music._skip
+[15:24:37] [DEBUG] Added callback: Music._skipto
+[15:24:37] [DEBUG] Added callback: Music._stop
+[15:24:37] [DEBUG] Added callback: Music._viewplaylist
+[15:24:37] [DEBUG] Added callback: Music.play
+[15:24:37] [DEBUG] Loaded Extension: play
+[15:24:40] [DEBUG] No setup function found in noi_chu
+[15:24:40] [DEBUG] Found extension class NoiChu in noi_chu: Attempting to load
+[15:24:40] [DEBUG] Added callback: NoiChu._reset
+[15:24:40] [DEBUG] Added callback: NoiChu._world_setup
+[15:24:40] [DEBUG] Loaded Extension: noi_chu
+[15:24:40] [DEBUG] No setup function found in db_refesh
+[15:24:40] [DEBUG] Found extension class Database in db_refesh: Attempting to load
+[15:24:40] [DEBUG] Loaded Extension: db_refesh
+[15:24:40] [DEBUG] No setup function found in help
+[15:24:40] [DEBUG] Found extension class Help in help: Attempting to load
+[15:24:40] [DEBUG] Added callback: Help._about
+[15:24:40] [DEBUG] Added callback: Help.help
+[15:24:40] [DEBUG] Loaded Extension: help
+[15:24:40] [DEBUG] No setup function found in channel_listen
+[15:24:40] [DEBUG] Found extension class ChannelListen in channel_listen: Attempting to load
+[15:24:40] [DEBUG] Added callback: ChannelListen._setup
+[15:24:40] [DEBUG] Loaded Extension: channel_listen
+[15:24:40] [DEBUG] Added callback: on_start
+[15:24:40] [DEBUG] 1 callbacks have been loaded from __main__.
+[15:24:40] [DEBUG] Added callback: _disconnect
+[15:24:40] [DEBUG] Added callback: _on_websocket_ready
+[15:24:40] [DEBUG] Added callback: on_autocomplete_completion
+[15:24:40] [DEBUG] Added callback: on_autocomplete_error
+[15:24:40] [DEBUG] Added callback: on_command_completion
+[15:24:40] [DEBUG] Added callback: on_command_error
+[15:24:40] [DEBUG] Added callback: on_component_completion
+[15:24:40] [DEBUG] Added callback: on_component_error
+[15:24:40] [DEBUG] Added callback: on_error
+[15:24:40] [DEBUG] Added callback: on_modal_completion
+[15:24:40] [DEBUG] Added callback: on_modal_error
+[15:24:40] [DEBUG] Added callback: on_resume
+[15:24:40] [DEBUG] 12 callbacks have been loaded from Client.
+[15:24:40] [DEBUG] Attempting to login
+[15:24:41] [DEBUG] Caching ingested rate limit data for: 78bb8553d9352a5a2f89f9def401287a
+[15:24:41] [DEBUG] GET /users/@me Received 200 :: [999/1000 calls remaining]
+[15:24:41] [DEBUG] Caching ingested rate limit data for: d28a133af187e91d71d96a223467ce49
+[15:24:41] [DEBUG] GET /oauth2/applications/@me Received 200 :: [999/1000 calls remaining]
+[15:24:41] [DEBUG] Caching ingested rate limit data for: 0a6d458104b103c7be293cc9b284d9ee
+[15:24:41] [DEBUG] GET /gateway Received 200 :: [99/100 calls remaining]
+[15:24:41] [INFO] Shard ID 0 | Starting Shard
+[15:24:41] [INFO] Shard ID 0 | Shard is attempting to connect to gateway...
+[15:24:42] [DEBUG] Shard ID 0 | Identification payload sent to gateway, requesting intents: 3407613
+[15:24:42] [INFO] Shard ID 0 | Gateway connection established
+[15:24:42] [DEBUG] Shard ID 0 | Session ID: 19e6112c716152c31c9158a3e56c4748 Trace: ['["gateway-prd-us-east1-c-pzkv",{"micros":98688,"calls":["id_created",{"micros":899,"calls":[]},"session_lookup_time",{"micros":329,"calls":[]},"session_lookup_finished",{"micros":18,"calls":[]},"discord-sessions-prd-2-182",{"micros":97199,"calls":["start_session",{"micros":94036,"calls":["discord-api-7d54b6ddd4-pkcwn",{"micros":87553,"calls":["get_user",{"micros":21626},"get_guilds",{"micros":5945},"send_scheduled_deletion_message",{"micros":11},"guild_join_requests",{"micros":267},"authorized_ip_coro",{"micros":9}]}]},"starting_guild_connect",{"micros":60,"calls":[]},"presence_started",{"micros":298,"calls":[]},"guilds_started",{"micros":201,"calls":[]},"guilds_connect",{"micros":2,"calls":[]},"presence_connect",{"micros":2572,"calls":[]},"connect_finished",{"micros":2577,"calls":[]},"build_ready",{"micros":22,"calls":[]},"clean_ready",{"micros":1,"calls":[]},"optimize_ready",{"micros":1,"calls":[]},"split_ready",{"micros":0,"calls":[]}]}]}]']
+[15:24:42] [DEBUG] Dispatching Event: websocket_ready
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:42] [DEBUG] Dispatching Event: guild_join
+[15:24:43] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:24:43] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[15:24:43] [DEBUG] Caching ingested rate limit data for: dd84d9818020c27975c0d5ab4a794d44
+[15:24:43] [DEBUG] GET /applications/{application_id}/commands Received 200 :: [999/1000 calls remaining]
+[15:24:43] [DEBUG] 0 is already up-to-date with 16 commands.
+[15:24:43] [DEBUG] Sync of 1 scopes took 0.8407465000018419 seconds
+[15:24:43] [DEBUG] Dispatching Event: startup
+[15:24:43] [DEBUG] Sending data to websocket: {"op": 3, "d": {"since": 1706343883717, "activities": [{"name": "/help for helpful", "type": 0}], "status": "idle", "afk": false}}
+[15:24:45] [DEBUG] Sending heartbeat every 41.25 seconds
+[15:24:45] [DEBUG] Sending data to websocket: {"op": 1, "d": 7}
+[15:24:45] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:24:45] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:24:48] [DEBUG] Dispatching Event: message_create
+[15:24:48] [DEBUG] Dispatching Event: error
+[15:24:48] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\noi_chu.py", line 53, in on_message
+    client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1061, in send
+    return self._doSendRequest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1037, in _doSendRequest
+    mid, thread_id = self._state._do_send_request(data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 313, in _do_send_request
+    j = self._post("/messaging/send/", data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 240, in _post
+    content = _util.check_request(r)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 169, in check_request
+    check_http_code(r.status_code)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 184, in check_http_code
+    raise FBchatFacebookError(msg, request_status_code=code)
+fbchat._exception.FBchatFacebookError: Error when sending request: Got 500 response.
+
+[15:25:26] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[15:25:26] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:25:26] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:26:07] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[15:26:07] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:26:07] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:26:48] [DEBUG] Sending data to websocket: {"op": 1, "d": 9}
+[15:26:48] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:26:49] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:27:19] [DEBUG] Dispatching Event: message_create
+[15:27:20] [DEBUG] Dispatching Event: error
+[15:27:20] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\noi_chu.py", line 53, in on_message
+    client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1061, in send
+    return self._doSendRequest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1037, in _doSendRequest
+    mid, thread_id = self._state._do_send_request(data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 313, in _do_send_request
+    j = self._post("/messaging/send/", data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 240, in _post
+    content = _util.check_request(r)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 169, in check_request
+    check_http_code(r.status_code)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 184, in check_http_code
+    raise FBchatFacebookError(msg, request_status_code=code)
+fbchat._exception.FBchatFacebookError: Error when sending request: Got 500 response.
+
+[15:27:30] [DEBUG] Sending data to websocket: {"op": 1, "d": 13}
+[15:27:30] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:27:30] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:27:31] [DEBUG] Dispatching Event: message_create
+[15:27:35] [DEBUG] Dispatching Event: error
+[15:27:35] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\noi_chu.py", line 53, in on_message
+    client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1061, in send
+    return self._doSendRequest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1037, in _doSendRequest
+    mid, thread_id = self._state._do_send_request(data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 313, in _do_send_request
+    j = self._post("/messaging/send/", data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 240, in _post
+    content = _util.check_request(r)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 169, in check_request
+    check_http_code(r.status_code)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 184, in check_http_code
+    raise FBchatFacebookError(msg, request_status_code=code)
+fbchat._exception.FBchatFacebookError: Error when sending request: Got 500 response.
+
+[15:27:41] [DEBUG] Dispatching Event: message_create
+[15:27:54] [DEBUG] Dispatching Event: message_create
+[15:27:54] [DEBUG] Dispatching Event: message_create
+[15:28:11] [DEBUG] Sending data to websocket: {"op": 1, "d": 17}
+[15:28:11] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:28:11] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:28:25] [DEBUG] Dispatching Event: message_create
+[15:28:39] [DEBUG] Dispatching Event: message_create
+[15:28:39] [DEBUG] Dispatching Event: error
+[15:28:39] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\noi_chu.py", line 53, in on_message
+    client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1061, in send
+    return self._doSendRequest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1037, in _doSendRequest
+    mid, thread_id = self._state._do_send_request(data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 313, in _do_send_request
+    j = self._post("/messaging/send/", data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 240, in _post
+    content = _util.check_request(r)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 169, in check_request
+    check_http_code(r.status_code)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 184, in check_http_code
+    raise FBchatFacebookError(msg, request_status_code=code)
+fbchat._exception.FBchatFacebookError: Error when sending request: Got 500 response.
+
+[15:28:52] [DEBUG] Sending data to websocket: {"op": 1, "d": 19}
+[15:28:52] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:28:53] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:29:14] [DEBUG] Dispatching Event: message_create
+[15:29:21] [DEBUG] Dispatching Event: message_create
+[15:29:34] [DEBUG] Sending data to websocket: {"op": 1, "d": 21}
+[15:29:34] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:29:34] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:29:36] [DEBUG] Dispatching Event: message_create
+[15:29:42] [DEBUG] Dispatching Event: message_create
+[15:29:50] [DEBUG] Dispatching Event: message_create
+[15:30:15] [DEBUG] Sending data to websocket: {"op": 1, "d": 24}
+[15:30:15] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:30:15] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:30:56] [DEBUG] Sending data to websocket: {"op": 1, "d": 24}
+[15:30:56] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:30:56] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:31:37] [DEBUG] Sending data to websocket: {"op": 1, "d": 24}
+[15:31:37] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:31:38] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:32:19] [DEBUG] Sending data to websocket: {"op": 1, "d": 24}
+[15:32:19] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:32:19] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:33:00] [DEBUG] Sending data to websocket: {"op": 1, "d": 24}
+[15:33:00] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:33:00] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:33:34] [DEBUG] Dispatching Event: message_create
+[15:33:35] [DEBUG] Dispatching Event: error
+[15:33:35] [ERROR] Ignoring exception in MessageCreate():
+Traceback (most recent call last):
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\client\client.py", line 607, in _async_wrap
+    await _coro(_event, *_args, **_kwargs)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\interactions\models\internal\callback.py", line 31, in __call__
+    return await self.callback(self._binding, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\music\noi_chu.py", line 53, in on_message
+    client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1061, in send
+    return self._doSendRequest(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_client.py", line 1037, in _doSendRequest
+    mid, thread_id = self._state._do_send_request(data)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 313, in _do_send_request
+    j = self._post("/messaging/send/", data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_state.py", line 240, in _post
+    content = _util.check_request(r)
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 169, in check_request
+    check_http_code(r.status_code)
+  File "D:\Project\Python\qpneruy\.venv\Lib\site-packages\fbchat\_util.py", line 184, in check_http_code
+    raise FBchatFacebookError(msg, request_status_code=code)
+fbchat._exception.FBchatFacebookError: Error when sending request: Got 500 response.
+
+[15:33:41] [DEBUG] Sending data to websocket: {"op": 1, "d": 27}
+[15:33:41] [DEBUG] Shard ID 0 | ❤ Gateway is sending a Heartbeat
+[15:33:41] [DEBUG] Shard ID 0 | ❤ Received heartbeat acknowledgement from gateway
+[15:34:11] [DEBUG] Dispatching Event: disconnect
+[15:34:11] [DEBUG] Stopping the bot.
+[15:34:11] [INFO] Shard ID 0 | Stopping Shard

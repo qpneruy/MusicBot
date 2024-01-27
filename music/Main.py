@@ -1,14 +1,13 @@
 import logging
 import os
-
 from datetime import datetime
-
+import pkgutil
 import interactions
 from interactions.ext import jurigged
 
 jurigged.watch()
 formatted_time = datetime.now().strftime('%Y-%m-%d_%H-%M')
-log_filename = f'Log/log_{formatted_time}.txt'
+log_filename = f'data/Log/log_{formatted_time}.txt'
 log_format = '[%(asctime)s] [%(levelname)s] %(message)s'
 date_format = '%H:%M:%S'
 
@@ -49,12 +48,11 @@ async def on_start(self):
     #     print(x.name)
     await self.bot.change_presence(status=interactions.Status.IDLE, activity="/help for helpful", )
 
-
-bot.load_extension("play")
-bot.load_extension("askbard")
-bot.load_extension("noi_chu")
-bot.load_extension("db_refesh")
-bot.load_extension("help")
-bot.load_extension("channel_listen")
+extension_names = [m.name for m in pkgutil.iter_modules(["Commands"], prefix="Commands.")]
+for extension in extension_names:
+    bot.load_extension(extension)
+extension_names = [m.name for m in pkgutil.iter_modules(["Events"], prefix="Events.")]
+for extension in extension_names:
+    bot.load_extension(extension)
 
 bot.start(Token)

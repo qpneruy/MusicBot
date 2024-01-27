@@ -10,6 +10,9 @@ class VnEduConnect:
     period = 0
     phone_number = ''
     year = ''
+    """IMPORTANT
+    API VNEDU Đổi cách mà header được truyền vào khi gọi api, fix: thêm cookie để xác thực 
+    """
 
     @classmethod
     def _get_ds_nam_hoc(cls):
@@ -26,6 +29,7 @@ class VnEduConnect:
         data = requests.get(
             f"https://hocbadientu.vnedu.vn/sllservices/index.php?callback=jQuery1124005198661811961358_1700195389759"
             f"&call=solienlac.search&search={cls.phone_number}&tinh_id=7&_=1700195389760")
+        print(">>", data.text)
         data_hocsinh = json.loads(data.text[data.text.find("(") + 1: data.text.find("])") + 1])
         if not data_hocsinh:
             return

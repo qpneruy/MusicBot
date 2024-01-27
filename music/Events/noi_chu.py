@@ -1,9 +1,20 @@
 import json
-import aiohttp
 
+import aiohttp
 import interactions
+from fbchat import Client
+from fbchat.models import *
 from interactions import slash_command, SlashContext, OptionType, slash_option
 from interactions.api.events import MessageCreate
+
+# cookies = {
+#     "sb": "TyuAZYXNSxvhAis8qYkoU_JE",
+#     "fr": "1VixGfHwDS73kkE7C.AWUv5bMHa8N6-aJIUURFFgL2dkk.BltKxs._9.AAA.0.0.BltLOa.AWXA49eUEtU",
+#     "c_user": "61555738113140",
+#     "datr": "TyuAZX7Rof2JapLxC-VMV8oE",
+#     "xs": "30%3AqGvUIYK12x27Bw%3A2%3A1706341179%3A-1%3A15213"
+# }
+# client = Client("chiasefile0912@gmail.com", "01267879gG", session_cookies=cookies)
 
 
 class NoiChu(interactions.Extension):
@@ -23,14 +34,14 @@ class NoiChu(interactions.Extension):
     @slash_command(name="reset_noi_chu", description="Xóa dữ liệu")
     async def _reset(self, ctx: SlashContext):
 
-        with open(f"json/word_data_sv_{ctx.guild.id}", "w") as datafile:
+        with open(f"Data/Noi_Chu/word_data_sv_{ctx.guild.id}", "w") as datafile:
             json.dump(self.model_data, datafile, indent=4)
         await ctx.send(f"↩️ Đã reset nối chữ")
 
     @slash_command(name="word_setup", description="Đặt kênh nối chữ")
     @slash_option(name="channel", description="Chọn kênh", opt_type=OptionType.CHANNEL, required=True)
     async def _world_setup(self, ctx: SlashContext, channel: OptionType.CHANNEL):
-        with open(f'json/word_data_sv_{ctx.guild.id}', 'w') as f:
+        with open(f'Data/Noi_Chu/word_data_sv_{ctx.guild.id}', 'w') as f:
             self.model_data["channel_id"] = f"{channel.id}"
             json.dump(self.model_data, f, indent=4)
         await ctx.send(f'Đã Đặt kênh {channel.name} thành kênh nối chữ')
@@ -39,15 +50,16 @@ class NoiChu(interactions.Extension):
 
     @interactions.listen()
     async def on_message(self, event: MessageCreate):
+        # client.send(Message(text=event.message.content), "6956202157762920", thread_type=ThreadType.GROUP)
         try:
             guild_id = event.message.author.guild.id
         except AttributeError:
             return
         try:
-            open(f"json/word_data_sv_{guild_id}", "r")
+            open(f"Data/Noi_Chu/word_data_sv_{guild_id}", "r")
         except FileNotFoundError:
             return
-        with open(f"json/word_data_sv_{guild_id}", "r") as f:
+        with open(f"Data/Noi_Chu/word_data_sv_{guild_id}", "r") as f:
             temp_data = json.load(f)
         if not str(event.message.channel.id) == temp_data["channel_id"]:
             return
@@ -67,7 +79,7 @@ class NoiChu(interactions.Extension):
                 return
             """---------------------------------------------------------------------------"""
             # load dữ liệu từ file data thuộc mỗi ctx.guild.id
-            with open(f"json/word_data_sv_{event.message.author.guild.id}", "r") as datafile:
+            with open(f"Data/Noi_Chu/word_data_sv_{event.message.author.guild.id}", "r") as datafile:
                 data = json.load(datafile)
             previous_word = data["current"]
             """---------------------------------------------------------------------------"""
@@ -90,7 +102,7 @@ class NoiChu(interactions.Extension):
                 data["current"] = user_word
                 data["history"]["word_list"].append(user_word)
                 data["history"]["previous_user"] = event.message.author.id
-                with open(f"json/word_data_sv_{event.message.author.guild.id}", "w") as datafile:
+                with open(f"Data/Noi_Chu/word_data_sv_{event.message.author.guild.id}", "w") as datafile:
                     json.dump(data, datafile, indent=4)
             else:
                 await event.message.channel.send(

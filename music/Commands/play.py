@@ -1,20 +1,16 @@
-import json
 import os
-import webbrowser
-from collections import deque
-import pymysql
+
 import interactions
+import pymysql
 from interactions import ButtonStyle, ActionRow, Button
-from interactions import SlashContext, listen, slash_command
 from interactions import Embed
+from interactions import SlashContext, listen, slash_command
 from interactions.api.events import Component
 from interactions.ext.paginators import Paginator
-
-from embed import embed_make_pp
-from modules import MusicQueue, GuildMusicManager
-from modules import YT_Downloader
-
 from yt_dlp import YoutubeDL
+
+from modules import embed_make_pp
+from modules import MusicQueue, GuildMusicManager
 
 GM = GuildMusicManager()
 
